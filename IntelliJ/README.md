@@ -61,4 +61,5 @@ Import Order:
 #### Version control file status color: 
  * `Settings/Preferences -> Version Control -> File Status Colors`
 
-
+#### Hide Files
+ * `Preferences -> Editor -> File Types -> *.iml;*.idea;`
