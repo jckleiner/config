@@ -51,14 +51,14 @@ Import Order:
  * Line Spacing: 1.05
 
 #### System Font:
- * Preferences -> Appearance -> Appearance -> use custom font -> Gujarati Sangam MN 12
- * Preferences -> Editor -> Color scheme -> console font -> Consolas 13
+ * `Preferences -> Appearance -> Appearance -> use custom font -> Gujarati Sangam MN 12`
+ * `Preferences -> Editor -> Color scheme -> console font -> Consolas 13`
 
 #### Enable Lombok:
- * Preferences -> Build... -> Compiler -> Enable annotation processing
- * Preferences -> Plugins -> install lombok plugin -> restart
+ * `Preferences -> Build... -> Compiler -> Enable annotation processing`
+ * `Preferences -> Plugins -> install lombok plugin -> restart`
 
 #### Version control file status color: 
- * Settings/Preferences -> Version Control -> File Status Colors
+ * `Settings/Preferences -> Version Control -> File Status Colors`
 
 
