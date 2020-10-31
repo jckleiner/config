@@ -1,6 +1,6 @@
 # IntelliJ Setup & Config
 
-### Plugins to install:
+### Plugins to install
  * Eclipse code formatter
  * Lombok
  * Sonar Lint
@@ -8,7 +8,7 @@
  * Maven Helper
  * Key Promoter X
 
-### Be Aware: 
+### Be Aware
 Intellij did not set the working directory path correctly for 2 modules inside a project. This led to the app not finding files (e.g. ../content/whitelabel/de/index).
 The fix was to edit the run config -> Set the working directory again for each module.
 
@@ -35,31 +35,56 @@ Import Order:
  * `IntelliJ IDEA -> Preferences -> Eclipse Code Formatter -> Import order -> Browse -> xyz.importorder`
 
 
-#### Change Keyboard Shortcuts:
+#### Change Keyboard Shortcuts
  * `Preferences -> keymap -> code - reformat code -> ALT+F`
 
-#### Autoformat with Macro:
+#### Autoformat with Macro
  1. Edit -> Macros -> start recording macro -> ALT+F -> edit -> macros -> stop recording -> give it a name
  2. Preferences -> Keymap -> Macros -> name of the macro -> click and add to keyboard shortcut
 
-#### Multiple Maven Projects in the same workspace:
+#### Multiple Maven Projects in the same workspace
  * at the right side of the window there is a "maven" column -> + icon -> select pom.xml
 
-#### Code style:
+#### Code style
  * Font: consolas
  * Size: 15
  * Line Spacing: 1.05
 
-#### System Font:
+#### System Font
  * `Preferences -> Appearance -> Appearance -> use custom font -> Gujarati Sangam MN 12`
  * `Preferences -> Editor -> Color scheme -> console font -> Consolas 13`
 
-#### Enable Lombok:
+#### Enable Lombok
  * `Preferences -> Build... -> Compiler -> Enable annotation processing`
  * `Preferences -> Plugins -> install lombok plugin -> restart`
 
-#### Version control file status color: 
+#### Version control file status color
  * `Settings/Preferences -> Version Control -> File Status Colors`
 
 #### Hide Files
  * `Preferences -> Editor -> File Types -> *.iml;*.idea;`
+
+#### Create workspace with multiple maven projects in it
+* IntelliJ welcome screen -> create new project -> empty project
+* File -> Project Structure -> Modules -> import module -> select pom.xml
+
+#### IntelliJ Terminology
+Project -> Workspace
+Module -> Project or Submodule inside a 'Project'
+
+#### Import folder into workspace with multiple maven projects in it
+ 1. IntelliJ welcome screen -> open or import -> select folder
+ 2. File -> Project Structure -> Project
+      * Check Project Name
+      * Check Project SDK
+      * Check Project Language Level
+
+Keep the root folder as a parent 'IntelliJ-Module' with mutliple projects under it as 'submodules':
+ * File -> Project Structure -> Modules
+   * right click on the 'root' module -> add -> import module -> select pom.xml file for each project
+   * Add every project inside the root folder as a module
+
+If the root folder should be hidden/removed from the workspace:
+ * File -> Project Structure -> Modules
+   * Remove the root folder from modules
+   * Add every project inside the root folder as a module
