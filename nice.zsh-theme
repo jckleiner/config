@@ -32,7 +32,7 @@ function _user_host() {
   if [[ -n $SSH_CONNECTION ]]; then
     echo "[$me - $host_machine] "
   elif [[ "kleiner" != $USER ]]; then
-    echo "$me "
+    echo "[$me] "
   fi
 }
 
