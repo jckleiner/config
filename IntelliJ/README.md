@@ -7,12 +7,14 @@
  * Codota
  * Maven Helper
  * Key Promoter X
+ * Consolas and Consolas bold Font
 
 ### Be Aware
 Intellij did not set the working directory path correctly for 2 modules inside a project. This led to the app not finding files (e.g. ../content/whitelabel/de/index).
 The fix was to edit the run config -> Set the working directory again for each module.
+ * Set the spring profiles for each project
 
-### General Setup 
+### Import Settings
  * `File -> Manage IDE Settings -> Import Settings -> select allIntellijSettings.zip`
 
 Check the following points again:
@@ -47,7 +49,7 @@ Import Order:
 
 #### Code style
  * Font: consolas
- * Size: 15
+ * Size: 14
  * Line Spacing: 1.05
 
 #### System Font
