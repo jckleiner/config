@@ -96,3 +96,5 @@ If the root folder should be hidden/removed from the workspace:
  1. add devtools dependency
  2. Setting -> Build -> Compiler -> check Make project automatically.
  3. shift+cmd+a -> registry... -> compiler.automake.allow.when.app.running
+
+ test
