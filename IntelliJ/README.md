@@ -15,7 +15,8 @@ The fix was to edit the run config -> Set the working directory again for each m
  * Set the spring profiles for each project
 
 ### Import Settings
- * `File -> Manage IDE Settings -> Import Settings -> select allIntellijSettings.zip`
+ * `File -> Manage IDE Settings -> Import Settings -> select intellijSettings.zip`
+ * Run Configurations also need to be exported separately if needed
 
 Check the following points again:
 
@@ -90,3 +91,8 @@ If the root folder should be hidden/removed from the workspace:
  * File -> Project Structure -> Modules
    * Remove the root folder from modules
    * Add every project inside the root folder as a module
+
+# Hot Reload Spring Boot
+ 1. add devtools dependency
+ 2. Setting -> Build -> Compiler -> check Make project automatically.
+ 3. shift+cmd+a -> registry... -> compiler.automake.allow.when.app.running
