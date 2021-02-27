@@ -61,12 +61,10 @@ function installGuiPrograms() {
     notion \
     anki \
     keepassxc \
-
     hyperdock \ 
     tiles \
     itsycal \
     alfred \
-
     intellij-idea \ 
     visual-studio-code \
     sourcetree \
