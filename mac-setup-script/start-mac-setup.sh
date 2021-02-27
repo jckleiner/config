@@ -20,7 +20,6 @@ function installCommandlinePrograms() {
     printf "\n${highlight_color}Installing Commandline Programs...${default_color}\n\n"
 
     brew install \
-    
     tree \
     lf \
     wget \
@@ -56,7 +55,6 @@ function installGuiPrograms() {
     # alfred
 
     brew install --cask \
-
     # Programs
     firefox \
     google-chrome \
@@ -83,6 +81,7 @@ function installGuiPrograms() {
     # TODO: virtualbox fails because permissions?
     #brew install --cask virtualbox
 }
+
 function installConsolasFont() {
     brew install cabextract
     cd ~/Downloads
