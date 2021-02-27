@@ -55,20 +55,17 @@ function installGuiPrograms() {
     # alfred
 
     brew install --cask \
-    # Standard programs
-    firefox \
+    firefox \ # Standard programs
     google-chrome \
     slack \
     notion \
     anki \
     keepassxc \
-    # Mac specific programs
-    hyperdock \
+    hyperdock \ # Mac specific programs
     tiles \
     itsycal \
     alfred \
-    # Developer GUI programs 
-    intellij-idea \
+    intellij-idea \ # Developer GUI programs
     visual-studio-code \
     sourcetree \
     iterm2 \
