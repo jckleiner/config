@@ -54,24 +54,19 @@ function installGuiPrograms() {
     # TODO: CONFIG
     # alfred
 
-    # Standard programs
     brew install --cask \
     firefox \
     google-chrome \
     slack \
     notion \
     anki \
-    keepassxc &&
+    keepassxc \
 
-    # Mac specific programs
-    brew install --cask \
     hyperdock \ 
     tiles \
     itsycal \
-    alfred &&
+    alfred \
 
-    # Developer GUI programs
-    brew install --cask \
     intellij-idea \ 
     visual-studio-code \
     sourcetree \
