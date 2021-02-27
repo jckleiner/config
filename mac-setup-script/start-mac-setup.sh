@@ -61,14 +61,14 @@ function installGuiPrograms() {
     slack \
     notion \
     anki \
-    keepassxc && \
+    keepassxc &&
 
     # Mac specific programs
     brew install --cask \
     hyperdock \ 
     tiles \
     itsycal \
-    alfred && \
+    alfred &&
 
     # Developer GUI programs
     brew install --cask \
