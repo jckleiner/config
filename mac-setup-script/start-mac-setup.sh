@@ -54,18 +54,17 @@ function installGuiPrograms() {
     # TODO: CONFIG
     # alfred
 
-    brew install --cask \
-    firefox \
+    brew install --cask firefox \
     google-chrome \
     slack \
     notion \
     anki \
     keepassxc \
-    hyperdock \ 
+    hyperdock \
     tiles \
     itsycal \
     alfred \
-    intellij-idea \ 
+    intellij-idea \
     visual-studio-code \
     sourcetree \
     iterm2 \
