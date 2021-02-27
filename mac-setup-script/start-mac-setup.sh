@@ -59,7 +59,7 @@ function installGuiPrograms() {
     slack \
     notion \
     anki \
-    keepassxc \
+    keepassxc \
     hyperdock \
     tiles \
     itsycal \
