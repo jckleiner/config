@@ -97,4 +97,5 @@ If the root folder should be hidden/removed from the workspace:
  2. Setting -> Build -> Compiler -> check Make project automatically.
  3. shift+cmd+a -> registry... -> compiler.automake.allow.when.app.running
 
- test
+ "update resources" vs "update classes and resource" for a spring module:
+ If the second option is selected, on reload spring will not be able to find certain beans!
