@@ -19,16 +19,18 @@ function installHomebrew() {
 function installCommandlinePrograms() {
     printf "\n${highlight_color}Installing Commandline Programs...${default_color}\n\n"
 
-    brew install python
-    brew install tree
-    brew install wget
-    brew install lf
-    brew install zsh
-    # TODO: make zsh your default shell -> and use your dotfiles from your repository.
-    brew install node
-    brew install maven
+    brew install \
+    
+    tree \
+    lf \
+    wget \
+    python \
+    zsh \
+    node \
+    maven \
+    nano
 
-    brew install nano
+    # TODO: make zsh your default shell -> and use your dotfiles from your repository.
     # TODO: nano syntax highlighting from dotfiles?
 
     # consolas font
@@ -53,28 +55,30 @@ function installGuiPrograms() {
     # TODO: CONFIG
     # alfred
 
+    brew install --cask \
+
     # Programs
-    brew install --cask firefox
-    brew install --cask google-chrome
-    brew install --cask slack
-    brew install --cask notion
-    brew install --cask anki
-    brew install --cask keepassxc
+    firefox \
+    google-chrome \
+    slack \
+    notion \
+    anki \
+    keepassxc \
     
     # Mac specific programs
-    brew install --cask hyperdock
-    brew install --cask tiles
-    brew install --cask itsycal
-    brew install --cask alfred
+    hyperdock \
+    tiles \
+    itsycal \
+    alfred \
     
     # Developer GUI programs 
-    brew install --cask intellij-idea
-    brew install --cask visual-studio-code
-    brew install --cask sourcetree
-    brew install --cask iterm2
-    brew install --cask dbeaver-community
-    brew install --cask docker
-    brew install --cask postman
+    intellij-idea \
+    visual-studio-code \
+    sourcetree \
+    iterm2 \
+    dbeaver-community \
+    docker \
+    postman
    
     # TODO: virtualbox fails because permissions?
     #brew install --cask virtualbox
@@ -94,10 +98,12 @@ function installConsolasFont() {
 
 printf "\n${highlight_color} *** MAC SETUP SCRIPT *** ${default_color}\n"
 
-installHomebrew
-installCommandlinePrograms
-installGuiPrograms
+installHomebrew && \
+installCommandlinePrograms && \
+installGuiPrograms && \
 #installConsolasFont
+
+exit 0
 
 
 
