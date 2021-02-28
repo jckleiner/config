@@ -117,3 +117,6 @@ lfcd () {
 # bind it to ctrl-o
 #bindkey -s '^o' 'lfcd\n'
 alias lf="lfcd"
+
+# to be able to start vscode from the terminal, not needed when vscode is installed via brew
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}

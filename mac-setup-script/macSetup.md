@@ -43,6 +43,11 @@
   - bartender?
   - hyperdock?
 
+### Useful things
+  - Highlight the URL in a web browser -> CMD + L
+  - You can change the dock popup speed and make it faster
+  - 
+
 ### Finder
   - View -> Show "path bar" and "status bar"
 
