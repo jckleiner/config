@@ -24,19 +24,18 @@ function installCommandlinePrograms() {
     lf \
     wget \
     python \
-    zsh \
     node \
     maven \
     nano
 
+    # maven have openjdk-15 as a denepdency?
+
+    # zsh is already installed
+    # brew upgrade zsh
+    # Error: zsh not installed
+
     # TODO: make zsh your default shell -> and use your dotfiles from your repository.
     # TODO: nano syntax highlighting from dotfiles?
-
-    # consolas font
-    # wget https://github.com/tsenart/sight/blob/master/fonts/Consolas.ttf?raw=true
-
-    # Java 11
-    # wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.10%2B9/OpenJDK11U-jdk_x64_mac_hotspot_11.0.10_9.pkg 
 
     # TODO: ansible
 
@@ -77,15 +76,14 @@ function installGuiPrograms() {
 }
 
 function installConsolasFont() {
-    brew install cabextract
     cd ~/Downloads
     mkdir consolas
     cd consolas
     ## TODO find consolas font download link
-    curl -O http://download.microsoft.com/download/f/5/a/f5a3df76-d856-4a61-a6bd-722f52a5be26/PowerPointViewer.exe
-    cabextract PowerPointViewer.exe
-    cabextract ppviewer.cab
-    open CONSOLA*.TTF
+    # wget https://github.com/tsenart/sight/blob/master/fonts/Consolas.ttf?raw=true
+    #curl -O http://download.microsoft.com/download/f/5/a/f5a3df76-d856-4a61-a6bd-722f52a5be26/PowerPointViewer.exe
+    curl -O https://github.com/tsenart/sight/blob/master/fonts/Consolas.ttf?raw=true
+    open Consolas.ttf
     # Press Intall font. That is all.
 }
 
@@ -94,7 +92,13 @@ printf "\n${highlight_color} *** MAC SETUP SCRIPT *** ${default_color}\n"
 installHomebrew && \
 installCommandlinePrograms && \
 installGuiPrograms && \
-#installConsolasFont
+
+
+# Java 11 - requires password
+brew tap adoptopenjdk/openjdk && \
+brew install --cask adoptopenjdk11 && \
+
+installConsolasFont
 
 exit 0
 

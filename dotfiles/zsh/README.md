@@ -1,4 +1,4 @@
-# zsh, oh-my-zsh, lf file manager
+# zsh, oh-my-zsh
 
 Oh My ZSH is a plugin that runs on top of ZSH. It provides a default config for ZSH (`~/. zhrc` file) and also provides themes and other features.
 Keep in mind, if you create a new user, the user should have a home directory. Else the zsh configurator will not start.
@@ -71,36 +71,7 @@ Add the following snippet AFTER the `source $ZSH/oh-my-zsh.sh` line to override 
     # The MAC equivalent of the LS_COLORS above (has no effect in Linux)
     export LSCOLORS="exgxfxdacxDaDaxbadacex"
 
+* **TODO**: tree colors still not nice
+
 ### Modify existing user accounts
 * **Change shell for an existing user**: `usermod -s /usr/bin/zsh myuser`
-
-### LF File Manager (cross platform)
-Doc: https://godoc.org/github.com/gokcehan/lf
-
-Insallation Linux:
-1. `wget https://github.com/gokcehan/lf/releases/download/r17/lf-linux-amd64.tar.gz`
-2. `tar xvf lf-linux-amd64.tar.gz && chmod +x lf`
-3. `sudo mv lf /usr/local/bin`
-4. `rm -f ./lf-linux-amd64.tar.gz`
-
-Insallation Mac:
-1. `brew install lf`
-
-Keys:
-* By default there is no delete key assigned
-* Edit: `e`
-* Show file with less: `i`
-* Copy: `y`
-* Paste: `p`
-* Cut: `d`
-* Clear (selected items for cut etc.): `c`
-* Mark: `spacebar`
-* Un-mark: `u`
-* Run command: `$`
-* Bookmark current directory: `m` -> `<key>`
-* Load Bookmarks: `'` -> `<key>`
-* Remove Bookmarks: `"` -> `<key>`
-* Show hidden files: `set hidden on`
-
-* **TODO**: mkdir, assign it to `m`
-

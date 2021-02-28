@@ -41,7 +41,7 @@
   - anki
 
   - bartender?
-  - hyperdock
+  - hyperdock?
 
 ### Finder
   - View -> Show "path bar" and "status bar"
