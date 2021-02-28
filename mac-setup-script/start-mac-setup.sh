@@ -29,6 +29,8 @@ function installCommandlinePrograms() {
     nano
 
     # maven have openjdk-15 as a denepdency?
+    # Maven should not download another jdk:
+    # https://stackoverflow.com/questions/63336020/how-to-install-maven-with-brew-but-without-openjdk
 
     # zsh is already installed
     # brew upgrade zsh
