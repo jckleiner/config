@@ -39,6 +39,3 @@ Apple gzip was already installed on the system. But the script requires GNU gzip
 
 1. `brew install gzip` This will install GNU gzip to BREW-Cellar.
 2. Update PATH `sudo nano /etc/paths` and add the path to the GNU gzip at the top of the file
-
-### Uninstall VBox - MacOs
-Vbox comes with an installation script `VirbualBox_uninstall.tool` in the `.dmg` file. Run that to clean all vbox files from your macOs system.
