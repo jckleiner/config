@@ -92,10 +92,28 @@ If the root folder should be hidden/removed from the workspace:
    * Remove the root folder from modules
    * Add every project inside the root folder as a module
 
-# Hot Reload Spring Boot
+## Hot Reload Spring Boot
  1. add devtools dependency
  2. Setting -> Build -> Compiler -> check Make project automatically.
  3. shift+cmd+a -> registry... -> compiler.automake.allow.when.app.running
 
  "update resources" vs "update classes and resource" for a spring module:
  If the second option is selected, on reload spring will not be able to find certain beans!
+
+## TODO
+ 
+ * Some settings are not migrated over when creating a new project? Why?
+ * Disable Tooltip for only HTML -> Probably it can only be turned off completely.
+ * Import order not working?
+ * Open last closed file with SHIFT + CMD + T
+ * Move between tabs with CMD + arrow keys
+ * Upload settings to github, can export + push to github be automated?
+ * HTML formatting, attributes 2 tabs without spaces to align them
+ * Take a look at hot reload, trigger it only with a shortcut? Fix the low activation time
+      - Disabled `Compiler -> Build project automatically`
+      - Now a hot reload happens only when I build the project manually, with `CMD + b`
+ * It still builds automatically when an error is presen??
+ * APPLICATION FAILED TO START, on hot reload
+ * a little space between method definition line and the first line?
+ * Annotations is separate lines
+ * After method refactoring don't put @NotNull annotation

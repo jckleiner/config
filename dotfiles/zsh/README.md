@@ -22,6 +22,8 @@ Keep in mind, if you create a new user, the user should have a home directory. E
 
 **TODO:** When does the automatic zsh script start? Which files are needed to not start that?
 
+https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
+
 ## Install oh-my-zsh
 
 This will install and change the shell to ZSH for the current user.
