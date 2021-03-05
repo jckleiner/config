@@ -5,8 +5,13 @@
 ### Tested on Mac VM
 TODO: Link to readme
 
+
 ### TODO
     - remove irregular white space char
+    - is htop installed?
+    - pma_agent remove or change port? Parallels
+    - 7 Workspaces
+    - fzf
 
 #### iterm2 config
     - install a nerd font, for iterm2 because lf icons are not displayed

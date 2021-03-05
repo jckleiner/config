@@ -11,6 +11,19 @@ printf "\n${highlight_color}highlight_color${default_color}\n"
 printf "\n${warning_color}warning_color${default_color}\n"
 printf "\n${default_color}default_color${default_color}\n"
 
+while getopts "p" opt; do
+  case ${opt} in
+    p )
+        set_only_preferences=true
+        ;;
+    \? ) 
+        echo "Usage: start-mac-setup.sh [-p]"
+        ;;
+  esac
+done
+
+printf "\n${highlight_color} *** MAC SETUP SCRIPT *** ${default_color}\n"
+
 function installHomebrew() {
     printf "\n${highlight_color}Installing Homebrew...${default_color}\n\n"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -77,6 +90,7 @@ function installGuiPrograms() {
     #brew install --cask virtualbox
 }
 
+# TODO install also monaco nerd font
 function installConsolasFont() {
     cd ~/Downloads
     mkdir consolas
@@ -89,11 +103,28 @@ function installConsolasFont() {
     # Press Intall font. That is all.
 }
 
-printf "\n${highlight_color} *** MAC SETUP SCRIPT *** ${default_color}\n"
+function setPreferences() {
+    printf "\n${highlight_color}Setting Preferences...${default_color}\n\n"
+    
+    printf "\n${highlight_color}Itsycal${default_color}\n\n"
+
+    defaults write com.mowglii.ItsycalApp.plist ClockFormat -string "H:mm - EEEE, dd.MMMM"
+    defaults write com.mowglii.ItsycalApp.plist HideIcon -bool true
+    defaults write com.mowglii.ItsycalApp.plist HighlightedDOWs -int 65
+
+}
+
+
+if [ "$set_only_preferences" = true ]; then
+    setPreferences
+    exit 0
+fi
+
 
 installHomebrew && \
 installCommandlinePrograms && \
 installGuiPrograms && \
+setPreferences && \
 
 
 # Java 11 - requires password

@@ -207,3 +207,51 @@ Step 6: Confirm current version of Java
 
 ### MySQL 5.7 (default port 3306)
   root:root
+
+
+### `defaults`
+
+`defaults` is a tool which lets you set the preferences for your system and third party programs from the command line.
+Generally, programs generate a `<name>.plist` file in `~/Library/Preferences` where they save all the preferences.
+This file can be either in a binary format or xml format. 
+
+If the plist file is in the XML format, you can edit it in any text editor like TextEdit. If the plist file is in the binary format, you can convert it to XML first by running:
+
+* `plutil -convert xml1 file.plist`
+
+If you want to go back to binary format after editing:
+
+* `plutil -convert binary1 file.plist`
+
+Changing a preference: 
+
+*  `defaults write com.apple.menuextra.battery ShowTime -string "YES"`
+*  `defaults write -currentHost com.apple.menuextra.battery ShowTime -string "YES"`
+
+Writing where?
+
+ * `defaults write` seems to write to `~/Library/Preferences`
+ * `defaults write -currentHost` does change that file, but not sure where it writes to. TODO
+
+
+#### Cached Preferences 
+
+Since 10.9, the OS caches your preferences. To invalidate the cache, you need to kill `cfprefsd`. 
+So, first, set your preference via defaults then run this command:
+
+* `killall -u $USER cfprefsd`
+
+After that, your preference should take without needing a restart or anything else. 
+
+#### Itsycal
+ 1. install
+ 2. open it, apple says are you sure -> okay
+ 3. give permissions to calendar
+ 4. configure
+    *  `defaults write com.mowglii.ItsycalApp.plist ClockFormat -string "H:mm - EEEE, dd.MMMM"`
+    *  `defaults write com.mowglii.ItsycalApp.plist HideIcon -bool true`
+    *  `defaults write com.mowglii.ItsycalApp.plist HighlightedDOWs -int 65`
+    * TODO launch at login
+
+#### Launch at Login
+This seems to not update the specific app preference file. It probably updates a system preferences file somewhere.
