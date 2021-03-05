@@ -27,7 +27,7 @@
   - Itsycal install. Config: H:mm - EEEE, dd.MMMM
   - Postman
   - Alfred and configure CMD + Space
-  - Giphy capture -> give screen recording permission
+  - Giphy capture -> give screen recording permission OR https://github.com/onmyway133/GifCapture
   - Snippet manager "Lepton": brew install --cask lepton
   - node
   - maven
@@ -109,6 +109,7 @@ Step 6: Confirm current version of Java
       Only check "Background" with the color you want, uncheck "Bold" and "Foreground"
       
 ### iTerm2 
+  - TODO: faster scrolling, jumping to different words without pressing arrow for 5 minutes
   - shortcut for opening a new terminal / focusing existing: `iTerm2 -> Preferences -> Keys -> Hotkey -> CTRL + ALT + T`
   - Preferences -> Profiles -> Colors -> Light Background
   - Shortcuts:
@@ -241,17 +242,40 @@ So, first, set your preference via defaults then run this command:
 
 * `killall -u $USER cfprefsd`
 
-After that, your preference should take without needing a restart or anything else. 
+After that, your preference should take without needing a restart or anything else.
+If preferences are set before opening the newly installed program, then it works fine.
+Also if you restart then the preferences should be updated (didn't test it).
+
+#### Launch at Login
+This seems to not update the specific app preference file. It probably updates a system preferences file somewhere.
+
+#### System Preferences
+  * See notes
+#### Dock
+  * add icons of newly installed programs to dock
+  * make dock smaller
+  * show open programs under app icon (with a dot)
 
 #### Itsycal
- 1. install
- 2. open it, apple says are you sure -> okay
- 3. give permissions to calendar
- 4. configure
+  1. install
+  4. configure
     *  `defaults write com.mowglii.ItsycalApp.plist ClockFormat -string "H:mm - EEEE, dd.MMMM"`
     *  `defaults write com.mowglii.ItsycalApp.plist HideIcon -bool true`
     *  `defaults write com.mowglii.ItsycalApp.plist HighlightedDOWs -int 65`
     * TODO launch at login
+  3. open it, apple says are you sure -> okay
+  4. give permissions to calendar
 
-#### Launch at Login
-This seems to not update the specific app preference file. It probably updates a system preferences file somewhere.
+#### Alfred
+  * Set cmd space, but its not in the preferences?
+  * change theme
+
+#### Firefox
+  * import bookmarks
+  * Set theme
+
+### Change unused keys Ğ Ş Ç
+  * Ğ -> 7 / { 
+  * Ş -> 9 ) ]
+  * Ç -> 8 ( [
+

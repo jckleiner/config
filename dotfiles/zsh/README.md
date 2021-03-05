@@ -77,3 +77,13 @@ Add the following snippet AFTER the `source $ZSH/oh-my-zsh.sh` line to override 
 
 ### Modify existing user accounts
 * **Change shell for an existing user**: `usermod -s /usr/bin/zsh myuser`
+
+
+**TODO**: 
+  * show exit codes if command failed
+  * add how many files changed
+  * fzf shortcuts
+  * cd + ls
+  * any other shortcuts from "An Awesome Terminal Workflow: Zsh, Tmux, Vim."?
+  * try to remove oh-my-zsh
+  * what are those references in github to other repos? https://github.com/Parth/dotfiles/tree/master/zsh/plugins
