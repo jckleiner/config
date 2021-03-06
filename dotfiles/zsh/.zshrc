@@ -54,11 +54,11 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 # relative paths not working?
 # Env Variables
-source ~/config/dotfiles/zsh/env-variables.sh
-source ~/config/dotfiles/zsh/secret-env-variables.sh
+source $HOME/config/dotfiles/zsh/env-variables.sh
+[ -f "$HOME/config/dotfiles/zsh/secret-env-variables.sh" ] && source "$HOME/config/dotfiles/zsh/secret-env-variables.sh"
 
 # Theme
-source ~/config/dotfiles/zsh/themes/nice.zsh-theme
+source $HOME/config/dotfiles/zsh/themes/nice.zsh-theme
 
 # Plugins
-#source ~/config/dotfiles/zsh/plugins/git.plugin.zsh
+#source $HOME/config/dotfiles/zsh/plugins/git.plugin.zsh
