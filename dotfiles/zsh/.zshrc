@@ -49,9 +49,8 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 # * .zsh_history is empty, what's the difference history vs zsh_history?
 # * remove vscode and install it with brew install --cask visual-studio-code?
 # * vscode dotfiles 
-#   -> icons are gone after symlinking .vscode?
 #   -> how to copy key map and settings.json???
-# * iterm2 config?
+# * iterm2 config? https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
 
 # Env Variables
 source $HOME/config/dotfiles/zsh/env-variables.sh

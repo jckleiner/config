@@ -74,7 +74,8 @@ function installGuiPrograms() {
     notion \
     anki \
     keepassxc \
-    hyperdock \
+    ubar \
+    dozer \
     tiles \
     itsycal \
     alfred \
@@ -88,6 +89,9 @@ function installGuiPrograms() {
    
     # TODO: virtualbox fails because permissions?
     #brew install --cask virtualbox
+    # TODO: install extension pack?
+    # TODO: install guest extensions?
+    # Devices -> Insert guess addition CD image
 }
 
 # TODO install also monaco nerd font
