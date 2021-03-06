@@ -23,7 +23,7 @@ lfcd () {
 #bindkey -s '^o' 'lfcd\n'
 
 # Aliases and functions
-_cd_ls () { cd "$@" && ls }
+_cd_ls () { cd "$@" && ls -lh }
 checkport () { sudo lsof -i:$1 }
 listports () { sudo lsof -PiTCP -sTCP:LISTEN }
 alias cd=_cd_ls
@@ -43,16 +43,11 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 #open /Applications/Simon\ Says.app
 # https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
-# TODO 
-# * symlink script
-# * script to install dotfiles on pc, like the mac setup
-# * add some plugings to see if it works
-# * fzf, keybindings - https://github.com/Parth/dotfiles/blob/master/zsh/keybindings.sh
+# * fzf usage and keybindings and other keybindings - https://github.com/Parth/dotfiles/blob/master/zsh/keybindings.sh
 # * trash-cli
 # * z
 # * .zsh_history is empty, what's the difference history vs zsh_history?
 
-# relative paths not working?
 # Env Variables
 source $HOME/config/dotfiles/zsh/env-variables.sh
 [ -f "$HOME/config/dotfiles/zsh/secret-env-variables.sh" ] && source "$HOME/config/dotfiles/zsh/secret-env-variables.sh"

@@ -13,8 +13,6 @@ Add the following snippet AFTER the `source $ZSH/oh-my-zsh.sh` line to override 
     # The MAC equivalent of the LS_COLORS above (has no effect in Linux)
     export LSCOLORS="exgxfxdacxDaDaxbadacex"
 
-* **TODO**: tree colors still not nice
-
 ### Modify existing user accounts
 * **Change shell for an existing user**: `usermod -s /usr/bin/zsh myuser`
 

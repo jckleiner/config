@@ -7,7 +7,7 @@ export VISUAL="$EDITOR"
 # for *nix
 #export LS_COLORS="di=34:ln=36:so=35:pi=33;40:ex=32:bd=1;33;40:cd=1;33;40:su=0;41:sg=30"
 # for macOs
-#export LSCOLORS="exgxfxdacxDaDaxbadacex"
+#export LSCOLORS="exgxfxdacxDaDaxbadacex" # TODO: tree colors still not nice with this color scheme
 
 # grep highlight color can be changed like this, default is red
 # export GREP_COLOR='1;30;40'
