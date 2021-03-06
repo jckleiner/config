@@ -47,6 +47,10 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 # * trash-cli
 # * z
 # * .zsh_history is empty, what's the difference history vs zsh_history?
+# * vscode dotfiles 
+#   -> icons are gone after symlinking .vscode?
+#   -> how to copy key map and settings.json???
+# * iterm2 config?
 
 # Env Variables
 source $HOME/config/dotfiles/zsh/env-variables.sh
