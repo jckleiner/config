@@ -1,5 +1,8 @@
+# Basic settings
+set icons true
+
 # interpreter for shell commands (needs to be POSIX compatible)
-set shell sh
+set shell zsh
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -51,7 +54,7 @@ cmd open ${{
 
 # move current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
-#cmd trash %set -f; mv $fx ~/.trash
+cmd trash %set -f; mv $fx ~/.trash
 
 # define a custom 'delete' command
 # cmd delete ${{
@@ -97,3 +100,19 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+cmd mkdir ${{
+    set -f
+    printf "Directory name: "
+    read ans
+    mkdir $ans
+}}
+
+cmd test ${{
+    set -f
+    echo "test cmd called..."
+}}
+
+cmd t %printf "TEST... "
+
+map a test

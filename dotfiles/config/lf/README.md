@@ -63,24 +63,16 @@ How to write your own commands and map it to a key:
 mkdir not working...
 * **TODO**: reassign `m` to some other key
 
-* **TODO**: cd to the last open directory in lf when quit?
 * **TODO**: reload lf after chmod because permission changes don't show up unless restarted?
-
-* **TODO**: code in zsh
-https://stackoverflow.com/questions/29955500/code-not-working-in-command-line-for-visual-studio-code-on-osx-mac
 
 * **TODO**: Move between terminal panes with CMD broke... left right not working
 
 * **TODO**: lf does not open some files for instance .json
 maybe write a custom open function?
 
-* **TODO**: lukes vid, lf with cd, zprofile, tabcompletion 
-use an alias for lf -> lf with cd
-* **TODO**: oh my zsh is probably not even needed
-* **TODO**: store all your aliases in one folder
 * **TODO**: what is mapkey?
-* **TODO**: trashcan?
 * **TODO**: in .zprofile you can change default stuff, like ZDOTFILES
+* **TODO**: after a command, lf don't recognize the first key pressed?
 
 rc runs each time a new shell is opened, 
 profile runs once when you login to that shell

@@ -6,7 +6,7 @@
 # %d -> Current working directory
 
 # autoload -U colors loads the function 'colors' which is provided by zsh
-# colors calls the method 'colors' which sets the names for colors, so we can call colors by name, like we do below
+# colors calls the function 'colors' which sets the names for colors, so we can call colors by name, like we do below
 autoload -U colors && colors
 
 # needed, enables command substitution in prompt
@@ -40,7 +40,7 @@ function git_status_count() {
 
 function last_exit_code() {
   if [ "$?" != 0 ] ; then
-    echo "%{$fg[red]%}%?%{$reset_color%} "
+    echo "%{$fg[red]%}[%?]%{$reset_color%} "
   fi 
 }
 
@@ -79,8 +79,6 @@ $(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status
 %{%F{white}%}▶%{$reset_color%} '
 
 PROMPT2='%{%F{red}%}◀%{$reset_color%} '
-
-git_status_count
 
 # disabled right prompt
 #RPROMPT="$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}"

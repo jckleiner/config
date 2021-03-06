@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # terminal text colors
 
