@@ -1,32 +1,22 @@
-# Copy of AVIT ZSH Theme https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/avit.zsh-theme
 # https://github.com/Parth/dotfiles/blob/master/zsh/prompt.sh
-
-# 256 colors can be used like so: %{$FG[240]%}<code here>%{$reset_color%}
 
 # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
 # %m -> The hostname up to the first '.'
 # %n -> $USERNAME
+# %d -> Current working directory
 
 # autoload -U colors loads the function 'colors' which is provided by zsh
 # colors calls the method 'colors' which sets the names for colors, so we can call colors by name, like we do below
-
-# 
-
 autoload -U colors && colors
 
-etopt PROMPT_SUBST
+# needed, enables command substitution in prompt
+setopt PROMPT_SUBST
 
-export CLICOLOR=1
-# LS colors, made with https://geoff.greer.fm/lscolors/
-export LS_COLORS="di=34:ln=36:so=35:pi=33;40:ex=32:bd=1;33;40:cd=1;33;40:su=0;41:sg=30"
-export LSCOLORS="exgxfxdacxDaDaxbadacex"
-export GREP_COLOR="1;33"
-
-typeset +H _current_dir="%{$fg_bold[black]%}%d%{$reset_color%}"
+# 256 colors in the prompt can be used like so: %{$FG[240]%}<text>%{$reset_color%} - https://geoff.greer.fm/lscolors/
 
 function git_current_branch() {
-  # TODO: how to make this cleaner?
-  is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
+  # TODO: how to make this if cleaner?
+  local is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
   if [ "$is_inside_work_tree" != true ] ; then
     return
   fi 
@@ -35,13 +25,13 @@ function git_current_branch() {
 }
 
 function git_status_count() {
-  is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
+  local is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
   if [ "$is_inside_work_tree" != true ] ; then
     return
   fi
 
   # awk removes the whitespace which comes with wc
-  num_status=$(git status --short | wc -l | awk '{$1=$1};1')
+  local num_status=$(git status --short | wc -l | awk '{$1=$1};1')
 
   if [ $num_status -gt 0 ]; then
       echo "%{$fg_bold[red]%}+$num_status%{$reset_color%}"
@@ -54,6 +44,11 @@ function last_exit_code() {
   fi 
 }
 
+# If: 
+#   1. Connected through SSH: print colored [$user_name - $host_machine]
+#   2. Local, $_MAIN_USER global env is set and logged in on a different user than the $_MAIN_USER:  print [$user_name]
+#   3. Local, $_MAIN_USER global env is set and logged in as $_MAIN_USER: do nothing
+#   4. $_MAIN_USER is not set: print [$user_name]
 function _user_host() {
   local user_name
   local user_name_color=black
@@ -68,22 +63,24 @@ function _user_host() {
 
   user_name="%{$fg_bold[$user_name_color]%}%n%{$reset_color%}"
 
-  # show user and host when connected with ssh
+  # display user and host when connected with ssh
   if [[ -n $SSH_CONNECTION ]]; then
     echo "[$user_name - $host_machine] "
-  # show user if it is not the 'main' user defined in the .zshrc
-  elif [[ "kleiner" != $USER ]]; then ## TODO define this in .zshrc?
+  # display user if it is not the 'main' user
+  elif [[ $_MAIN_USER != $USER ]]; then
     echo "[$user_name] "
   fi
 }
 
-# TODO: is PROMPT for zsh or oh-my-zsh?
+_current_dir="%{$fg_bold[black]%}%d%{$reset_color%}"
 
 PROMPT='
 $(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_count)
 %{%F{white}%}▶%{$reset_color%} '
 
 PROMPT2='%{%F{red}%}◀%{$reset_color%} '
+
+git_status_count
 
 # disabled right prompt
 #RPROMPT="$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}"
