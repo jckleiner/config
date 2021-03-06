@@ -94,7 +94,7 @@ Step 6: Confirm current version of Java
 
 ### VsCode
   - Import settings: CMD + , -> 'settings.json' -> paste new config and save
-  - TODO: icon pack, all other extensions
+  - TODO: webstorm-icons icon pack, all other extensions
   - code . in terminal: After installation, launch VS Code. Now open the Command Palette (F1 or shift+cmd+P on Mac) and type shell command to find the Shell Command: Install 'code' command in PATH command.
   - Squash empty folders into one path: "explorer.compactFolders": true
   - fix messed up graphics/colors of navigation area
