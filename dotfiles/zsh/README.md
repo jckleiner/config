@@ -73,7 +73,18 @@ Add the following snippet AFTER the `source $ZSH/oh-my-zsh.sh` line to override 
     # The MAC equivalent of the LS_COLORS above (has no effect in Linux)
     export LSCOLORS="exgxfxdacxDaDaxbadacex"
 
+**`autoload colors`**
+zsh provies/sets a function called `colors` which defines some color properties and also sets names for many colors.
+`autoload colors && colors` allows you to call colors by their name. 
+
+Autoload tells zsh to look for a file in `$FPATH/$fpath` containing a function definition, instead of a file in `$PATH/$path` containing a script.
+See https://stackoverflow.com/questions/30840651/what-does-autoload-do-in-zsh for more info.
+
+The autoload feature is not available in `bash`, but it is in `ksh` (korn shell) and `zsh`.
+
 * **TODO**: tree colors still not nice
+
+
 
 ### Modify existing user accounts
 * **Change shell for an existing user**: `usermod -s /usr/bin/zsh myuser`

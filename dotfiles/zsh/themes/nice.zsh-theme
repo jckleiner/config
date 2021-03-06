@@ -7,6 +7,21 @@
 # %m -> The hostname up to the first '.'
 # %n -> $USERNAME
 
+# autoload -U colors loads the function 'colors' which is provided by zsh
+# colors calls the method 'colors' which sets the names for colors, so we can call colors by name, like we do below
+
+# 
+
+autoload -U colors && colors
+
+etopt PROMPT_SUBST
+
+export CLICOLOR=1
+# LS colors, made with https://geoff.greer.fm/lscolors/
+export LS_COLORS="di=34:ln=36:so=35:pi=33;40:ex=32:bd=1;33;40:cd=1;33;40:su=0;41:sg=30"
+export LSCOLORS="exgxfxdacxDaDaxbadacex"
+export GREP_COLOR="1;33"
+
 typeset +H _current_dir="%{$fg_bold[black]%}%d%{$reset_color%}"
 
 function git_current_branch() {
@@ -68,12 +83,7 @@ PROMPT='
 $(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_count)
 %{%F{white}%}▶%{$reset_color%} '
 
-PROMPT2='%{%(!.%F{red}.%F{white})%}◀%{$reset_color%} '
+PROMPT2='%{%F{red}%}◀%{$reset_color%} '
 
 # disabled right prompt
-#RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
-
-# LS colors, made with https://geoff.greer.fm/lscolors/
-export LS_COLORS="di=34:ln=36:so=35:pi=33;40:ex=32:bd=1;33;40:cd=1;33;40:su=0;41:sg=30"
-export LSCOLORS="exgxfxdacxDaDaxbadacex"
-export GREP_COLOR='1;33'
+#RPROMPT="$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}"

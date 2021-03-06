@@ -1,8 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+#autoload -U colors && colors
+
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/kleiner/.oh-my-zsh"
+#export ZSH="/Users/kleiner/.oh-my-zsh"
+#source $ZSH/oh-my-zsh.sh
 
 # Set name of the theme to load - https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="nice"
@@ -59,11 +62,9 @@ export ZSH="/Users/kleiner/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+#plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
-######### TODO change this #########
-source /Users/kleiner/develop/personal/config/dotfiles/zsh/themes/nice.zsh-theme
+
 
 # User configuration
 
@@ -92,6 +93,9 @@ source /Users/kleiner/develop/personal/config/dotfiles/zsh/themes/nice.zsh-theme
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #export JAVA_HOME=$(/usr/libexec/java_home -v 11.0.1)
+
+
+
 
 # use nano as the default editor
 export EDITOR=nano
@@ -288,3 +292,10 @@ ex=:\
 # Launch apps which are bugged
 #open /Applications/Simon\ Says.app
 # https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
+
+### TODO: missing because I removed oh-my-zsh -> auto-complete case insensitive
+
+
+
+source /Users/kleiner/develop/personal/config/dotfiles/zsh/themes/nice.zsh-theme
+#source /Users/kleiner/develop/personal/config/dotfiles/zsh/themes/test.sh
