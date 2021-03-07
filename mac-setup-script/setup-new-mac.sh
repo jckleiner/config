@@ -41,7 +41,9 @@ function installCommandlinePrograms() {
     node \
     maven \
     nano \
-    trash-cli
+    trash-cli \
+    bat \
+    fd
 
     # maven have openjdk-15 as a denepdency?
     # Maven should not download another jdk:

@@ -1,33 +1,32 @@
-
 # use nano as the default editor
 export EDITOR=nano
 export VISUAL="$EDITOR"
 
-# Default colors are fine atm, uncomment if you want to adjust
-# LS colors, made with https://geoff.greer.fm/lscolors/
-# for *nix
-#export LS_COLORS="di=34:ln=36:so=35:pi=33;40:ex=32:bd=1;33;40:cd=1;33;40:su=0;41:sg=30"
-# for macOs
-#export LSCOLORS="exgxfxdacxDaDaxbadacex" # TODO: tree colors still not nice with this color scheme
-
-# grep highlight color can be changed like this, default is red
-# export GREP_COLOR='1;30;40'
-
 # man page for ls: "ls -G   Enable colorized output. This option is equivalent to defining CLICOLOR in the environment."
 export CLICOLOR=1
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+############### fzf  -  copied from devinsideyou https://www.youtube.com/watch?v=tB-AgxzBmH8 ########################
+# requires fd, bat, tree
+# Makes the default command 'fzf' 
+#  -> use 'fd', which ignores patterns from your .gitignore, by default
+#  -> search for only files (default is files and directories)
+#  -> include hidden files
+export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
+export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
+# export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# CTRL + T is mapped to CTRL + F
+# enable file preview using 'bat' to preview files
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# ALT + C is mapped to CTRL + T
+# enable directory preview using 'tree' to show the contents
+export FZF_ALT_C_COMMAND='fd --type d --follow --exclude ".git" --color=never --hidden .'
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
+#########################################################################################################
+
+export BAT_THEME="GitHub"
 
 # requires a nerd font to be used in the terminal
 export LF_ICONS="\
@@ -192,3 +191,25 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
+
+# Default colors are fine atm, uncomment if you want to adjust
+# LS colors, made with https://geoff.greer.fm/lscolors/
+# for *nix
+#export LS_COLORS="di=34:ln=36:so=35:pi=33;40:ex=32:bd=1;33;40:cd=1;33;40:su=0;41:sg=30"
+# for macOs
+#export LSCOLORS="exgxfxdacxDaDaxbadacex" # TODO: tree colors still not nice with this color scheme
+
+# grep highlight color can be changed like this, default is red
+# export GREP_COLOR='1;30;40'
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# export LANG=en_US.UTF-8
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH

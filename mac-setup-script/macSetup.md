@@ -280,6 +280,7 @@ Also if you restart then the preferences should be updated (didn't test it).
   * Ç -> 8 ( [
 
 #### KeepassXC Settings and Browser Integration
+  * TODO: TouchID ??? -> if fixed then lock database when screen is locked
   * Security -> Convenience -> uncheck "lock databases when..." and "forget touchId when..."
   * Download extension "KeePassXC-Browser"
   * The database needs to be open on the background
@@ -287,7 +288,6 @@ Also if you restart then the preferences should be updated (didn't test it).
   * More URL's for an entry can be set under "Browser Integration -> Additional URL's" 
   * For URL's to trigger DB access, only the domain needs to be matched. 
     So type https://myCompany.com and this will be enough for all the sites with different subdomains, https://confluence.myCompany.com etc.
-  * TODO: TouchID ???
 
 #### Tiles
   * TODO: Learn and configure shortcuts

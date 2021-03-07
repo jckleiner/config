@@ -7,6 +7,7 @@
 
 # DOTFILES
 ls ~/config/dotfiles/zsh/.zshrc 1> /dev/null && ln -s ~/config/dotfiles/zsh/.zshrc ~/.zshrc
+ls ~/config/dotfiles/zsh/.profile 1> /dev/null && ln -s ~/config/dotfiles/zsh/.profile ~/.profile
 
 # CONFIG
 ls ~/config/dotfiles/config/lf/lfrc 1> /dev/null && ln -s ~/config/dotfiles/config/lf/lfrc ~/.config/lf/lfrc

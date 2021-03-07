@@ -89,11 +89,13 @@ The autoload feature is not available in `bash`, but it is in `ksh` (korn shell)
 ### Modify existing user accounts
 * **Change shell for an existing user**: `usermod -s /usr/bin/zsh myuser`
 
+### fzf
+   TODO simple use cases
+
 
 **TODO**: 
   * show exit codes if command failed
   * add how many files changed
-  * fzf shortcuts
   * cd + ls
   * any other shortcuts from "An Awesome Terminal Workflow: Zsh, Tmux, Vim."?
   * try to remove oh-my-zsh
