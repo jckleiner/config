@@ -80,3 +80,11 @@ source $HOME/config/dotfiles/zsh/themes/nice.zsh-theme
 bindkey '^F' fzf-file-widget
 # Change defualt mapping from ALT + C to CTRL + T
 bindkey '^T' fzf-cd-widget
+
+# up
+function back_widget() {
+    BUFFER="cd .."
+    zle accept-line
+}
+zle -N back_widget
+bindkey "^b" back_widget

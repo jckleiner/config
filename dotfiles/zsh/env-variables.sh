@@ -12,8 +12,7 @@ export CLICOLOR=1
 #  -> search for only files (default is files and directories)
 #  -> include hidden files
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
-export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
-# export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
+export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#d1d1d1,gutter:-1,pointer:#bc0d65,info:#bc0d65,hl:#bc0d65,hl+:#bc0d65'
 
 # CTRL + T is mapped to CTRL + F
 # enable file preview using 'bat' to preview files
