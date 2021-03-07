@@ -113,6 +113,9 @@ cmd test ${{
     echo "test cmd called..."
 }}
 
+# show hidden files
+set hidden true
+
 cmd t %printf "TEST... "
 
 map a test

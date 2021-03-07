@@ -11,6 +11,7 @@ printf "\n${highlight_color}highlight_color${default_color}\n"
 printf "\n${warning_color}warning_color${default_color}\n"
 printf "\n${default_color}default_color${default_color}\n"
 
+# start the script with -p to only install preferences
 while getopts "p" opt; do
   case ${opt} in
     p )
@@ -39,7 +40,8 @@ function installCommandlinePrograms() {
     python \
     node \
     maven \
-    nano
+    nano \
+    trash-cli
 
     # maven have openjdk-15 as a denepdency?
     # Maven should not download another jdk:
@@ -135,7 +137,7 @@ setPreferences && \
 brew tap adoptopenjdk/openjdk && \
 brew install --cask adoptopenjdk11 && \
 
-installConsolasFont
+#installConsolasFont
 
 exit 0
 

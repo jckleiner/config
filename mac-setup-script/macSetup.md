@@ -11,37 +11,39 @@
   - `git config --global user.email "your@email.com"`
   - `git config --global user.name "your name"`
   - remove pma_agent which blocks port 8000 `sudo /Library/Parallels/pma_agent.app/Contents/MacOS/pma_agent_uninstaller.app/Contents/Resources/UninstallAgentScript.sh`
-  - TODO: add lock to touch bar, remove siri
+  - customize touchbar (System Preferences -> Keyboard -> Customize Control Strip): add lock to touch bar, remove siri
   - Change keyboard shortcuts for screen capture to clipboard and to file
   - Turn off voice over keyboard shortcut
   - disable Service keyboard shorcut "Search manpage index..."
-  - Order Top bar: Hold Command key -> move icons
+  - Order Top bar: Hold Command key -> move icons (use dozer)
   
+By the setup-script automatically installed programs:
   - homebrew
   - Docker
   - Lombok
   - Dbeaver
   - Tiles
-  - install font consolas.ttf https://github.com/tsenart/sight/blob/master/fonts/Consolas.ttf
-  https://github.com/tsenart/sight/blob/master/fonts/Consolas.ttf?raw=true
   - Itsycal install. Config: H:mm - EEEE, dd.MMMM
   - Postman
   - Alfred and configure CMD + Space
-  - Giphy capture -> give screen recording permission OR https://github.com/onmyway133/GifCapture
-  - Snippet manager "Lepton": brew install --cask lepton
   - node
   - maven
   - lf
   - zsh
-  - oh-my-zsh
-  - FirstSpirit Launcher (make sure checkbox "use launcher" is activated)
   - keepassxc
   - slack
   - notion
   - anki
 
-  - bartender?
-  - hyperdock?
+Programs which need to be manually installed:
+  - install font consolas.ttf https://github.com/tsenart/sight/blob/master/fonts/Consolas.ttf
+  https://github.com/tsenart/sight/blob/master/fonts/Consolas.ttf?raw=true
+  - Giphy capture -> give screen recording permission OR https://github.com/onmyway133/GifCapture
+  - monaco nerd font
+  - FirstSpirit Launcher (make sure checkbox "use launcher" is activated)
+  - virtualbox, virtualbox extension pack, virtualbox guesst additions
+  - Lombok (intellij plugin)
+
 
 ### Useful things
   - Highlight the URL in a web browser -> CMD + L
@@ -61,7 +63,7 @@
   2. Preferences -> Annotation processing -> on.
   3. Sometimes you need to switch to "obtain processors from project classpath" for your project in annotation processing tab3
 
-### Java
+### Java (is this needed?)
 Step 1: Install Java 11
   - https://adoptopenjdk.net/releases.html?variant=openjdk11
 Step 2: After installation of Java 11. Confirm installation of all versions. Type the following command in your terminal.
@@ -82,15 +84,6 @@ Step 6: Confirm current version of Java
   Host bitbucket.adesso-group.com github.com anotherHost2.com
       IdentityFile ~/.ssh/id_rsa
       UseKeychain yes
-
-   
-### Firefox
-  - Change theme to white: Preferences -> Extension and themes -> Light
-  - Import bookmarks: Shift + Command + B -> Up/Down icon
-  - Make Firefox the default browser: Preferences -> General
-  - Open tab not at the end of the bar but after currently open tab: about:config -> 'curr' -> .insertAfterCurrent and .insertRelatedAfterCurrent true
-  - Change lang to Eng
-  - ABP
 
 ### VsCode
   - Import settings: CMD + , -> 'settings.json' -> paste new config and save
@@ -113,10 +106,10 @@ Step 6: Confirm current version of Java
   - shortcut for opening a new terminal / focusing existing: `iTerm2 -> Preferences -> Keys -> Hotkey -> CTRL + ALT + T`
   - Preferences -> Profiles -> Colors -> Light Background
   - Shortcuts:
-    ⌘ + up/left/down/right  -> move between windows and tabs
-    ⌘ + D                   -> Split pane vertically
-    ⌘ + shift + D           -> Split pane horizontally
-    ctrl + ⌘ + T            -> Open Terminal / toggle open terminal window
+      ⌘ + up/left/down/right  -> move between windows and tabs
+      ⌘ + D                   -> Split pane vertically
+      ⌘ + shift + D           -> Split pane horizontally
+      ctrl + ⌘ + T            -> Open Terminal / toggle open terminal window
 
 ### Open a terminal in Finder
   `Keyboard -> Shortcuts -> Services -> new iTerm2 window here -> CMD + Shift + 1
@@ -247,10 +240,11 @@ If preferences are set before opening the newly installed program, then it works
 Also if you restart then the preferences should be updated (didn't test it).
 
 #### Launch at Login
-This seems to not update the specific app preference file. It probably updates a system preferences file somewhere.
+  TODO: This seems to not update the specific app preference file. It probably updates a system preferences file somewhere.
 
 #### System Preferences
   * See notes
+
 #### Dock
   * add icons of newly installed programs to dock
   * make dock smaller
@@ -263,19 +257,41 @@ This seems to not update the specific app preference file. It probably updates a
     *  `defaults write com.mowglii.ItsycalApp.plist HideIcon -bool true`
     *  `defaults write com.mowglii.ItsycalApp.plist HighlightedDOWs -int 65`
     * TODO launch at login
-  3. open it, apple says are you sure -> okay
-  4. give permissions to calendar
+  3. TODO: open it, apple says are you sure -> okay
+  4. TODO: give permissions to calendar
 
 #### Alfred
   * Set cmd space, but its not in the preferences?
   * change theme
 
-#### Firefox
-  * import bookmarks
-  * Set theme
+### Firefox
+  - Change theme to white: Preferences -> Extension and themes -> Light
+  - Import bookmarks: Shift + Command + B -> Up/Down icon
+  - Make Firefox the default browser: Preferences -> General
+  - Open tab not at the end of the bar but after currently open tab: about:config -> 'curr' -> .insertAfterCurrent and .insertRelatedAfterCurrent true
+  - Change lang to Eng
+  - Addons:
+      - KeePassXC-Browser
+      - Adblocker
 
 ### Change unused keys Ğ Ş Ç
   * Ğ -> 7 / { 
   * Ş -> 9 ) ]
   * Ç -> 8 ( [
+
+#### KeepassXC Settings and Browser Integration
+  * Security -> Convenience -> uncheck "lock databases when..." and "forget touchId when..."
+  * Download extension "KeePassXC-Browser"
+  * The database needs to be open on the background
+  * URL field needs to be filled in order for the extension to retrieve the credentials automatically
+  * More URL's for an entry can be set under "Browser Integration -> Additional URL's" 
+  * For URL's to trigger DB access, only the domain needs to be matched. 
+    So type https://myCompany.com and this will be enough for all the sites with different subdomains, https://confluence.myCompany.com etc.
+  * TODO: TouchID ???
+
+#### Tiles
+  * TODO: Learn and configure shortcuts
+
+#### Time Machine
+  * TODO: setup
 

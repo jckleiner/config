@@ -34,6 +34,10 @@ alias gss='git status -sb'
 alias grep='grep --color=always'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
 
+# trash-cli - https://github.com/andreafrancia/trash-cli,
+# Note that Bash aliases are used only in interactive shells, so using this alias should not interfere with scripts that expect to use rm.
+alias rm='echo "######### This is not the command you are looking for #########"; false'
+# trash goes to ~/.local/share/Trash/
 
 # to be able to start vscode from the terminal, not needed when vscode is installed via brew
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
@@ -44,13 +48,16 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 # https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
 # * fzf usage and keybindings and other keybindings - https://github.com/Parth/dotfiles/blob/master/zsh/keybindings.sh
-# * trash-cli
 # * z
 # * .zsh_history is empty, what's the difference history vs zsh_history?
 # * remove vscode and install it with brew install --cask visual-studio-code?
 # * vscode dotfiles 
+# * vscode terminal shortcut? 
 #   -> how to copy key map and settings.json???
 # * iterm2 config? https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
+# * ubar config? 
+# * promt bold black? 
+# * update readme, oh-my-zsh not needed 
 
 # Env Variables
 source $HOME/config/dotfiles/zsh/env-variables.sh

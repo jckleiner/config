@@ -3,6 +3,7 @@
 export EDITOR=nano
 export VISUAL="$EDITOR"
 
+# Default colors are fine atm, uncomment if you want to adjust
 # LS colors, made with https://geoff.greer.fm/lscolors/
 # for *nix
 #export LS_COLORS="di=34:ln=36:so=35:pi=33;40:ex=32:bd=1;33;40:cd=1;33;40:su=0;41:sg=30"

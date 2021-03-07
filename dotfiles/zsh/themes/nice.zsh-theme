@@ -21,7 +21,7 @@ function git_current_branch() {
     return
   fi 
   
-  echo "%{$fg[green]%}$(git branch --show-current)%{$reset_color%}"
+  echo " %{$fg[green]%}$(git branch --show-current)%{$reset_color%}"
 }
 
 function git_status_count() {
