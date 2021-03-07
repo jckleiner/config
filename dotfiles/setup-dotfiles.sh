@@ -9,6 +9,9 @@
 ls ~/config/dotfiles/zsh/.zshrc 1> /dev/null && ln -s ~/config/dotfiles/zsh/.zshrc ~/.zshrc
 ls ~/config/dotfiles/zsh/.profile 1> /dev/null && ln -s ~/config/dotfiles/zsh/.profile ~/.profile
 
+ln -s ~/config/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s ~/config/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+
 # CONFIG
 ls ~/config/dotfiles/config/lf/lfrc 1> /dev/null && ln -s ~/config/dotfiles/config/lf/lfrc ~/.config/lf/lfrc
 #ln -s ~/config/dotfiles/config/iterm2/
