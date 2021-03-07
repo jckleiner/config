@@ -5,7 +5,7 @@ export VISUAL="$EDITOR"
 # man page for ls: "ls -G   Enable colorized output. This option is equivalent to defining CLICOLOR in the environment."
 export CLICOLOR=1
 
-############### fzf  -  copied from devinsideyou https://www.youtube.com/watch?v=tB-AgxzBmH8 ########################
+################# fzf  -  mostly copied from devinsideyou https://www.youtube.com/watch?v=tB-AgxzBmH8 #################
 # requires fd, bat, tree
 # Makes the default command 'fzf' 
 #  -> use 'fd', which ignores patterns from your .gitignore, by default
@@ -24,7 +24,9 @@ export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 # enable directory preview using 'tree' to show the contents
 export FZF_ALT_C_COMMAND='fd --type d --follow --exclude ".git" --color=never --hidden .'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
-#########################################################################################################
+
+export FZF_CTRL_R_OPTS="--reverse --height 40%"
+#######################################################################################################################
 
 export BAT_THEME="GitHub"
 

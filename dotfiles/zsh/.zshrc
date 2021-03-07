@@ -49,6 +49,9 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 # * other keybindings - https://github.com/Parth/dotfiles/blob/master/zsh/keybindings.sh
 # * fzf - https://github.com/junegunn/fzf#key-bindings-for-command-line
+# TODO how to automatically setup fzf without calling install and pressing Y?
+#   .fzf.zsh is created after ./install was run
+# TODO fzf quit is ESC, lf quit is 'q' -> make LF quit also ESC
 # * z
 # * .zsh_history is empty, what's the difference history vs zsh_history?
 # * remove vscode and install it with brew install --cask visual-studio-code?
@@ -70,9 +73,6 @@ source $HOME/config/dotfiles/zsh/themes/nice.zsh-theme
 # Plugins
 #source $HOME/config/dotfiles/zsh/plugins/git.plugin.zsh
 
-
-# TODO how to automatically setup fzf without calling install and pressing Y?
-#   .fzf.zsh is created after ./install was run
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
