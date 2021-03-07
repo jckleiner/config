@@ -47,15 +47,18 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 #open /Applications/Simon\ Says.app
 # https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
-# * other keybindings - https://github.com/Parth/dotfiles/blob/master/zsh/keybindings.sh
 # * fzf - https://github.com/junegunn/fzf#key-bindings-for-command-line
 # TODO how to automatically setup fzf without calling install and pressing Y?
 #   .fzf.zsh is created after ./install was run
 # TODO fzf quit is ESC, lf quit is 'q' -> make LF quit also ESC
 # * z
+# * Check - https://unix.stackexchange.com/questions/30925/in-bash-when-to-alias-when-to-script-and-when-to-write-a-function
 # * .zsh_history is empty, what's the difference history vs zsh_history?
 # * remove vscode and install it with brew install --cask visual-studio-code?
 # * vscode dotfiles 
+    # ~/Library/Application\ Support/Code/User/ on Mac OS X (thank you, Christophe De Troyer)
+    # The files are settings.json and keybindings.json. Simply copy them to the target machine.
+
 # * vscode terminal shortcut? 
 #   -> how to copy key map and settings.json???
 # * iterm2 config? https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles

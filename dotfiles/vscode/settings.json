@@ -1,0 +1,39 @@
+{
+    "window.zoomLevel": 0,
+    "window.reopenFolders": "all",
+    "files.hotExit": "onExit",
+    "window.restoreWindows": "all",
+    "editor.wordWrap": "on",
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.tree.indent": 20,
+    "editor.fontSize": 13,
+    "terminal.integrated.fontSize": 13,
+    "workbench.colorCustomizations": {
+        //"window.activeBorder": "#ff0000"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "explorer.compactFolders": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Idea intellij light theme",
+    "[json]": {
+
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+    "extensions.ignoreRecommendations": false,
+    "github.gitAuthentication": false,
+    "gitlens.advanced.messages": {
+      "suppressLineUncommittedWarning": true
+    },
+    "workbench.iconTheme": "webstorm-icons",
+    // "fontStyle": "bold"
+    // Strings: 0 128 0
+    // field and static variable 100 14 120
+    // public class static private int... 0 0 255
+    // comments 185 134 10
+    // this is a comment!!!
+}
