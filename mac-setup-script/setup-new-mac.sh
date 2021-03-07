@@ -141,6 +141,7 @@ brew install --cask adoptopenjdk11 && \
 
 #installConsolasFont
 
+printf "\n${highlight_color}DONE${default_color}\n\n"
 exit 0
 
 

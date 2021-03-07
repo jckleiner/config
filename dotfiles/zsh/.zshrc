@@ -52,13 +52,14 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 #   .fzf.zsh is created after ./install was run
 # TODO fzf quit is ESC, lf quit is 'q' -> make LF quit also ESC
 # * z
-# * Check - https://unix.stackexchange.com/questions/30925/in-bash-when-to-alias-when-to-script-and-when-to-write-a-function
+# * Check this - https://unix.stackexchange.com/questions/30925/in-bash-when-to-alias-when-to-script-and-when-to-write-a-function
 # * .zsh_history is empty, what's the difference history vs zsh_history?
 # * remove vscode and install it with brew install --cask visual-studio-code?
 # * vscode dotfiles 
-    # ~/Library/Application\ Support/Code/User/ on Mac OS X (thank you, Christophe De Troyer)
+    # ~/Library/Application\ Support/Code/User/ on Mac OS X
     # The files are settings.json and keybindings.json. Simply copy them to the target machine.
 
+# install zsh on mac again? Is the system zsh old? 
 # * vscode terminal shortcut? 
 #   -> how to copy key map and settings.json???
 # * iterm2 config? https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
@@ -84,7 +85,7 @@ bindkey '^F' fzf-file-widget
 # Change defualt mapping from ALT + C to CTRL + T
 bindkey '^T' fzf-cd-widget
 
-# up
+# back widget
 function back_widget() {
     BUFFER="cd .."
     zle accept-line
