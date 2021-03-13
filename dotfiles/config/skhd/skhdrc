@@ -21,7 +21,12 @@ hyper - backspace : $(yabai -m window $(yabai -m query --windows --window | jq -
 #hyper - y : yabai -m window --swap west
 # shift + alt - j : yabai -m window --swap south
 # shift + alt - k : yabai -m window --swap north
-hyper - 0x21 : yabai -m window --swap east # 0x21 is the "[" key
+#hyper - 0x21 : yabai -m window --swap east # 0x21 is the "[" key
+    # 0x22 is the 'ı' key in the Turkish keyboard layout
+    hyper + shift - 0x22 : yabai -m window --swap north
+    hyper - k : yabai -m window --swap south
+    hyper - l : yabai -m window --swap east
+    hyper - j : yabai -m window --swap west
 
 ## send window to monitor and follow focus
 hyper - u : /Users/jesseskelton/CustomScripts/SwitchSpaces/moveWindowLeftAndFollowFocus.sh
@@ -99,8 +104,6 @@ ctrl + alt + cmd + lshift - return : yabai -m window --focus stack.next || yabai
 # ctrl + alt + cmd + rshift - 1 : yabai -m query --windows --window | jq -re "." | xargs -I{} yabai -m window 1 --stack {}
 # stack next window onto current window
 ctrl + alt + cmd + lshift - 0x43 : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
-
-echo "skhd configuration loaded."
 
 ################################################################
 ############################# UNUSED ###########################
