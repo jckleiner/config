@@ -100,6 +100,8 @@ ctrl + alt + cmd + lshift - return : yabai -m window --focus stack.next || yabai
 # stack next window onto current window
 ctrl + alt + cmd + lshift - 0x43 : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
 
+echo "skhd configuration loaded."
+
 ################################################################
 ############################# UNUSED ###########################
 ################################################################

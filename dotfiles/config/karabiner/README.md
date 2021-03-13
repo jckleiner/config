@@ -10,7 +10,7 @@ so to use the ALT key next to the space as the CMD key, you need to create the f
   * left_option -> left_command
   * left_command -> left_option
   * right_option -> right_command
-  * right_command -> fn
+  * right_command -> fn (fn is used because it is a modifier key and we need a modifier key for other stuff in this config)
 
 ### F bindings
 Function Keys -> enable checkbox at bottom "use all F keys for..."
@@ -38,9 +38,8 @@ To see which keys you pressed:
   * brew install --cask keycastr
 
 ### Shortcuts for opening programs
-I use fn because it is considered a "modifier key" in KE and will not clash with other shortcuts from other apps.
-  * TODO fn + p -> Preferences
-  * TODO fn + s -> System Preferences
+I use fn because it is considered a "modifier key" in KE and will not clash with other shortcuts from other apps. As far as I know a regular key like f18 can't be used as a modifier key.
+  * Double tap left CTRL -> Iterm2
   * fn + c -> VsCode
   * fn + b -> Browser
   * fn + f -> Finder
@@ -54,9 +53,7 @@ I use fn because it is considered a "modifier key" in KE and will not clash with
   * fn + v -> VPN Client
   * fn + g -> Git Client (Sourcetree)
 
-  * CTRLx2 -> Terminal
-
-
 ### TODO
   * ignore assets folder?
-  * open terminal with 2 ctrl
+  * TODO fn + p -> Preferences
+  * TODO fn + s -> System Preferences
