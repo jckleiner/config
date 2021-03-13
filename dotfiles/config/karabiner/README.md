@@ -7,8 +7,13 @@ After the installation, open it, it might not be visible with Alfred, so just us
 Accept and give all permissions which it asks for.
 This will probably change the keyboard layout. For instance on a standard Windows keyboard, KE will map CMD to the Windows button,
 so to use the ALT key next to the space as the CMD key, you need to create the following simple modifications in KE:
-  * left_option -> left_command 
+  * left_option -> left_command
   * left_command -> left_option
+  * right_option -> right_command
+  * right_command -> fn
+
+### F bindings
+Function Keys -> enable checkbox at bottom "use all F keys for..."
 
 The quote key " and the < key might also be switched. This could be fixed with:
   * System Preferences -> Keyboard -> Change Keyboard Type
@@ -24,25 +29,34 @@ Capslock is used as the `hyper` key:
 
 Not sure why `hyper` works in skhd, where is that word defined?
 
+### Event Viewer
+You can also see keycodes and other usefull stuff with the build it Karabiner Event Viewer.
+If Alfred can't find it, open it from the Applications folder. The next time Alfred will find it.
+
 ### Keycastr
 To see which keys you pressed:
   * brew install --cask keycastr
 
+### Shortcuts for opening programs
+I use fn because it is considered a "modifier key" in KE and will not clash with other shortcuts from other apps.
+  * TODO fn + p -> Preferences
+  * TODO fn + s -> System Preferences
+  * fn + c -> VsCode
+  * fn + b -> Browser
+  * fn + f -> Finder
+  * fn + t -> Teams
+  * fn + w -> Word
+  * fn + p -> Postman
+  * fn + k -> KeePass Client (KeePassXc)
+  * fn + d -> Database Client (DBeaver)
+  * fn + m -> Mail Client
+  * fn + i -> IDE (IntelliJ)
+  * fn + v -> VPN Client
+  * fn + g -> Git Client (Sourcetree)
+
+  * CTRLx2 -> Terminal
+
+
 ### TODO
-  * ignore automatic_backups and assets?
+  * ignore assets folder?
   * open terminal with 2 ctrl
-  * open programs, maybe not with o but mapping right_cmd to f18 and using that to open programs?
-    * f18 + c -> VsCode
-    * TODO f18 + p -> Preferences
-    * TODO f18 + s -> System Preferences
-    * f18 + b -> Browser
-    * f18 + f -> Finder
-    * f18 + t -> teams
-    * f18 + w -> Word
-    * f18 + p -> Postman
-    * f18 + k -> KeePass Client (KeePassXc)
-    * f18 + d -> Database Client (DBeaver)
-    * f18 + m -> Mail Client
-    * f18 + i -> IDE (IntelliJ)
-    * f18 + v -> VPN Client
-    * f18 + g -> Git Client (Sourcetree)

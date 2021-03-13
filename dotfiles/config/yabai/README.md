@@ -39,3 +39,10 @@ brew services start yabai
 brew services stop yabai
 // Will automatically start skhd when computer starts
 brew services start skhd
+
+
+### TODO
+  * Make certain windows float
+  * Copy his config
+  * copy his scripts
+  * setup everything
