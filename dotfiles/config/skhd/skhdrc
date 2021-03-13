@@ -17,16 +17,44 @@ hyper - backspace : $(yabai -m window $(yabai -m query --windows --window | jq -
 ## open terminal
 #hyper - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
 
-## swap window
-#hyper - y : yabai -m window --swap west
-# shift + alt - j : yabai -m window --swap south
-# shift + alt - k : yabai -m window --swap north
-#hyper - 0x21 : yabai -m window --swap east # 0x21 is the "[" key
-    # 0x22 is the 'ı' key in the Turkish keyboard layout
-    hyper + shift - 0x22 : yabai -m window --swap north
-    hyper - k : yabai -m window --swap south
-    hyper - l : yabai -m window --swap east
-    hyper - j : yabai -m window --swap west
+## MOVE WINDOW
+    # hyper - a : yabai -m window --move rel:-20:0
+    # hyper - s : yabai -m window --move rel:0:20
+    # hyper - w : yabai -m window --move rel:0:-20
+    # hyper - d : yabai -m window --move rel:20:0
+
+# ???
+    # hyper - j : yabai -m window --display 1 yabai -m display --focus 1
+    # hyper - k : yabai -m window --display 2 yabai -m display --focus 2
+    # hyper - l : yabai -m window --display 3 yabai -m display --focus 3
+
+## FOCUS WINDOW
+    hyper - 0x22 : yabai -m window --focus north
+    hyper - k : yabai -m window ı--focus south
+    hyper - l : yabai -m window --focus east
+    hyper - j : yabai -m window --focus west
+
+## SWAP WINDOW
+    # hyper + a - 0x22 : yabai -m window --swap north
+    # hyper + a - k : yabai -m window --swap south
+    # hyper + a - l : yabai -m window --swap east
+    # hyper + a - j : yabai -m window --swap west
+
+## INCREASE WINDOW SIZEA
+#shift + alt - a : yabai -m window --resize left:-20:0
+#shift + alt - s : yabai -m window --resize bottom:0:20
+#shift + alt - w : yabai -m window --resize top:0:-20
+#shift + alt - d : yabai -m window --resize right:20:0
+    # hyper + a - 0x22 : yabai -m window --resize top:0:-20
+    # hyper + a - k : yabai -m window --resize bottom:0:20
+    # hyper + a - j : yabai -m window --resize left:-20:0
+    # hyper + a - l : yabai -m window --resize right:20:0
+
+## DECREASE WINDOW SIZE
+#shift + cmd - a : yabai -m window --resize left:20:0
+#shift + cmd - s : yabai -m window --resize bottom:0:-20
+#shift + cmd - w : yabai -m window --resize top:0:20
+#shift + cmd - d : yabai -m window --resize right:-20:0
 
 ## send window to monitor and follow focus
 hyper - u : /Users/jesseskelton/CustomScripts/SwitchSpaces/moveWindowLeftAndFollowFocus.sh
@@ -37,17 +65,7 @@ ctrl + cmd - 1 : yabai -m window --display 1 yabai -m display --focus 1
 ctrl + cmd - 2 : yabai -m window --display 2 yabai -m display --focus 2
 ctrl + cmd - 3 : yabai -m window --display 3 yabai -m display --focus 3
 
-## increase window size
-#shift + alt - a : yabai -m window --resize left:-20:0
-#shift + alt - s : yabai -m window --resize bottom:0:20
-#shift + alt - w : yabai -m window --resize top:0:-20
-#shift + alt - d : yabai -m window --resize right:20:0
 
-## decrease window size
-#shift + cmd - a : yabai -m window --resize left:20:0
-#shift + cmd - s : yabai -m window --resize bottom:0:-20
-#shift + cmd - w : yabai -m window --resize top:0:20
-#shift + cmd - d : yabai -m window --resize right:-20:0
 
 ## rotate tree 90
 hyper - r : yabai -m space --rotate 90

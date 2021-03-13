@@ -54,6 +54,7 @@ I use fn because it is considered a "modifier key" in KE and will not clash with
   * fn + g -> Git Client (Sourcetree)
 
 ### TODO
+  * another custom key: meh (shift + alt + ctrl)
   * ignore assets folder?
   * TODO fn + p -> Preferences
   * TODO fn + s -> System Preferences
