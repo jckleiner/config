@@ -274,7 +274,7 @@
                                         "key_code": "left_control"
                                     }
                                 ],
-                                "to_after_key_up": [
+                                "to_if_alone": [
                                     {
                                         "set_variable": {
                                             "name": "ctrl",
@@ -299,6 +299,9 @@
                                             }
                                         }
                                     ]
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 1000
                                 },
                                 "type": "basic"
                             }
