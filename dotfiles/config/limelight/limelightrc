@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+limelight -m config width 3
+limelight -m config radius 10
+limelight -m config placement exterior
+# AlphaRGB (ARGB)
+limelight -m config active_color 0xFFbc0d65
+# make not focused borders opaque
+limelight -m config normal_color 0x00FFFFFF
+
+echo "limelight configuration loaded."
+

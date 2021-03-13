@@ -102,6 +102,7 @@ If the root folder should be hidden/removed from the workspace:
 
 ## TODO
  
+ * Log font size and line wrapping
  * Some settings are not migrated over when creating a new project? Why?
  * Disable Tooltip for only HTML -> Probably it can only be turned off completely.
  * Import order not working?

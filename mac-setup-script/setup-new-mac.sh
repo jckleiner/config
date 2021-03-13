@@ -81,6 +81,7 @@ function installGuiPrograms() {
     ubar \
     dozer \
     tiles \
+    amethyst \
     itsycal \
     alfred \
     intellij-idea \

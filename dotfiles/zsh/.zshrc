@@ -30,8 +30,8 @@ alias cd=_cd_ls
 alias lf="lfcd"
 alias l='ls -lah'
 alias ll='ls -lh'
-alias gss='git status -sb'
 alias grep='grep --color=always'
+alias gss='git status -sb'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
 
 # trash-cli - https://github.com/andreafrancia/trash-cli,
