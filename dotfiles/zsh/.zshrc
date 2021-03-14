@@ -23,6 +23,7 @@ lfcd () {
 #bindkey -s '^o' 'lfcd\n'
 
 # Aliases and functions
+### TODO sometimes '_cd_ls: maximum nested function level reached; increase FUNCNEST?'
 _cd_ls () { cd "$@" && ls -lh }
 checkport () { sudo lsof -i:$1 }
 listports () { sudo lsof -PiTCP -sTCP:LISTEN }
