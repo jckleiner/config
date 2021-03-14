@@ -12,7 +12,12 @@ autoload -U colors && colors
 # needed, enables command substitution in prompt
 setopt PROMPT_SUBST
 
-# 256 colors in the prompt can be used like so: %{$FG[240]%}<text>%{$reset_color%} - https://geoff.greer.fm/lscolors/
+
+# TODO: this does not work --> 256 colors in the prompt can be used like so: %{$FG[240]%}<text>%{$reset_color%} 
+# https://geoff.greer.fm/lscolors/  https://jonasjacek.github.io/colors/
+# man zshmisc
+# https://unix.stackexchange.com/questions/25319/256-colour-prompt-in-zsh
+
 
 function git_current_branch() {
   # TODO: how to make this if cleaner?
@@ -21,8 +26,23 @@ function git_current_branch() {
     return
   fi 
   
-  echo " %{$fg[green]%}$(git branch --show-current)%{$reset_color%}"
+  # TODO when switched to commit
+  # echo " %B%F{green}\uf417  $(git branch --show-current)%{$reset_color%}"
+  
+  echo " %B%F{green}\ufb2b  $(git branch --show-current)%{$reset_color%}"
 }
+
+# List staged files
+# git diff --name-only --cached
+# git diff --name-only --cached | wc -l | awk '{$1=$1};1'
+
+# List unstaged files
+# git ls-files -m
+# git ls-files -m | wc -l | awk '{$1=$1};1'
+
+# Branch Icon
+# fb2b
+# \ufb2b -> escape to unicode
 
 function git_status_count() {
   local is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
@@ -31,16 +51,35 @@ function git_status_count() {
   fi
 
   # awk removes the whitespace which comes with wc
-  local num_status=$(git status --short | wc -l | awk '{$1=$1};1')
+  # local num_status=$(git status --short | wc -l | awk '{$1=$1};1')
+  #   if [ $num_status -gt 0 ]; then
+  #     echo "%{$fg_bold[red]%}+$num_status%{$reset_color%}"
+  # fi
 
-  if [ $num_status -gt 0 ]; then
-      echo "%{$fg_bold[red]%}+$num_status%{$reset_color%}"
+  # awk removes the whitespace which comes with wc
+  local count_unstaged=$(git ls-files -m | wc -l | awk '{$1=$1};1')
+  local count_staged=$(git diff --name-only --cached | wc -l | awk '{$1=$1};1')
+
+  # if [ $count_staged -gt 0 ]; then
+  #     echo "%B%F{105}+$count_staged%{$reset_color%}"
+  # fi
+
+  local unstaged_promt="%B%F{red}-$count_unstaged%{$reset_color%}"
+  local staged_promt="%B%F{105}+$count_staged%{$reset_color%}"
+
+  if [ $count_unstaged -gt 0 ] && [ $count_staged -gt 0 ]; then
+      echo $unstaged_promt $staged_promt
+  elif [ $count_unstaged -gt 0 ]; then
+      echo $unstaged_promt
+  elif [ $count_staged -gt 0 ]; then
+      echo $staged_promt
   fi
 }
 
 function last_exit_code() {
   if [ "$?" != 0 ] ; then
-    echo "%{$fg[red]%}[%?]%{$reset_color%} "
+    echo "%B%F{red}[ %? ]%{$reset_color%} "
+    # echo "%{$fg[red]%}[ %? ]%{$reset_color%} "
   fi 
 }
 

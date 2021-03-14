@@ -499,11 +499,11 @@
                         ]
                     },
                     {
-                        "description": "Open IDE (fn + i)",
+                        "description": "Open IDE (fn + j)",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "i",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "fn"

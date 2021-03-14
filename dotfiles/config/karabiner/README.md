@@ -49,7 +49,7 @@ I use fn because it is considered a "modifier key" in KE and will not clash with
   * fn + k -> KeePass Client (KeePassXc)
   * fn + d -> Database Client (DBeaver)
   * fn + m -> Mail Client
-  * fn + i -> IDE (IntelliJ)
+  * fn + j -> IDE (IntelliJ)
   * fn + v -> VPN Client
   * fn + g -> Git Client (Sourcetree)
 

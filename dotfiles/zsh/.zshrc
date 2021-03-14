@@ -43,8 +43,8 @@ alias rm='echo "######### This is not the command you are looking for #########"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 ### TODO: where to put open apps like simon says, .profile, .zprofile
-# Launch apps which are bugged
-#open /Applications/Simon\ Says.app
+# Apps which won't open automatically on startup
+#open -a 'Simon Says'
 # https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
 # * fzf - https://github.com/junegunn/fzf#key-bindings-for-command-line
@@ -63,8 +63,6 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 # * vscode terminal shortcut? 
 #   -> how to copy key map and settings.json???
 # * iterm2 config? https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
-# * ubar config? 
-# * promt bold black? 
 # * update readme, oh-my-zsh not needed 
 
 # Env Variables
@@ -80,9 +78,9 @@ source $HOME/config/dotfiles/zsh/themes/nice.zsh-theme
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# Change defualt mapping from CTRL + T to CTRL + F
+# Find files. Changed defualt mapping from CTRL + T to CTRL + F --- (F for Files)
 bindkey '^F' fzf-file-widget
-# Change defualt mapping from ALT + C to CTRL + T
+# Find folders. Changed defualt mapping from ALT + C to CTRL + T --- (T for Tree)
 bindkey '^T' fzf-cd-widget
 
 # back widget

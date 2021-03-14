@@ -11,7 +11,7 @@ export CLICOLOR=1
 #  -> use 'fd', which ignores patterns from your .gitignore, by default
 #  -> search for only files (default is files and directories)
 #  -> include hidden files
-export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
+export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --exclude ".git"'
 export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#d1d1d1,gutter:-1,pointer:#bc0d65,info:#bc0d65,hl:#bc0d65,hl+:#bc0d65'
 
 # CTRL + T is mapped to CTRL + F

@@ -42,7 +42,12 @@ brew services start skhd
 
 
 ### TODO
-  * Make certain windows float
+  * StackLine?
+  * how does full screen work?
+  * ignore 
+      * firefox download popup
+      * intellij, tip of the day, preferences etc.
+  * does resizing work?
   * Copy his config
   * copy his scripts
   * setup everything

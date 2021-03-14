@@ -34,27 +34,38 @@ hyper - backspace : $(yabai -m window $(yabai -m query --windows --window | jq -
     hyper - l : yabai -m window --focus east
     hyper - j : yabai -m window --focus west
 
+### TODO ---> does resizing work in restricted mode?
+# if yes:
+    # remap keys in karabiners
+    # hyper + A -> rcmd
+    # hyper + S -> ralt
+    # hyper + D -> rctrl
+
 ## SWAP WINDOW
     # hyper + a - 0x22 : yabai -m window --swap north
     # hyper + a - k : yabai -m window --swap south
     # hyper + a - l : yabai -m window --swap east
     # hyper + a - j : yabai -m window --swap west
+    lcmd + lshift + lalt + lctrl + ralt - 0x22 : yabai -m window --swap north
+    lcmd + lshift + lalt + lctrl + ralt - k : yabai -m window --swap south
+    lcmd + lshift + lalt + lctrl + ralt - l : yabai -m window --swap east
+    lcmd + lshift + lalt + lctrl + ralt - j : yabai -m window --swap west
 
 ## INCREASE WINDOW SIZEA
-#shift + alt - a : yabai -m window --resize left:-20:0
-#shift + alt - s : yabai -m window --resize bottom:0:20
-#shift + alt - w : yabai -m window --resize top:0:-20
-#shift + alt - d : yabai -m window --resize right:20:0
+shift + alt - a : yabai -m window --resize left:-20:0
+shift + alt - s : yabai -m window --resize bottom:0:20
+shift + alt - w : yabai -m window --resize top:0:-20
+shift + alt - d : yabai -m window --resize right:20:0
     # hyper + a - 0x22 : yabai -m window --resize top:0:-20
     # hyper + a - k : yabai -m window --resize bottom:0:20
     # hyper + a - j : yabai -m window --resize left:-20:0
     # hyper + a - l : yabai -m window --resize right:20:0
 
 ## DECREASE WINDOW SIZE
-#shift + cmd - a : yabai -m window --resize left:20:0
-#shift + cmd - s : yabai -m window --resize bottom:0:-20
-#shift + cmd - w : yabai -m window --resize top:0:20
-#shift + cmd - d : yabai -m window --resize right:-20:0
+shift + cmd - a : yabai -m window --resize left:20:0
+shift + cmd - s : yabai -m window --resize bottom:0:-20
+shift + cmd - w : yabai -m window --resize top:0:20
+shift + cmd - d : yabai -m window --resize right:-20:0
 
 ## send window to monitor and follow focus
 hyper - u : /Users/jesseskelton/CustomScripts/SwitchSpaces/moveWindowLeftAndFollowFocus.sh

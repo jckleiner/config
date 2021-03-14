@@ -20,8 +20,6 @@ Keep in mind, if you create a new user, the user should have a home directory. E
 4. Log out and log back in again to use your new default shell.
 5. Test that it worked with `echo $SHELL`. Expected result: `/bin/zsh` or similar. `zsh --version` should be `zsh 5.4.2` or more recent
 
-**TODO:** When does the automatic zsh script start? Which files are needed to not start that?
-
 https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
 ## Install oh-my-zsh
@@ -82,21 +80,15 @@ See https://stackoverflow.com/questions/30840651/what-does-autoload-do-in-zsh fo
 
 The autoload feature is not available in `bash`, but it is in `ksh` (korn shell) and `zsh`.
 
-* **TODO**: tree colors still not nice
-
-
 
 ### Modify existing user accounts
 * **Change shell for an existing user**: `usermod -s /usr/bin/zsh myuser`
 
 ### fzf
-   TODO simple use cases
+   TODO document simple use cases
 
 
 **TODO**: 
-  * show exit codes if command failed
-  * add how many files changed
-  * cd + ls
-  * any other shortcuts from "An Awesome Terminal Workflow: Zsh, Tmux, Vim."?
-  * try to remove oh-my-zsh
-  * what are those references in github to other repos? https://github.com/Parth/dotfiles/tree/master/zsh/plugins
+   * git show changed / committed
+   * git show difference upbranch?
+   * git won't show checkout as branch
