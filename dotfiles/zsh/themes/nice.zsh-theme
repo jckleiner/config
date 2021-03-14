@@ -57,22 +57,28 @@ function git_status_count() {
   # fi
 
   # awk removes the whitespace which comes with wc
-  local count_unstaged=$(git ls-files -m | wc -l | awk '{$1=$1};1')
-  local count_staged=$(git diff --name-only --cached | wc -l | awk '{$1=$1};1')
+  local count_changed=$(git diff --name-only --cached | wc -l | awk '{$1=$1};1')
+  local count_not_committed=$(git log origin..HEAD | grep commit | wc -l | awk '{$1=$1};1')
 
   # if [ $count_staged -gt 0 ]; then
   #     echo "%B%F{105}+$count_staged%{$reset_color%}"
   # fi
 
-  local unstaged_promt="%B%F{red}-$count_unstaged%{$reset_color%}"
-  local staged_promt="%B%F{105}+$count_staged%{$reset_color%}"
+  local promt_unstaged="%B%F{red}-$count_changed%{$reset_color%}"
 
-  if [ $count_unstaged -gt 0 ] && [ $count_staged -gt 0 ]; then
-      echo $unstaged_promt $staged_promt
-  elif [ $count_unstaged -gt 0 ]; then
-      echo $unstaged_promt
-  elif [ $count_staged -gt 0 ]; then
-      echo $staged_promt
+  # committed but not pushed - UP
+  local promt_not_committed="%B%F{105}+$count_not_committed%{$reset_color%}"
+  # git log origin..HEAD | grep commit | wc -l | awk '{$1=$1};1'
+  # git log origin..HEAD | grep commit
+  
+  # TODO - down from head - DOWN
+
+  if [ $count_changed -gt 0 ] && [ $count_not_committed -gt 0 ]; then
+      echo $promt_unstaged $promt_not_committed
+  elif [ $count_changed -gt 0 ]; then
+      echo $promt_unstaged
+  elif [ $count_not_committed -gt 0 ]; then
+      echo $promt_not_committed
   fi
 }
 
