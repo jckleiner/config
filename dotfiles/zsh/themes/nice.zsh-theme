@@ -32,18 +32,6 @@ function git_current_branch() {
   echo " %B%F{green}\ufb2b  $(git branch --show-current)%{$reset_color%}"
 }
 
-# List staged files
-# git diff --name-only --cached
-# git diff --name-only --cached | wc -l | awk '{$1=$1};1'
-
-# List unstaged files
-# git ls-files -m
-# git ls-files -m | wc -l | awk '{$1=$1};1'
-
-# Branch Icon
-# fb2b
-# \ufb2b -> escape to unicode
-
 function git_status_count() {
   local is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
   if [ "$is_inside_work_tree" != true ] ; then
@@ -51,32 +39,18 @@ function git_status_count() {
   fi
 
   # awk removes the whitespace which comes with wc
-  # local num_status=$(git status --short | wc -l | awk '{$1=$1};1')
-  #   if [ $num_status -gt 0 ]; then
-  #     echo "%{$fg_bold[red]%}+$num_status%{$reset_color%}"
-  # fi
-
-  # awk removes the whitespace which comes with wc
-  local count_changed=$(git diff --name-only --cached | wc -l | awk '{$1=$1};1')
+  # TODO cleaner way without using awk?
+  local count_changed=$(git status --short | wc -l | awk '{$1=$1};1')
   local count_not_committed=$(git log origin..HEAD | grep commit | wc -l | awk '{$1=$1};1')
-
-  # if [ $count_staged -gt 0 ]; then
-  #     echo "%B%F{105}+$count_staged%{$reset_color%}"
-  # fi
-
-  local promt_unstaged="%B%F{red}-$count_changed%{$reset_color%}"
-
-  # committed but not pushed - UP
-  local promt_not_committed="%B%F{105}+$count_not_committed%{$reset_color%}"
-  # git log origin..HEAD | grep commit | wc -l | awk '{$1=$1};1'
-  # git log origin..HEAD | grep commit
+  local promt_changed="%B%F{red}-$count_changed%{$reset_color%}"
+  local promt_not_committed="%B%F{105}(\uf55c $count_not_committed)%{$reset_color%}"
   
   # TODO - down from head - DOWN
 
   if [ $count_changed -gt 0 ] && [ $count_not_committed -gt 0 ]; then
-      echo $promt_unstaged $promt_not_committed
+      echo $promt_changed \ $promt_not_committed
   elif [ $count_changed -gt 0 ]; then
-      echo $promt_unstaged
+      echo $promt_changed
   elif [ $count_not_committed -gt 0 ]; then
       echo $promt_not_committed
   fi
