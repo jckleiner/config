@@ -6,7 +6,7 @@ Setup new mac (includes config/dotfiles setup):
 
 **TODO** install zsh on current machine with .zshrc
 
-``
+`` 
 
 Setup dotfiles and config files on a new machine:
 
