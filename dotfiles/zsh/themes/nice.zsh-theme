@@ -30,7 +30,8 @@ function git_current_branch() {
   fi 
   
   ############### TODO when switched to commit ###############
-  # echo " %B%F{green}\uf417  $(git branch --show-current)%{$reset_color%}"
+  ############### TODO make commit color different ###############
+  # echo " %B%F{xxx}\uf417  $(git branch --show-current)%{$reset_color%}"
   
   echo " %B%F{green}\ufb2b  $(git branch --show-current)%{$reset_color%}"
 }
@@ -40,7 +41,8 @@ function git_status_behind() {
   if [ "$is_inside_work_tree" != true ] ; then
     return
   fi
-
+  ############### TODO fails if no upstream branch is set ###############
+  
   local current_branch=$(git branch --show-current)
   local count_behind=$(git rev-list --left-right --count $current_branch...origin/$current_branch  | awk '{print $2}')
   local promt_behind="%B%F{red}[\uf544 $count_behind]%{$reset_color%}  "

@@ -23,6 +23,9 @@ yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Logi Options$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
+yabai -m rule --add app="^FirstSpirit Launcher$" sticky=on layer=above manage=off
+# Firefox download popup
+yabai -m rule --add title="^Opening .*$" sticky=on layer=above manage=off
 
 #find ~/Library/Parallels/Applications\ Menus/ -maxdepth 3 -type f | awk -F'/' '{ print $NF; }' | awk '{$1=$1};1' | sort | uniq | tr "\n" "\0" | xargs -0 -I{} yabai -m rule --add app="^{}\$" title=".*" manage=on
 
@@ -96,7 +99,7 @@ limelight &>/dev/null &
 # yabai -m signal --add event=application_terminated action="terminal-notifier -message 'application_terminated'"
 
 ## If I close the active window, focus on any other visible window.
-yabai -m signal --add event=window_destroyed action="bash /Users/jesseskelton/CustomScripts/SwitchSpaces/window-focus-on-destroy.sh"
+yabai -m signal --add event=window_destroyed action="bash ~/develop/personal/config/dotfiles/scripts/window-focus-on-destroy.sh"
 # yabai -m signal --add event=space_changed action="export CUR_ACTIVE_APP=\"iTerm2\""
 
 echo "yabai configuration loaded."
