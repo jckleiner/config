@@ -80,24 +80,24 @@ ctrl + cmd - 3 : yabai -m window --display 3 yabai -m display --focus 3
 hyper - r : yabai -m space --rotate 90
 
 ## flip the tree vertically
-hyper - 4 : yabai -m space --mirror y-axis
+#hyper - 4 : yabai -m space --mirror y-axis
 # mirror tree y-axis
 #alt - y : yabai -m space --mirror y-axis
 ## mirror tree x-axis
 #alt - x : yabai -m space --mirror x-axis
 
 #Move active window to next space on current display
-shift + lalt + lcmd + ctrl + rcmd - 1 : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "if [[ '{}' = '1' ]]; then yabai -m window --space 2; elif [[ '{}' = '2' ]]; then yabai -m window --space 1; fi"
-shift + lalt + lcmd + ctrl + rcmd - 2 : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "if [[ '{}' = '3' ]]; then yabai -m window --space 4; elif [[ '{}' = '4' ]]; then yabai -m window --space 3; fi"
-shift + lalt + lcmd + ctrl + rcmd - 3 : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "if [[ '{}' = '5' ]]; then yabai -m window --space 6; elif [[ '{}' = '6' ]]; then yabai -m window --space 5; fi"
+#shift + lalt + lcmd + ctrl + rcmd - 1 : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "if [[ '{}' = '1' ]]; then yabai -m window --space 2; elif [[ '{}' = '2' ]]; then yabai -m window --space 1; fi"
+#shift + lalt + lcmd + ctrl + rcmd - 2 : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "if [[ '{}' = '3' ]]; then yabai -m window --space 4; elif [[ '{}' = '4' ]]; then yabai -m window --space 3; fi"
+#shift + lalt + lcmd + ctrl + rcmd - 3 : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "if [[ '{}' = '5' ]]; then yabai -m window --space 6; elif [[ '{}' = '6' ]]; then yabai -m window --space 5; fi"
 
 # show next space per display
 #hyper - 1 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 1
 #hyper - 2 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 2
 #hyper - 3 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 3
-ctrl + alt + cmd + lshift - 1 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 1
-ctrl + alt + cmd + lshift - 2 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 2
-ctrl + alt + cmd + lshift - 3 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 3
+#ctrl + alt + cmd + lshift - 1 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 1
+#ctrl + alt + cmd + lshift - 2 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 2
+#ctrl + alt + cmd + lshift - 3 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 3
 
 ## toggle window fullscreen zoom
 hyper - f : yabai -m window --toggle zoom-fullscreen
@@ -183,11 +183,16 @@ ctrl + alt + cmd + lshift - 0x43 : window=$(yabai -m query --windows --window | 
 #shift + ctrl - w : yabai -m window --move rel:0:-20
 #shift + ctrl - d : yabai -m window --move rel:20:0
 
+# TODO new keybinds, maybe hyper + fn + hjkl
 ## Swap window
-# hyper - y : yabai -m window --warp west
-# shift + cmd - j : yabai -m window --warp south
-# shift + cmd - k : yabai -m window --warp north
-# hyper - 0x21 : yabai -m window --warp east # "[" key
+hyper + fn - j : yabai -m window --warp north
+hyper + fn - k : yabai -m window --warp south
+hyper + fn - h : yabai -m window --warp west
+hyper + fn - l : yabai -m window --warp east
+#shift + cmd - j : yabai -m window --warp north
+#shift + cmd - k : yabai -m window --warp south
+#shift + cmd - h : yabai -m window --warp west
+#shift + cmd - l : yabai -m window --warp east
 
 ## focus monitor
 #ctrl + alt - x  : yabai -m display --focus last
