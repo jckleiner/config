@@ -23,6 +23,6 @@ ls ~/config/dotfiles/config/lf/lfrc 1> /dev/null && ln -s ~/config/dotfiles/conf
 sudo chmod -R 755 /usr/local/share/zsh
 
 # TODO 
-# import iterm2 JSON, can it be done via terminal?
+# import/link iterm2 JSON, can it be done via terminal?
 
 source ~/.zshrc

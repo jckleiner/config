@@ -162,7 +162,7 @@
                 },
                 "rules": [
                     {
-                        "description": "CAPS_LOCK to HYPER (SHIFT+COMMAND+OPTION+CONTROL) or ESCAPE (If Alone)",
+                        "description": "CAPS_LOCK to (left_shift + left_command + left_control + right_command) or ESCAPE (If Alone)",
                         "manipulators": [
                             {
                                 "from": {
@@ -175,9 +175,9 @@
                                     {
                                         "key_code": "left_shift",
                                         "modifiers": [
-                                            "left_command",
                                             "left_control",
-                                            "left_option"
+                                            "left_option",
+                                            "right_command"
                                         ]
                                     }
                                 ],
@@ -310,20 +310,47 @@
                         ]
                     },
                     {
-                        "description": "Open Browser, Firefox (fn + b)",
+                        "description": "Open Browser, Firefox (hyper + b)",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "b",
                                     "modifiers": {
                                         "mandatory": [
-                                            "fn"
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option",
+                                            "right_command"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a 'Firefox'"
+                                        "shell_command": "open -a 'Firefox' -n"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open Teams (hyper + t)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option",
+                                            "right_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Microsoft Teams'"
                                     }
                                 ],
                                 "type": "basic"
@@ -366,27 +393,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Finder'"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Open Teams (fn + t)",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "t",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Microsoft Teams'"
                                     }
                                 ],
                                 "type": "basic"

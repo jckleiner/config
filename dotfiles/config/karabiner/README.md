@@ -43,10 +43,10 @@ To see which keys you pressed:
 ### Shortcuts for opening programs
 I use fn because it is considered a "modifier key" in KE and will not clash with other shortcuts from other apps. As far as I know a regular key like f18 can't be used as a modifier key.
   * Double tap left CTRL -> Iterm2
+  * hyper + b -> Browser (new window)
+  * hyper + t -> Teams (current instance, if exists)
   * fn + c -> VsCode
-  * fn + b -> Browser
   * fn + f -> Finder
-  * fn + t -> Teams
   * fn + w -> Word
   * fn + p -> Postman
   * fn + k -> KeePass Client (KeePassXc)
@@ -57,6 +57,8 @@ I use fn because it is considered a "modifier key" in KE and will not clash with
   * fn + g -> Git Client (Sourcetree)
 
 ### TODO
+  * minimize currently open app with karabiner elements?
+  * hyper + lcmd + b -> (new) Browser, needed?
   * update README when hyper key changes to use rcmd
   * another custom key: meh (shift + alt + ctrl)
   * ignore assets folder?
