@@ -37,8 +37,8 @@
     lshift + lctrl + lalt + rcmd + lcmd - 5 : yabai -m window --resize right:-20:0
 
 ## SEND WINDOW TO (LEFT/RIGHT) MONITOR AND FOLLOW FOCUS
-    lshift + lctrl + lalt + rcmd + lcmd - c : ~/develop/personal/config/dotfiles/scripts/moveWindowLeftAndFollowFocus.sh
-    lshift + lctrl + lalt + rcmd + lcmd - v : ~/develop/personal/config/dotfiles/scripts/moveWindowRightAndFollowFocus.sh
+    lshift + lctrl + lalt + rcmd - c : ~/develop/personal/config/dotfiles/scripts/moveWindowLeftAndFollowFocus.sh
+    lshift + lctrl + lalt + rcmd - v : ~/develop/personal/config/dotfiles/scripts/moveWindowRightAndFollowFocus.sh
 
 ## FOCUS MONITOR 1,2,3
     #hyper - x  : yabai -m display --focus last
