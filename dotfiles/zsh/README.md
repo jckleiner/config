@@ -89,6 +89,7 @@ The autoload feature is not available in `bash`, but it is in `ksh` (korn shell)
 
 
 **TODO**: 
+   * execute certain things only if the current machine is a mac? Make zshrc platform independent
    * git show changed / committed
    * git show difference upbranch?
    * git won't show checkout as branch

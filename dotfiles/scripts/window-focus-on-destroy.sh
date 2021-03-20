@@ -1,3 +1,4 @@
+#!/bin/sh
 isFocused=$(yabai -m query --windows --window | jq -re ".id")
 echo $isFocused
 if [[ -z "$isFocused" ]]; then # -z >> true if it's null

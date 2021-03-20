@@ -1,4 +1,4 @@
-# #!/bin/dash
+#!/bin/sh
 
 # By me.. Jesse. Sorry in advance.
 # I press the Hyper key + 1-3 for switching spaces. Hyper + 1 will switch between spaces 1 & 2 for example.
