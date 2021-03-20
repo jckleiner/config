@@ -35,10 +35,9 @@ alias grep='grep --color=always'
 alias gss='git status -sb'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
 
-# trash-cli - https://github.com/andreafrancia/trash-cli,
-# Note that Bash aliases are used only in interactive shells, so using this alias should not interfere with scripts that expect to use rm.
+# trash-cli - https://github.com/andreafrancia/trash-cli, trash goes to ~/.local/share/Trash/
+# Note that aliases are used only in interactive shells, so using this alias should not interfere with scripts that expect to use rm.
 alias rm='echo "######### This is not the command you are looking for #########"; false'
-# trash goes to ~/.local/share/Trash/
 
 # to be able to start vscode from the terminal, not needed when vscode is installed via brew
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
@@ -46,6 +45,7 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 ### TODO: where to put open apps like simon says, .profile, .zprofile
 # Apps which won't open automatically on startup
 #open -a 'Simon Says'
+#open -a 'Dozer'
 # https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
 # * fzf - https://github.com/junegunn/fzf#key-bindings-for-command-line
@@ -91,3 +91,11 @@ function back_widget() {
 }
 zle -N back_widget
 bindkey "^b" back_widget
+
+# Fuzzy search a list of the most recently committed to branches (including remote branches)
+fbr() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" | fzf --reverse --height 40% -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}

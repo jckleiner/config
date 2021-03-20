@@ -11,17 +11,18 @@ export CLICOLOR=1
 #  -> use 'fd', which ignores patterns from your .gitignore, by default
 #  -> search for only files (default is files and directories)
 #  -> include hidden files
+#  -> exclude .git files in the .git directory
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --exclude ".git"'
 export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#d1d1d1,gutter:-1,pointer:#bc0d65,info:#bc0d65,hl:#bc0d65,hl+:#bc0d65'
 
-# CTRL + T is mapped to CTRL + F
-# enable file preview using 'bat' to preview files
+# (default) CTRL + T is mapped to CTRL + F
+# enable file previews using 'bat'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 
-# ALT + C is mapped to CTRL + T
+# (default) ALT + C is mapped to CTRL + T
 # enable directory preview using 'tree' to show the contents
-export FZF_ALT_C_COMMAND='fd --type d --follow --exclude ".git" --color=never --hidden .'
+export FZF_ALT_C_COMMAND='fd --type d --follow --exclude ".git" --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
 export FZF_CTRL_R_OPTS="--reverse --height 40%"
@@ -29,7 +30,7 @@ export FZF_CTRL_R_OPTS="--reverse --height 40%"
 
 export BAT_THEME="GitHub"
 
-# requires a nerd font to be used in the terminal
+# lf icons requires a nerd font to be used in the terminal
 export LF_ICONS="\
 tw=:\
 st=:\

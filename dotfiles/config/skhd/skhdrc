@@ -2,7 +2,7 @@
 
 # if you're having troubles finding key codes for a key just type skhd --observe in a terminal and type a key. Pretty cool! Or just check the wiki.
 
-## HYPER == SHIFT + CMD + ALT + OPTION
+## hyper == lshift + lctrl + lalt + lcmd
 
 ## Quickly restart the yabai launch agent
 ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
@@ -19,28 +19,32 @@ hyper - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
 
 ## MOVE WINDOW
 # cannot move a managed window?
-    hyper - a : yabai -m window --move rel:-20:0
-    hyper - s : yabai -m window --move rel:0:20
-    hyper - w : yabai -m window --move rel:0:-20
-    hyper - d : yabai -m window --move rel:20:0
+    #hyper - a : yabai -m window --move rel:-20:0
+    #hyper - s : yabai -m window --move rel:0:20
+    #hyper - w : yabai -m window --move rel:0:-20
+    #hyper - d : yabai -m window --move rel:20:0
 
 # ???
     # hyper - j : yabai -m window --display 1 yabai -m display --focus 1
     # hyper - k : yabai -m window --display 2 yabai -m display --focus 2
     # hyper - l : yabai -m window --display 3 yabai -m display --focus 3
 
+## TODO why does hyper - w flash screen?
+## TODO focus monitor 1,2,3 with hyper - 1,2,3
+## TODO change use rcmd with hyper, this will allow more keybind options with hyper + lcmd
+
 ## FOCUS WINDOW
-    hyper - j : yabai -m window --focus north
-    hyper - k : yabai -m window --focus south
-    hyper - l : yabai -m window --focus east
-    hyper - h : yabai -m window --focus west
+    hyper - w : yabai -m window --focus north
+    hyper - s : yabai -m window --focus south
+    hyper - a : yabai -m window --focus west
+    hyper - d : yabai -m window --focus east
 
 # TODO remap keys in karabiners ? 
     # hyper + A -> rcmd
     # hyper + S -> ralt
     # hyper + D -> rctrl
 
-## TODO
+## TODO do i need this since I have "window --warp"?
 ## SWAP WINDOW
     # hyper + a - 0x22 : yabai -m window --swap north
     # hyper + a - k : yabai -m window --swap south
@@ -52,10 +56,10 @@ hyper - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
     lcmd + lshift + lalt + lctrl + rctrl - j : yabai -m window --swap west
 
 ## INCREASE WINDOW SIZEA
-shift + cmd - a : yabai -m window --resize left:-20:0
-shift + cmd - s : yabai -m window --resize bottom:0:20
-shift + cmd - w : yabai -m window --resize top:0:-20
-shift + cmd - d : yabai -m window --resize right:20:0
+#shift + cmd - a : yabai -m window --resize left:-20:0
+#shift + cmd - s : yabai -m window --resize bottom:0:20
+#shift + cmd - w : yabai -m window --resize top:0:-20
+#shift + cmd - d : yabai -m window --resize right:20:0
 
 ## DECREASE WINDOW SIZE
 shift + alt - a : yabai -m window --resize left:20:0
@@ -67,14 +71,29 @@ shift + alt - d : yabai -m window --resize right:-20:0
 ## TODO other binds for increase - decrease?
 
 ## send window to monitor and follow focus
-hyper - u : ~/develop/personal/config/dotfiles/scripts/moveWindowLeftAndFollowFocus.sh
-hyper - p : ~/develop/personal/config/dotfiles/scripts/moveWindowRightAndFollowFocus.sh
+hyper - c : ~/develop/personal/config/dotfiles/scripts/moveWindowLeftAndFollowFocus.sh
+hyper - v : ~/develop/personal/config/dotfiles/scripts/moveWindowRightAndFollowFocus.sh
 
 ## focus display
 ## TODO these do not work as intended
-ctrl + cmd - 1 : yabai -m window --display 1 yabai -m display --focus 1
-ctrl + cmd - 2 : yabai -m window --display 2 yabai -m display --focus 2
-ctrl + cmd - 3 : yabai -m window --display 3 yabai -m display --focus 3
+#ctrl + cmd - 1 : yabai -m window --display 1 yabai -m display --focus 1
+#ctrl + cmd - 2 : yabai -m window --display 2 yabai -m display --focus 2
+#ctrl + cmd - 3 : yabai -m window --display 3 yabai -m display --focus 3
+
+## Swap window
+hyper + fn - j : yabai -m window --warp north
+hyper + fn - k : yabai -m window --warp south
+hyper + fn - h : yabai -m window --warp west
+hyper + fn - l : yabai -m window --warp east
+
+### TODO when switching monitors, no program is focused
+## focus monitor
+    #hyper - x  : yabai -m display --focus last
+    #hyper - z  : yabai -m display --focus prev || yabai -m display --focus last
+    #hyper - c  : yabai -m display --focus next || yabai -m display --focus first
+    hyper - 1  : yabai -m display --focus 2
+    hyper - 2  : yabai -m display --focus 1
+    hyper - 3  : yabai -m display --focus 3
 
 ## rotate tree 90
 hyper - r : yabai -m space --rotate 90
@@ -108,7 +127,6 @@ hyper - e : yabai -m window --toggle split
 ## float / unfloat window and center on screen
 hyper - t : yabai -m window --toggle float;\
 yabai -m window --grid 4:4:1:1:2:2 ## toggle sticky alt - s : yabai -m window --toggle sticky ## toggle sticky, float and resize to picture-in-picture size alt - p : yabai -m window --toggle sticky;\ yabai -m window --grid 5:5:4:0:1:1 ## change layout of desktop ctrl + alt - a : yabai -m space --layout bsp ctrl + alt - d : yabai -m space --layout float
-
 
 
 # cycle through windows
@@ -183,21 +201,3 @@ ctrl + alt + cmd + lshift - 0x43 : window=$(yabai -m query --windows --window | 
 #shift + ctrl - w : yabai -m window --move rel:0:-20
 #shift + ctrl - d : yabai -m window --move rel:20:0
 
-# TODO new keybinds, maybe hyper + fn + hjkl
-## Swap window
-hyper + fn - j : yabai -m window --warp north
-hyper + fn - k : yabai -m window --warp south
-hyper + fn - h : yabai -m window --warp west
-hyper + fn - l : yabai -m window --warp east
-#shift + cmd - j : yabai -m window --warp north
-#shift + cmd - k : yabai -m window --warp south
-#shift + cmd - h : yabai -m window --warp west
-#shift + cmd - l : yabai -m window --warp east
-
-## focus monitor
-#ctrl + alt - x  : yabai -m display --focus last
-#ctrl + alt - z  : yabai -m display --focus prev || yabai -m display --focus last
-#ctrl + alt - c  : yabai -m display --focus next || yabai -m display --focus first
-#ctrl + alt - 1  : yabai -m display --focus 1
-#ctrl + alt - 2  : yabai -m display --focus 2
-#ctrl + alt - 3  : yabai -m display --focus 3

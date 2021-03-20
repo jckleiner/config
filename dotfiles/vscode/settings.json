@@ -30,6 +30,7 @@
       "suppressLineUncommittedWarning": true
     },
     "workbench.iconTheme": "webstorm-icons",
+    "workbench.editor.showTabs": true,
     // "fontStyle": "bold"
     // Strings: 0 128 0
     // field and static variable 100 14 120

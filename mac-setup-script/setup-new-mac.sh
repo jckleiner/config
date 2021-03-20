@@ -30,20 +30,23 @@ function installHomebrew() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
-function installCommandlinePrograms() {
-    printf "\n${highlight_color}Installing Commandline Programs...${default_color}\n\n"
+function installCliPrograms() {
+    printf "\n${highlight_color}Installing CLI Programs...${default_color}\n\n"
 
-    brew install \
-    tree \
-    lf \
-    wget \
-    python \
-    node \
-    maven \
-    nano \
-    trash-cli \
-    bat \
-    fd
+    cli_programs=(
+        tree
+        lf
+        wget
+        python
+        node
+        maven
+        nano
+        trash-cli
+        bat
+        fd
+    )
+
+    brew install ${cli_programs[@]}
 
     # maven have openjdk-15 as a denepdency?
     # Maven should not download another jdk:
@@ -72,25 +75,36 @@ function installGuiPrograms() {
     # TODO: CONFIG
     # alfred
 
-    brew install --cask firefox \
-    google-chrome \
-    slack \
-    notion \
-    anki \
-    keepassxc \
-    ubar \
-    dozer \
-    tiles \
-    amethyst \
-    itsycal \
-    alfred \
-    intellij-idea \
-    visual-studio-code \
-    sourcetree \
-    iterm2 \
-    dbeaver-community \
-    docker \
-    postman
+    gui_programs=(
+
+        # General
+        firefox
+        google-chrome
+        slack
+        notion
+        anki
+        keepassxc
+
+        # Mac specific
+        dozer
+        itsycal
+        alfred
+        iterm2
+        # TODO wants password?
+        karabiner-elements
+        yabai
+        skhd
+
+        # Development
+        intellij-idea
+        visual-studio-code
+        sourcetree
+        dbeaver-community
+        docker
+        postman
+    )
+
+    brew install --cask ${gui_programs[@]}
    
     # TODO: virtualbox fails because permissions?
     #brew install --cask virtualbox
@@ -116,11 +130,14 @@ function setPreferences() {
     printf "\n${highlight_color}Setting Preferences...${default_color}\n\n"
     
     printf "\n${highlight_color}Itsycal${default_color}\n\n"
-
     defaults write com.mowglii.ItsycalApp.plist ClockFormat -string "H:mm - EEEE, dd.MMMM"
     defaults write com.mowglii.ItsycalApp.plist HideIcon -bool true
     defaults write com.mowglii.ItsycalApp.plist HighlightedDOWs -int 65
 
+    # TODO:
+    #   keybindings
+    #   finder prefs
+    #   dock prefs
 }
 
 
@@ -131,7 +148,7 @@ fi
 
 
 installHomebrew && \
-installCommandlinePrograms && \
+installCliPrograms && \
 installGuiPrograms && \
 setPreferences && \
 

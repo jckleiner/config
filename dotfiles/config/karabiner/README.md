@@ -23,11 +23,14 @@ If not then you also need to change it with KE.
 ln -s ~/develop/personal/config/dotfiles/config/karabiner ~/.config/karabiner
 
 ### Hyper Key
-Capslock is used as the `hyper` key:
-  * pressed once: **Esc**
-  * pressed with a another key: **SHIFT+CTRL+OPTION+CMD+ \<otherPressedKey\>**
+  
+  * `hyper == lshift + lctrl + lalt + lcmd`
 
-Not sure why `hyper` works in skhd, where is that word defined?
+Capslock is used as the `hyper` key, see `karabiner.json`:
+  * pressed once: **Esc**
+  * pressed with a another key: **lshift + lctrl + lalt + lcmd+ \<otherPressedKey\>**
+
+skhd defines the `hyper` keyword which is mapped to `lshift + lctrl + lalt + lcmd`
 
 ### Event Viewer
 You can also see keycodes and other usefull stuff with the build it Karabiner Event Viewer.
@@ -54,6 +57,7 @@ I use fn because it is considered a "modifier key" in KE and will not clash with
   * fn + g -> Git Client (Sourcetree)
 
 ### TODO
+  * update README when hyper key changes to use rcmd
   * another custom key: meh (shift + alt + ctrl)
   * ignore assets folder?
   * TODO fn + p -> Preferences
