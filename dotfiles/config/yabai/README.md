@@ -40,8 +40,14 @@ brew services stop yabai
 // Will automatically start skhd when computer starts
 brew services start skhd
 
+## Some issues
+  `skhd` not working after sleep because secure keyboard bla: https://github.com/koekeishiya/skhd/issues/48
+    -> just locking screen and login again fixes it
 
 ### TODO
+
+  * learn more about stacks
+  * Mac notifications steals focus, check custom scripts to fix it
   * update yabairc, move unused scripts to bottom, clean everything which is not needed
   * why does hyper - w flash screen?
   * migrate notion page?

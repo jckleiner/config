@@ -168,7 +168,9 @@
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -271,17 +273,12 @@
                                 "from": {
                                     "key_code": "left_control"
                                 },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 1000
+                                },
                                 "to": [
                                     {
                                         "key_code": "left_control"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "set_variable": {
-                                            "name": "ctrl",
-                                            "value": 1
-                                        }
                                     }
                                 ],
                                 "to_delayed_action": {
@@ -302,9 +299,14 @@
                                         }
                                     ]
                                 },
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 1000
-                                },
+                                "to_if_alone": [
+                                    {
+                                        "set_variable": {
+                                            "name": "ctrl",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -561,6 +563,27 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Sourcetree'"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Map non-breaking space to space",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar"
                                     }
                                 ],
                                 "type": "basic"

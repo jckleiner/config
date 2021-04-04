@@ -6,6 +6,7 @@
   - Order Files in Grid: Right click on empty space in finder -> show view options -> snap to grid and adjust icon size / grid space
   - Disable file and workspace animations: Accessibility -> Display -> Reduce motion
   - Disable CMD + Space from keyboard -> shortcuts
+  - Disable the Option-Space key combination for non-breaking spaces, with karabiner
   - Language Switch: CMD + Shift + Space
   - Show desktop -> f1
   - `git config --global user.email "your@email.com"`
@@ -278,6 +279,10 @@ Also if you restart then the preferences should be updated (didn't test it).
   * Ğ -> 7 / { 
   * Ş -> 9 ) ]
   * Ç -> 8 ( [
+    or
+  * Ğ -> ) (shift) } (alt) ]
+  * Ş -> ( (shift) { (alt) [
+  * Ç -> /   
 
 #### KeepassXC Settings and Browser Integration
   * TODO: TouchID ??? -> if fixed then lock database when screen is locked

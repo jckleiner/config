@@ -16,7 +16,6 @@
     },
     "explorer.compactFolders": true,
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Idea intellij light theme",
     "[json]": {
 
         "editor.quickSuggestions": {
@@ -31,6 +30,7 @@
     },
     "workbench.iconTheme": "webstorm-icons",
     "workbench.editor.showTabs": true,
+    "workbench.colorTheme": "Idea intellij light theme",
     // "fontStyle": "bold"
     // Strings: 0 128 0
     // field and static variable 100 14 120

@@ -23,6 +23,7 @@
 # Intellij Windows
     yabai -m rule --add title="^Services - .*$" sticky=on layer=above manage=off
     yabai -m rule --add title="^Tip of the Day$" sticky=on layer=above manage=off
+    yabai -m rule --add title="^Preferences$" sticky=on layer=above manage=off
 # Virtualbox
     yabai -m rule --add title="^macOS-VM.*$" sticky=on layer=above manage=off
 

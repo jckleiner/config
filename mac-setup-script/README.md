@@ -5,6 +5,12 @@ TODO: Link to readme
 
 
 ### TODO
+    - check again fonts: menlo, consolas, monaco
+    - word custom styles, where to store?
+    - Word shortcuts for styles: CTRL+CMD 1(custom heading 1),2(custom heading 2),3,4(normal),5(code - character style - font:menlo)
+    - keyboard shortcuts > keyboard might have some interesing options like "move focus to next window"
+    - remap ` to ' ?
+    - make sure you don't use the Apple US-Layout
     - remove irregular white space char
     - is htop installed?
     - pma_agent remove or change port? Parallels

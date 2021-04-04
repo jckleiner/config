@@ -84,6 +84,7 @@ function installGuiPrograms() {
         notion
         anki
         keepassxc
+        libreoffice
 
         # Mac specific
         dozer
