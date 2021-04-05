@@ -44,6 +44,8 @@ function installCliPrograms() {
         trash-cli
         bat
         fd
+        neovim
+        grip
     )
 
     brew install ${cli_programs[@]}
@@ -81,10 +83,9 @@ function installGuiPrograms() {
         firefox
         google-chrome
         slack
-        notion
+        joplin
         anki
         keepassxc
-        libreoffice
 
         # Mac specific
         dozer
