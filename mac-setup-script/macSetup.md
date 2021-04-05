@@ -147,6 +147,7 @@ Step 6: Confirm current version of Java
 
   1. If not, you can try trashing the file `/Library/Preferences/com.apple.keyboardtype.plist` and restarting your machine.
   2. Before restarting try opening Terminal and type: `sudo open /System/Library/CoreServices/KeyboardSetupAssistant.app/Contents/MacOS/KeyboardSetupAssistant`
+  3. Somethimes 2. also doesn't work, so a system reboot is needed.....................
 
 ### EN-US keyboard layout on MAC
   The tilde `~` is normally below the escape key. But for some reason, on a Mac, that is next to Shift. The button on the laptop's keyboard, where `~` normally is, on Mac it writes `§`.
