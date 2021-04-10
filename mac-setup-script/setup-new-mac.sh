@@ -46,6 +46,7 @@ function installCliPrograms() {
         fd
         neovim
         grip
+        neofetch
     )
 
     brew install ${cli_programs[@]}
@@ -100,10 +101,12 @@ function installGuiPrograms() {
         # Development
         intellij-idea
         visual-studio-code
+        alacritty
         sourcetree
         dbeaver-community
         docker
         postman
+
     )
 
     brew install --cask ${gui_programs[@]}

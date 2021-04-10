@@ -27,7 +27,7 @@ lfcd () {
 _cd_ls () { cd "$@" && ls -lh }
 checkport () { sudo lsof -i:$1 }
 listports () { sudo lsof -PiTCP -sTCP:LISTEN }
-alias cd=_cd_ls
+# alias cd=_cd_ls
 alias lf="lfcd"
 alias l='ls -lah'
 alias ll='ls -lh'

@@ -117,10 +117,18 @@
             }
           },
           {
-            "name": "Enum keyword",
-            "scope": "storage.type.enum.ts",
+            "name": "Keywords enum, class, interface, function",
+            "scope": "storage.type.enum.ts, storage.type.class.ts, storage.type.interface.ts, storage.type.function.ts",
             "settings": {
               "foreground": "#000088", 
+              "fontStyle": "bold"
+            }
+          },
+          {
+            "name": "Keyword new, delete",
+            "scope": "keyword.operator.new.ts, keyword.operator.expression.delete.ts",
+            "settings": {
+              "foreground": "#872c91", 
               "fontStyle": "bold"
             }
           },
@@ -132,6 +140,14 @@
               "fontStyle": ""
             }
           },
+          // {
+          //   "name": "Variables for 'other' objects",
+          //   "scope": "variable.other.property.ts",
+          //   "settings": {
+          //     "foreground": "#872c91", 
+          //     "fontStyle": ""
+          //   }
+          // },
           {
             "name": "Property of an object",
             "scope": "variable.other.object.property.ts",
