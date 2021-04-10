@@ -2,7 +2,9 @@
 
 #SKHD CONFIG
 
-# if you're having troubles finding key codes for a key just type skhd --observe in a terminal and type a key. Pretty cool! Or just check the wiki.
+# if you're having troubles finding key codes for a key just type 
+    # skhd --observe 
+# in a terminal and type a key. Pretty cool! Or just check the wiki.
 
 ## hyper (defined in skhd)
 #   cmd + shift + alt + ctrl

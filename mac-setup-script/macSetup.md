@@ -5,6 +5,7 @@
   - Don't change the order of the workspaces: System Prefs > Mission Control > Automatically rearrange
   - Order Files in Grid: Right click on empty space in finder -> show view options -> snap to grid and adjust icon size / grid space
   - Disable file and workspace animations: Accessibility -> Display -> Reduce motion
+  - Disable CTRL + UP/DOWN, keyboard -> mission control
   - Disable CMD + Space from keyboard -> shortcuts
   - Disable the Option-Space key combination for non-breaking spaces, with karabiner
   - Language Switch: CMD + Shift + Space

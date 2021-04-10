@@ -47,6 +47,7 @@ function installCliPrograms() {
         neovim
         grip
         neofetch
+        tmux
     )
 
     brew install ${cli_programs[@]}

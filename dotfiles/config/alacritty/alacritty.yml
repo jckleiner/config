@@ -6,19 +6,15 @@ window:
     lines: 25
   padding:
     x: 5
-    y: 5
-  # TODO how to drag when none?
-  decorations: full # 'none' for no borders and title, or 'full'
+    y: 3
+  decorations: none # 'none' for no borders and title, or 'full'
   dynamic_padding: true # Spread additional padding evenly around the terminal content.
 
 scrolling:
   history: 20000
   multiplier: 3 # Scrolling distance multiplier.
 
-# use_thin_strokes: true
-
 font:
-  # TODO find a thinner font and disable use_thin_strokes?
   use_thin_strokes: true # makes font thinner (MacOs only)
   size: 11.5
   offset:
@@ -27,7 +23,6 @@ font:
   normal:
     family: Monaco Nerd Font
     style: Regular
-  # TODO bold and italic fonts
   # bold:
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
@@ -48,10 +43,12 @@ font:
 # Live config reload (changes require restart)
 live_config_reload: true
 
-shell:
+shell: # https://github.com/alacritty/alacritty/issues/1672
   program: /bin/zsh
   args:
-    - --login
+    - -l
+    - -c
+    - "tmux attach || tmux"
 
 background_opacity: 0.95
 
@@ -103,22 +100,16 @@ colors:
   #  text: CellBackground
   #  cursor: CellForeground
 
-  # Search colors
-  #
-  # Colors used for the search bar and match highlighting.
-  #search:
-    # Allowed values are CellForeground/CellBackground, which reference the
-    # affected cell, or hexadecimal colors like #ff00ff.
-    #matches:
-    #  foreground: '#000000'
-    #  background: '#ffffff'
-    #focused_match:
-    #  foreground: CellBackground
-    #  background: CellForeground
-
-    #bar:
-    #  background: '#c5c8c6'
-    #  foreground: '#1d1f21'
+  search:
+    matches:
+     foreground: '#ffffff'
+     background: '#e3a3c3'
+    focused_match:
+     foreground: '#ffffff'
+     background: '#bc0d65'
+    bar:
+     background: '#c5c8c6'
+     foreground: '#bc0d65'
 
   # Keyboard hints
   #hints:
