@@ -27,6 +27,7 @@ font:
   normal:
     family: Monaco Nerd Font
     style: Regular
+  # TODO bold and italic fonts
   # bold:
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
@@ -69,6 +70,28 @@ colors:
     # color will be used.
     #dim_foreground: '#828482'
     #bright_foreground: '#eaeaea'
+
+  # Normal colors
+  normal:
+    black:   '#202020'
+    red:     '#c91b00'
+    green:   '#00c200'
+    yellow:  '#c7c400'
+    blue:    '#0225c7'
+    magenta: '#c930c7'
+    cyan:    '#00c5c7'
+    white:   '#c7c7c7'
+
+  # Bright colors
+  bright:
+   black:   '#666666'
+   red:     '#d54e53'
+   green:   '#01e801'
+   yellow:  '#fefb67'
+   blue:    '#6871ff'
+   magenta: '#ff76ff'
+   cyan:    '#5ffdff'
+   white:   '#eaeaea'
 
   # Vi mode cursor colors
   #
@@ -134,28 +157,6 @@ colors:
   #selection:
   #  text: CellBackground
   #  background: CellForeground
-
-  # Normal colors
-  #normal:
-  #  black:   '#1d1f21'
-  #  red:     '#cc6666'
-  #  green:   '#b5bd68'
-  #  yellow:  '#f0c674'
-  #  blue:    '#81a2be'
-  #  magenta: '#b294bb'
-  #  cyan:    '#8abeb7'
-  #  white:   '#c5c8c6'
-
-  # Bright colors
-  #bright:
-  #  black:   '#666666'
-  #  red:     '#d54e53'
-  #  green:   '#b9ca4a'
-  #  yellow:  '#e7c547'
-  #  blue:    '#7aa6da'
-  #  magenta: '#c397d8'
-  #  cyan:    '#70c0b1'
-  #  white:   '#eaeaea'
 
   # Dim colors
   #
