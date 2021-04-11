@@ -6,9 +6,9 @@
     # skhd --observe 
 # in a terminal and type a key. Pretty cool! Or just check the wiki.
 
-## hyper (defined in skhd)
+## hyper (as defined in skhd)
 #   cmd + shift + alt + ctrl
-## modified hyper key (defined in my karabiner config)
+## modified hyper key (as defined in my karabiner config)
 #   lshift + lctrl + lalt + rcmd
 ## this way there are more keymap possibilities by adding lcmd
 #   lshift + lctrl + lalt + rcmd + lcmd
@@ -17,12 +17,20 @@
     ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 ## TODO why does hyper - w flash screen?
+## TODO if secure keyboard is active, show a notification on screen?
+
+## STACK LAYOUT MOVEMENT - https://github.com/koekeishiya/yabai/issues/337
+    # yabai -m window --focus stack.first
+    # yabai -m window --focus stack.prev
+    # yabai -m window --focus stack.next
+    # yabai -m window --focus stack.recent
+    # yabai -m window --focus stack.last
 
 ## FOCUS WINDOW
-    lshift + lctrl + lalt + rcmd - w : yabai -m window --focus north
-    lshift + lctrl + lalt + rcmd - s : yabai -m window --focus south
-    lshift + lctrl + lalt + rcmd - a : yabai -m window --focus west
-    lshift + lctrl + lalt + rcmd - d : yabai -m window --focus east
+    lshift + lctrl + lalt + rcmd - w : yabai -m window --focus north  
+    lshift + lctrl + lalt + rcmd - s : yabai -m window --focus south 
+    lshift + lctrl + lalt + rcmd - a : yabai -m window --focus west || yabai -m window --focus stack.prev
+    lshift + lctrl + lalt + rcmd - d : yabai -m window --focus east || yabai -m window --focus stack.next
 
 ## SWAP WINDOW
     lshift + lctrl + lalt + rcmd + lcmd - w : yabai -m window --warp north
@@ -60,8 +68,14 @@
     hyper - r : yabai -m space --rotate 90
 
 ## FLOAT / UNFLOAT WINDOW AND CENTER ON SCREEN
-    hyper - g : yabai -m window --toggle float;\
-    yabai -m window --grid 4:4:1:1:2:2 ## toggle sticky alt - s : yabai -m window --toggle sticky ## toggle sticky, float and resize to picture-in-picture size alt - p : yabai -m window --toggle sticky;\ yabai -m window --grid 5:5:4:0:1:1 ## change layout of desktop ctrl + alt - a : yabai -m space --layout bsp ctrl + alt - d : yabai -m space --layout float
+    hyper - g : yabai -m window --toggle float
+
+## SWITCH BETWEEN LAYOUTS: bsp and stack 
+    hyper - q :  yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "stack" then "bsp" else "stack" end')
+    # hyper - 7 : yabai -m space --layout bsp
+    # hyper - 8 : yabai -m space --layout stack
+    
+    # yabai -m window --grid 4:4:1:1:2:2 ## toggle sticky alt - s : yabai -m window --toggle sticky ## toggle sticky, float and resize to picture-in-picture size alt - p : yabai -m window --toggle sticky;\ yabai -m window --grid 5:5:4:0:1:1 ## change layout of desktop ctrl + alt - a : yabai -m space --layout bsp ctrl + alt - d : yabai -m space --layout float
 
 
 ################################################################
