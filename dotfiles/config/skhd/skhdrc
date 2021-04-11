@@ -17,6 +17,7 @@
     ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 ## TODO why does hyper - w flash screen?
+## TODO use hyper - w/s to move between stack windows, when the flash screen problem is fixed
 ## TODO if secure keyboard is active, show a notification on screen?
 
 ## STACK LAYOUT MOVEMENT - https://github.com/koekeishiya/yabai/issues/337

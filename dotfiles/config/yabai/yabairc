@@ -70,9 +70,9 @@
     # yabai -m config layout bsp
     yabai -m config top_padding 30
     yabai -m config bottom_padding 30
-    yabai -m config left_padding 30
+    yabai -m config left_padding 35
     yabai -m config right_padding 30
-    yabai -m config window_gap 5
+    yabai -m config window_gap 8
 
     yabai -m config layout stack
     # TODO what does these do exactly?
