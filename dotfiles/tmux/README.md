@@ -7,7 +7,6 @@
   - https://github.com/rothgar/awesome-tmux
 
 ### TODOs
-  - Splitter style
   - Make Tabs prettier, if possible
   - Use vim keys?
   - https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/

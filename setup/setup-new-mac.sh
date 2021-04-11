@@ -64,9 +64,6 @@ function installCliPrograms() {
     # TODO: nano syntax highlighting from dotfiles?
 
     # TODO: ansible
-
-    # brew install httpd
-    # brew install mariadb
 }
 
 function installGuiPrograms() {

@@ -278,13 +278,9 @@ Also if you restart then the preferences should be updated (didn't test it).
       - Adblocker
 
 ### Change unused keys Ğ Ş Ç
-  * Ğ -> 7 / { 
-  * Ş -> 9 ) ]
-  * Ç -> 8 ( [
-    or
-  * Ğ -> ) (shift) } (alt) ]
-  * Ş -> ( (shift) { (alt) [
-  * Ç -> /   
+  * Ğ -> ( (shift) { (alt) [
+  * Ü -> ) (shift) } (alt) ]
+  * Ç -> / (shift) ~
 
 #### KeepassXC Settings and Browser Integration
   * TODO: TouchID ??? -> if fixed then lock database when screen is locked
@@ -296,9 +292,6 @@ Also if you restart then the preferences should be updated (didn't test it).
   * For URL's to trigger DB access, only the domain needs to be matched. 
     So type https://myCompany.com and this will be enough for all the sites with different subdomains, https://confluence.myCompany.com etc.
 
-#### Tiles
-  * TODO: Learn and configure shortcuts
-
 #### Time Machine
-  * TODO: setup
+  * Plugin unused external ssd -> start timemachine
 

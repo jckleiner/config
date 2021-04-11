@@ -45,7 +45,7 @@ brew services start skhd
     -> just locking screen and login again fixes it
 
 ### TODO
-
+  * TRY: Open a program always in a given space: `yabai -m rule --add app="Finder" space=2` will open Finder and send it to space 2 automatically. Check also this: https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc#rule
   * learn more about stacks
   * Mac notifications steals focus, check custom scripts to fix it
   * update yabairc, move unused scripts to bottom, clean everything which is not needed
