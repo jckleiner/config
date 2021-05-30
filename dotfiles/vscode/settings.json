@@ -23,6 +23,7 @@
     "extensions.ignoreRecommendations": false,
     "github.gitAuthentication": false,
     "gitlens.advanced.messages": {
+      "suppressFileNotUnderSourceControlWarning": true,
       "suppressLineUncommittedWarning": true
     },
     

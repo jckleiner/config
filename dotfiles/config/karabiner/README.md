@@ -57,7 +57,7 @@ I use fn because it is considered a "modifier key" in KE and will not clash with
   * fn + g -> Git Client (Sourcetree)
 
 ### TODO
-  * minimize currently open app with karabiner elements?
+  * minimize currently open app with karabiner elements? Hyper - x?
   * hyper + lcmd + b -> (new) Browser, needed?
   * update README when hyper key changes to use rcmd
   * another custom key: meh (shift + alt + ctrl)

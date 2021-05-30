@@ -147,5 +147,13 @@
     "key": "ctrl+shift+alt+right",
     "command": "-cursorWordPartRightSelect",
     "when": "textInputFocus"
+  },
+  {
+    "key": "cmd+f1",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
   }
 ]

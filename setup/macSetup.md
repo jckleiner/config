@@ -18,6 +18,10 @@
   - Turn off voice over keyboard shortcut
   - disable Service keyboard shorcut "Search manpage index..."
   - Order Top bar: Hold Command key -> move icons (use dozer)
+  - Key repeat: 
+      `defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)`
+      `defaults write -g InitialKeyRepeat -int 5 # normal minimum is 15 (225 ms)` ???
+      `defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)`
   
 By the setup-script automatically installed programs:
   - homebrew

@@ -48,6 +48,7 @@ function installCliPrograms() {
         grip
         neofetch
         tmux
+        terminal-notifier
     )
 
     brew install ${cli_programs[@]}
@@ -104,6 +105,7 @@ function installGuiPrograms() {
         dbeaver-community
         docker
         postman
+        pencil # An open-source, cross-platform GUI prototyping tool
 
     )
 
