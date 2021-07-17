@@ -15,3 +15,8 @@ else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manual
 
 # symlink zshrc if it does not exist already
 ls ~/config/dotfiles/zsh/.zshrc 1> /dev/null && ln -s ~/config/dotfiles/zsh/.zshrc ~/.zshrc
+
+# change the default shell for the current user
+sudo chsh -s $(which zsh) $USER
+
+# reload
