@@ -20,3 +20,4 @@ ls ~/config/dotfiles/zsh/.zshrc 1> /dev/null && ln -s ~/config/dotfiles/zsh/.zsh
 sudo chsh -s $(which zsh) $USER
 
 # reload
+zsh

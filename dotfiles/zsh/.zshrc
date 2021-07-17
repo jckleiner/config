@@ -37,7 +37,10 @@ alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%
 
 # trash-cli - https://github.com/andreafrancia/trash-cli, trash goes to ~/.local/share/Trash/
 # Note that aliases are used only in interactive shells, so using this alias should not interfere with scripts that expect to use rm.
-alias rm='echo "######### This is not the command you are looking for #########"; false'
+# only if trash is installed
+if [ -n "$(command -v trash)" ]; then 
+    alias rm='echo "######### rm: This is not the command you are looking for, use trash instead #########"; false'
+fi
 
 # to be able to start vscode from the terminal, not needed when vscode is installed via brew
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
