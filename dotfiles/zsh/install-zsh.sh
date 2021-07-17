@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # Check if zsh is already default shell
 if [ -n "$(echo $SHELL | grep zsh)" ]; then echo "zsh is already the default shell"; return; fi
