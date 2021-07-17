@@ -1,7 +1,30 @@
 # Mac Setup Script
 
-### Tested on Mac VM
+## Tested on Mac VM
 TODO: Link to readme
+
+## Other Programs
+
+### Vimium Browser Extension (Firefox and Chrome)
+You can add custom key mappings. No config file.
+
+    unmap <a-p>
+    unmap <a-m>
+    unmap p
+    unmap x
+    unmap X
+
+    map a previousTab
+    map d nextTab
+    map A goBack
+    map D goForward
+    map " visitPreviousTab
+    map C removeTab
+    map c restoreTab
+
+    # f     open link in current tab
+    # F     open link in new tab
+    # r     reload the page
 
 
 ### TODO

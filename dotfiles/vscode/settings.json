@@ -196,6 +196,7 @@
           }
         ]
       },
-    }
+    },
+    "security.workspace.trust.untrustedFiles": "open"
 
 }

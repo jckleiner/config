@@ -14,6 +14,10 @@ Intellij did not set the working directory path correctly for 2 modules inside a
 The fix was to edit the run config -> Set the working directory again for each module.
  * Set the spring profiles for each project
 
+### Intellij Cannot resolve symbol on import
+ * File -> Invalidate Caches/Restart
+ * https://stackoverflow.com/questions/26952078/intellij-cannot-resolve-symbol-on-import
+
 ### Import Settings
  * `File -> Manage IDE Settings -> Import Settings -> select intellijSettings.zip`
  * Run Configurations also need to be exported separately if needed

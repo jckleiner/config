@@ -15,7 +15,8 @@ Keep in mind, if you create a new user, the user should have a home directory. E
 1. Install Zsh with the package manager of your choice, _e.g._: 
    - `sudo apt install zsh`
    - for mac: `brew install zsh`
-2. Make it the default for a user: `chsh -s $(which zsh) <myUser>`
+2. Make it the default for the current user: `sudo chsh -s $(which zsh) $USER`
+   - See the current users shell: `sudo cat /etc/passwd | grep $USER` or `echo $SHELL`
    - Note that this will not work if Zsh is not in your authorized shells list (`/etc/shells`) or if you don't have permission to use `chsh`. 
 4. Log out and log back in again to use your new default shell.
 5. Test that it worked with `echo $SHELL`. Expected result: `/bin/zsh` or similar. `zsh --version` should be `zsh 5.4.2` or more recent
