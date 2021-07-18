@@ -9,18 +9,6 @@ _comp_options+=(globdots)
 # Case insensitive completion, also completes if word matched from the middle for instance
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
-# Use lf to switch directories
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-# bind it to ctrl-o
-#bindkey -s '^o' 'lfcd\n'
 
 # Aliases and functions
 ### TODO sometimes '_cd_ls: maximum nested function level reached; increase FUNCNEST?'
@@ -34,6 +22,17 @@ alias ll='ls -lh'
 alias grep='grep --color=always'
 alias gss='git status -sb'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
+
+# Use lf to switch directories
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
 
 # trash-cli - https://github.com/andreafrancia/trash-cli, trash goes to ~/.local/share/Trash/
 # Note that aliases are used only in interactive shells, so using this alias should not interfere with scripts that expect to use rm.
@@ -79,8 +78,17 @@ source $HOME/config/dotfiles/zsh/themes/nice.zsh-theme
 # Plugins
 #source $HOME/config/dotfiles/zsh/plugins/git.plugin.zsh
 
+function somefunc() {
+    return echo "somefunc"
+    # return fzf-cd-widget
+}
 
-# fzf
+
+### fzf
+
+# Required packages: tree, fd, bat
+# In ubuntu it might be batcat: https://github.com/sharkdp/bat#installation
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Find files. Changed defualt mapping from CTRL + T to CTRL + F --- (F for Files)
 bindkey '^F' fzf-file-widget

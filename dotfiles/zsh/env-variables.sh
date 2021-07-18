@@ -5,27 +5,47 @@ export VISUAL="$EDITOR"
 # man page for ls: "ls -G   Enable colorized output. This option is equivalent to defining CLICOLOR in the environment."
 export CLICOLOR=1
 
-################# fzf  -  mostly copied from devinsideyou https://www.youtube.com/watch?v=tB-AgxzBmH8 #################
-# requires fd, bat, tree
-# Makes the default command 'fzf' 
+############ FZF -  mostly copied from devinsideyou https://www.youtube.com/watch?v=tB-AgxzBmH8 ############
+# for the optimal settings it requires: fd, bat, tree
+
+# Makes the default command 'fzf':
 #  -> use 'fd', which ignores patterns from your .gitignore, by default
-#  -> search for only files (default is files and directories)
+#  -> search for only files (CTRL + F, default is files and directories)
 #  -> include hidden files
 #  -> exclude .git files in the .git directory
-export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --exclude ".git"'
-export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#d1d1d1,gutter:-1,pointer:#bc0d65,info:#bc0d65,hl:#bc0d65,hl+:#bc0d65'
 
-# (default) CTRL + T is mapped to CTRL + F
-# enable file previews using 'bat'
+# ALT  + C (default) is mapped to CTRL + T
+# CTRL + T (default) is mapped to CTRL + F
+
+if [ -x "$(command -v fd)" ]; then 
+    export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --exclude ".git"'
+    export FZF_ALT_C_COMMAND='fd --type d --follow --exclude ".git" --color=never --hidden'
+else
+    # find does NOT ignore files in .gitignore
+    export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/\.git/*" -not -path "*/\node_modules/*"'
+    export FZF_ALT_C_COMMAND='find . -type d -not -path "*/\.git/*" -not -path "*/\node_modules/*"'
+fi
+
+
+# enable colorful file previews using 'bat'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
+if [ -x "$(command -v bat)" ]; then 
+    export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
+else 
+    export FZF_CTRL_T_OPTS="--preview 'head -n 50 {}'"
+fi
 
-# (default) ALT + C is mapped to CTRL + T
-# enable directory preview using 'tree' to show the contents
-export FZF_ALT_C_COMMAND='fd --type d --follow --exclude ".git" --color=never --hidden'
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
+
+# enable directory preview using 'tree'
+if [ -x "$(command -v tree)" ]; then 
+    export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
+else 
+    # export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
+fi
 
 export FZF_CTRL_R_OPTS="--reverse --height 40%"
+export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#d1d1d1,gutter:-1,pointer:#bc0d65,info:#bc0d65,hl:#bc0d65,hl+:#bc0d65'
+
 #######################################################################################################################
 
 export BAT_THEME="GitHub"
