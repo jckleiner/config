@@ -111,7 +111,6 @@ function _user_host() {
 
   if [[ -n $SSH_CONNECTION ]]; then
     user_name_color="blue"
-    # user_name_color="magenta"
   fi
   if [[ $USER = "root" ]]; then
     user_name_color="red"
