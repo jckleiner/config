@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if zsh is already default shell
-if [ -n "$(echo $SHELL | grep zsh)" ]; then printf "\n ${warning_color}zsh is already the default shell${default_color}\n"; return; fi
+if [ -n "$(echo $SHELL | grep zsh)" ]; then printf "\n ${warning_color}zsh is already the default shell${default_color}\n"; exit 1; fi
 
 # Determine which package manager to install the package with
 packagesNeeded='zsh'
