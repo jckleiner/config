@@ -110,7 +110,8 @@ function _user_host() {
   local host_machine="%{$FG[1]%}%m%{$reset_color%}"
 
   if [[ -n $SSH_CONNECTION ]]; then
-    user_name_color="magenta"
+    user_name_color="blue"
+    # user_name_color="magenta"
   fi
   if [[ $USER = "root" ]]; then
     user_name_color="red"
