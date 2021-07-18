@@ -1,5 +1,9 @@
 #!/bin/bash
 
+whoami
+
+echo $SHELL
+
 # Check if zsh is already default shell
 if [ -n "$(echo $SHELL | grep zsh)" ]; then printf "\n ${warning_color}zsh is already the default shell${default_color}\n"; exit 1; fi
 
