@@ -3,11 +3,11 @@
 # terminal text colors
 
 # https://jonasjacek.github.io/colors/
-highlight_color=$'\e[48;2;0;175;255m\e[38;2;255;255;255m' # white on DeepSkyBlue1
+info_color=$'\e[48;2;0;175;255m\e[38;2;255;255;255m' # white on DeepSkyBlue1
 warning_color=$'\e[48;2;255;0;0m\e[38;2;255;255;255m' # white on red
 default_color=$'\033[0m'
 
-printf "\n${highlight_color}highlight_color${default_color}\n"
+printf "\n${info_color}info_color${default_color}\n"
 printf "\n${warning_color}warning_color${default_color}\n"
 printf "\n${default_color}default_color${default_color}\n"
 
@@ -23,15 +23,15 @@ while getopts "p" opt; do
   esac
 done
 
-printf "\n${highlight_color} *** MAC SETUP SCRIPT *** ${default_color}\n"
+printf "\n${info_color} *** MAC SETUP SCRIPT *** ${default_color}\n"
 
 function installHomebrew() {
-    printf "\n${highlight_color}Installing Homebrew...${default_color}\n\n"
+    printf "\n${info_color}Installing Homebrew...${default_color}\n\n"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 function installCliPrograms() {
-    printf "\n${highlight_color}Installing CLI Programs...${default_color}\n\n"
+    printf "\n${info_color}Installing CLI Programs...${default_color}\n\n"
 
     cli_programs=(
         tree
@@ -68,7 +68,7 @@ function installCliPrograms() {
 }
 
 function installGuiPrograms() {
-    printf "\n${highlight_color}Installing GUI Programs...${default_color}\n\n"
+    printf "\n${info_color}Installing GUI Programs...${default_color}\n\n"
     
     # TODO: icons in menu bar?
     # TODO: firefox preferences / bookmarks?
@@ -133,9 +133,9 @@ function installConsolasFont() {
 }
 
 function setPreferences() {
-    printf "\n${highlight_color}Setting Preferences...${default_color}\n\n"
+    printf "\n${info_color}Setting Preferences...${default_color}\n\n"
     
-    printf "\n${highlight_color}Itsycal${default_color}\n\n"
+    printf "\n${info_color}Itsycal${default_color}\n\n"
     defaults write com.mowglii.ItsycalApp.plist ClockFormat -string "H:mm - EEEE, dd.MMMM"
     defaults write com.mowglii.ItsycalApp.plist HideIcon -bool true
     defaults write com.mowglii.ItsycalApp.plist HighlightedDOWs -int 65
@@ -165,7 +165,7 @@ brew install --cask adoptopenjdk11 && \
 
 #installConsolasFont
 
-printf "\n${highlight_color}DONE${default_color}\n\n"
+printf "\n${info_color}DONE${default_color}\n\n"
 exit 0
 
 
