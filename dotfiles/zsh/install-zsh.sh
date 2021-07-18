@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# set colors used for logging
 source $HOME/config/dotfiles/zsh/.log-colors.sh
 
 # Check if zsh is already the default shell
@@ -19,14 +20,14 @@ else printf "\n ${warning_color}FAILED TO INSTALL PACKAGE: Package manager not f
 if ! [ -f ~/config/dotfiles/zsh/.zshrc ]; then printf "\n${warning_color} File not found: ~/config/dotfiles/zsh/.zshrc ${default_color}\n"; fi
 
 if [ -f ~/.zshrc ]; then
-    printf "\n ${warning_color}zshrc file already exists! Renaming ~/.zshrc to ~/.zshrc_OLD ${default_color}\n"
+    printf "\n ${info_color}zshrc file already exists! Renaming ~/.zshrc to ~/.zshrc_OLD ${default_color}\n"
     mv ~/.zshrc ~/.zshrc_OLD
     ln -s ~/config/dotfiles/zsh/.zshrc ~/.zshrc
 else
     ln -s ~/config/dotfiles/zsh/.zshrc ~/.zshrc
 fi
 
-printf "\n ${info_color}Symlink created: ~/.zshrc  --->  ~/config/dotfiles/zsh/.zshrc${default_color}\n"
+printf "\n ${success_color}Symlink created: ~/.zshrc  --->  ~/config/dotfiles/zsh/.zshrc${default_color}\n"
 
 # change the default shell for the current user
 sudo chsh -s $(which zsh) $USER
