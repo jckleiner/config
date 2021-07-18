@@ -1,10 +1,8 @@
 #!/bin/bash
 
-whoami
+source .log-colors.sh
 
-echo $SHELL
-
-# Check if zsh is already default shell
+# Check if zsh is already the default shell
 if [ -n "$(echo $SHELL | grep zsh)" ]; then printf "\n ${warning_color}zsh is already the default shell${default_color}\n"; exit 1; fi
 
 # Determine which package manager to install the package with

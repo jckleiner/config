@@ -6,7 +6,7 @@
 
 ### install zsh on current machine with .zshrc
 
-`cd ~ && git clone https://github.com/jckleiner/config.git && sudo ./config/dotfiles/zsh/install-zsh.sh`
+`cd ~ && git clone https://github.com/jckleiner/config.git && ./config/dotfiles/zsh/install-zsh.sh`
 
 ###  Setup dotfiles and config files on a new machine:
 
