@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# TODO check if this script is called with sudo while on a different user (not root)
+# and if so, show a warning
+# $SHELL and $USER will be different if this script is called with sudo
+# https://stackoverflow.com/questions/3522341/identify-user-in-a-bash-script-called-by-sudo
+
 # set colors used for logging
 source $HOME/config/dotfiles/zsh/.log-colors.sh
 
@@ -23,9 +28,6 @@ if [ -n "$(echo $SHELL | grep zsh)" ]; then
     exit 0; 
 fi
 
-### TODO
-# if zsh is already default, do symlinking
-
 # Determine which package manager to install the package with
 packagesNeeded='zsh'
 if [ -x "$(command -v apk)" ];          then sudo apk add --no-cache $packagesNeeded
@@ -42,9 +44,5 @@ symlink_zshrc
 # change the default shell for the current user
 sudo chsh -s $(which zsh) $USER
 
-# reload
+# open zsh
 zsh
-
-### TODO
-#rm -rf config/ && sudo apt remove zsh && rm .zshrc && cd ~ && git clone https://github.com/jckleiner/config.git && ./config/dotfiles/zsh/install-zsh.sh
-# install fzf?
