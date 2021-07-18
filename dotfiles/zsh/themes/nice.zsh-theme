@@ -118,9 +118,9 @@ function _user_host() {
 
   user_name="%{$fg_bold[$user_name_color]%}%n%{$reset_color%}"
 
-  # display user and host when connected with ssh
+  # display an 'SSH' text, user and host when connected with ssh
   if [[ -n $SSH_CONNECTION ]]; then
-    echo "[$user_name - $host_machine] "
+    echo "${tag_ssh} [$user_name - $host_machine] "
   # display user if it is not the 'main' user
   elif [[ $_MAIN_USER != $USER ]]; then
     echo "[$user_name - $host_machine] "

@@ -5,8 +5,6 @@ export VISUAL="$EDITOR"
 # man page for ls: "ls -G   Enable colorized output. This option is equivalent to defining CLICOLOR in the environment."
 export CLICOLOR=1
 
-source $HOME/config/dotfiles/zsh/.log-colors.sh
-
 ############ FZF -  mostly copied from devinsideyou https://www.youtube.com/watch?v=tB-AgxzBmH8 ############
 # for the optimal settings it requires: fd, bat, tree
 

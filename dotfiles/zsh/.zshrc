@@ -1,3 +1,7 @@
+
+# defining colors and tags for logging
+source $HOME/config/dotfiles/zsh/.log-colors.sh
+
 # Basic auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
