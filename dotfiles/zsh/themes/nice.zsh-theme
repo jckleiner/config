@@ -123,7 +123,7 @@ function _user_host() {
     echo "[$user_name - $host_machine] "
   # display user if it is not the 'main' user
   elif [[ $_MAIN_USER != $USER ]]; then
-    echo "[$user_name] "
+    echo "[$user_name - $host_machine] "
   fi
 }
 
