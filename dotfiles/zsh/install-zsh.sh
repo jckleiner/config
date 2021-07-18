@@ -18,7 +18,7 @@ elif [ -x "$(command -v packman)" ];    then sudo pacman -S $packagesNeeded
 elif [ -x "$(command -v brew)" ];       then sudo brew install $packagesNeeded
 else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: $packagesNeeded">&2; fi
 
-if ! [ -f ~/config/dotfiles/zsh/.zshrc ]; then printf "\n${warning_color} File not found: ~/config/dotfiles/zsh/.zshrc ${default_color}\n" fi
+if ! [ -f ~/config/dotfiles/zsh/.zshrc ]; then printf "\n${warning_color} File not found: ~/config/dotfiles/zsh/.zshrc ${default_color}\n"; fi
 
 if [ -f ~/.zshrc ]; then
     printf "\n${warning_color} zshrc file already exists! \n renaming ~/.zshrc to ~/.zshrc_OLD ${default_color}\n"

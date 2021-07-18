@@ -8,6 +8,7 @@
 
 ### TODOs
   - Make Tabs prettier, if possible
+  - Search -> jump to next occurance. Currently it only searches the text which is visible on the window
   - Use vim keys?
   - https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/
   - learn more about tmux and document - https://www.youtube.com/watch?v=gmjyMxezIWU
