@@ -1,7 +1,6 @@
 #!/bin/bash
 
-source .log-colors.sh
-# source $HOME/config/dotfiles/zsh/.log-colors.sh
+source $HOME/config/dotfiles/zsh/.log-colors.sh
 
 # Check if zsh is already the default shell
 if [ -n "$(echo $SHELL | grep zsh)" ]; then printf "\n ${warning_color}zsh is already the default shell${default_color}\n"; exit 1; fi
