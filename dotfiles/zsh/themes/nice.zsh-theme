@@ -106,12 +106,9 @@ function last_exit_code() {
 #   4. $_MAIN_USER is not set: print [$user_name]
 function _user_host() {
   local user_name
-  local user_name_color=black
+  local user_name_color="blue"
   local host_machine="%{$FG[1]%}%m%{$reset_color%}"
 
-  if [[ -n $SSH_CONNECTION ]]; then
-    user_name_color="blue"
-  fi
   if [[ $USER = "root" ]]; then
     user_name_color="red"
   fi
