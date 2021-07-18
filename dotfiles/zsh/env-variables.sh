@@ -6,6 +6,7 @@ export VISUAL="$EDITOR"
 export CLICOLOR=1
 
 source .log-colors.sh
+# source $HOME/config/dotfiles/zsh/.log-colors.sh
 
 ############ FZF -  mostly copied from devinsideyou https://www.youtube.com/watch?v=tB-AgxzBmH8 ############
 # for the optimal settings it requires: fd, bat, tree
