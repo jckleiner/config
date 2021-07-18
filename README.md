@@ -4,7 +4,7 @@
 
 `/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/jckleiner/config/HEAD/setup/setup-new-mac.sh)"`
 
-### Install and setup zsh on current machine
+### Install and setup zsh on the current machine
 
 `cd ~ && git clone https://github.com/jckleiner/config.git && ./config/dotfiles/zsh/setup-zsh.sh`
 

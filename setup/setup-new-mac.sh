@@ -1,16 +1,7 @@
 #!/bin/zsh
 
-# terminal text colors
-
-# https://jonasjacek.github.io/colors/
-color_info=$'\e[48;2;0;175;255m\e[38;2;255;255;255m' # white on DeepSkyBlue1
-color_success=$'\e[48;2;0;175;95m\e[38;2;225;225;225m' # white on green
-color_error=$'\e[48;2;255;0;0m\e[38;2;255;255;255m' # white on red
-color_default=$'\033[0m'
-
-printf "\n${color_info}color_info${color_default}\n"
-printf "\n${color_error}color_error${color_default}\n"
-printf "\n${color_default}color_default${color_default}\n"
+# set colors used for logging
+source $HOME/config/dotfiles/zsh/.log-colors.sh
 
 # start the script with -p to only install preferences
 while getopts "p" opt; do
@@ -24,15 +15,15 @@ while getopts "p" opt; do
   esac
 done
 
-printf "\n${color_info} *** MAC SETUP SCRIPT *** ${color_default}\n"
+printf "\n${tag_info} *** MAC SETUP SCRIPT ***\n"
 
 function installHomebrew() {
-    printf "\n${color_info}Installing Homebrew...${color_default}\n\n"
+    printf "\n${tag_info} Installing Homebrew...\n\n"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 function installCliPrograms() {
-    printf "\n${color_info}Installing CLI Programs...${color_default}\n\n"
+    printf "\n${tag_info} Installing CLI Programs...\n\n"
 
     cli_programs=(
         tree
@@ -69,7 +60,7 @@ function installCliPrograms() {
 }
 
 function installGuiPrograms() {
-    printf "\n${color_info}Installing GUI Programs...${color_default}\n\n"
+    printf "\n${tag_info} Installing GUI Programs...\n\n"
     
     # TODO: icons in menu bar?
     # TODO: firefox preferences / bookmarks?
@@ -134,9 +125,9 @@ function installConsolasFont() {
 }
 
 function setPreferences() {
-    printf "\n${color_info}Setting Preferences...${color_default}\n\n"
+    printf "\n${tag_info} Setting Preferences...\n\n"
     
-    printf "\n${color_info}Itsycal${color_default}\n\n"
+    printf "\n${tag_info} Itsycal \n\n"
     defaults write com.mowglii.ItsycalApp.plist ClockFormat -string "H:mm - EEEE, dd.MMMM"
     defaults write com.mowglii.ItsycalApp.plist HideIcon -bool true
     defaults write com.mowglii.ItsycalApp.plist HighlightedDOWs -int 65
@@ -166,7 +157,7 @@ brew install --cask adoptopenjdk11 && \
 
 #installConsolasFont
 
-printf "\n${color_info}DONE${color_default}\n\n"
+printf "\n${tag_success} DONE\n\n"
 exit 0
 
 
