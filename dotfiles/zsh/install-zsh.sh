@@ -3,8 +3,28 @@
 # set colors used for logging
 source $HOME/config/dotfiles/zsh/.log-colors.sh
 
+function symlink_zshrc() {
+    if ! [ -f ~/config/dotfiles/zsh/.zshrc ]; then printf "\n${tag_error} File not found: ~/config/dotfiles/zsh/.zshrc \n"; fi
+
+    if [ -f ~/.zshrc ]; then
+        printf "\n${tag_info} ~/.zshrc file already exists! Renaming ~/.zshrc to ~/.zshrc_OLD \n"
+        mv ~/.zshrc ~/.zshrc_OLD
+        ln -s ~/config/dotfiles/zsh/.zshrc ~/.zshrc
+    else
+        ln -s ~/config/dotfiles/zsh/.zshrc ~/.zshrc
+    fi
+    printf "\n${tag_success} Symlink created: ~/.zshrc  --->  ~/config/dotfiles/zsh/.zshrc \n"
+}
+
 # Check if zsh is already the default shell
-if [ -n "$(echo $SHELL | grep zsh)" ]; then printf "\n ${warning_color}zsh is already the default shell${default_color}\n"; exit 1; fi
+if [ -n "$(echo $SHELL | grep zsh)" ]; then
+    printf "\n${tag_info} zsh is already the default shell \n"
+    symlink_zshrc
+    exit 0; 
+fi
+
+### TODO
+# if zsh is already default, do symlinking
 
 # Determine which package manager to install the package with
 packagesNeeded='zsh'
@@ -15,19 +35,9 @@ elif [ -x "$(command -v yum)" ];        then sudo yum install $packagesNeeded
 elif [ -x "$(command -v zypper)" ];     then sudo zypper install $packagesNeeded
 elif [ -x "$(command -v packman)" ];    then sudo pacman -S $packagesNeeded
 elif [ -x "$(command -v brew)" ];       then sudo brew install $packagesNeeded
-else printf "\n ${warning_color}FAILED TO INSTALL PACKAGE: Package manager not found.${default_color}\n"; fi
+else printf "\n${tag_error} FAILED TO INSTALL PACKAGE: Package manager not found.\n"; fi
 
-if ! [ -f ~/config/dotfiles/zsh/.zshrc ]; then printf "\n${warning_color} File not found: ~/config/dotfiles/zsh/.zshrc ${default_color}\n"; fi
-
-if [ -f ~/.zshrc ]; then
-    printf "\n ${info_color}zshrc file already exists! Renaming ~/.zshrc to ~/.zshrc_OLD ${default_color}\n"
-    mv ~/.zshrc ~/.zshrc_OLD
-    ln -s ~/config/dotfiles/zsh/.zshrc ~/.zshrc
-else
-    ln -s ~/config/dotfiles/zsh/.zshrc ~/.zshrc
-fi
-
-printf "\n ${success_color}Symlink created: ~/.zshrc  --->  ~/config/dotfiles/zsh/.zshrc${default_color}\n"
+symlink_zshrc
 
 # change the default shell for the current user
 sudo chsh -s $(which zsh) $USER

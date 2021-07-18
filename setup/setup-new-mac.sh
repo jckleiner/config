@@ -3,13 +3,14 @@
 # terminal text colors
 
 # https://jonasjacek.github.io/colors/
-info_color=$'\e[48;2;0;175;255m\e[38;2;255;255;255m' # white on DeepSkyBlue1
-warning_color=$'\e[48;2;255;0;0m\e[38;2;255;255;255m' # white on red
-default_color=$'\033[0m'
+color_info=$'\e[48;2;0;175;255m\e[38;2;255;255;255m' # white on DeepSkyBlue1
+color_success=$'\e[48;2;0;175;95m\e[38;2;225;225;225m' # white on green
+color_error=$'\e[48;2;255;0;0m\e[38;2;255;255;255m' # white on red
+color_default=$'\033[0m'
 
-printf "\n${info_color}info_color${default_color}\n"
-printf "\n${warning_color}warning_color${default_color}\n"
-printf "\n${default_color}default_color${default_color}\n"
+printf "\n${color_info}color_info${color_default}\n"
+printf "\n${color_error}color_error${color_default}\n"
+printf "\n${color_default}color_default${color_default}\n"
 
 # start the script with -p to only install preferences
 while getopts "p" opt; do
@@ -23,15 +24,15 @@ while getopts "p" opt; do
   esac
 done
 
-printf "\n${info_color} *** MAC SETUP SCRIPT *** ${default_color}\n"
+printf "\n${color_info} *** MAC SETUP SCRIPT *** ${color_default}\n"
 
 function installHomebrew() {
-    printf "\n${info_color}Installing Homebrew...${default_color}\n\n"
+    printf "\n${color_info}Installing Homebrew...${color_default}\n\n"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 function installCliPrograms() {
-    printf "\n${info_color}Installing CLI Programs...${default_color}\n\n"
+    printf "\n${color_info}Installing CLI Programs...${color_default}\n\n"
 
     cli_programs=(
         tree
@@ -68,7 +69,7 @@ function installCliPrograms() {
 }
 
 function installGuiPrograms() {
-    printf "\n${info_color}Installing GUI Programs...${default_color}\n\n"
+    printf "\n${color_info}Installing GUI Programs...${color_default}\n\n"
     
     # TODO: icons in menu bar?
     # TODO: firefox preferences / bookmarks?
@@ -133,9 +134,9 @@ function installConsolasFont() {
 }
 
 function setPreferences() {
-    printf "\n${info_color}Setting Preferences...${default_color}\n\n"
+    printf "\n${color_info}Setting Preferences...${color_default}\n\n"
     
-    printf "\n${info_color}Itsycal${default_color}\n\n"
+    printf "\n${color_info}Itsycal${color_default}\n\n"
     defaults write com.mowglii.ItsycalApp.plist ClockFormat -string "H:mm - EEEE, dd.MMMM"
     defaults write com.mowglii.ItsycalApp.plist HideIcon -bool true
     defaults write com.mowglii.ItsycalApp.plist HighlightedDOWs -int 65
@@ -165,7 +166,7 @@ brew install --cask adoptopenjdk11 && \
 
 #installConsolasFont
 
-printf "\n${info_color}DONE${default_color}\n\n"
+printf "\n${color_info}DONE${color_default}\n\n"
 exit 0
 
 
