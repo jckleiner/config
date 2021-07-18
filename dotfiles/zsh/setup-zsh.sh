@@ -9,7 +9,10 @@
 source $HOME/config/dotfiles/zsh/.log-colors.sh
 
 function symlink_zshrc() {
-    if ! [ -f ~/config/dotfiles/zsh/.zshrc ]; then printf "\n${tag_error} File not found: ~/config/dotfiles/zsh/.zshrc \n"; fi
+    if ! [ -f ~/config/dotfiles/zsh/.zshrc ]; then
+        printf "\n${tag_error} File not found: ~/config/dotfiles/zsh/.zshrc \n"
+        exit 1
+    fi
 
     if [ -f ~/.zshrc ]; then
         printf "\n${tag_info} ~/.zshrc file already exists! Renaming ~/.zshrc to ~/.zshrc_OLD \n"
@@ -25,7 +28,7 @@ function symlink_zshrc() {
 if [ -n "$(echo $SHELL | grep zsh)" ]; then
     printf "\n${tag_info} zsh is already the default shell \n"
     symlink_zshrc
-    exit 0; 
+    exit 0
 fi
 
 # Determine which package manager to install the package with
