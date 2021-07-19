@@ -45,6 +45,7 @@ else printf "\n${tag_error} FAILED TO INSTALL PACKAGE: Package manager not found
 symlink_zshrc
 
 # change the default shell for the current user
+# TODO: "PAM: Authentication failure" while logged in as root on remote server???
 sudo chsh -s $(which zsh) $USER
 
 # open zsh

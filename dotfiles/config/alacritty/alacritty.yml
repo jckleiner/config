@@ -111,6 +111,30 @@ colors:
      background: '#c5c8c6'
      foreground: '#bc0d65'
 
+key_bindings:
+  # These mappings are needed for MACOS. 
+  
+  # TODO these do not work...
+  - { key: Q,        mods: Alt,     chars: "@" }
+  - { key: Equals,    mods: Alt,     chars: "|" }
+
+  - { key: Key0,     mods: Alt,     chars: "}" }
+  - { key: Key1,     mods: Alt,     chars: ">" }
+  - { key: Key2,     mods: Alt,     chars: "£" }
+  - { key: Key3,     mods: Alt,     chars: "#" }
+  - { key: Key4,     mods: Alt,     chars: "$" }
+  - { key: Key5,     mods: Alt,     chars: "½" }
+  - { key: Key6,     mods: Alt,     chars: "§" }
+  - { key: Key7,     mods: Alt,     chars: "{" }
+  - { key: Key8,     mods: Alt,     chars: "[" }
+  - { key: Key9,     mods: Alt,     chars: "]" }
+
+  - { key: Up,       mods: Alt,     chars: "" }
+  - { key: Down,     mods: Alt,     chars: "" }
+  - { key: Left,     mods: Alt,     chars: "" }
+  - { key: Right,    mods: Alt,     chars: "" }
+
+
   # Keyboard hints
   #hints:
     # Fist character in the hint label
