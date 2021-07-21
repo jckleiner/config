@@ -15,3 +15,7 @@ export tag_error="${color_error} ERROR ${color_default}"
 # SSH
 export color_blue=$'\e[48;2;0;95;175m\e[38;2;225;225;225m' # white on DeepSkyBlue4
 export tag_ssh="${color_blue} SSH ${color_default}"
+
+# TODO
+export color_red=$'\e[48;2;255;0;0m\e[38;2;225;225;225m' # white on red
+export tag_root="${color_red} ROOT ${color_default}"

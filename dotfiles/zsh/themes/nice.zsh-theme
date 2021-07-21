@@ -99,13 +99,15 @@ function last_exit_code() {
   fi 
 }
 
-function is_ssh() {
+# https://unix.stackexchange.com/questions/9605/how-can-i-detect-if-the-shell-is-controlled-from-ssh
+function is_ssh_connection() {
   p=${1:-$PPID}
   read pid name x ppid y < <( cat /proc/$p/stat )
   # or: read pid name ppid < <(ps -o pid= -o comm= -o ppid= -p $p) 
-  [[ "$name" =~ sshd ]] && { echo "Is SSH : $pid $name"; return 0; }
-  [ "$ppid" -le 1 ]     && { echo "Adam is $pid $name";  return 1; }
-  is_ssh $ppid
+  # echo "Is SSH : $pid $name";
+  [[ "$name" =~ sshd ]] && { return 0; }
+  [ "$ppid" -le 1 ]     && { return 1; }
+  is_ssh_connection $ppid
 }
 
 # If: 
@@ -125,8 +127,11 @@ function _user_host() {
   user_name="%{$fg_bold[$user_name_color]%}%n%{$reset_color%}"
 
   # display an 'SSH' text, user and host when connected with ssh
-  # if [[ -n $SSH_CONNECTION ]]; then
-  if is_ssh; then
+  # if [[ -n $SSH_CONNECTION ]]; then -> does not always work, when switching user for example
+  if is_ssh_connection; then
+    if [[ $USER = "root" ]]; then
+      echo "${tag_root} ${tag_ssh} [$user_name - $host_machine] "; return;
+    fi
     echo "${tag_ssh} [$user_name - $host_machine] "
   # display user if it is not the 'main' user
   elif [[ $_MAIN_USER != $USER ]]; then
