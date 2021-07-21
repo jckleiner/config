@@ -99,6 +99,15 @@ function last_exit_code() {
   fi 
 }
 
+function is_ssh() {
+  p=${1:-$PPID}
+  read pid name x ppid y < <( cat /proc/$p/stat )
+  # or: read pid name ppid < <(ps -o pid= -o comm= -o ppid= -p $p) 
+  [[ "$name" =~ sshd ]] && { echo "Is SSH : $pid $name"; return 0; }
+  [ "$ppid" -le 1 ]     && { echo "Adam is $pid $name";  return 1; }
+  is_ssh $ppid
+}
+
 # If: 
 #   1. Connected through SSH: print colored [$user_name - $host_machine]
 #   2. Local, $_MAIN_USER global env is set and logged in on a different user than the $_MAIN_USER:  print [$user_name]
@@ -116,7 +125,8 @@ function _user_host() {
   user_name="%{$fg_bold[$user_name_color]%}%n%{$reset_color%}"
 
   # display an 'SSH' text, user and host when connected with ssh
-  if [[ -n $SSH_CONNECTION ]]; then
+  # if [[ -n $SSH_CONNECTION ]]; then
+  if is_ssh; then
     echo "${tag_ssh} [$user_name - $host_machine] "
   # display user if it is not the 'main' user
   elif [[ $_MAIN_USER != $USER ]]; then
