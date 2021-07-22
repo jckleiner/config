@@ -34,11 +34,11 @@ fi
 # Determine which package manager to install the package with
 packagesNeeded='zsh'
 if [ -x "$(command -v apk)" ];          then sudo apk add --no-cache $packagesNeeded
-elif [ -x "$(command -v apt-get)" ];    then sudo apt-get install $packagesNeeded
-elif [ -x "$(command -v dnf)" ];        then sudo dnf install $packagesNeeded
-elif [ -x "$(command -v yum)" ];        then sudo yum install $packagesNeeded
-elif [ -x "$(command -v zypper)" ];     then sudo zypper install $packagesNeeded
-elif [ -x "$(command -v packman)" ];    then sudo pacman -S $packagesNeeded
+elif [ -x "$(command -v apt-get)" ];    then sudo apt-get -y install $packagesNeeded
+elif [ -x "$(command -v dnf)" ];        then sudo dnf -y install $packagesNeeded
+elif [ -x "$(command -v yum)" ];        then sudo yum -y install $packagesNeeded
+elif [ -x "$(command -v zypper)" ];     then sudo zypper -n install $packagesNeeded
+elif [ -x "$(command -v packman)" ];    then sudo pacman -S --noconfirm $packagesNeeded
 elif [ -x "$(command -v brew)" ];       then sudo brew install $packagesNeeded
 else printf "\n${tag_error} FAILED TO INSTALL PACKAGE: Package manager not found.\n"; fi
 
