@@ -128,15 +128,15 @@ function _user_host() {
 
   # display an 'SSH' text, user and host when connected with ssh
   # if [[ -n $SSH_CONNECTION ]]; then -> does not always work, when switching user for example
-  # if is_ssh_connection; then
-  #   # if [[ $USER = "root" ]]; then
-  #   #   echo "${tag_root} ${tag_ssh} [$user_name - $host_machine] "; return;
-  #   # fi
-  #   echo "${tag_ssh} [$user_name - $host_machine] "
-  # # display user if it is not the 'main' user
-  # elif [[ $_MAIN_USER != $USER ]]; then
-  #   echo "[$user_name - $host_machine] "
-  # fi
+  if is_ssh_connection; then
+    # if [[ $USER = "root" ]]; then
+    #   echo "${tag_root} ${tag_ssh} [$user_name - $host_machine] "; return;
+    # fi
+    echo "${tag_ssh} [$user_name - $host_machine] "
+  # display user if it is not the 'main' user
+  elif [[ $_MAIN_USER != $USER ]]; then
+    echo "[$user_name - $host_machine] "
+  fi
 }
 
 _current_dir="%{$fg_bold[black]%}%d%{$reset_color%}"
