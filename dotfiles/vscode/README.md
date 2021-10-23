@@ -8,6 +8,46 @@
 ### Enable Key Repeat
 `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
 
+### Disable Breadcrumbs
+
+
+### Some important Keybinds
+#### Same in VScode and IntelliJ
+* move between tabs: `Ctrl+right/left arrow`
+* go back/forward (last cursor): `Option+Cmd+right/left arrow`
+* go to definition/usage: `Cmd+U`
+* Toggle Terminal: `Cmd+t`
+* Open path of currently focused file in terminal: `Ctrl+Cmd+t`
+* Re-open closed tab: `Shift+Cmd+t`
+
+* TODO: Fold Open/Close current block?
+* TODO: Close all methods etc.
+* TODO: Close all methods etc.
+
+
+#### IntelliJ only
+* Surround with: `Shift+Cmd+w`
+* Search for string in project: `Shift+Cmd+f`
+* Search for types: `Cmd+o`
+* Search for files (file names): `Shift+Cmd+o`
+* Search for actions: `Shift+Cmd+a`
+* Search for ALL: `shift, shift`
+
+* TODO: move to test
+
+### Plugins
+ * Auto Rename Tag
+ * Better Jinja
+ * Docker
+ * ESLint
+ * GitLens
+ * IDEA like light Theme
+ * Intellij IDEA light theme
+ * Live Server
+ * Remote - SSH
+ * Remote - SSH: Editing Conf
+ * Vagrant
+ * Webstorm Icon Theme
 ### TODO
  * vim
  * automate key repeat enable

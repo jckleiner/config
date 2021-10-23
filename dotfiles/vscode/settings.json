@@ -197,6 +197,27 @@
         ]
       },
     },
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "vetur.experimental.templateInterpolationService": true,
+    "yaml.customTags": [
+      "!encrypted/pkcs1-oaep scalar",
+      "!vault scalar"
+    ],
+    "breadcrumbs.enabled": false,
+    "liveServer.settings.donotVerifyTags": true,
+    "vetur.validation.templateProps": true,
+    "redhat.telemetry.enabled": false,
+
+    /* VIM */
+    "editor.lineNumbers": "relative",
+    "vim.leader": "<Space>",
+    
+    /* Easymotion */
+    "vim.easymotion": "true",
+    "vim.easymotionMarkerFontSize": "22",
+    "vim.easymotionMarkerForegroundColorOneChar": "blue",
+    "vim.easymotionMarkerForegroundColorTwoChar": "blue"
+    
+    /* TODO Surround */
 
 }
