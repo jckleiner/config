@@ -127,13 +127,13 @@ d() {
     # Default - when no arguments passed. Taken from https://stackoverflow.com/questions/46173298/how-to-sort-or-order-results-docker-ps-format
     # command docker ps --format "{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}" \
 
-    local color_column_1="\033[1;32m"
-    local color_column_2="\033[01;38;5;95;38;5;196m"
-    local color_column_3="\033[00m\033[38;2;0;175;255m"
+    local color_column_1="\033[38;2;78;78;78m"
+    local color_column_2="\033[38;2;95;135;175m"
+    local color_column_3="\033[00m\033[38;2;78;78;78m"
 
     command docker ps --format "{{.ID}}\t{{.Names}}\t{{.Ports}}" \
         | (echo -e "CONTAINER_ID\tNAMES\tPORTS" && cat) \
-        | awk '{printf "\033[1;32m%s\t\033[01;38;5;95;38;5;196m%s\t\033[00m\033[38;2;0;175;255m%s %s %s %s %s %s %s %s\033[00m\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10;}' \
+        | awk '{printf "\033[38;2;78;78;78m%s\t\033[38;2;95;135;175m%s\t\033[00m\033[38;2;78;78;78m%s %s %s %s %s %s %s %s\033[00m\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10;}' \
         | column -s$'\t' -t \
         | awk 'NR<2{print $0;next}{print $0 | "sort --key=2"}'
 
