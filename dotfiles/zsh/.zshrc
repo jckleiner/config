@@ -116,6 +116,16 @@ fbr() {
 }
 
 ### Docker - TODO
+alias dc="docker-compose up -d"
+alias dcd="docker-compose down --remove-orphans"
+alias dcr="docker-compose down --remove-orphans && docker-compose up -d"
+
+# TODO docker kill?
+dk() {}
+
+# TODO docker kill all?
+dka() {}
+
 d() {
     # $1 - first argument, $2 - second argument and so on...
     # TODOs
@@ -131,13 +141,19 @@ d() {
     local color_column_2="\033[38;2;95;135;175m"
     local color_column_3="\033[00m\033[38;2;175;135;215m"
 
-    command docker ps --format "{{.ID}}\t{{.Names}}\t{{.Ports}}" \
-        | (echo -e "CONTAINER_ID\tNAMES\tPORTS" && cat) \
-        | awk '{printf "\033[38;2;78;78;78m%s\t\033[38;2;95;135;175m%s\t\033[00m\033[38;2;175;135;215m%s %s %s %s %s %s %s %s\033[00m\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10;}' \
-        | column -s$'\t' -t \
-        | awk 'NR<2{print $0;next}{print $0 | "sort --key=2"}'
+    # TODO make this cleaner
 
-        # [48;2;0;175;255m      48; background
-        # [38;2;225;225;225m    38; foreground
-
+    if [[ "$@" == "a" ]]; then
+        command docker ps --all --format "{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}" \
+            | (echo -e "CONTAINER_ID\tNAMES\tIMAGE\tPORTS\tSTATUS" && cat) \
+            | awk '{printf "\033[1;32m%s\t\033[01;38;5;95;38;5;196m%s\t\033[00m\033[1;34m%s\t\033[01;90m%s %s %s %s %s %s %s\033[00m\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10;}' \
+            | column -s$'\t' -t \
+            | awk 'NR<2{print $0;next}{print $0 | "sort --key=2"}'
+    else
+        command docker ps --format "{{.ID}}\t{{.Names}}\t{{.Ports}}" \
+            | (echo -e "CONTAINER_ID\tNAMES\tPORTS" && cat) \
+            | awk '{printf "\033[38;2;78;78;78m%s\t\033[38;2;95;135;175m%s\t\033[00m\033[38;2;175;135;215m%s %s %s %s %s %s %s %s\033[00m\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10;}' \
+            | column -s$'\t' -t \
+            | awk 'NR<2{print $0;next}{print $0 | "sort --key=2"}'
+    fi
 }
