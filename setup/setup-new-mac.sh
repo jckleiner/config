@@ -41,6 +41,7 @@ function installCliPrograms() {
         neofetch
         tmux
         terminal-notifier
+        n
     )
 
     brew install ${cli_programs[@]}

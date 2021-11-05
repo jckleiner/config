@@ -40,6 +40,7 @@ By the setup-script automatically installed programs:
   - slack
   - notion
   - anki
+  - n (Interactively Manage Your Node.js Versions)
 
 Programs which need to be manually installed:
   - install font consolas.ttf https://github.com/tsenart/sight/blob/master/fonts/Consolas.ttf
@@ -147,7 +148,7 @@ Step 6: Confirm current version of Java
 
   Which files to import can be controlled in `~/.nanorc` for an individual user.
 
-### Mac Fuckedup Keyboard layout, switch `"` and `<` 
+### Mac Fucked up Keyboard layout, switch `"` and `<` 
   The fix for this is to run the Keyboard Setup Assistant again. Sometimes there is a button for "Change Keyboard Type" visible in "System Preferences/Keyboard".
 
   1. If not, you can try trashing the file `/Library/Preferences/com.apple.keyboardtype.plist` and restarting your machine.

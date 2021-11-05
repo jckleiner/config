@@ -198,15 +198,18 @@
       },
     },
     "security.workspace.trust.untrustedFiles": "open",
-    "vetur.experimental.templateInterpolationService": true,
     "yaml.customTags": [
       "!encrypted/pkcs1-oaep scalar",
       "!vault scalar"
     ],
     "breadcrumbs.enabled": false,
     "liveServer.settings.donotVerifyTags": true,
-    "vetur.validation.templateProps": true,
     "redhat.telemetry.enabled": false,
+    
+    
+    /* Vetur */
+    "vetur.validation.templateProps": true,
+    "vetur.experimental.templateInterpolationService": true,
 
     /* VIM */
     "editor.lineNumbers": "relative",

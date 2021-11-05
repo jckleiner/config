@@ -104,8 +104,26 @@ If the root folder should be hidden/removed from the workspace:
  "update resources" vs "update classes and resource" for a spring module:
  If the second option is selected, on reload spring will not be able to find certain beans!
 
+## Execute maven goals after/before a build/rebuild
+When intellij builds the project, it only generates the byte code for the project. It DOES NOT generate a .jar file when you do a `Build -> Build/Rebuild Project`.
+In order to assign mvn goals to this build trigger:
+ 1. On the right hand side, click `Maven`
+ 2. Select a Lifecycle or Plugin goal to be executed before/after a build/rebuild
+
+### IntelliJ not detecting maven project
+Close or switch to another projetc. Open the project files, delete the `.idea` folder and then open the maven project again.
+
+### Auto commenting line has a weird indentation
+Preferences >> Editor >> Code Style >> java >> Under "Comment Code" only enable "Add space..." 
+Preferences >> Editor >> Code Style >> HTML + XML >> Code Generation >> disable both boxes
+
+### Remove unused imports automatically
+Editor > General > Auto Import > check "optimize imports on the fly"
+
 ## TODO
  
+ * Opening a new project (in a new window) results in some configuration to be lost?
+      How can I configure IntelliJ globally?
  * Log font size and line wrapping
  * Some settings are not migrated over when creating a new project? Why?
  * Disable Tooltip for only HTML -> Probably it can only be turned off completely.

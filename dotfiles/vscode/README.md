@@ -35,6 +35,10 @@
 
 * TODO: move to test
 
+#### VScode only
+* Open settings: `Cmd+,`
+* Open keyboard shortcuts: `Cmd+K, S`
+
 ### Plugins
  * Auto Rename Tag
  * Better Jinja

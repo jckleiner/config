@@ -33,12 +33,12 @@ limelight --config ~/.config/limelight/limelightrc
 less delay when switching spaces
 disable "Automatically rearrange spaces..."
 
-// Will automatically start Yabai when computer starts
-brew services start yabai
-// STOP yabai
-brew services stop yabai
-// Will automatically start skhd when computer starts
-brew services start skhd
+### Will automatically start Yabai when computer starts
+`brew services start yabai`
+### Restart/Stop yabai
+`brew services restart/stop yabai`
+### Will automatically start skhd when computer starts
+`brew services start skhd`
 
 ## Some issues
   `skhd` not working after sleep because secure keyboard bla: https://github.com/koekeishiya/skhd/issues/48

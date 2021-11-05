@@ -596,12 +596,12 @@
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_if",
                                         "input_sources": [
                                             {
                                                 "language": "tr"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_if"
                                     }
                                 ],
                                 "from": {
@@ -610,7 +610,9 @@
                                 "to": [
                                     {
                                         "key_code": "8",
-                                        "modifiers": ["shift"]
+                                        "modifiers": [
+                                            "shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -623,12 +625,12 @@
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_if",
                                         "input_sources": [
                                             {
                                                 "language": "tr"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_if"
                                     }
                                 ],
                                 "from": {
@@ -642,7 +644,9 @@
                                 "to": [
                                     {
                                         "key_code": "7",
-                                        "modifiers": ["option"]
+                                        "modifiers": [
+                                            "option"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -655,12 +659,12 @@
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_if",
                                         "input_sources": [
                                             {
                                                 "language": "tr"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_if"
                                     }
                                 ],
                                 "from": {
@@ -674,7 +678,9 @@
                                 "to": [
                                     {
                                         "key_code": "8",
-                                        "modifiers": ["option"]
+                                        "modifiers": [
+                                            "option"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -687,12 +693,12 @@
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_if",
                                         "input_sources": [
                                             {
                                                 "language": "tr"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_if"
                                     }
                                 ],
                                 "from": {
@@ -701,7 +707,9 @@
                                 "to": [
                                     {
                                         "key_code": "9",
-                                        "modifiers": ["shift"]
+                                        "modifiers": [
+                                            "shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -714,12 +722,12 @@
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_if",
                                         "input_sources": [
                                             {
                                                 "language": "tr"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_if"
                                     }
                                 ],
                                 "from": {
@@ -733,7 +741,9 @@
                                 "to": [
                                     {
                                         "key_code": "0",
-                                        "modifiers": ["option"]
+                                        "modifiers": [
+                                            "option"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -746,12 +756,12 @@
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_if",
                                         "input_sources": [
                                             {
                                                 "language": "tr"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_if"
                                     }
                                 ],
                                 "from": {
@@ -765,7 +775,9 @@
                                 "to": [
                                     {
                                         "key_code": "9",
-                                        "modifiers": ["option"]
+                                        "modifiers": [
+                                            "option"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -778,12 +790,12 @@
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_if",
                                         "input_sources": [
                                             {
                                                 "language": "tr"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_if"
                                     }
                                 ],
                                 "from": {
@@ -792,7 +804,9 @@
                                 "to": [
                                     {
                                         "key_code": "7",
-                                        "modifiers": ["shift"]
+                                        "modifiers": [
+                                            "shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -805,12 +819,12 @@
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_if",
                                         "input_sources": [
                                             {
                                                 "language": "tr"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_if"
                                     }
                                 ],
                                 "from": {
@@ -824,7 +838,9 @@
                                 "to": [
                                     {
                                         "key_code": "close_bracket",
-                                        "modifiers": ["option"]
+                                        "modifiers": [
+                                            "option"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
