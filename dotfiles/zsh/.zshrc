@@ -129,11 +129,11 @@ d() {
 
     local color_column_1="\033[38;2;78;78;78m"
     local color_column_2="\033[38;2;95;135;175m"
-    local color_column_3="\033[00m\033[38;2;78;78;78m"
+    local color_column_3="\033[00m\033[38;2;175;135;215m"
 
     command docker ps --format "{{.ID}}\t{{.Names}}\t{{.Ports}}" \
         | (echo -e "CONTAINER_ID\tNAMES\tPORTS" && cat) \
-        | awk '{printf "\033[38;2;78;78;78m%s\t\033[38;2;95;135;175m%s\t\033[00m\033[38;2;78;78;78m%s %s %s %s %s %s %s %s\033[00m\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10;}' \
+        | awk '{printf "\033[38;2;78;78;78m%s\t\033[38;2;95;135;175m%s\t\033[00m\033[38;2;175;135;215m%s %s %s %s %s %s %s %s\033[00m\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10;}' \
         | column -s$'\t' -t \
         | awk 'NR<2{print $0;next}{print $0 | "sort --key=2"}'
 
