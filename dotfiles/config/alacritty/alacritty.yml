@@ -45,50 +45,64 @@ live_config_reload: true
 
 shell: # https://github.com/alacritty/alacritty/issues/1672
   program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux attach || tmux"
+  # args:
+    # - -l
+    # - -c
+    # - "tmux attach || tmux"
 
-background_opacity: 0.95
+background_opacity: 0.97
 
-# Colors (Tomorrow Night)
+# Colors (Tomorrow Night) --- LIGHT THEME
+# colors:
+#   primary:
+#     background: '#ffffff'
+#     foreground: '#000000'
+#   normal:
+#     black:   '#202020'
+#     red:     '#c91b00'
+#     green:   '#00c200'
+#     yellow:  '#c7c400'
+#     blue:    '#0225c7'
+#     magenta: '#c930c7'
+#     cyan:    '#00c5c7'
+#     white:   '#c7c7c7'
+#   bright:
+#    black:   '#666666'
+#    red:     '#d54e53'
+#    green:   '#01e801'
+#    yellow:  '#fefb67'
+#    blue:    '#6871ff'
+#    magenta: '#ff76ff'
+#    cyan:    '#5ffdff'
+#    white:   '#eaeaea'
+
+# Colors (Custom) --- DARK THEME
 colors:
-  # Default colors
   primary:
-    background: '#feffff'
-    foreground: '#000000'
-
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not
-    # present. If the bright foreground color is not set, or
-    # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
-    # color will be used.
-    #dim_foreground: '#828482'
-    #bright_foreground: '#eaeaea'
-
-  # Normal colors
+    background: '#3e4657'
+    # background: '#3e4657'
+    # background: '#373e4d'
+    foreground: '#ffffff'
   normal:
-    black:   '#202020'
-    red:     '#c91b00'
-    green:   '#00c200'
-    yellow:  '#c7c400'
-    blue:    '#0225c7'
-    magenta: '#c930c7'
-    cyan:    '#00c5c7'
-    white:   '#c7c7c7'
-
-  # Bright colors
+    black:   '#3B4252'
+    red:     '#ff7881'
+    green:   '#a1c97d'
+    yellow:  '#f7cf60'
+    blue:    '#a3b4ff'
+    magenta: '#d7afd7'
+    cyan:    '#88C0D0'
+    white:   '#ffffff'
   bright:
-   black:   '#666666'
-   red:     '#d54e53'
-   green:   '#01e801'
-   yellow:  '#fefb67'
-   blue:    '#6871ff'
-   magenta: '#ff76ff'
-   cyan:    '#5ffdff'
-   white:   '#eaeaea'
+    black:   '#4C566A'
+    red:     '#BF616A'
+    green:   '#A3BE8C'
+    yellow:  '#EBCB8B'
+    blue:    '#81A1C1'
+    magenta: '#B48EAD'
+    cyan:    '#8FBCBB'
+    white:   '#ECEFF4'
+
+
 
   # Vi mode cursor colors
   #

@@ -116,15 +116,17 @@ fbr() {
 }
 
 ### Minifabric
-alias mfu="minifab up --expose-endpoints"
+# Expose endpoints: -e 9000
+alias mfu="minifab up"
+alias mfe="minifab explorerup"
 alias mfd="minifab down"
 alias mfc="minifab cleanup"
 alias mfdc="minifab down && minifab cleanup"
 
 ### Docker - TODO
-alias dc="docker-compose up -d"
+alias dcu="docker-compose up -d"
 alias dcd="docker-compose down --remove-orphans"
-alias dcr="docker-compose down --remove-orphans && docker-compose up -d"
+alias dcdu="docker-compose down --remove-orphans && docker-compose up -d"
 
 # TODO docker kill?
 dk() {}

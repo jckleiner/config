@@ -141,7 +141,9 @@ function _user_host() {
   # fi
 }
 
-_current_dir="%{$fg_bold[black]%}%d%{$reset_color%}"
+color_dark_mode_bold="%{$fg_bold[magenta]%}"
+color_light_mode_bold="%{$fg_bold[black]%}"
+_current_dir="$color_dark_mode_bold%d%{$reset_color%}"
 
 PROMPT='
 $(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_changed)$(git_status_ahead)$(git_status_behind)
