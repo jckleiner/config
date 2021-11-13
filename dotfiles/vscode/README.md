@@ -40,13 +40,13 @@
 * Open keyboard shortcuts: `Cmd+K, S`
 
 ### Plugins
+ * Light Theme: IDEA like light Theme
+ * Dark Theme: TODO
  * Auto Rename Tag
  * Better Jinja
  * Docker
  * ESLint
  * GitLens
- * IDEA like light Theme
- * Intellij IDEA light theme
  * Live Server
  * Remote - SSH
  * Remote - SSH: Editing Conf

@@ -17,7 +17,9 @@
         //"window.activeBorder": "#ff0000"
     },
 
-    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontFamily": "Monaco Nerd Font",
+
     "explorer.compactFolders": true,
 
     "extensions.ignoreRecommendations": false,
@@ -36,9 +38,6 @@
         },
         "editor.suggest.insertMode": "replace"
     },
-
-    /* THEME */
-    "workbench.colorTheme": "IDEA like light Theme",
     // "workbench.colorTheme": "Idea intellij light theme",
 
     /* CUSTOM COLORS */
@@ -219,7 +218,8 @@
     "vim.easymotion": "true",
     "vim.easymotionMarkerFontSize": "22",
     "vim.easymotionMarkerForegroundColorOneChar": "blue",
-    "vim.easymotionMarkerForegroundColorTwoChar": "blue"
+    "vim.easymotionMarkerForegroundColorTwoChar": "blue",
+    "workbench.colorTheme": "GitHub Dark Dimmed"
     
     /* TODO Surround */
 
