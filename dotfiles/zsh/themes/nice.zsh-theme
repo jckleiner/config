@@ -141,13 +141,22 @@ function _user_host() {
   # fi
 }
 
+# \e[1mbold\e[0m
+
 color_dark_mode_bold="%{$fg_bold[magenta]%}"
 color_light_mode_bold="%{$fg_bold[black]%}"
 _current_dir="$color_dark_mode_bold%d%{$reset_color%}"
 
+# PROMPT='$fg_bold[blue][ $fg[red]%t $fg_bold[blue]] $fg_bold[blue] [ $fg[red]%n@%m:%~$(git_prompt_info)$fg[yellow]$(rvm_prompt_info)$fg_bold[blue] ]$reset_color 
+# $ '
+
 PROMPT='
 $(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_changed)$(git_status_ahead)$(git_status_behind)
 %{%F{white}%}▶%{$reset_color%} '
+
+# PROMPT='
+# $(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_changed)$(git_status_ahead)$(git_status_behind)
+# %{%F{white}%}▶%{$reset_color%} '
 
 PROMPT2='%{%F{red}%}◀%{$reset_color%} '
 
