@@ -130,14 +130,20 @@ colors:
 
   search:
     matches:
-     foreground: '#ffffff'
-     background: '#e3a3c3'
+    #  foreground: '#ffffff' # for light themes
+    #  background: '#e3a3c3'
+     foreground: '#e3a3c3' # for dark themes
+     background: '#ffffff' 
     focused_match:
      foreground: '#ffffff'
-     background: '#bc0d65'
+    #  background: '#bc0d65' # for light themes
+     background: '#ff7881' # for dark themes
     bar:
-     background: '#c5c8c6'
-     foreground: '#bc0d65'
+    #  background: '#c5c8c6' # for light themes
+    #  foreground: '#bc0d65' # for light themes
+
+     background: '#ffffff' # for dark themes
+     foreground: '#000000' # for dark themes
 
 key_bindings:
   # These mappings are needed for MACOS. 

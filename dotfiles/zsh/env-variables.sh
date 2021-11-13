@@ -44,11 +44,14 @@ else
 fi
 
 export FZF_CTRL_R_OPTS="--reverse --height 40%"
-export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#d1d1d1,gutter:-1,pointer:#bc0d65,info:#bc0d65,hl:#bc0d65,hl+:#bc0d65'
+# export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#d1d1d1,gutter:-1,pointer:#bc0d65,info:#bc0d65,hl:#bc0d65,hl+:#bc0d65' # For light themes
+export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#d1d1d1,gutter:-1,pointer:#ff7881,info:#ff7881,hl:#ff7881,hl+:#ff7881' # For dark themes
 
 #######################################################################################################################
 
-export BAT_THEME="GitHub"
+# Bat Themes - use 'bat --list-themes' to see all themes
+# export BAT_THEME="GitHub"     # For light terminal themes
+export BAT_THEME="ansi"         # For dark terminal themes
 
 # lf icons requires a nerd font to be used in the terminal
 export LF_ICONS="\
