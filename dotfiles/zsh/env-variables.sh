@@ -45,7 +45,7 @@ fi
 
 export FZF_CTRL_R_OPTS="--reverse --height 40%"
 # export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#d1d1d1,gutter:-1,pointer:#bc0d65,info:#bc0d65,hl:#bc0d65,hl+:#bc0d65' # For light themes
-export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#d1d1d1,gutter:-1,pointer:#ff7881,info:#ff7881,hl:#ff7881,hl+:#ff7881' # For dark themes
+export FZF_DEFAULT_OPTS='--no-height --color=fg+:#000000,bg+:#ffffff,gutter:-1,pointer:#ff7881,info:#ff7881,hl:#ff7881,hl+:#ff7881' # For dark themes
 
 #######################################################################################################################
 

@@ -274,6 +274,8 @@ Also if you restart then the preferences should be updated (didn't test it).
 
 ### Firefox
   - Change theme to white: Preferences -> Extension and themes -> Light
+  - Disable search suggestions: Preferences -> Search -> Search Suggestions (disable)
+  - Url autocomplete: `about:config` -> browser.urlbar.autoFill -> true
   - Import bookmarks: Shift + Command + B -> Up/Down icon
   - Make Firefox the default browser: Preferences -> General
   - Open tab not at the end of the bar but after currently open tab: about:config -> 'curr' -> .insertAfterCurrent and .insertRelatedAfterCurrent true
