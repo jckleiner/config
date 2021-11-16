@@ -237,9 +237,9 @@
             "isWholeLine": false,
         },
         {
-            "text": "TODO:",
-            "color": "red",
-            "border": "1px solid red",
+            "text": "BLABLA",
+            "color": "deepskyblue",
+            "border": "2px solid deepskyblue",
             "borderRadius": "4px", //NOTE: using borderRadius along with `border` or you will see nothing change
             "backgroundColor": "rgba(0,0,0,.2)",
             //other styling properties goes here ... 
@@ -247,14 +247,15 @@
     ],
     "todohighlight.keywordsPattern": "TODO|FIXME",
     "todohighlight.defaultStyle": {
-        "color": "red",
-        "backgroundColor": "#ffab00",
-        "overviewRulerColor": "#ffab00",
+        "color": "white",
+        "backgroundColor": "deepskyblue",
+        "overviewRulerColor": "deepskyblue",
         "cursor": "pointer",
-        "border": "1px solid #eee",
-        "borderRadius": "2px",
-        "isWholeLine": false,
-        //other styling properties goes here ... 
+        "font-weight": "bold",
+        "padding": "3px",
+        "border": "2px solid deepskyblue",
+        "borderRadius": "4px",
+        "isWholeLine": false
     },
     "todohighlight.include": [
         "**/*.js",
