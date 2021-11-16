@@ -33,7 +33,6 @@ function installCliPrograms() {
         node
         maven
         nano
-        trash-cli
         bat
         fd
         neovim
@@ -45,6 +44,12 @@ function installCliPrograms() {
     )
 
     brew install ${cli_programs[@]}
+
+    # Other packages
+
+    # trash-cli (https://github.com/sindresorhus/trash). Cross-platform Node.js version
+    # It uses macos-trash under the hood (https://github.com/sindresorhus/macos-trash). Which could also be installed with brew
+    npm install --global trash-cli 
 
     # maven have openjdk-15 as a denepdency?
     # Maven should not download another jdk:

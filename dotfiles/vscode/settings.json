@@ -220,7 +220,7 @@
     "vim.easymotionMarkerForegroundColorTwoChar": "blue",
     "workbench.colorTheme": "IDEA like light Theme",
     
-    /* TODO Highlight */
+    /* "TODO Highlight" Extension */
     // see VsCode API for all options: https://code.visualstudio.com/api/references/vscode-api
     "todohighlight.isEnable": true,
     "todohighlight.isCaseSensitive": false,
@@ -282,7 +282,14 @@
         "**/.next/**"
     ],
     "todohighlight.maxFilesForSearch": 5120,
-    "todohighlight.toggleURI": false
+    "todohighlight.toggleURI": false,
+
+
+    /* Kanban Board */
+    // TODO.md, 
+    "coddx.taskBoard.fileList": "TODO-technical.md, TODO-work.md"
+
+
 
     /* TODO Surround */
 

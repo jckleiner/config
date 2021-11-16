@@ -38,7 +38,8 @@ lfcd () {
     fi
 }
 
-# trash-cli - https://github.com/andreafrancia/trash-cli, trash goes to ~/.local/share/Trash/
+# trash-cli (Cross-platform Node.js version) - https://github.com/sindresorhus/trash-cli, trash goes directyl to your bin (on MacOs)
+# it uses macos-trash under the hood (https://github.com/sindresorhus/macos-trash).
 # Note that aliases are used only in interactive shells, so using this alias should not interfere with scripts that expect to use rm.
 # only if trash is installed
 if [ -n "$(command -v trash)" ]; then 
