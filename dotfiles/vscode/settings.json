@@ -253,7 +253,7 @@
         "backgroundColor": "ffffff",
         "overviewRulerColor": "deepskyblue",
         "cursor": "pointer",
-        "fontWeight": "bold",
+        "fontWeight": "500",
         "borderSpacing": "10px", // doesnt seem to be working
         "border": "1px solid deepskyblue",
         "borderRadius": "4px",
