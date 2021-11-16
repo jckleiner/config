@@ -256,8 +256,8 @@
         "fontWeight": "500",
         "borderSpacing": "10px", // doesnt seem to be working
         "border": "1px solid deepskyblue",
-        "borderRadius": "4px",
-        "isWholeLine": false
+        // "borderRadius": "4px", // when "isWholeLine": false
+        "isWholeLine": true
     },
     "todohighlight.include": [
         "**/*.js",
