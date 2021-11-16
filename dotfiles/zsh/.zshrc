@@ -88,6 +88,8 @@ function somefunc() {
     # return fzf-cd-widget
 }
 
+### z
+source /usr/local/etc/profile.d/z.sh
 
 ### fzf
 

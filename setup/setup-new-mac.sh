@@ -41,6 +41,7 @@ function installCliPrograms() {
         tmux
         terminal-notifier
         n
+        z
     )
 
     brew install ${cli_programs[@]}
