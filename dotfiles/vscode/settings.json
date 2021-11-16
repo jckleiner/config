@@ -220,6 +220,8 @@
     "vim.easymotionMarkerForegroundColorTwoChar": "blue",
     "workbench.colorTheme": "IDEA like light Theme",
     
+    /* TODO Highlight */
+    // see VsCode API for all options: https://code.visualstudio.com/api/references/vscode-api
     "todohighlight.isEnable": true,
     "todohighlight.isCaseSensitive": false,
     "todohighlight.keywords": [
@@ -247,13 +249,13 @@
     ],
     "todohighlight.keywordsPattern": "TODO|FIXME",
     "todohighlight.defaultStyle": {
-        "color": "white",
-        "backgroundColor": "deepskyblue",
+        "color": "deepskyblue",
+        "backgroundColor": "ffffff",
         "overviewRulerColor": "deepskyblue",
         "cursor": "pointer",
-        "font-weight": "bold",
-        "padding": "3px",
-        "border": "2px solid deepskyblue",
+        "fontWeight": "bold",
+        "borderSpacing": "10px", // doesnt seem to be working
+        "border": "1px solid deepskyblue",
         "borderRadius": "4px",
         "isWholeLine": false
     },
