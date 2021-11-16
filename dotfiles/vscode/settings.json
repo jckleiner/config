@@ -1,6 +1,5 @@
 {
-    "window.zoomLevel": 0,
-    "window.reopenFolders": "all",
+  "window.reopenFolders": "all",
     "files.hotExit": "onExit",
     "window.restoreWindows": "all",
 
@@ -219,8 +218,69 @@
     "vim.easymotionMarkerFontSize": "22",
     "vim.easymotionMarkerForegroundColorOneChar": "blue",
     "vim.easymotionMarkerForegroundColorTwoChar": "blue",
-    "workbench.colorTheme": "GitHub Dark Dimmed"
+    "workbench.colorTheme": "IDEA like light Theme",
     
+    "todohighlight.isEnable": true,
+    "todohighlight.isCaseSensitive": false,
+    "todohighlight.keywords": [
+        "DEBUG:",
+        "REVIEW:",
+        {
+            "text": "NOTE:",
+            "color": "#ff0000",
+            "backgroundColor": "yellow",
+            "overviewRulerColor": "grey"
+        },
+        {
+            "text": "HACK:",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "TODO:",
+            "color": "red",
+            "border": "1px solid red",
+            "borderRadius": "4px", //NOTE: using borderRadius along with `border` or you will see nothing change
+            "backgroundColor": "rgba(0,0,0,.2)",
+            //other styling properties goes here ... 
+        }
+    ],
+    "todohighlight.keywordsPattern": "TODO|FIXME",
+    "todohighlight.defaultStyle": {
+        "color": "red",
+        "backgroundColor": "#ffab00",
+        "overviewRulerColor": "#ffab00",
+        "cursor": "pointer",
+        "border": "1px solid #eee",
+        "borderRadius": "2px",
+        "isWholeLine": false,
+        //other styling properties goes here ... 
+    },
+    "todohighlight.include": [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.html",
+        "**/*.php",
+        "**/*.css",
+        "**/*.scss"
+    ],
+    "todohighlight.exclude": [
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/.vscode/**",
+        "**/.github/**",
+        "**/_output/**",
+        "**/*.min.*",
+        "**/*.map",
+        "**/.next/**"
+    ],
+    "todohighlight.maxFilesForSearch": 5120,
+    "todohighlight.toggleURI": false
+
     /* TODO Surround */
 
 }
