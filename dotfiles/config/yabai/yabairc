@@ -79,9 +79,9 @@
     yabai -m config --space 3 layout stack
     yabai -m space --layout stack
 
-#Limelight addon (Kill it and start it each time Yabai starts)
-killall limelight &>/dev/null
-limelight &>/dev/null &
+#Limelight addon (Kill it and start it each time Yabai starts) - uncomment following lines to enable it:
+# killall limelight &>/dev/null
+# limelight &>/dev/null &
 
 # #Ubersicht widget bar stuff
 #yabai -m signal --add event=space_changed \
