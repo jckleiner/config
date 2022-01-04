@@ -42,6 +42,7 @@ function installCliPrograms() {
         terminal-notifier
         n
         z
+        ansible
     )
 
     brew install ${cli_programs[@]}
@@ -63,7 +64,6 @@ function installCliPrograms() {
     # TODO: make zsh your default shell -> and use your dotfiles from your repository.
     # TODO: nano syntax highlighting from dotfiles?
 
-    # TODO: ansible
 }
 
 function installGuiPrograms() {
@@ -82,7 +82,8 @@ function installGuiPrograms() {
         firefox
         google-chrome
         slack
-        zoom
+        zoom # requires password
+        discord
         joplin
         anki
         keepassxc
@@ -92,10 +93,9 @@ function installGuiPrograms() {
         itsycal
         alfred
         iterm2
-        # TODO wants password?
-        karabiner-elements
-        yabai
-        skhd
+        karabiner-elements # requires password
+        yabai # this comes from a private cask, might not work, see readme
+        skhd # this comes from a private cask, might not work, see readme
 
         # Development
         intellij-idea

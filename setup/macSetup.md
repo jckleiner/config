@@ -269,8 +269,10 @@ Also if you restart then the preferences should be updated (didn't test it).
   4. TODO: give permissions to calendar
 
 #### Alfred
-  * Set cmd space, but its not in the preferences?
-  * change theme
+  * Start Alfred and do the setup steps manually
+  * System Preferences > Keyboard > Shortcuts > Spotlight > Disable both
+  * Set cmd space as the key combination in alfred
+  * Change theme to 'Alfred Modern'
 
 ### Firefox
   - Change theme to white: Preferences -> Extension and themes -> Light
