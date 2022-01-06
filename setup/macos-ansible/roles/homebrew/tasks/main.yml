@@ -1,0 +1,99 @@
+---
+  - name: "Print debug message"
+    debug:
+      msg: Hello, world!
+
+
+  ## TODO - check if homebrew is already installed, if not run the script from homebrews website and then do the PATH adjustment
+
+  - name: Fail if machine is not arm64 (M1)
+    fail:
+      msg: "Only arm64 (M1) machines are supported! Yours is '{{ ansible_machine }}' based"
+    when: ansible_machine != 'arm64'
+
+  - name: Determine Homebrew ownership variables
+    set_fact:
+      homebrew_user: '{{ homebrew_user | default(ansible_user_id) }}'
+      homebrew_group: '{{ homebrew_group | default(ansible_user_gid) }}'
+
+  # Homebrew setup prerequisites.
+  # M1
+  - name: Ensure Homebrew parent directory has correct permissions (M1).
+    file:
+      path: "{{ homebrew_prefix }}"
+      owner: "{{ homebrew_user }}"
+      state: directory
+    # TODO - uncomment when done
+    # become: true
+    when: ansible_machine == 'arm64'
+
+  # Intel
+  - name: Ensure Homebrew parent directory has correct permissions (Intel).
+    block:
+      - name: Ensure Homebrew parent directory has correct permissions (MacOS >= 10.13).
+        file:
+          path: "{{ homebrew_prefix }}"
+          owner: root
+          state: directory
+        become: true
+        when: "ansible_distribution_version is version('10.13', '>=')"
+
+      - name: Ensure Homebrew parent directory has correct permissions (MacOS < 10.13).
+        file:
+          path: "{{ homebrew_prefix }}"
+          owner: root
+          group: admin
+          state: directory
+          mode: 0775
+        become: true
+        when: "ansible_distribution_version is version('10.13', '<')"
+    when: ansible_machine == 'x86_64'
+
+  - name: Ensure Homebrew directory exists.
+    file:
+      path: "{{ homebrew_install_path }}"
+      owner: "{{ homebrew_user }}"
+      group: "{{ homebrew_group }}"
+      state: directory
+      mode: 0775
+    # TODO - uncomment when done
+    # become: true
+
+  # Adjust Homebrew permissions.
+  - name: Ensure proper permissions and ownership on homebrew_brew_bin_path dirs.
+    file:
+      path: "{{ homebrew_brew_bin_path }}"
+      state: directory
+      owner: "{{ homebrew_user }}"
+      group: "{{ homebrew_group }}"
+      mode: 0775
+    # become: true
+
+  # Cask absent
+  - name: Ensure blacklisted cask applications are not installed.
+    homebrew_cask: "name={{ item }} state=absent"
+    loop: "{{ homebrew_cask_uninstalled_apps }}"
+
+  # Cask present
+  - name: Install cask applications.
+    homebrew_cask:
+      name: "{{ item.name | default(item) }}"
+      state: present
+      install_options: "{{ item.install_options | default('appdir=' + homebrew_cask_appdir) }}"
+      # What is this?
+      accept_external_apps: "{{ homebrew_cask_accept_external_apps }}"
+      sudo_password: "{{ ansible_become_password | default(omit) }}"
+    loop: "{{ homebrew_cask_apps }}"
+
+  # Brew absent
+  - name: Ensure blacklisted homebrew packages are not installed.
+    homebrew: "name={{ item }} state=absent"
+    loop: "{{ homebrew_uninstalled_packages }}"
+
+  # Brew present
+  - name: Ensure configured homebrew packages are installed.
+    homebrew:
+      name: "{{ item.name | default(item) }}"
+      install_options: "{{ item.install_options | default(omit) }}"
+      state: "{{ item.state | default('present') }}"
+    loop: "{{ homebrew_installed_packages }}"

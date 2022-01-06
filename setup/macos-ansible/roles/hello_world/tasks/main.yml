@@ -1,0 +1,8 @@
+---
+  - name: "Print debug message"
+    debug:
+      msg: Hello, world!
+
+  - name: "Print debug message"
+    debug:
+      msg: "homebrew_user: {{ homebrew_user }}, homebrew_group: {{ homebrew_group }}"

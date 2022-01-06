@@ -1,0 +1,5 @@
+---
+- name: Setup Homebrew
+  hosts: all
+  roles:
+    - homebrew

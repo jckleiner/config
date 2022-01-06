@@ -1,0 +1,6 @@
+---
+- name: "An example 'Hello World!' playbook"
+  hosts: all
+  # Checks in the directory of the playbook for a role './roles/hello_world'
+  roles:
+    - hello_world

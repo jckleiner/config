@@ -103,7 +103,6 @@ function installGuiPrograms() {
         alacritty
         sourcetree
         dbeaver-community
-        docker
         postman
         pencil # An open-source, cross-platform GUI prototyping tool
 

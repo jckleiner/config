@@ -1,0 +1,68 @@
+---
+homebrew_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
+homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
+homebrew_brew_bin_path: "{{ homebrew_prefix }}/bin"
+
+homebrew_installed_packages:
+  - tree
+  - lf
+  - wget
+  - bat
+  - fd
+  - grip
+  - neofetch
+  - node # (starting from version 16, node runs natively)
+  - n # (TODO does not show the installed version 17)
+  - jq
+
+homebrew_uninstalled_packages: []
+
+homebrew_upgrade_all_packages: false
+
+homebrew_taps:
+  - homebrew/core
+
+homebrew_cask_apps:
+    # General
+  - firefox
+  - google-chrome
+  - slack
+  - zoom # requires password
+  - discord # Rosetta
+  - joplin # Rosetta
+  - anki # Rosetta
+  - keepassxc
+
+  # Mac specific
+  - dozer # Rosetta
+  - itsycal
+  - alfred
+  - iterm2
+  - karabiner-elements # requires password
+  - hammerspoon
+
+  # Development
+  - intellij-idea
+  - visual-studio-code
+  - sourcetree # Rosetta
+  - postman
+  - dbeaver-community
+  - docker
+
+  # - yabai # install manually, see readme
+  # - skhd # install manually, see readme
+
+homebrew_cask_uninstalled_apps: []
+
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_accept_external_apps: false
+
+# Set this to your account password if casks need elevated privileges.
+# ansible_become_password: ''
+
+homebrew_use_brewfile: true
+homebrew_brewfile_dir: '~'
+
+homebrew_clear_cache: false
+
