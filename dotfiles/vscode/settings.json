@@ -287,7 +287,10 @@
 
     /* Kanban Board */
     // TODO.md, 
-    "coddx.taskBoard.fileList": "TODO-technical.md, TODO-work.md"
+    "coddx.taskBoard.fileList": "TODO-technical.md, TODO-work.md",
+    "files.exclude": {
+      "**/.DS_Store": false
+    }
 
 
 

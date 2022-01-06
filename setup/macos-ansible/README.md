@@ -24,6 +24,7 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * install ansible with pip (see jeffs repo - mac comes with pip3 and python3 already installed?)
  * trash-cli with `npm install --global trash-cli`
 
+ * remove `.DS_Store`???
 
  * zsh (setup and configure)
  * git - config
