@@ -1,10 +1,4 @@
 ---
-- name: Install dockutil.
-  community.general.homebrew:
-    name: dockutil
-    state: present
-  notify:
-    - Clear homebrew cache
 
 - name: Remove configured Dock items.
   ansible.builtin.include_tasks: dock-remove.yml
