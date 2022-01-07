@@ -218,7 +218,6 @@
     "vim.easymotionMarkerFontSize": "22",
     "vim.easymotionMarkerForegroundColorOneChar": "blue",
     "vim.easymotionMarkerForegroundColorTwoChar": "blue",
-    "workbench.colorTheme": "IDEA like light Theme",
     
     /* "TODO Highlight" Extension */
     // see VsCode API for all options: https://code.visualstudio.com/api/references/vscode-api
@@ -290,7 +289,8 @@
     "coddx.taskBoard.fileList": "TODO-technical.md, TODO-work.md",
     "files.exclude": {
       "**/.DS_Store": false
-    }
+    },
+    "workbench.colorTheme": "IDEA like light Theme"
 
 
 

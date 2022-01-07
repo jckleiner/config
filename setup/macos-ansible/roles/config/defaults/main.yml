@@ -1,0 +1,21 @@
+---
+homebrew_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
+homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
+homebrew_brew_bin_path: "{{ homebrew_prefix }}/bin"
+
+dotfiles_folder_relative_prefix: ~/config/dotfiles
+zshrc_path: ~/.zshrc
+zprofile_path: ~/.zprofile
+
+homebrew_installed_packages:
+  - dockutil
+  - tree
+  - lf
+  - wget
+  - bat
+  - fd
+  - grip
+  - neofetch
+  - node # (starting from version 16, node runs natively)
+  - n # (TODO does not show the installed version 17)
+  - jq

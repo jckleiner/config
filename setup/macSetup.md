@@ -265,8 +265,6 @@ Also if you restart then the preferences should be updated (didn't test it).
     *  `defaults write com.mowglii.ItsycalApp.plist HideIcon -bool true`
     *  `defaults write com.mowglii.ItsycalApp.plist HighlightedDOWs -int 65`
     * TODO launch at login
-  3. TODO: open it, apple says are you sure -> okay
-  4. TODO: give permissions to calendar
 
 #### Alfred
   * Start Alfred and do the setup steps manually

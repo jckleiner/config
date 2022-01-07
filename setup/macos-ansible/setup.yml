@@ -3,4 +3,5 @@
   hosts: all
   roles:
     # - homebrew
-    - dock
+    # - dock
+    - config

@@ -27,6 +27,10 @@ alias grep='grep --color=always'
 alias gss='git status -sb'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
 
+# mv will overwrite the existing file by default under MacOs
+# make it interactive so it will ask before overwriting it
+alias mv="mv -i"
+
 # Use lf to switch directories
 lfcd () {
     tmp="$(mktemp)"

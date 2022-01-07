@@ -25,14 +25,32 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * trash-cli with `npm install --global trash-cli`
 
  * remove `.DS_Store`???
- * VsCode git push does not use ssh key
+ * Itsycal - config
+    * TODO launch at login -> add this to `.zshprofile`: `open -a 'Itsycal'`
+    
+### VsCode 
+ * git push does not use ssh key
+ * Automate plugins?
 
+### zsh
+ 1. check if `.zshrc` and `.zprofile` already present
+ 2. if yes -> rename it to `.zshrc_BACKUP` `.zprofile_BACKUP`
+ 3. symlink both
+ 
  * zsh (setup and configure)
+    - `zsh --version` gives `zsh 5.8 (x86_64-apple-darwin21.0)` back. Is there an arm version?
+
+`ln -s ~/config/dotfiles/lf ~/.config/lf`
+
+karabiner -> /Users/kleiner/config/dotfiles/karabiner
+lf -> /Users/kleiner/config/dotfiles/lf
+skhd -> /Users/kleiner/config/dotfiles/skhd
+yabai -> /Users/kleiner/config/dotfiles/yabai
+
  * git - config
  * Iterm2 - config
- * Firefox - config, bookmarks, extensions
+ * Firefox - config, bookmarks, extensions, make it default browser
  * IntelliJ - config
- * Itsycal - config
  * Alfred - config
  * Maven - Has a dependency openjdk. Brew will also install Java 17
  * Snagit (AppStore)

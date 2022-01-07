@@ -1,0 +1,6 @@
+---
+  # - name: Symlink .zshrc
+  #   ansible.builtin.include_tasks: symlink-zshrc.yml
+
+  - name: Symlink .zprofile
+    ansible.builtin.include_tasks: symlink-zprofile.yml

@@ -1,6 +1,6 @@
 # zsh, oh-my-zsh
 
-Oh My ZSH is a plugin that runs on top of ZSH. It provides a default config for ZSH (`~/. zhrc` file) and also provides themes and other features.
+Oh My ZSH is a plugin that runs on top of ZSH. It provides a default config for ZSH (`~/.zhrc` file) and also provides themes and other features.
 Keep in mind, if you create a new user, the user should have a home directory. Else the zsh configurator will not start.
 
 - In order for Oh-My-Zsh to work, Zsh must be installed.

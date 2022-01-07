@@ -219,6 +219,12 @@ defaults write -g com.apple.keyboard.fnState -bool yes
 # System Prefs > Mission Control > disable "Automatically rearrange spaces"
 defaults write com.apple.dock "mru-spaces" -bool "false" && killall Dock
 
+# Itsycal
+defaults write com.mowglii.ItsycalApp.plist ClockFormat -string "H:mm - EEEE, dd.MMMM"
+defaults write com.mowglii.ItsycalApp.plist HideIcon -bool true
+defaults write com.mowglii.ItsycalApp.plist HighlightedDOWs -int 65 # highligh Day Of Weeks (Saturday and Sunday)
+
+
 # Ask the system to read the hotkey plist file and ignore the output. Likely updates an in-memory cache with the new plist values.
 defaults read com.apple.symbolichotkeys.plist > /dev/null
 

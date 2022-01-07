@@ -15,6 +15,7 @@ homebrew_installed_packages:
   - node # (starting from version 16, node runs natively)
   - n # (TODO does not show the installed version 17)
   - jq
+  - ansible-lint
 
 homebrew_uninstalled_packages: []
 
