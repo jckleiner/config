@@ -1,6 +1,12 @@
 ---
-  # - name: Symlink .zshrc
-  #   ansible.builtin.include_tasks: symlink-zshrc.yml
+  - name: Symlink .zshrc
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ zshrc_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/zsh/.zshrc"
 
   - name: Symlink .zprofile
-    ansible.builtin.include_tasks: symlink-zprofile.yml
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ zprofile_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/zsh/.zprofile"
