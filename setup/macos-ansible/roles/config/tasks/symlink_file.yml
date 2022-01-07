@@ -19,7 +19,7 @@
     when: (file_stat.stat.exists) and (file_backup_stat.stat.exists)
 
   - name: If '{{ file_path }}' exists, rename it to '{{ file_path }}_BACKUP'
-    command: mv {{ file_path }} {{ file_path }}_BACKUP
+    command: mv '{{ file_path }}' '{{ file_path }}_BACKUP'
     when: file_stat.stat.exists
 
   - name: Create symbolic link {{ file_path }} -> {{ symlink_target }}

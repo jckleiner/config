@@ -35,11 +35,28 @@
       file_path: "{{ yabai_folder_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/yabai"
 
+  - name: Ensure VsCode config folder '{{ vscode_config_folder_path }}' exists (create if it does not exist).
+    file:
+      path: "{{ vscode_config_folder_path }}"
+      state: directory
+
+  - name: Symlink vscode/settings.json
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ vscode_settings_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/vscode/settings.json"
+
+  - name: Symlink vscode/keybindings.json
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ vscode_keybindings_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/vscode/keybindings.json"
+
 
 # TODO
-# karabiner -> /Users/kleiner/config/dotfiles/karabiner
-# lf -> /Users/kleiner/config/dotfiles/lf
-# skhd -> /Users/kleiner/config/dotfiles/skhd
-# yabai -> /Users/kleiner/config/dotfiles/yabai
+# source zshrc at the end
+# Display ~/Library/ folder. Not working -> chflags nohidden ~/Library/
+# Display all . files in Finder
 
-# trash ~/.zshrc ~/.zshrc_BACKUP ~/.zprofile ~/.zprofile_BACKUP ~/.config/karabiner ~/.config/karabiner_BACKUP ~/.config/lf ~/.config/lf_BACKUP ~/.config/skhd ~/.config/skhd_BACKUP ~/.config/yabai ~/.config/yabai_BACKUP
+
+# trash ~/.zshrc ~/.zshrc_BACKUP ~/.zprofile ~/.zprofile_BACKUP ~/.config/karabiner ~/.config/karabiner_BACKUP ~/.config/lf ~/.config/lf_BACKUP ~/.config/skhd ~/.config/skhd_BACKUP ~/.config/yabai ~/.config/yabai_BACKUP ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json_BACKUP ~/Library/Application\ Support/Code/User/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json_BACKUP

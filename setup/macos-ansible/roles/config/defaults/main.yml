@@ -12,15 +12,11 @@ lf_folder_path: ~/.config/lf
 skhd_folder_path: ~/.config/skhd
 yabai_folder_path: ~/.config/yabai
 
-homebrew_installed_packages:
-  - dockutil
-  - tree
-  - lf
-  - wget
-  - bat
-  - fd
-  - grip
-  - neofetch
-  - node # (starting from version 16, node runs natively)
-  - n # (TODO does not show the installed version 17)
-  - jq
+vscode_config_folder_path: ~/Library/Application Support/Code/User
+
+vscode_settings_path: "{{ vscode_config_folder_path }}/settings.json"
+vscode_keybindings_path: "{{ vscode_config_folder_path }}/keybindings.json"
+
+# vscode_settings_path: ~/config/dotfiles/vscode/settings.json
+# vscode_keybindings_path: ~/config/dotfiles/vscode/keybindings.json
+

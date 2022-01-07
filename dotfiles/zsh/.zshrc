@@ -20,7 +20,8 @@ _cd_ls () { cd "$@" && ls -lh }
 checkport () { sudo lsof -i:$1 }
 listports () { sudo lsof -PiTCP -sTCP:LISTEN }
 # alias cd=_cd_ls
-alias lf="lfcd"
+alias lf="lf" # TODO errors
+# alias lf="lfcd" # TODO errors
 alias l='ls -lah'
 alias ll='ls -lh'
 alias grep='grep --color=always'
@@ -93,7 +94,8 @@ function somefunc() {
 }
 
 ### z
-source /usr/local/etc/profile.d/z.sh
+# What?
+# source /usr/local/etc/profile.d/z.sh
 
 ### fzf
 
