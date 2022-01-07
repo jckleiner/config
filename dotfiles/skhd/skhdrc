@@ -56,10 +56,10 @@
     lshift + lctrl + lalt + rcmd + lcmd - 5 : yabai -m window --resize right:-20:0
 
 ## SEND WINDOW TO (LEFT/RIGHT) MONITOR AND FOLLOW FOCUS
-    lshift + lctrl + lalt + rcmd - c : ~/config/dotfiles/scripts/moveWindowLeftAndFollowFocus.sh
-    lshift + lctrl + lalt + rcmd - v : ~/config/dotfiles/scripts/moveWindowRightAndFollowFocus.sh
-    # lshift + lctrl + lalt + rcmd - c : ~/develop/personal/config/dotfiles/scripts/moveWindowLeftAndFollowFocus.sh
-    # lshift + lctrl + lalt + rcmd - v : ~/develop/personal/config/dotfiles/scripts/moveWindowRightAndFollowFocus.sh
+    lshift + lctrl + lalt + rcmd - c : ~/config/dotfiles/yabai/scripts/moveWindowLeftAndFollowFocus.sh
+    lshift + lctrl + lalt + rcmd - v : ~/config/dotfiles/yabai/scripts/moveWindowRightAndFollowFocus.sh
+    # lshift + lctrl + lalt + rcmd - c : ~/develop/personal/config/dotfiles/yabai/scripts/moveWindowLeftAndFollowFocus.sh
+    # lshift + lctrl + lalt + rcmd - v : ~/develop/personal/config/dotfiles/yabai/scripts/moveWindowRightAndFollowFocus.sh
 
 ## FOCUS MONITOR 1,2,3
     #hyper - x  : yabai -m display --focus last
@@ -142,12 +142,12 @@
     #alt - x : yabai -m space --mirror x-axis
 
 # show next space per display
-    #hyper - 1 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 1
-    #hyper - 2 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 2
-    #hyper - 3 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 3
-    #ctrl + alt + cmd + lshift - 1 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 1
-    #ctrl + alt + cmd + lshift - 2 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 2
-    #ctrl + alt + cmd + lshift - 3 : ~/develop/personal/config/dotfiles/scripts/switchAndFocusSIP.sh.sh 3
+    #hyper - 1 : ~/develop/personal/config/dotfiles/yabai/scripts/switchAndFocusSIP.sh.sh 1
+    #hyper - 2 : ~/develop/personal/config/dotfiles/yabai/scripts/switchAndFocusSIP.sh.sh 2
+    #hyper - 3 : ~/develop/personal/config/dotfiles/yabai/scripts/switchAndFocusSIP.sh.sh 3
+    #ctrl + alt + cmd + lshift - 1 : ~/develop/personal/config/dotfiles/yabai/scripts/switchAndFocusSIP.sh.sh 1
+    #ctrl + alt + cmd + lshift - 2 : ~/develop/personal/config/dotfiles/yabai/scripts/switchAndFocusSIP.sh.sh 2
+    #ctrl + alt + cmd + lshift - 3 : ~/develop/personal/config/dotfiles/yabai/scripts/switchAndFocusSIP.sh.sh 3
 
 # cycle through windows
 # cycle backwards
