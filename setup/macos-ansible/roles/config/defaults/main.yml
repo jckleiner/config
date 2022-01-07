@@ -17,6 +17,8 @@ vscode_config_folder_path: ~/Library/Application Support/Code/User
 vscode_settings_path: "{{ vscode_config_folder_path }}/settings.json"
 vscode_keybindings_path: "{{ vscode_config_folder_path }}/keybindings.json"
 
+macos_preferences_script_path: ~/config/setup/macos-preferences.sh
+
 # vscode_settings_path: ~/config/dotfiles/vscode/settings.json
 # vscode_keybindings_path: ~/config/dotfiles/vscode/keybindings.json
 

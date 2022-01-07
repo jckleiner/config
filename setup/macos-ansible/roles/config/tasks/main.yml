@@ -58,18 +58,14 @@
       file_path: "{{ zprofile_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/zsh/.zprofile"
 
-  - name: test
-    command: whoami
-
-  # - name: Source {{ zshrc_path }}
-  #   command: source {{ zshrc_path }}
-
-  - name: Source {{ zshrc_path }}
-    shell: source {{ zshrc_path }}
+  # -------------- MacOs Preferences --------------
+  - name: Set MacOs preferences
+    script: "{{ macos_preferences_script_path }}"
 
 # TODO
 # Display ~/Library/ folder. Not working -> chflags nohidden ~/Library/
 # Display all . files in Finder
+# Source .zshrc - seems not to be working
 
 
 # trash ~/.zshrc ~/.zshrc_BACKUP ~/.zprofile ~/.zprofile_BACKUP ~/.config/karabiner ~/.config/karabiner_BACKUP ~/.config/lf ~/.config/lf_BACKUP ~/.config/skhd ~/.config/skhd_BACKUP ~/.config/yabai ~/.config/yabai_BACKUP ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json_BACKUP ~/Library/Application\ Support/Code/User/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json_BACKUP
