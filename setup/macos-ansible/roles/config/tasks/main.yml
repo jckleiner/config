@@ -10,3 +10,36 @@
     vars:
       file_path: "{{ zprofile_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/zsh/.zprofile"
+
+  - name: Symlink .config/karabiner
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ karabiner_folder_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/karabiner"
+
+  - name: Symlink .config/lf
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ lf_folder_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/lf"
+
+  - name: Symlink .config/skhd
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ skhd_folder_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/skhd"
+
+  - name: Symlink .config/yabai
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ yabai_folder_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/yabai"
+
+
+# TODO
+# karabiner -> /Users/kleiner/config/dotfiles/karabiner
+# lf -> /Users/kleiner/config/dotfiles/lf
+# skhd -> /Users/kleiner/config/dotfiles/skhd
+# yabai -> /Users/kleiner/config/dotfiles/yabai
+
+# trash ~/.zshrc ~/.zshrc_BACKUP ~/.zprofile ~/.zprofile_BACKUP ~/.config/karabiner ~/.config/karabiner_BACKUP ~/.config/lf ~/.config/lf_BACKUP ~/.config/skhd ~/.config/skhd_BACKUP ~/.config/yabai ~/.config/yabai_BACKUP
