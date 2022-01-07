@@ -1,40 +1,33 @@
 ---
-  - name: Symlink .zshrc
-    ansible.builtin.include_tasks: symlink_file.yml
-    vars:
-      file_path: "{{ zshrc_path }}"
-      symlink_target: "{{ dotfiles_folder_relative_prefix }}/zsh/.zshrc"
-
-  - name: Symlink .zprofile
-    ansible.builtin.include_tasks: symlink_file.yml
-    vars:
-      file_path: "{{ zprofile_path }}"
-      symlink_target: "{{ dotfiles_folder_relative_prefix }}/zsh/.zprofile"
-
+  # -------------- karabiner --------------
   - name: Symlink .config/karabiner
     ansible.builtin.include_tasks: symlink_file.yml
     vars:
       file_path: "{{ karabiner_folder_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/karabiner"
 
+  # -------------- lf --------------
   - name: Symlink .config/lf
     ansible.builtin.include_tasks: symlink_file.yml
     vars:
       file_path: "{{ lf_folder_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/lf"
 
+  # -------------- skhd --------------
   - name: Symlink .config/skhd
     ansible.builtin.include_tasks: symlink_file.yml
     vars:
       file_path: "{{ skhd_folder_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/skhd"
 
+  # -------------- yabai --------------
   - name: Symlink .config/yabai
     ansible.builtin.include_tasks: symlink_file.yml
     vars:
       file_path: "{{ yabai_folder_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/yabai"
 
+  # -------------- VsCode --------------
   - name: Ensure VsCode config folder '{{ vscode_config_folder_path }}' exists (create if it does not exist).
     file:
       path: "{{ vscode_config_folder_path }}"
@@ -52,9 +45,29 @@
       file_path: "{{ vscode_keybindings_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/vscode/keybindings.json"
 
+  # -------------- zsh --------------
+  - name: Symlink .zshrc
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ zshrc_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/zsh/.zshrc"
+
+  - name: Symlink .zprofile
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ zprofile_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/zsh/.zprofile"
+
+  - name: test
+    command: whoami
+
+  # - name: Source {{ zshrc_path }}
+  #   command: source {{ zshrc_path }}
+
+  - name: Source {{ zshrc_path }}
+    shell: source {{ zshrc_path }}
 
 # TODO
-# source zshrc at the end
 # Display ~/Library/ folder. Not working -> chflags nohidden ~/Library/
 # Display all . files in Finder
 
