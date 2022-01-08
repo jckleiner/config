@@ -13,7 +13,10 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 # ------------ Env Variables ------------
 # brew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+#   - Monterey (M1): /opt/homebrew/
+#   - MacOs X (Intel): /usr/local/
+eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)"
+eval "$(/usr/local/bin/brew shellenv 2> /dev/null)"
 
 # defining colors and tags for logging
 source $HOME/config/dotfiles/zsh/log-colors.sh
@@ -95,7 +98,7 @@ lfcd () {
 }
 
 # to be able to start vscode from the terminal, not needed when vscode is installed via brew
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+# code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 # back widget
 function back_widget() {
