@@ -20,21 +20,13 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 
 ## TODO
  * All commands are executed with `become` (see inventory)?
-
  * Check if brew is installed, if not execute the brew install command
  * trash-cli with `npm install --global trash-cli`
-
  * remove `.DS_Store`???
- * Itsycal - config
-    * TODO launch at login -> add this to `.zshprofile`: `open -a 'Itsycal'`
     
-### VsCode 
- * git push does not use ssh key
- * Automate plugins?
-
-### zsh
- * zsh (setup and configure)
-    - `zsh --version` gives `zsh 5.8 (x86_64-apple-darwin21.0)` back. Is there an arm version?
+ * a script (hammerspoon? or in .zprofile with skhd and yabai commands) which 
+    1. creates workspaces if none exist
+    2. opens all the used programs in the correct workspaces
 
  * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ
  * git - config, why does m1 wants passphrase and work mac won't???
@@ -45,10 +37,6 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * Maven - Has a dependency openjdk. Brew will also install Java 17
  * Snagit (AppStore)
  * SnippetsLab (AppStore)
-
- * a script (hammerspoon? or in .zprofile with skhd and yabai commands) which 
-    1. creates workspaces if none exist
-    2. opens all the used programs in the correct workspaces
 
  * TODO fzf quit is ESC, lf quit is 'q' -> make LF quit also ESC
  * z
@@ -61,6 +49,14 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
     - open -a 'Dozer'
     - https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
+
+### VsCode 
+ * git push does not use ssh key
+ * Automate plugins?
+
+### zsh
+ * zsh (setup and configure)
+    - `zsh --version` gives `zsh 5.8 (x86_64-apple-darwin21.0)` back. Is there an arm version?
 
 # --------- Notes from earlier ---------
 
@@ -121,6 +117,8 @@ Here is an official answer to this:
 
 
 ## —— System Settings ——
+Use `defaults read > preferences` and do a change and then do `defaults read > preferences` again to see the difference
+
 1. Turn off bluetooth
 2. Install Rosetta (an installation popup shows up when you try to open an “old” program)
 

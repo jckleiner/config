@@ -74,7 +74,8 @@ alias dcdu="docker-compose down --remove-orphans && docker-compose up -d"
 # make it interactive so it will ask before overwriting it
 alias mv="mv -i"
 
-# trash-cli (Cross-platform Node.js version) - https://github.com/sindresorhus/trash-cli, trash goes directyl to your bin (on MacOs)
+### trash-cli (Cross-platform Node.js version)
+# https://github.com/sindresorhus/trash-cli, trash goes directyl to your bin (on MacOs)
 # it uses macos-trash under the hood (https://github.com/sindresorhus/macos-trash).
 # Note that aliases are used only in interactive shells, so using this alias should not interfere with scripts that expect to use rm.
 # only if trash is installed
@@ -138,8 +139,6 @@ dps() {
     # TODO make this cleaner
 
     # \t{{.Networks}}
-
-    # 
 
     if [[ "$@" == "a" ]]; then
         command docker ps --all --format "{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}" \
