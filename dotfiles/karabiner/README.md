@@ -20,7 +20,7 @@ The quote key " and the < key might also be switched. This could be fixed with:
 If not then you also need to change it with KE.
 
 **link karabiner config**
-ln -s ~/develop/personal/config/dotfiles/config/karabiner ~/.config/karabiner
+ln -s ~/develop/personal/config/dotfiles/karabiner ~/.config/karabiner
 
 ### Hyper Key
   

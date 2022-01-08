@@ -15,11 +15,11 @@ Followed the instructions in Installing yabai (from HEAD) https://github.com/koe
 * Created a Cert
 * Installed Yabai with brew install koekeishiya/formulae/yabai --HEAD (brew install yabai was saying that ‘yabai is not found’ for some reason) and then signed it
 * Opened preferences > Privacy > Accessibility > added the ‘yabai’ exec
-* Symlink the config: `ln -s /Users/kleiner/config/dotfiles/config/yabai ~/.config/yabai`
+* Symlink the config: `ln -s /Users/kleiner/config/dotfiles/yabai ~/.config/yabai`
 * `brew services start yabai` and it was working
 * `brew install jq`
 * `brew install koekeishiya/formulae/skhd`
-* `ln -s ~/config/dotfiles/config/skhd ~/.config/skhd`
+* `ln -s ~/config/dotfiles/skhd ~/.config/skhd`
 * `brew services start skhd` (needs Accessibility permissions)
 
 ## Installing for Intel Macs
@@ -30,20 +30,20 @@ git clone git@github.com:koekeishiya/limelight.git
 cd limelight
 make
 
-ln -s ~/develop/personal/config/dotfiles/config/yabai/bin/limelight /usr/local/bin/limelight
+ln -s ~/develop/personal/config/dotfiles/yabai/bin/limelight /usr/local/bin/limelight
 
 - create yabairc config
-ln -s ~/develop/personal/config/dotfiles/config/yabai ~/.config/yabai
+ln -s ~/develop/personal/config/dotfiles/yabai ~/.config/yabai
 chmod +x  ~/.config/yabai/yabairc
 
 - create skhd config
 // needed for skhd commands
 brew install chunkc
-ln -s ~/develop/personal/config/dotfiles/config/skhd ~/.config/skhd
+ln -s ~/develop/personal/config/dotfiles/skhd ~/.config/skhd
 chmod +x  ~/.config/skhd/skhdrc
 
 - create limelight config
-ln -s ~/develop/personal/config/dotfiles/config/limelight ~/.config/limelight
+ln -s ~/develop/personal/config/dotfiles/limelight ~/.config/limelight
 chmod +x  ~/.config/limelight/limelightrc
 // kill limelight before loading config
 limelight --config ~/.config/limelight/limelightrc

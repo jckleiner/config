@@ -8,7 +8,6 @@
 
 
 # CONFIG
-#ln -s ~/config/dotfiles/config/iterm2/
 
 # fix for "zsh compinit: insecure directories, run compaudit for list."
 sudo chmod -R 755 /usr/local/share/zsh

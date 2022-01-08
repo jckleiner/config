@@ -1,9 +1,5 @@
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# defining colors and tags for logging
-source $HOME/config/dotfiles/zsh/log-colors.sh
-
+# ------------ zsh Config ------------
 # Basic auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -15,8 +11,39 @@ _comp_options+=(globdots)
 # Case insensitive completion, also completes if word matched from the middle for instance
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
+# ------------ Env Variables ------------
+# brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Aliases and functions
+# defining colors and tags for logging
+source $HOME/config/dotfiles/zsh/log-colors.sh
+
+source $HOME/config/dotfiles/zsh/env-variables.sh
+# put secret variables which you don't want to commit into secret-env-variables.sh
+[ -f "$HOME/config/dotfiles/zsh/secret-env-variables.sh" ] && source "$HOME/config/dotfiles/zsh/secret-env-variables.sh"
+
+# ------------ Theme ------------
+source $HOME/config/dotfiles/zsh/themes/nice.zsh-theme
+
+# ------------ Plugins ------------
+# if you have any, put it in the plugins folder and source it here
+#source $HOME/config/dotfiles/zsh/plugins/git.plugin.zsh
+
+# ------------ z ------------
+[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+
+# ------------ fzf ------------
+# Required packages: tree, fd, bat
+[ -f $HOME/config/dotfiles/zsh/fzf.zsh ] && source $HOME/config/dotfiles/zsh/fzf.zsh
+# fzf.zsh defines 3 keybindings, changing the binds here:
+#  - CTRL + R       Search History
+#  - **<TAB>        Autocomplete
+#  - CTRL + T       Find files     Changing it to CTRL + F --- (F for Files)
+#  - ALT + C        Find folders   Changing it to CTRL + T --- (T for Tree)
+bindkey '^F' fzf-file-widget
+bindkey '^T' fzf-cd-widget
+
+# ------------ Aliases and Functions ------------
 ### TODO sometimes '_cd_ls: maximum nested function level reached; increase FUNCNEST?'
 _cd_ls () { cd "$@" && ls -lh }
 checkport () { sudo lsof -i:$1 }
@@ -30,9 +57,30 @@ alias grep='grep --color=always'
 alias gss='git status -sb'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
 
+### Minifabric
+# Expose endpoints: -e 9000
+alias mfu="minifab up"
+alias mfe="minifab explorerup"
+alias mfd="minifab down"
+alias mfc="minifab cleanup"
+alias mfdc="minifab down && minifab cleanup"
+
+### Docker - TODO
+alias dcu="docker-compose up -d"
+alias dcd="docker-compose down --remove-orphans"
+alias dcdu="docker-compose down --remove-orphans && docker-compose up -d"
+
 # mv will overwrite the existing file by default under MacOs
 # make it interactive so it will ask before overwriting it
 alias mv="mv -i"
+
+# trash-cli (Cross-platform Node.js version) - https://github.com/sindresorhus/trash-cli, trash goes directyl to your bin (on MacOs)
+# it uses macos-trash under the hood (https://github.com/sindresorhus/macos-trash).
+# Note that aliases are used only in interactive shells, so using this alias should not interfere with scripts that expect to use rm.
+# only if trash is installed
+if [ -n "$(command -v trash)" ]; then 
+    alias rm='echo "######### rm: This is not the command you are looking for, use trash instead #########"; false'
+fi
 
 # Use lf to switch directories
 lfcd () {
@@ -45,70 +93,8 @@ lfcd () {
     fi
 }
 
-# trash-cli (Cross-platform Node.js version) - https://github.com/sindresorhus/trash-cli, trash goes directyl to your bin (on MacOs)
-# it uses macos-trash under the hood (https://github.com/sindresorhus/macos-trash).
-# Note that aliases are used only in interactive shells, so using this alias should not interfere with scripts that expect to use rm.
-# only if trash is installed
-if [ -n "$(command -v trash)" ]; then 
-    alias rm='echo "######### rm: This is not the command you are looking for, use trash instead #########"; false'
-fi
-
 # to be able to start vscode from the terminal, not needed when vscode is installed via brew
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-
-### TODO: where to put open apps like simon says, .profile, .zprofile
-# Apps which won't open automatically on startup
-#open -a 'Simon Says'
-#open -a 'Dozer'
-# https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
-
-# * fzf - https://github.com/junegunn/fzf#key-bindings-for-command-line
-# TODO how to automatically setup fzf without calling install and pressing Y?
-#   .fzf.zsh is created after ./install was run
-# TODO fzf quit is ESC, lf quit is 'q' -> make LF quit also ESC
-# * z
-# * Check this - https://unix.stackexchange.com/questions/30925/in-bash-when-to-alias-when-to-script-and-when-to-write-a-function
-# * .zsh_history is empty, what's the difference history vs zsh_history?
-# * remove vscode and install it with brew install --cask visual-studio-code?
-# * vscode dotfiles 
-    # ~/Library/Application\ Support/Code/User/ on Mac OS X
-    # The files are settings.json and keybindings.json. Simply copy them to the target machine.
-
-# install zsh on mac again? Is the system zsh old? 
-# * vscode terminal shortcut? 
-#   -> how to copy key map and settings.json???
-# * iterm2 config? https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
-# * update readme, oh-my-zsh not needed 
-
-# Env Variables
-source $HOME/config/dotfiles/zsh/env-variables.sh
-[ -f "$HOME/config/dotfiles/zsh/secret-env-variables.sh" ] && source "$HOME/config/dotfiles/zsh/secret-env-variables.sh"
-
-# Theme
-source $HOME/config/dotfiles/zsh/themes/nice.zsh-theme
-
-# Plugins
-#source $HOME/config/dotfiles/zsh/plugins/git.plugin.zsh
-
-function somefunc() {
-    return echo "somefunc"
-    # return fzf-cd-widget
-}
-
-### z
-# This is probably for MacOs 10 - Does not work in Monterey M1
-# source /usr/local/etc/profile.d/z.sh
-
-### fzf
-
-# Required packages: tree, fd, bat
-# In ubuntu it might be batcat: https://github.com/sharkdp/bat#installation
-
-[ -f $HOME/config/dotfiles/zsh/fzf.zsh ] && source $HOME/config/dotfiles/zsh/fzf.zsh
-# Find files. Changed defualt mapping from CTRL + T to CTRL + F --- (F for Files)
-bindkey '^F' fzf-file-widget
-# Find folders. Changed defualt mapping from ALT + C to CTRL + T --- (T for Tree)
-bindkey '^T' fzf-cd-widget
 
 # back widget
 function back_widget() {
@@ -126,25 +112,13 @@ fbr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-### Minifabric
-# Expose endpoints: -e 9000
-alias mfu="minifab up"
-alias mfe="minifab explorerup"
-alias mfd="minifab down"
-alias mfc="minifab cleanup"
-alias mfdc="minifab down && minifab cleanup"
-
-### Docker - TODO
-alias dcu="docker-compose up -d"
-alias dcd="docker-compose down --remove-orphans"
-alias dcdu="docker-compose down --remove-orphans && docker-compose up -d"
-
 # TODO docker kill?
 dk() {}
 
 # TODO docker kill all?
 dka() {}
 
+# a fancy 'docker ps'
 dps() {
     # $1 - first argument, $2 - second argument and so on...
     # TODOs

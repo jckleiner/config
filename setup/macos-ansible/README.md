@@ -37,8 +37,8 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
     - `zsh --version` gives `zsh 5.8 (x86_64-apple-darwin21.0)` back. Is there an arm version?
 
  * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ
- * git - config
- * Iterm2 - config
+ * git - config, why does m1 wants passphrase and work mac won't???
+ * Iterm2 - config - https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
  * Firefox - config, bookmarks, extensions, make it default browser
  * IntelliJ - config
  * Alfred - config
@@ -46,6 +46,20 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * Snagit (AppStore)
  * SnippetsLab (AppStore)
 
+ * a script (hammerspoon? or in .zprofile with skhd and yabai commands) which 
+    1. creates workspaces if none exist
+    2. opens all the used programs in the correct workspaces
+
+ * TODO fzf quit is ESC, lf quit is 'q' -> make LF quit also ESC
+ * z
+ * update readme, oh-my-zsh not needed 
+ * Check this - https://unix.stackexchange.com/questions/30925/in-bash-when-to-alias-when-to-script-and-when-to-write-a-function
+ * .zsh_history is empty, what's the difference history vs zsh_history?
+ * TODO: where to put open apps like simon says, .profile, .zprofile
+    - Apps which won't open automatically on startup
+    - open -a 'Simon Says'
+    - open -a 'Dozer'
+    - https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
 
 # --------- Notes from earlier ---------
@@ -82,7 +96,7 @@ Here is an official answer to this:
 
 ### Karabiner Elements
 1. Karabiner Elements with homebrew (requires password)
-2. Symlink the karabiner config: `ln -s ~/config/dotfiles/config/karabiner karabiner`
+2. Symlink the karabiner config: `ln -s ~/config/dotfiles/karabiner karabiner`
 3. Karabiner picked up the config automatically after restart
 4. TODO: Preferences >> Keyboard >> modifier keys >> which one to choose? (Still not sure)
 5. TODO: when using the laptop, the modifiers change, fix that
