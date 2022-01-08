@@ -17,6 +17,8 @@ The downloaded `.dmg` files are stored in Homebrew cache.
 
 To simulate a cleanup, i.e. see what would be removed, you may use the `-n` option: `brew cleanup -n`
 
+## Manual Steps
+    - Set default browser to Firefox: System Preferences > General
 
 ## TODO
  * All commands are executed with `become` (see inventory)?
@@ -40,11 +42,10 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * IntelliJ - config
  * Alfred - config
  * Maven - Has a dependency openjdk. Brew will also install Java 17
- * Snagit (AppStore)
+ * Snagit (Webiste)
  * SnippetsLab (AppStore)
 
  * TODO fzf quit is ESC, lf quit is 'q' -> make LF quit also ESC
- * z
  * update readme, oh-my-zsh not needed 
  * Check this - https://unix.stackexchange.com/questions/30925/in-bash-when-to-alias-when-to-script-and-when-to-write-a-function
  * .zsh_history is empty, what's the difference history vs zsh_history?
@@ -54,10 +55,12 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
     - open -a 'Dozer'
     - https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
+ *  TODO - git email and user config
+    * git config --global user.name "John Doe"
+    * it config --global user.email johndoe@example.com
 
 ### VsCode 
  * git push does not use ssh key
- * Automate plugins?
 
 ### zsh
  * zsh (setup and configure)
@@ -103,10 +106,7 @@ Here is an official answer to this:
 5. TODO: when using the laptop, the modifiers change, fix that
 
 ### VsCode
-1. VS-Code with brew
-2. Symlinked settings.json and keybindings.json to “~/Library/Application\ Support/Code/User/”
 3. TODO argv.json symlink?
-4. TODO: extensions manually or a better way??
 
 ### Git
 * TODO - add email and name?
