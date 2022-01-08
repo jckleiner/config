@@ -6,7 +6,7 @@
 # https://stackoverflow.com/questions/3522341/identify-user-in-a-bash-script-called-by-sudo
 
 # set colors used for logging
-source $HOME/config/dotfiles/zsh/.log-colors.sh
+source $HOME/config/dotfiles/zsh/log-colors.sh
 
 function symlink_zshrc() {
     if ! [ -f ~/config/dotfiles/zsh/.zshrc ]; then

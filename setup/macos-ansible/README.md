@@ -50,7 +50,7 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 
 # --------- Notes from earlier ---------
 
- 1. Make sure the native Terminal is started (check with “arch”, must give “arm64” back)
+ 1. Make sure the native Terminal is started (check with `arch`, must give “arm64” back)
  2. Install Homebrew (and add it to PATH manually, see “next step” section)
 	`echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/kleiner/.zprofile`
     `eval "$(/opt/homebrew/bin/brew shellenv)"`

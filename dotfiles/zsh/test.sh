@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set colors used for logging
-source $HOME/config/dotfiles/zsh/.log-colors.sh
+source $HOME/config/dotfiles/zsh/log-colors.sh
 
 printf "\n ${color_success}Success${color_default}";
 printf "\n ${color_info}Info${color_default}";

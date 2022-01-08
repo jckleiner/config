@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # set colors used for logging
-source $HOME/config/dotfiles/zsh/.log-colors.sh
+source $HOME/config/dotfiles/zsh/log-colors.sh
 
 # start the script with -p to only install preferences
 while getopts "p" opt; do

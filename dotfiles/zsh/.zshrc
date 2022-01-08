@@ -2,7 +2,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # defining colors and tags for logging
-source $HOME/config/dotfiles/zsh/.log-colors.sh
+source $HOME/config/dotfiles/zsh/log-colors.sh
 
 # Basic auto/tab complete
 autoload -U compinit
@@ -104,7 +104,7 @@ function somefunc() {
 # Required packages: tree, fd, bat
 # In ubuntu it might be batcat: https://github.com/sharkdp/bat#installation
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/config/dotfiles/zsh/fzf.zsh ] && source $HOME/config/dotfiles/zsh/fzf.zsh
 # Find files. Changed defualt mapping from CTRL + T to CTRL + F --- (F for Files)
 bindkey '^F' fzf-file-widget
 # Find folders. Changed defualt mapping from ALT + C to CTRL + T --- (T for Tree)
