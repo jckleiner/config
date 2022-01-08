@@ -13,23 +13,45 @@ vscode_settings_path: "{{ vscode_config_folder_path }}/settings.json"
 vscode_keybindings_path: "{{ vscode_config_folder_path }}/keybindings.json"
 
 vscode_extensions_to_install:
-
-  # # IDEA like light Theme
-  # - karsany.vscode-ideal-theme
-  # # Python
-  # - ms-python.python
-  # # Webstorm Icon Theme
-  # - pmsandhu.webstorm-icons
-  # # YAML
-  # - redhat.vscode-yaml
-  # # GitLens
+  # IDEA like light Theme
+  - karsany.vscode-ideal-theme
+  # Webstorm Icon Theme
+  - pmsandhu.webstorm-icons
+  # Python
+  - ms-python.python
+  # Docker
+  - ms-azuretools.vscode-docker
+  # Vagrant
+  - bbenoist.vagrant
+  # YAML
+  - redhat.vscode-yaml
+  # XML
+  - redhat.vscode-xml
+  # GitLens
   - eamodio.gitlens
   # ESLint
   - dbaeumer.vscode-eslint
+  # Auto Rename Tag
+  - formulahendry.auto-rename-tag
+  # Live Server
+  - ritwickdey.liveserver
+  # Thunder Client
+  - rangav.vscode-thunder-client
+  # TODO Highlight
+  - wayou.vscode-todo-highlight
+  # Remote - SSH
+  - ms-vscode-remote.remote-ssh
+  # Remote - SSH Editing Configuration Files
+  # TODO - needed?
+  - ms-vscode-remote.remote-ssh-edit
+  # vscode-pdf
+  - tomoki1207.pdf
+  # Better Jinja
+  - samuelcolvin.jinjahtml
 
   # when enabled, .yaml icons are not showed
-  # - name: Ansible
-    # id: tomaciazek.ansible
+  # # Ansible
+  # - tomaciazek.ansible
 
 vscode_extensions_to_uninstall: []
 
