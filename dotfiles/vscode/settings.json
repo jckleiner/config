@@ -222,42 +222,43 @@
     /* "TODO Highlight" Extension */
     // see VsCode API for all options: https://code.visualstudio.com/api/references/vscode-api
     "todohighlight.isEnable": true,
-    "todohighlight.isCaseSensitive": false,
-    "todohighlight.keywords": [
-        "DEBUG:",
-        "REVIEW:",
-        {
-            "text": "NOTE:",
-            "color": "#ff0000",
-            "backgroundColor": "yellow",
-            "overviewRulerColor": "grey"
-        },
-        {
-            "text": "HACK:",
-            "color": "#000",
-            "isWholeLine": false,
-        },
-        {
-            "text": "BLABLA",
-            "color": "deepskyblue",
-            "border": "2px solid deepskyblue",
-            "borderRadius": "4px", //NOTE: using borderRadius along with `border` or you will see nothing change
-            "backgroundColor": "rgba(0,0,0,.2)",
-            //other styling properties goes here ... 
-        }
-    ],
-    "todohighlight.keywordsPattern": "TODO|FIXME",
+    "todohighlight.isCaseSensitive": true,
     "todohighlight.defaultStyle": {
-        "color": "deepskyblue",
-        "backgroundColor": "ffffff",
-        "overviewRulerColor": "deepskyblue",
-        "cursor": "pointer",
-        "fontWeight": "500",
-        "borderSpacing": "10px", // doesnt seem to be working
-        "border": "1px solid deepskyblue",
-        // "borderRadius": "4px", // when "isWholeLine": false
-        "isWholeLine": true
-    },
+      "color": "deepskyblue",
+      "backgroundColor": "ffffff",
+      "overviewRulerColor": "deepskyblue",
+      "cursor": "pointer",
+      "fontWeight": "500",
+      "borderSpacing": "10px", // doesnt seem to be working
+      "border": "1px solid deepskyblue",
+      // "borderRadius": "4px", // when "isWholeLine": false
+      "isWholeLine": true
+  },
+    "todohighlight.keywords": [
+        // "# TODO:",
+        // "TODO:",
+        // "FIXME:"
+        // {
+        //     "text": "NOTE:",
+        //     "color": "#ff0000",
+        //     "backgroundColor": "yellow",
+        //     "overviewRulerColor": "grey"
+        // },
+        // {
+        //     "text": "HACK:",
+        //     "color": "#000",
+        //     "isWholeLine": false,
+        // },
+        // {
+        //     "text": "BLABLA",
+        //     "color": "deepskyblue",
+        //     "border": "2px solid deepskyblue",
+        //     "borderRadius": "4px", //NOTE: using borderRadius along with `border` or you will see nothing change
+        //     "backgroundColor": "rgba(0,0,0,.2)",
+        //     //other styling properties goes here ... 
+        // }
+    ],
+    "todohighlight.keywordsPattern": "# TODO|FIXME|TODO| todo | todo:",
     "todohighlight.include": [
         "**/*.js",
         "**/*.jsx",
@@ -283,10 +284,6 @@
     "todohighlight.maxFilesForSearch": 5120,
     "todohighlight.toggleURI": false,
 
-
-    /* Kanban Board */
-    // TODO.md, 
-    "coddx.taskBoard.fileList": "TODO-technical.md, TODO-work.md",
     "files.exclude": {
       "**/.DS_Store": false
     },
