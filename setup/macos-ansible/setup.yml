@@ -2,7 +2,8 @@
 - name: Setup
   hosts: all
   roles:
-    - validation
+    # - validation
     # - homebrew
     # - dock
-    - config
+    # - config
+    # - mas # does not work with newer MacOS versions

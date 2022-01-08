@@ -24,6 +24,7 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * trash-cli with `npm install --global trash-cli`
  * remove `.DS_Store`???
 
+ * Add `System Preferences` to Dock
  * How does .zhistory work and why does separate terminal windows have their own history, when are they merged?
 
  * validation for dock and homebrew
