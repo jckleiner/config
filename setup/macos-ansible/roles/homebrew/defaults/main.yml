@@ -4,6 +4,10 @@ homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
 homebrew_brew_bin_path: "{{ homebrew_prefix }}/bin"
 
 homebrew_installed_packages:
+  - name: koekeishiya/formulae/yabai  # need to be setup manually, see readme
+    install_options: --HEAD
+  - koekeishiya/formulae/skhd
+  - fzf
   - dockutil
   - tree
   - lf
@@ -51,8 +55,6 @@ homebrew_cask_apps:
   - dbeaver-community
   - docker
 
-  # - yabai # install manually, see readme
-  # - skhd # install manually, see readme
 
 homebrew_cask_uninstalled_apps: []
 

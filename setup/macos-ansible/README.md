@@ -36,7 +36,7 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * zsh (setup and configure)
     - `zsh --version` gives `zsh 5.8 (x86_64-apple-darwin21.0)` back. Is there an arm version?
 
-
+ * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ
  * git - config
  * Iterm2 - config
  * Firefox - config, bookmarks, extensions, make it default browser
@@ -55,6 +55,11 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 	`echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/kleiner/.zprofile`
     `eval "$(/opt/homebrew/bin/brew shellenv)"`
 
+### Programs to start on startup
+`launchctl list`
+
+Docker -> https://stackoverflow.com/questions/54437744/how-to-start-docker-from-command-line-in-mac
+
 ### SSH Config
 1. Create an .ssh folder
 3. Copy your public and private key there
@@ -63,6 +68,8 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 
 Git is still asking for username/password with ~/.ssh/config present
 https://stackoverflow.com/questions/10909221/why-is-github-asking-for-username-password-when-following-the-instructions-on-sc
+
+ * Solution: change "https://..." to "git@github..." in `.git/config`
 
 Here is an official answer to this:
 > If Git prompts you for a username and password every time you try to interact with GitHub, you're probably using the HTTPS clone URL for your repository. Using an HTTPS remote URL has some advantages: it's easier to set up than SSH, and usually works through strict firewalls and proxies. 

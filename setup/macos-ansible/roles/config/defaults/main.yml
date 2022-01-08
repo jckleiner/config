@@ -1,24 +1,17 @@
 ---
-homebrew_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
-homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
-homebrew_brew_bin_path: "{{ homebrew_prefix }}/bin"
-
 dotfiles_folder_relative_prefix: ~/config/dotfiles
+
 zshrc_path: ~/.zshrc
 zprofile_path: ~/.zprofile
-
 karabiner_folder_path: ~/.config/karabiner
 lf_folder_path: ~/.config/lf
 skhd_folder_path: ~/.config/skhd
 yabai_folder_path: ~/.config/yabai
 
 vscode_config_folder_path: ~/Library/Application Support/Code/User
-
 vscode_settings_path: "{{ vscode_config_folder_path }}/settings.json"
 vscode_keybindings_path: "{{ vscode_config_folder_path }}/keybindings.json"
 
 macos_preferences_script_path: ~/config/setup/macos-preferences.sh
 
-# vscode_settings_path: ~/config/dotfiles/vscode/settings.json
-# vscode_keybindings_path: ~/config/dotfiles/vscode/keybindings.json
 

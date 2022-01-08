@@ -1,4 +1,6 @@
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # defining colors and tags for logging
 source $HOME/config/dotfiles/zsh/.log-colors.sh
 
@@ -20,7 +22,7 @@ _cd_ls () { cd "$@" && ls -lh }
 checkport () { sudo lsof -i:$1 }
 listports () { sudo lsof -PiTCP -sTCP:LISTEN }
 # alias cd=_cd_ls
-alias lf="lf" # TODO errors
+alias lf="lf"
 # alias lf="lfcd" # TODO errors
 alias l='ls -lah'
 alias ll='ls -lh'
@@ -94,7 +96,7 @@ function somefunc() {
 }
 
 ### z
-# What?
+# This is probably for MacOs 10 - Does not work in Monterey M1
 # source /usr/local/etc/profile.d/z.sh
 
 ### fzf
