@@ -125,32 +125,25 @@ Here is an official answer to this:
 ## —— System Settings ——
 Use `defaults read > preferences` and do a change and then do `defaults read > preferences` again to see the difference
 
-1. Turn off bluetooth
+1. (TODO) Turn off bluetooth
 2. Install Rosetta (an installation popup shows up when you try to open an “old” program)
 
 ### Finder 
-* View > Show Path Bar
-* View > Show Status Bar
+* (TODO) View > Show Path Bar
 
 ### Keyboard
-* System Preferences > Keyboard > Shortcuts > Spotlight > Disable both
 * Add Turkish Q Layout
 * 
 
 ### Dock & Menu Bar (in System preferences)
-* Add your own icons
-* Make it smaller
-* Preferences >
-    * Minimise window using “scale effect”
+* (ALL DONE) Preferences >
+    * Minimise window using "scale effect"
     * enable “minimise windows into application icon”
     * disable “animate opening applications” 
     * enable “Automatically hide an show the dock”
     * disable “Show recent applications in Dock”
-* Spotlight > disable “show in menu bar”
-* Sound > always
-
-### Trackpad
-* Enable tap to click
+* (TODO) Spotlight > disable “show in menu bar”
+* (TODO) Sound > show in menu bar AND "always"
 
 ### Display
 * Displays > display settings > change the MacBook resolution to “scaled” and select the middle scale (the 3rd option there should be 5 options)

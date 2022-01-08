@@ -4,7 +4,6 @@
 # - https://github.com/geerlingguy/dotfiles/blob/master/.osx
 # - https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 # - https://macos-defaults.com/mission-control/mru-spaces.html#set-to-true-default-value
-# - https://github.com/sickcodes/osx-optimizer
 
 ###############################################################################
 # Keyboard Shortcuts                                                          #
@@ -249,10 +248,8 @@ defaults write -g com.apple.keyboard.fnState -bool yes
 
 # TODO Needs restart? Does not work even with restart
 # https://github.com/sickcodes/osx-optimizer
-defaults write com.apple.Accessibility ReduceMotionEnabled -bool yes
-
-# TODO disable spotlight indexing?   
-# https://github.com/sickcodes/osx-optimizer
+sudo defaults write com.apple.Accessibility ReduceMotionEnabled -bool yes
+sudo defaults write com.apple.universalaccess reduceMotion -int 1
 
 # TODO - Keyboard layout
 # Search for "Turkish"
@@ -372,7 +369,7 @@ defaults write com.apple.dock showhidden -bool true
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
 
-# Minimize windows into their application’s icon
+# Minimize windows into their application icon
 defaults write com.apple.dock minimize-to-application -bool true
 
 # Don’t animate opening applications from the Dock
