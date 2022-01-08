@@ -1,0 +1,8 @@
+---
+  - name: Fail if extensions is in both 'vscode_extensions_to_install' and 'vscode_extensions_to_uninstall'
+    fail:
+      msg: Extension '{{ item }}' is in both 'vscode_extensions_to_install' and 'vscode_extensions_to_uninstall'
+    when: item in vscode_extensions_to_uninstall
+    loop: "{{ vscode_extensions_to_install }}"
+
+  # TODO validate other variables/lists before starting the execution

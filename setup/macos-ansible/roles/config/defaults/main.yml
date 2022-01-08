@@ -12,6 +12,27 @@ vscode_config_folder_path: ~/Library/Application Support/Code/User
 vscode_settings_path: "{{ vscode_config_folder_path }}/settings.json"
 vscode_keybindings_path: "{{ vscode_config_folder_path }}/keybindings.json"
 
+vscode_extensions_to_install:
+
+  # # IDEA like light Theme
+  # - karsany.vscode-ideal-theme
+  # # Python
+  # - ms-python.python
+  # # Webstorm Icon Theme
+  # - pmsandhu.webstorm-icons
+  # # YAML
+  # - redhat.vscode-yaml
+  # # GitLens
+  - eamodio.gitlens
+  # ESLint
+  - dbaeumer.vscode-eslint
+
+  # when enabled, .yaml icons are not showed
+  # - name: Ansible
+    # id: tomaciazek.ansible
+
+vscode_extensions_to_uninstall: []
+
 macos_preferences_script_path: ~/config/setup/macos-preferences.sh
 
 

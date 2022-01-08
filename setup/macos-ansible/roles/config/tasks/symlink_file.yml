@@ -1,8 +1,4 @@
 ---
-  - name: "Print debug message"
-    debug:
-      msg: "file_path: '{{ file_path }}', symlink_target: '{{ symlink_target }}'"
-
   - name: Check if '{{ file_path }}' already exists
     stat:
       path: "{{ file_path }}"

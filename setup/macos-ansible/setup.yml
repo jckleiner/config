@@ -2,6 +2,7 @@
 - name: Setup
   hosts: all
   roles:
+    - validation
     # - homebrew
     # - dock
     - config

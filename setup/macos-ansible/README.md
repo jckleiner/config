@@ -23,7 +23,11 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * Check if brew is installed, if not execute the brew install command
  * trash-cli with `npm install --global trash-cli`
  * remove `.DS_Store`???
-    
+
+ * How does .zhistory work and why does separate terminal windows have their own history, when are they merged?
+
+ * validation for dock and homebrew
+
  * a script (hammerspoon? or in .zprofile with skhd and yabai commands) which 
     1. creates workspaces if none exist
     2. opens all the used programs in the correct workspaces

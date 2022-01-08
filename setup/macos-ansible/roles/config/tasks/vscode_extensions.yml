@@ -1,0 +1,17 @@
+---
+  # See: https://code.visualstudio.com/docs/editor/extension-marketplace
+
+  - name: Query installed VsCode extensions
+    command: code --list-extensions
+    register: installed_extensions
+    changed_when: false
+
+  - name: Ensure VsCode extensions are installed
+    command: code --install-extension {{ item }}
+    when: item not in installed_extensions.stdout_lines
+    loop: "{{ vscode_extensions_to_install }}"
+
+  - name: Ensure VsCode extensions are uninstalled
+    command: code --uninstall-extension {{ item }}
+    when: item in installed_extensions.stdout_lines
+    loop: "{{ vscode_extensions_to_uninstall }}"

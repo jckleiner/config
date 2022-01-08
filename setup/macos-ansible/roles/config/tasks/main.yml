@@ -28,6 +28,9 @@
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/yabai"
 
   # -------------- VsCode --------------
+  - name: Ensure VsCode extensions are installed/uninstalled
+    ansible.builtin.include_tasks: vscode_extensions.yml
+
   - name: Ensure VsCode config folder '{{ vscode_config_folder_path }}' exists (create if it does not exist).
     file:
       path: "{{ vscode_config_folder_path }}"
@@ -63,8 +66,6 @@
     script: "{{ macos_preferences_script_path }}"
 
 # TODO
-# install all the zsh programs like fuzzy search
-# install yabai and skhd casks
 # Display ~/Library/ folder. Not working -> chflags nohidden ~/Library/
 # Display all . files in Finder
 # Source .zshrc - seems not to be working
