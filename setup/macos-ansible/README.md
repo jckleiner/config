@@ -61,6 +61,7 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 
 ### VsCode 
  * git push does not use ssh key
+ * When opening a new terminal in the current place, the focus shits somewhere else?
 
 ### zsh
  * zsh (setup and configure)

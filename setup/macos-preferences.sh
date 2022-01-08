@@ -4,6 +4,7 @@
 # - https://github.com/geerlingguy/dotfiles/blob/master/.osx
 # - https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 # - https://macos-defaults.com/mission-control/mru-spaces.html#set-to-true-default-value
+# - https://github.com/sickcodes/osx-optimizer
 
 ###############################################################################
 # Keyboard Shortcuts                                                          #
@@ -210,6 +211,12 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 61
 # General UI/UX                                                               #
 ###############################################################################
 
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
@@ -228,8 +235,14 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+# Disable automatic capitalization as it’s annoying when typing code
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# Disable automatic period substitution as it’s annoying when typing code
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
 # System Prefs > Mission Control > disable "Automatically rearrange spaces"
-defaults write com.apple.dock "mru-spaces" -bool "false" && killall Dock
+defaults write com.apple.dock mru-spaces -bool false
 
 # Use F keys as standard function keys. -g is needed
 defaults write -g com.apple.keyboard.fnState -bool yes
@@ -238,16 +251,12 @@ defaults write -g com.apple.keyboard.fnState -bool yes
 # https://github.com/sickcodes/osx-optimizer
 defaults write com.apple.Accessibility ReduceMotionEnabled -bool yes
 
-# TODO disable spotlight indexing?
+# TODO disable spotlight indexing?   
 # https://github.com/sickcodes/osx-optimizer
-
-# TODO - put screenshots into folder
 
 # TODO - Keyboard layout
 # Search for "Turkish"
 # https://newbedev.com/change-osx-keyboard-layout-input-source-programmatically-via-terminal-or-applescript
-
-# TODO - Disable the Option-Space key combination for non-breaking spaces, with karabiner
 
 # TODO - disable Service keyboard shorcut "Search manpage index..."
 
@@ -336,6 +345,18 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 
 ###############################################################################
+# Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
+###############################################################################
+
+# Trackpad: enable tap to click for this user and for the login screen
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Show language menu in the top right corner of the boot screen
+sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
+
+###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
@@ -357,9 +378,25 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
 
+# Enable spring loading for all Dock items
+defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+
+# Remove the auto-hiding Dock delay
+defaults write com.apple.dock autohide-delay -float 0
+# Remove the animation when hiding/showing the Dock
+defaults write com.apple.dock autohide-time-modifier -float 0
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
+
+# Privacy: don’t send search queries to Apple
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
 # Enable the Develop menu and the Web Inspector in Safari
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
@@ -375,6 +412,22 @@ defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
 
 # Show all processes in Activity Monitor
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+# Sort Activity Monitor results by CPU usage
+defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+defaults write com.apple.ActivityMonitor SortDirection -int 0
+
+
+###############################################################################
+# Terminal & iTerm 2                                                          #
+###############################################################################
+
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Don’t display the annoying prompt when quitting iTerm
+# defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
 
 ###############################################################################
 # Applications                                                                #
