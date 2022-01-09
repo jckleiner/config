@@ -426,6 +426,8 @@ defaults write com.apple.terminal StringEncodings -array 4
 # Don’t display the annoying prompt when quitting iTerm
 # defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
+# Install the Nice Dark theme for iTerm
+open "${HOME}/config/dotfiles/iterm2/NiceDark.itermcolors"
 
 ###############################################################################
 # Applications                                                                #
