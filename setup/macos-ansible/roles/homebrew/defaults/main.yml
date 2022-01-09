@@ -7,8 +7,7 @@ homebrew_bin_executable_path: "{{ homebrew_prefix }}/bin/brew"
 homebrew_install_command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 homebrew_installed_packages:
-  - name: koekeishiya/formulae/yabai  # need to be setup manually, see readme
-    install_options: --HEAD
+  - koekeishiya/formulae/yabai --HEAD  # need to be setup manually, see readme
   - koekeishiya/formulae/skhd
   - fzf
   - z

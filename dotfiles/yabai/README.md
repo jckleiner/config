@@ -13,7 +13,7 @@ Source:
 ## Installing for M1 Macs
 Followed the instructions in Installing yabai (from HEAD) https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(from-HEAD) without installing the scripting addition because that needs disabling the SIP.
 * Created a Cert
-* Installed Yabai with brew install koekeishiya/formulae/yabai --HEAD (brew install yabai was saying that ‘yabai is not found’ for some reason) and then signed it
+* Installed Yabai with `brew install koekeishiya/formulae/yabai --HEAD` (brew install yabai was saying that ‘yabai is not found’ for some reason) and then signed it
 * Opened preferences > Privacy > Accessibility > added the ‘yabai’ exec
 * Symlink the config: `ln -s /Users/kleiner/config/dotfiles/yabai ~/.config/yabai`
 * `brew services start yabai` and it was working

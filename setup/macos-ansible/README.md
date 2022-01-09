@@ -13,7 +13,8 @@
 
  3. Clone this repository to your home folder: `cd ~ && git clone https://github.com/jckleiner/config.git`
 
- 4. TODO add your password to the playbook for casks
+ 4. TODO add your password to the playbook for casks. `nano ~/config/setup/macos-ansible/roles/homebrew/defaults/main.yml` 
+    and add your password to `ansible_become_password`
 
  5. Run: `cd ~/config/setup/macos-ansible && ansible-playbook -v --ask-become-pass setup.yml`
     * `-v` to get more information from the commands
@@ -55,7 +56,7 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * Iterm2 - config, learn shortcuts, tmux? - https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
  * Firefox - config, bookmarks, extensions, make it default browser
  * IntelliJ - config
- * Alfred - config
+ * Alfred - config, with applescript?
  * Maven - Has a dependency openjdk. Brew will also install Java 17
  * Snagit (Webiste)
  * SnippetsLab (AppStore)
