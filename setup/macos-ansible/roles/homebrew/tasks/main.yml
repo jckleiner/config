@@ -34,8 +34,8 @@
     when: homebrew_bin_executable_stat.stat.exists
 
   - name: Install homebrew if {{ homebrew_bin_executable_path }} does not exist
-    become: true
-    command: "{{ homebrew_install_command }}"
+    become: false
+    shell: "{{ homebrew_install_command }}"
     when: not homebrew_bin_executable_stat.stat.exists
 
   # Cask absent

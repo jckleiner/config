@@ -297,6 +297,9 @@ chflags nohidden ~/Library
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+# Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
 
