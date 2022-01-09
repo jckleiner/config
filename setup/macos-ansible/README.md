@@ -2,13 +2,21 @@
 
 > Most of the stuff here is taken from Red Shirt Jeff's Repository: https://github.com/geerlingguy/mac-dev-playbook
 
-1. Add the following command to your `.zshrc` to add Python 3 to your $PATH: `export PATH="$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$PATH"`
-2. Upgrade Pip: `sudo pip3 install --upgrade pip`
-3. Install Ansible: `pip3 install ansible`
-4. Test if it's working: `ansible-playbook hello_world.yml`
-5. Run: `ansible-playbook -v --ask-become-pass setup.yml`
+
+ 1. Ensure Apple's command line tools are installed (xcode-select --install to launch the installer).
+
+ 2. Install Ansible:
+
+    a) Run the following command to add Python 3 to your $PATH: `export PATH="$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$PATH"`
+
+    b) Upgrade Pip and install Ansible: sudo `pip3 install --upgrade pip && pip3 install ansible`
+
+ 3. Clone this repository to your home folder: `cd ~ && git@github.com:jckleiner/config.git`
+
+ 4. Run: `ansible-playbook -v --ask-become-pass ~/config/setup/macos-ansible/setup.yml`
     * `-v` to get more information from the commands
     * `--ask-become-pass` asks your password once
+
 
 The downloaded `.dmg` files are stored in Homebrew cache.
 `brew --cache` gives the folder where the packages are stored.
