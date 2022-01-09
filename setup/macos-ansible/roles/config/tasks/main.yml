@@ -1,4 +1,9 @@
 ---
+  - name: Make sure the '~/.config' directory exists
+    file:
+      path: ~/.config
+      state: directory
+  
   # -------------- karabiner --------------
   - name: Symlink .config/karabiner
     ansible.builtin.include_tasks: symlink_file.yml
