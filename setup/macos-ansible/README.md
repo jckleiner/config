@@ -32,12 +32,11 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  
  * Will sleep 2 sec solve the dock problem?
  * install fonts
- * yabai does not work for macos 10
+ * how to install yabai with --HEAD?
  * trash-cli with `npm install --global trash-cli`
  * fix theme git errors
  * Vagrant?
  * Parallels?
- * JDK for arm
  * All commands are executed with `become` (see inventory)?
  * remove `.DS_Store`???
  * Add `System Preferences` to Dock
@@ -53,7 +52,6 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 
  * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ
  * git - config, why does m1 wants passphrase and work mac won't???
- * Iterm2 - config, learn shortcuts, tmux? - https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
  * Firefox - config, bookmarks, extensions, make it default browser
  * IntelliJ - config
  * Alfred - config, with applescript?
@@ -78,6 +76,36 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  *  TODO - git email and user config
     * git config --global user.name "John Doe"
     * it config --global user.email johndoe@example.com
+
+### iTerm2
+ * There is a environment variable `ITERM_PROFILE=My Custom iTerm2 Profile` which defines the current profile, useful?
+ * How to import profile via command line?
+ * Iterm2 - config, learn shortcuts, tmux? - https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
+### OpenJDK and Maven
+ * Downloaded and installed azul openjdk 11 (arm64) already - need to test it with Intellij- See: https://www.azul.com/downloads/?version=java-11-lts&os=macos&package=jdk and https://stackoverflow.com/questions/68358505/how-to-compile-openjdk-11-on-an-m1-macbook
+ * `maven --version` shows openjdk 17, which was installed from homebrew. 
+ * TODO test if the openjdk 17 from homebrew also works and is arm64
+ * Homebrew page says we need to symlink the jdk (https://formulae.brew.sh/formula/openjdk#default)
+
+   `brew info openjdk` gave me this output:
+
+         ==> Caveats
+         For the system Java wrappers to find this JDK, symlink it with
+         sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
+         openjdk is keg-only, which means it was not symlinked into /opt/homebrew,
+         because macOS provides similar software and installing this software in
+         parallel can cause all kinds of trouble.
+
+         If you need to have openjdk first in your PATH, run:
+         echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+
+         For compilers to find openjdk you may need to set:
+         export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+ * I think I have to delete `/Library/Java/JavaVirtualMachines/zulu-11.jdk` which is 280M and also
+ * When I set `export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"`, now `java --version` gives me openjdk 17.0.1
+ * TODO which means I need to do `'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc` but also need to test it with mvn and intellij
 
 ### VsCode 
  * git push does not use ssh key
@@ -152,6 +180,8 @@ Use `defaults read > preferences` and do a change and then do `defaults read > p
  * Restart the machine
  * Set default browser to Firefox: System Preferences > General
 
+### Yabai
+See yabai readme
 
 ### SSH Config and git
 1. Create an .ssh folder
