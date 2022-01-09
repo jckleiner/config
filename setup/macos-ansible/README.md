@@ -3,7 +3,7 @@
 > Most of the stuff here is taken from Red Shirt Jeff's Repository: https://github.com/geerlingguy/mac-dev-playbook
 
 
- 1. Ensure Apple's command line tools are installed (xcode-select --install to launch the installer).
+ 1. Ensure Apple's command line tools are installed (`xcode-select --install` to launch the installer).
 
  2. Install Ansible:
 
@@ -11,7 +11,7 @@
 
     b) Upgrade Pip and install Ansible: sudo `pip3 install --upgrade pip && pip3 install ansible`
 
- 3. Clone this repository to your home folder: `cd ~ && git@github.com:jckleiner/config.git`
+ 3. Clone this repository to your home folder: `cd ~ && https://github.com/jckleiner/config.git`
 
  4. Run: `ansible-playbook -v --ask-become-pass ~/config/setup/macos-ansible/setup.yml`
     * `-v` to get more information from the commands
