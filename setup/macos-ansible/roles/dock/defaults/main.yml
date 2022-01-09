@@ -24,6 +24,7 @@ dockitems_remove:
   - Pages
   - Reminders
   - Shortcuts
+  - System Preferences
   - Siri
   - Dictionary
   
@@ -58,8 +59,8 @@ dockitems_persist:
   - name: "Anki"
     path: "/Applications/Anki.app"
     pos: 9
-  - name: "Sytem Preferences"
-    path: "/Applications/Sytem Preferences.app"
+  - name: "System Preferences"
+    path: "/Applications/System Preferences.app"
     pos: 10
 
   
