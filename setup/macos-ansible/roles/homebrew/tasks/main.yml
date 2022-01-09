@@ -1,73 +1,41 @@
 ---
-  - name: "Print debug message"
-    debug:
-      msg: Hello, world!
-
 
   ## TODO - check if homebrew is already installed, if not run the script from homebrews website and then do the PATH adjustment
 
-  - name: Fail if machine is not arm64 (M1)
-    fail:
-      msg: "Only arm64 (M1) machines are supported! Yours is '{{ ansible_machine }}' based"
-    when: ansible_machine != 'arm64'
+  # - name: Fail if machine is not arm64 (M1)
+  #   fail:
+  #     msg: "Only arm64 (M1) machines are supported! Yours is '{{ ansible_machine }}' based"
+  #   when: ansible_machine != 'arm64'
 
-  - name: Determine Homebrew ownership variables
-    set_fact:
-      homebrew_user: '{{ homebrew_user | default(ansible_user_id) }}'
-      homebrew_group: '{{ homebrew_group | default(ansible_user_gid) }}'
+  # - name: Determine Homebrew ownership variables
+  #   set_fact:
+  #     homebrew_user: '{{ homebrew_user | default(ansible_user_id) }}'
+  #     homebrew_group: '{{ homebrew_group | default(ansible_user_gid) }}'
 
-  # Homebrew setup prerequisites.
-  # M1
-  - name: Ensure Homebrew parent directory has correct permissions (M1).
-    file:
-      path: "{{ homebrew_prefix }}"
-      owner: "{{ homebrew_user }}"
-      state: directory
-    # TODO - uncomment when done
-    # become: true
-    when: ansible_machine == 'arm64'
+  # - name: Check if '{{ homebrew_install_path }}' already exists
+  #   stat:
+  #     path: "{{ homebrew_install_path }}"
+  #   register: homebrew_install_folder_stat
 
-  # Intel
-  - name: Ensure Homebrew parent directory has correct permissions (Intel).
-    block:
-      - name: Ensure Homebrew parent directory has correct permissions (MacOS >= 10.13).
-        file:
-          path: "{{ homebrew_prefix }}"
-          owner: root
-          state: directory
-        become: true
-        when: "ansible_distribution_version is version('10.13', '>=')"
+  # - name: Check if '{{ homebrew_bin_folder_path }}' already exists
+  #   stat:
+  #     path: "{{ homebrew_bin_folder_path }}"
+  #   register: homebrew_bin_folder_stat
 
-      - name: Ensure Homebrew parent directory has correct permissions (MacOS < 10.13).
-        file:
-          path: "{{ homebrew_prefix }}"
-          owner: root
-          group: admin
-          state: directory
-          mode: 0775
-        become: true
-        when: "ansible_distribution_version is version('10.13', '<')"
-    when: ansible_machine == 'x86_64'
+  - name: Check if '{{ homebrew_bin_executable_path }}' already exists
+    become: true
+    stat:
+      path: "{{ homebrew_bin_executable_path }}"
+    register: homebrew_bin_executable_stat
+    
+  - name: If exists, run 'brew --verison' to make sure brew works
+    command: "{{ homebrew_bin_executable_path }} --version"
+    when: homebrew_bin_executable_stat.stat.exists
 
-  - name: Ensure Homebrew directory exists.
-    file:
-      path: "{{ homebrew_install_path }}"
-      owner: "{{ homebrew_user }}"
-      group: "{{ homebrew_group }}"
-      state: directory
-      mode: 0775
-    # TODO - uncomment when done
-    # become: true
-
-  # Adjust Homebrew permissions.
-  - name: Ensure proper permissions and ownership on homebrew_brew_bin_path dirs.
-    file:
-      path: "{{ homebrew_brew_bin_path }}"
-      state: directory
-      owner: "{{ homebrew_user }}"
-      group: "{{ homebrew_group }}"
-      mode: 0775
-    # become: true
+  - name: Install homebrew if {{ homebrew_bin_executable_path }} does not exist
+    become: true
+    command: "{{ homebrew_install_command }}"
+    when: not homebrew_bin_executable_stat.stat.exists
 
   # Cask absent
   - name: Ensure blacklisted cask applications are not installed.
@@ -80,7 +48,6 @@
       name: "{{ item.name | default(item) }}"
       state: present
       install_options: "{{ item.install_options | default('appdir=' + homebrew_cask_appdir) }}"
-      # What is this?
       accept_external_apps: "{{ homebrew_cask_accept_external_apps }}"
       sudo_password: "{{ ansible_become_password | default(omit) }}"
     loop: "{{ homebrew_cask_apps }}"

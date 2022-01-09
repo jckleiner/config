@@ -21,9 +21,14 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
     - Set default browser to Firefox: System Preferences > General
 
 ## TODO
+ * install fonts
+ * trash-cli with `npm install --global trash-cli`
+ * fix theme git errors
+ * Vagrant?
+ * Parallels?
+ * JDK for arm
  * All commands are executed with `become` (see inventory)?
  * Check if brew is installed, if not execute the brew install command
- * trash-cli with `npm install --global trash-cli`
  * remove `.DS_Store`???
 
  * Add `System Preferences` to Dock
@@ -35,15 +40,21 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
     1. creates workspaces if none exist
     2. opens all the used programs in the correct workspaces
 
+
+
  * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ
  * git - config, why does m1 wants passphrase and work mac won't???
- * Iterm2 - config - https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
+ * Iterm2 - config, learn shortcuts, tmux? - https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
  * Firefox - config, bookmarks, extensions, make it default browser
  * IntelliJ - config
  * Alfred - config
  * Maven - Has a dependency openjdk. Brew will also install Java 17
  * Snagit (Webiste)
  * SnippetsLab (AppStore)
+
+ * Yabai dont open smaller windows in full screen, add all to the list?
+ * Karabiner, laptop and external keyboard has different keyboard layouts
+ 
 
  * TODO fzf quit is ESC, lf quit is 'q' -> make LF quit also ESC
  * update readme, oh-my-zsh not needed 

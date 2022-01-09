@@ -1,7 +1,10 @@
 ---
 homebrew_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
 homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
-homebrew_brew_bin_path: "{{ homebrew_prefix }}/bin"
+# homebrew_brew_bin_path: "{{ homebrew_prefix }}/bin"
+homebrew_bin_folder_path: "{{ homebrew_prefix }}/bin"
+homebrew_bin_executable_path: "{{ homebrew_prefix }}/bin/brew"
+homebrew_install_command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 homebrew_installed_packages:
   - name: koekeishiya/formulae/yabai  # need to be setup manually, see readme

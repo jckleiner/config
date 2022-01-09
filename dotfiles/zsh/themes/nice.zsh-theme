@@ -150,8 +150,10 @@ _current_dir="$color_dark_mode_bold%d%{$reset_color%}"
 # PROMPT='$fg_bold[blue][ $fg[red]%t $fg_bold[blue]] $fg_bold[blue] [ $fg[red]%n@%m:%~$(git_prompt_info)$fg[yellow]$(rvm_prompt_info)$fg_bold[blue] ]$reset_color 
 # $ '
 
+# TODO add $(git_status_changed)$(git_status_ahead)$(git_status_behind) 
+#   after $(git_current_branch) when error is fixed, see below
 PROMPT='
-$(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_changed)$(git_status_ahead)$(git_status_behind)
+$(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) 
 %{%F{white}%}▶%{$reset_color%} '
 
 # PROMPT='
