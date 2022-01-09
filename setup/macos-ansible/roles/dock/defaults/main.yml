@@ -60,6 +60,6 @@ dockitems_persist:
     pos: 9
   - name: "Sytem Preferences"
     path: "/Applications/Sytem Preferences.app"
-    pos: 9
+    pos: 10
 
   
