@@ -29,8 +29,8 @@ The downloaded `.dmg` files are stored in Homebrew cache.
 To simulate a cleanup, i.e. see what would be removed, you may use the `-n` option: `brew cleanup -n`
 
 ## TODO
- * TODO make finder open on home folder
  
+ * Will sleep 2 sec solve the dock problem?
  * install fonts
  * yabai does not work for macos 10
  * trash-cli with `npm install --global trash-cli`
