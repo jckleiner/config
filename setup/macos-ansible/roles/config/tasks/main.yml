@@ -63,6 +63,7 @@
 
   # -------------- MacOs Preferences --------------
   - name: Set MacOs preferences
+    become: true
     script: "{{ macos_preferences_script_path }}"
 
 # TODO

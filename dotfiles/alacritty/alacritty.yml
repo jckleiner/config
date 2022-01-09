@@ -89,19 +89,21 @@ colors:
   normal:
     black:   '#3B4252'
     red:     '#ff7881'
-    green:   '#a1c97d'
+    green:   '#a1c97d' # green: '#7eca39' # alternative (in iterm)
     yellow:  '#f7cf60'
     blue:    '#a3b4ff'
-    magenta: '#d7afd7'
+    magenta: '#d7afd7' # ffa3ff # alternative (in iterm)
     cyan:    '#88C0D0'
     white:   '#ffffff'
+  
+  # These values are when the text is bold
   bright:
     black:   '#4C566A'
-    red:     '#BF616A'
-    green:   '#A3BE8C'
+    red:     '#BF616A' # de7a84 # alternative (in iterm)
+    green:   '#A3BE8C' # green:   '#84bd50' # alternative (in iterm)
     yellow:  '#EBCB8B'
     blue:    '#81A1C1'
-    magenta: '#B48EAD'
+    magenta: '#B48EAD' # ec83d9 # alternative (in iterm)
     cyan:    '#8FBCBB'
     white:   '#ECEFF4'
 

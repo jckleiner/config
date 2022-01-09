@@ -30,6 +30,7 @@
     
   - name: If exists, run 'brew --verison' to make sure brew works
     command: "{{ homebrew_bin_executable_path }} --version"
+    changed_when: false
     when: homebrew_bin_executable_stat.stat.exists
 
   - name: Install homebrew if {{ homebrew_bin_executable_path }} does not exist
