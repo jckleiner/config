@@ -26,7 +26,7 @@
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/skhd"
 
   # -------------- iterm2 --------------
-  - name: Symlink .config/skhd
+  - name: Symlink iterm2 plist
     ansible.builtin.include_tasks: symlink_file.yml
     vars:
       file_path: "{{ iterm2_plist_file_path }}"

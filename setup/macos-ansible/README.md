@@ -73,25 +73,13 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
     - open -a 'Dozer'
     - https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
- *  TODO - git email and user config
-    * git config --global user.name "John Doe"
-    * it config --global user.email johndoe@example.com
 
 ### iTerm2
  * iTerm2 loses focus after splitting panes.
  * Iterm2 - config, learn shortcuts, tmux? - https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
  * How to enable `General > Preferences > Load preferences from a custom URL` programatically???
+ * tmux so when quitting, the session is not lost?
 
- * TODO 
-   - keys -> split horizontally -> CTRL + h
-   - keys -> split vertically -> CTRL + v
-   - TODO remove keys from profile which outputs those annoying random characters...
-   - TODO close pane shortcut
-   - TODO tmux so when quitting, the session is not lost?
-   - keys -> select split pane above -> CTRL + up
-   - keys -> select split pane below -> CTRL + down
-   - keys -> select split pane right -> CTRL + right
-   - keys -> select split pane left -> CTRL + left
 
 
 
@@ -198,13 +186,15 @@ Use `defaults read > preferences` and do a change and then do `defaults read > p
 See yabai readme
 
 ### SSH Config and git
-1. Create an .ssh folder
+1. Create a `.ssh` folder: `mkdir ~/.ssh` (TODO permissions?)
 3. Copy your public and private key there
-4. Create a ~/.ssh/config file (See https://superuser.com/questions/232373/how-to-tell-git-which-private-key-to-use)
+4. Create a `~/.ssh/config` file (See https://superuser.com/questions/232373/how-to-tell-git-which-private-key-to-use)
 5. Global git settings user and email
+   * `git config --global user.name "John Doe"`
+   * `git config --global user.email johndoe@example.com`
 
-Git is still asking for username/password with ~/.ssh/config present
-https://stackoverflow.com/questions/10909221/why-is-github-asking-for-username-password-when-following-the-instructions-on-sc
+Git is still asking for username/password with `~/.ssh/config` present?
+(https://stackoverflow.com/questions/10909221/why-is-github-asking-for-username-password-when-following-the-instructions-on-sc)
 
  * Solution: change "https://..." to "git@github..." in `.git/config` for that repository
 
