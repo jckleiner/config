@@ -4,6 +4,16 @@
   ansible.builtin.include_tasks: dock-remove.yml
   loop: "{{ dockitems_remove }}"
 
+# TODO test if a second invocation of this task removes all the apps correctly
+- name: Remove configured Dock items.
+  ansible.builtin.include_tasks: dock-remove.yml
+  loop: "{{ dockitems_remove }}"
+
+- name: Ensure required dock items exist.
+  ansible.builtin.include_tasks: dock-add.yml
+  loop: "{{ dockitems_persist }}"
+
+# TODO test if a second invocation of this task removes all the apps correctly
 - name: Ensure required dock items exist.
   ansible.builtin.include_tasks: dock-add.yml
   loop: "{{ dockitems_persist }}"

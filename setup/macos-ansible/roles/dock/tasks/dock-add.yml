@@ -12,8 +12,3 @@
   ansible.builtin.command: "dockutil --add '{{ item.path }}'"
   when: dockitem_exists.rc >0
   tags: ['dock']
-
-# TODO 
-- name: Sleep for 2 seconds and continue with play
-  wait_for:
-    timeout: 2

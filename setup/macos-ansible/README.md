@@ -30,11 +30,10 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 
 ## TODO
  
- * Will sleep 2 sec solve the dock problem?
  * install fonts
- * how to install yabai with --HEAD?
  * trash-cli with `npm install --global trash-cli`
  * fix theme git errors
+ * how to install yabai with --HEAD?
  * Vagrant?
  * Parallels?
  * All commands are executed with `become` (see inventory)?
@@ -141,8 +140,6 @@ TODO restart karabiner in command line?
 4. TODO: Preferences >> Keyboard >> modifier keys >> which one to choose? (Still not sure)
 5. TODO: when using the laptop, the modifiers change, fix that
 
-### VsCode
-3. TODO argv.json symlink?
 
 ### Yabai
 * See README in config/yabai (TODO - stack line not working)

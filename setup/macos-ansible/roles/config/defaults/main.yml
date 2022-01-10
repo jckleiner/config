@@ -14,6 +14,12 @@ vscode_config_folder_path: ~/Library/Application Support/Code/User
 vscode_settings_path: "{{ vscode_config_folder_path }}/settings.json"
 vscode_keybindings_path: "{{ vscode_config_folder_path }}/keybindings.json"
 
+fonts_to_install:
+  - "{{ dotfiles_folder_relative_prefix }}/fonts/Monaco Nerd Font/Monaco Nerd Font Complete.otf"
+  - "{{ dotfiles_folder_relative_prefix }}/fonts/Hack Nerd Font/Hack Regular Nerd Font Complete.ttf"
+
+fonts_target_folder: ~/Library/Fonts
+
 vscode_extensions_to_install:
   # IDEA like light Theme
   - karsany.vscode-ideal-theme
