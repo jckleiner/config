@@ -25,6 +25,13 @@
       file_path: "{{ skhd_folder_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/skhd"
 
+  # -------------- iterm2 --------------
+  - name: Symlink .config/skhd
+    ansible.builtin.include_tasks: symlink_file.yml
+    vars:
+      file_path: "{{ iterm2_plist_file_path }}"
+      symlink_target: "{{ dotfiles_folder_relative_prefix }}/iterm2/com.googlecode.iterm2.plist"
+
   # -------------- yabai --------------
   - name: Symlink .config/yabai
     ansible.builtin.include_tasks: symlink_file.yml

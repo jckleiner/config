@@ -8,6 +8,8 @@ lf_folder_path: ~/.config/lf
 skhd_folder_path: ~/.config/skhd
 yabai_folder_path: ~/.config/yabai
 
+iterm2_plist_file_path: ~/Library/Preferences/com.googlecode.iterm2.plist
+
 vscode_config_folder_path: ~/Library/Application Support/Code/User
 vscode_settings_path: "{{ vscode_config_folder_path }}/settings.json"
 vscode_keybindings_path: "{{ vscode_config_folder_path }}/keybindings.json"
