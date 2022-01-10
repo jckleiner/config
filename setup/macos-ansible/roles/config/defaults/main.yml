@@ -65,4 +65,5 @@ vscode_extensions_to_uninstall: []
 
 macos_preferences_script_path: ~/config/setup/macos-preferences.sh
 
-
+npm_global_packages_to_install:
+  - trash-cli

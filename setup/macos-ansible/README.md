@@ -30,8 +30,12 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 
 ## TODO
  
- * install fonts
- * trash-cli with `npm install --global trash-cli`
+ * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ
+ * Alfred - config, with applescript?
+ * Yabai dont open smaller windows in full screen, add all to the list?
+ * Reorganize folders in this repo?
+ * Karabiner, laptop and external keyboard has different keyboard layouts
+ * top bar config
  * fix theme git errors
  * how to install yabai with --HEAD?
  * Vagrant?
@@ -41,26 +45,18 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * Add `System Preferences` to Dock
  * How does .zhistory work and why does separate terminal windows have their own history, when are they merged?
 
- * validation for dock and homebrew
+ * validation for dock and homebrew, needed?
 
  * a script (hammerspoon? or in .zprofile with skhd and yabai commands) which 
     1. creates workspaces if none exist
     2. opens all the used programs in the correct workspaces
 
-
-
- * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ
  * git - config, why does m1 wants passphrase and work mac won't???
  * Firefox - config, bookmarks, extensions, make it default browser
  * IntelliJ - config
- * Alfred - config, with applescript?
  * Maven - Has a dependency openjdk. Brew will also install Java 17
  * Snagit (Webiste)
  * SnippetsLab (AppStore)
-
- * Yabai dont open smaller windows in full screen, add all to the list?
- * Karabiner, laptop and external keyboard has different keyboard layouts
- 
 
  * TODO fzf quit is ESC, lf quit is 'q' -> make LF quit also ESC
  * update readme, oh-my-zsh not needed 
@@ -78,8 +74,6 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * Iterm2 - config, learn shortcuts, tmux? - https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
  * How to enable `General > Preferences > Load preferences from a custom URL` programatically???
  * tmux so when quitting, the session is not lost?
-
-
 
 
 ### OpenJDK and Maven
