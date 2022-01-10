@@ -1,14 +1,22 @@
-# config
+# Setup MacOs With Ansible
 
-### Setup new mac (includes config/dotfiles setup):
+> A lot of the stuff here is taken from the great "Red Shirt Jeff"s Repository: https://github.com/geerlingguy/mac-dev-playbook
 
-`/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/jckleiner/config/HEAD/setup/setup-new-mac.sh)"`
 
-### Install and setup zsh on the current machine
+ 1. Ensure Apple's command line tools are installed (`xcode-select --install` to launch the installer).
 
-`cd ~ && git clone https://github.com/jckleiner/config.git && ./config/dotfiles/zsh/setup-zsh.sh`
+ 2. Install Ansible:
+    TODO /opt/homebrew/bin not needed in path?
+    a) Run the following command to add Python 3 to your $PATH: `export PATH="$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$PATH"`
 
-###  Setup dotfiles and config files on a new machine:
+    b) Upgrade Pip and install Ansible: sudo `pip3 install --upgrade pip && pip3 install ansible`
 
-`cd ~ && git clone https://github.com/jckleiner/config.git && ./config/dotfiles/setup-dotfiles.sh`
+ 3. Clone this repository to your home folder: `cd ~ && git clone https://github.com/jckleiner/config.git`
+
+ 4. TODO add your password to the playbook for casks. `nano ~/config/setup/macos-ansible/roles/homebrew/defaults/main.yml` 
+    and add your password to `ansible_become_password`
+
+ 5. Run: `cd ~/config/setup/macos-ansible && ansible-playbook -v --ask-become-pass setup.yml`
+    * `-v` to get more information from the commands
+    * `--ask-become-pass` asks your password once
 

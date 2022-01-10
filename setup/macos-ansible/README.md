@@ -1,25 +1,3 @@
-# Setup MacOs With Ansible
-
-> Most of the stuff here is taken from Red Shirt Jeff's Repository: https://github.com/geerlingguy/mac-dev-playbook
-
-
- 1. Ensure Apple's command line tools are installed (`xcode-select --install` to launch the installer).
-
- 2. Install Ansible:
-    TODO /opt/homebrew/bin not needed in path?
-    a) Run the following command to add Python 3 to your $PATH: `export PATH="$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$PATH"`
-
-    b) Upgrade Pip and install Ansible: sudo `pip3 install --upgrade pip && pip3 install ansible`
-
- 3. Clone this repository to your home folder: `cd ~ && git clone https://github.com/jckleiner/config.git`
-
- 4. TODO add your password to the playbook for casks. `nano ~/config/setup/macos-ansible/roles/homebrew/defaults/main.yml` 
-    and add your password to `ansible_become_password`
-
- 5. Run: `cd ~/config/setup/macos-ansible && ansible-playbook -v --ask-become-pass setup.yml`
-    * `-v` to get more information from the commands
-    * `--ask-become-pass` asks your password once
-
 
 The downloaded `.dmg` files are stored in Homebrew cache.
 `brew --cache` gives the folder where the packages are stored.
@@ -30,15 +8,18 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 
 ## TODO
  
+ * Alfred - config, with applescript? Has separate .plist files, see `cd "~/Library/Application Support/Alfred/Alfred.alfredpreferences/preferences/"`
  * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ
- * Alfred - config, with applescript?
  * Yabai dont open smaller windows in full screen, add all to the list?
  * Reorganize folders in this repo?
  * Karabiner, laptop and external keyboard has different keyboard layouts
  * top bar config
  * fix theme git errors
  * how to install yabai with --HEAD?
+ * Short way to install and setup only zsh on the current machine
  * Vagrant?
+ * MS Word one time licence?
+ * seems cool: [xbar, keyboard-maestro]
  * Parallels?
  * All commands are executed with `become` (see inventory)?
  * remove `.DS_Store`???
@@ -53,7 +34,7 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 
  * git - config, why does m1 wants passphrase and work mac won't???
  * Firefox - config, bookmarks, extensions, make it default browser
- * IntelliJ - config
+ * IntelliJ - config, extensions?
  * Maven - Has a dependency openjdk. Brew will also install Java 17
  * Snagit (Webiste)
  * SnippetsLab (AppStore)
