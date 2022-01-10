@@ -78,14 +78,11 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
     * it config --global user.email johndoe@example.com
 
 ### iTerm2
- * There is a environment variable `ITERM_PROFILE=My Custom iTerm2 Profile` which defines the current profile, useful?
- * How to import profile via command line?
+ * iTerm2 loses focus after splitting panes.
  * Iterm2 - config, learn shortcuts, tmux? - https://stackoverflow.com/questions/22943676/how-to-export-iterm2-profiles
+ * How to enable `General > Preferences > Load preferences from a custom URL` programatically???
 
  * TODO 
-   - Turn off prefs->appearance->show per-pane title bars with split panes.
-   - iTerm > Preferences > Appearance > Window > "Hide scrollbar and resize control"
-   - Prefs > Profiles > Window and change Style to "No Title Bar'
    - keys -> split horizontally -> CTRL + h
    - keys -> split vertically -> CTRL + v
    - TODO remove keys from profile which outputs those annoying random characters...
