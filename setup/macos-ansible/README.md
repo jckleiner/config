@@ -12,6 +12,7 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ
  * Yabai dont open smaller windows in full screen, add all to the list?
  * Reorganize folders in this repo?
+ * Harddrive plug error when unplugging the laptop from dock?
  * Karabiner, laptop and external keyboard has different keyboard layouts
  * top bar config
  * fix theme git errors
@@ -19,7 +20,10 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * Short way to install and setup only zsh on the current machine
  * Vagrant?
  * MS Word one time licence?
- * seems cool: [xbar, keyboard-maestro]
+ * seems cool: 
+    - xbar
+    - keyboard-maestro
+    - see: https://www.youtube.com/watch?v=MyZ8Rq9iI14&t=260s
  * Parallels?
  * All commands are executed with `become` (see inventory)?
  * remove `.DS_Store`???

@@ -120,6 +120,12 @@ Preferences >> Editor >> Code Style >> HTML + XML >> Code Generation >> disable 
 ### Remove unused imports automatically
 Editor > General > Auto Import > check "optimize imports on the fly"
 
+
+## IntelliJ CE
+
+ * There are services tab: `view > tool windows > services` but there are no "Spring Boot" run config type
+ * You can use "Application" as a Run Configuration Type to list available applications
+
 ## TODO
  
  * Opening a new project (in a new window) results in some configuration to be lost?
