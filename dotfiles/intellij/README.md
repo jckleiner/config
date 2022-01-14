@@ -10,7 +10,7 @@
  * Consolas and Consolas bold Font
 
 ### Be Aware
-Intellij did not set the working directory path correctly for 2 modules inside a project. This led to the app not finding files (e.g. ../content/whitelabel/de/index).
+IntelliJ did not set the working directory path correctly for 2 modules inside a project. This led to the app not finding files (e.g. ../content/whitelabel/de/index).
 The fix was to edit the run config -> Set the working directory again for each module.
  * Set the spring profiles for each project
 
@@ -20,6 +20,7 @@ The fix was to edit the run config -> Set the working directory again for each m
 
 ### Import Settings
  * `File -> Manage IDE Settings -> Import Settings -> select intellijSettings.zip`
+ * Notice: The font is sometimes NOT imported and IntelliJ sticks to its default font for some reason. This can be fixed either by manually selecting the correct font again or deleting the `editor-font.xml` file in `~/Library/Application Support/JetBrains/IdeaIC2021.3/options`. This forces IntellJ to use the correct fonts configured in `.../options/editor.xml`
  * Run Configurations also need to be exported separately if needed
 
 Check the following points again:
@@ -58,7 +59,7 @@ Import Order:
  * Line Spacing: 1.05
 
 #### System Font
- * `Preferences -> Appearance -> Appearance -> use custom font -> Gujarati Sangam MN 12`
+ * `Preferences -> Appearance -> Appearance -> use custom font -> .SF NS Text 13`
  * `Preferences -> Editor -> Color scheme -> console font -> Consolas 13`
 
 #### Enable Lombok

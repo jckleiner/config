@@ -16,7 +16,7 @@ vscode_keybindings_path: "{{ vscode_config_folder_path }}/keybindings.json"
 
 fonts_to_install:
   - "{{ dotfiles_folder_relative_prefix }}/fonts/Consolas/Consolas.ttf"
-  - "{{ dotfiles_folder_relative_prefix }}/fonts/Consolas/Consolas-Bold.ttf"
+  - "{{ dotfiles_folder_relative_prefix }}/fonts/Consolas/Consolas Bold.ttf"
   - "{{ dotfiles_folder_relative_prefix }}/fonts/Monaco Nerd Font/Monaco Nerd Font Complete.otf"
   - "{{ dotfiles_folder_relative_prefix }}/fonts/Hack Nerd Font/Hack Regular Nerd Font Complete.ttf"
 
