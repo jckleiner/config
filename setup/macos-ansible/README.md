@@ -61,32 +61,6 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * tmux so when quitting, the session is not lost?
 
 
-### OpenJDK and Maven
- * Downloaded and installed azul openjdk 11 (arm64) already - need to test it with Intellij- See: https://www.azul.com/downloads/?version=java-11-lts&os=macos&package=jdk and https://stackoverflow.com/questions/68358505/how-to-compile-openjdk-11-on-an-m1-macbook
- * `maven --version` shows openjdk 17, which was installed from homebrew. 
- * TODO test if the openjdk 17 from homebrew also works and is arm64
- * Homebrew page says we need to symlink the jdk (https://formulae.brew.sh/formula/openjdk#default)
-
-   `brew info openjdk` gave me this output:
-
-         ==> Caveats
-         For the system Java wrappers to find this JDK, symlink it with
-         sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-
-         openjdk is keg-only, which means it was not symlinked into /opt/homebrew,
-         because macOS provides similar software and installing this software in
-         parallel can cause all kinds of trouble.
-
-         If you need to have openjdk first in your PATH, run:
-         echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc
-
-         For compilers to find openjdk you may need to set:
-         export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
-
- * I think I have to delete `/Library/Java/JavaVirtualMachines/zulu-11.jdk` which is 280M and also
- * When I set `export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"`, now `java --version` gives me openjdk 17.0.1
- * TODO which means I need to do `'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc` but also need to test it with mvn and intellij
-
 ### VsCode 
  * git push does not use ssh key
  * When opening a new terminal in the current place, the focus shits somewhere else?
@@ -108,10 +82,6 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 Docker -> https://stackoverflow.com/questions/54437744/how-to-start-docker-from-command-line-in-mac
 
 
-
-### Clone Dotfiles/config Repository
-1. Cloned dotfiles and put it in home folder
-
 ### Karabiner Elements
 1. Karabiner Elements with homebrew (requires password)
 TODO restart karabiner in command line?
@@ -122,10 +92,6 @@ TODO restart karabiner in command line?
 
 ### Yabai
 * See README in config/yabai (TODO - stack line not working)
-
-
-### Fonts
-* Installed Monaco Nerd Font
 
 
 ## —— System Settings ——
@@ -180,3 +146,41 @@ Here is an official answer to this:
 > However, it also prompts you to enter your GitHub credentials every time you pull or push a repository. 
 >
 > You can configure Git to store your password for you. If you'd like to set that up, read all about setting up password caching.
+
+### OpenJDK and Maven
+ * Download and install Azul Zulu openjdk 11 (arm64 `.dmg` file) - https://www.azul.com/downloads/?version=java-11-lts&os=macos&package=jdk (see also: https://stackoverflow.com/questions/68358505/how-to-compile-openjdk-11-on-an-m1-macbook)
+ * `maven --version` shows openjdk 17, which was installed from homebrew as a dependency. 
+
+   `brew info openjdk` gives this output:
+
+         ==> Caveats
+         For the system Java wrappers to find this JDK, symlink it with
+         sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
+         openjdk is keg-only, which means it was not symlinked into /opt/homebrew,
+         because macOS provides similar software and installing this software in
+         parallel can cause all kinds of trouble.
+
+         If you need to have openjdk first in your PATH, run:
+         echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+
+         For compilers to find openjdk you may need to set:
+         export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+So, `brew install openjdk@17` installs the openjdk 17 but does NOT link it (meaning symlink it into `/Library/Java/JavaVirtualMachines`)
+
+ > For the system Java wrappers to find this JDK, symlink it with
+ >
+ > `sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk`
+
+When only Zulu JDK 11 was installed and openjdk@17 was not symlinked yed, `java --version` outputs 'Java 11'. 
+After the symlink, `java --version` outputs 'Java 17'. `mvn --version` outputs 'Java 17' in both cases because it is pointing to its dependency propbably.
+
+So, if Java 17 is needed, just symlink it like above. IntelliJ can then automatically detect that JDK 17.
+
+ * You could also use the java bin in the brew package : `export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"`, `java --version` outputs openjdk 17.0.1. But probably this is not the proper way to do it.
+
+### IntelliJ
+ * Import all settings: `File > Manage IDE Settings > Import Settings`
+ * The font is sometimes NOT imported and IntelliJ sticks to its default font for some reason. This can be fixed either by manually selecting the correct font again or deleting the `editor-font.xml` file in `~/Library/Application Support/JetBrains/IdeaIC2021.3/options`. This forces IntellJ to use the correct fonts configured in `.../options/editor.xml`
+ * Select a JDK. Generally IntelliJ will detect the available JDK's
