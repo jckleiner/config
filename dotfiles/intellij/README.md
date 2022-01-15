@@ -62,6 +62,8 @@ Import Order:
  * `Preferences -> Appearance -> Appearance -> use custom font -> .SF NS Text 13`
  * `Preferences -> Editor -> Color scheme -> console font -> Consolas 13`
 
+#### Themes
+ * "Atom One Theme" is cool but needs some adjustments
 #### Enable Lombok
  * `Preferences -> Build... -> Compiler -> Enable annotation processing`
  * `Preferences -> Plugins -> install lombok plugin -> restart`

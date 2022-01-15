@@ -36,6 +36,7 @@ homebrew_cask_apps:
     # General
   - firefox
   - google-chrome
+  - dropbox
   - slack
   - zoom # requires password
   - discord # Rosetta

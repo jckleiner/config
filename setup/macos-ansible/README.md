@@ -184,3 +184,7 @@ So, if Java 17 is needed, just symlink it like above. IntelliJ can then automati
  * Import all settings: `File > Manage IDE Settings > Import Settings`
  * The font is sometimes NOT imported and IntelliJ sticks to its default font for some reason. This can be fixed either by manually selecting the correct font again or deleting the `editor-font.xml` file in `~/Library/Application Support/JetBrains/IdeaIC2021.3/options`. This forces IntellJ to use the correct fonts configured in `.../options/editor.xml`
  * Select a JDK. Generally IntelliJ will detect the available JDK's
+
+### Keepass 
+ * Enable browser integration in Keepass for Firefox and Chrome
+ * Then open the browser extension settings page > connected databases > connect your keepass database

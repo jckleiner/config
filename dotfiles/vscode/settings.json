@@ -287,7 +287,7 @@
     "files.exclude": {
       "**/.DS_Store": false
     },
-    "workbench.colorTheme": "IDEA like light Theme"
+    "workbench.colorTheme": "Atom One Dark"
 
 
 
