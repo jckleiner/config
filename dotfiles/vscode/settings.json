@@ -210,14 +210,38 @@
     "vetur.experimental.templateInterpolationService": true,
 
     /* VIM */
+    /* https://www.youtube.com/watch?v=Vkm4bc2Y0AA */
+    /* https://www.youtube.com/watch?v=44snngEzNMQ */
+    "vim.leader": "<space>",
     "editor.lineNumbers": "relative",
-    "vim.leader": "<Space>",
     
     /* Easymotion */
     "vim.easymotion": "true",
-    "vim.easymotionMarkerFontSize": "22",
-    "vim.easymotionMarkerForegroundColorOneChar": "blue",
-    "vim.easymotionMarkerForegroundColorTwoChar": "blue",
+    "vim.easymotionMarkerFontSize": "28",
+    "vim.easymotionMarkerForegroundColorOneChar": "cyan",
+    "vim.easymotionMarkerForegroundColorTwoChar": "magenta",
+    //"vim.easymotionMarkerBackgroundColor": "white",
+    "vim.normalModeKeyBindings": [
+      {
+        "before": ["<tab>"],
+        "commands": ["workbench.action.nextEditor"]
+      },
+      {
+        "before": ["<S-tab>"],
+        "commands": ["workbench.action.previousEditor"]
+      }
+    ],
+    /* stays in visual mode after tabbing? */
+    "vim.visualModeKeyBindings": [
+      {
+        "before": [">"],
+        "after": [">", "g", "v"]
+      },
+      {
+        "before": ["<"],
+        "after": ["<", "g", "v"]
+      },
+    ],
     
     /* "TODO Highlight" Extension */
     // see VsCode API for all options: https://code.visualstudio.com/api/references/vscode-api
