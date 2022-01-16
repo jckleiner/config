@@ -37,7 +37,6 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
     2. opens all the used programs in the correct workspaces
 
  * git - config, why does m1 wants passphrase and work mac won't???
- * Firefox - config, bookmarks, extensions, make it default browser
  * IntelliJ - config, extensions?
  * Maven - Has a dependency openjdk. Brew will also install Java 17
  * Snagit (Webiste)
@@ -60,6 +59,52 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
  * How to enable `General > Preferences > Load preferences from a custom URL` programatically???
  * tmux so when quitting, the session is not lost?
 
+### Firefox
+ * TODO: config, bookmarks, , make it default browser
+
+Changing it to the default browser via command line: 
+`/opt/homebrew/Caskroom/firefox/95.0.2/Firefox.app/Contents/MacOS/firefox --setDefaultBrowser`. This prompts a window asking if I'm sure or not.
+
+TODO can this click be done with applescript?
+
+
+
+Installing extensions via the commandline:
+
+ 1. Unzip extension.xpi
+ 2. Read applications.gecko.id from manifest.json
+ 3. Rename extension.xpi to <ID>.xpi
+ 4. Copy to one of the standard installation folders listed here: https://extensionworkshop.com/documentation/publish/distribute-sideloading/#Add_the_add-on_XPI_file_to_a_standard_extensions_folder.
+
+Get add-on id of extensions in Firefox: https://stackoverflow.com/questions/48056506/get-add-on-id-of-extensions-in-firefox
+
+Extensions: 
+   - Dark theme: "Arc Dark Theme"
+   - KeePassXC-Browser
+   - AdBlock Plus
+   - Dark Reader
+   - Vimium-FF (Config)
+
+#### Vimium Browser Extension (Firefox and Chrome)
+You can add custom key mappings. No config file.
+
+    unmap <a-p>
+    unmap <a-m>
+    unmap p
+    unmap x
+    unmap X
+
+    map a previousTab
+    map d nextTab
+    map A goBack
+    map D goForward
+    map " visitPreviousTab
+    map C removeTab
+    map c restoreTab
+
+    # f     open link in current tab
+    # F     open link in new tab
+    # r     reload the page
 
 ### VsCode 
  * git push does not use ssh key
@@ -188,3 +233,6 @@ So, if Java 17 is needed, just symlink it like above. IntelliJ can then automati
 ### Keepass 
  * Enable browser integration in Keepass for Firefox and Chrome
  * Then open the browser extension settings page > connected databases > connect your keepass database
+ * See description in keepass file for more info
+
+
