@@ -54,8 +54,10 @@ homebrew_cask_apps:
 
   # Development
   - intellij-idea
+  - intellij-idea-ce
   - visual-studio-code
   - sourcetree # Rosetta
+  - github # Github Desktop
   - postman
   - dbeaver-community
   - docker

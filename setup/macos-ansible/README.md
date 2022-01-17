@@ -168,6 +168,7 @@ Use `defaults read > preferences` and do a change and then do `defaults read > p
 ## Manual Steps
  * Restart the machine
  * Set default browser to Firefox: System Preferences > General
+ * Enable FileVault
 
 ### Yabai
 See yabai readme
@@ -181,9 +182,15 @@ See yabai readme
    * `git config --global user.email johndoe@example.com`
 
 Git is still asking for username/password with `~/.ssh/config` present?
-(https://stackoverflow.com/questions/10909221/why-is-github-asking-for-username-password-when-following-the-instructions-on-sc)
-
  * Solution: change "https://..." to "git@github..." in `.git/config` for that repository
+
+Git asks for password with every action
+ * Add the following to your `~/.ssh/config`. For MacOs machines, you can tell git to use the Keychain
+ * This will error out for other operating systems, therefore the `IgnoreUnknown UseKeychain`
+
+         Host *
+            IgnoreUnknown UseKeychain
+            UseKeychain yes
 
 Here is an official answer to this:
 > If Git prompts you for a username and password every time you try to interact with GitHub, you're probably using the HTTPS clone URL for your repository. Using an HTTPS remote URL has some advantages: it's easier to set up than SSH, and usually works through strict firewalls and proxies. 
@@ -234,5 +241,20 @@ So, if Java 17 is needed, just symlink it like above. IntelliJ can then automati
  * Enable browser integration in Keepass for Firefox and Chrome
  * Then open the browser extension settings page > connected databases > connect your keepass database
  * See description in keepass file for more info
+TODO keepasxc config file?
+   - start on startup
+   - minimize automcaticlly after login to a database
+   - TouchId
+
+   TODO vscode - scroll before the top/bottom was reached
+   TODO gitlab sync with github
+   TODO apple care
+
+   TODO Enter harddisk password to keepass
+   TODO Increase keypress rate   
+
+   TODO A good dock? ------------------------
+   TODO USB complaining when dock is unplugged ------------------------
+   TODO instead of piping the output into grep, how to fuzzy search the output?
 
 
