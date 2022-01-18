@@ -52,7 +52,6 @@ vscode_extensions_to_install:
   # Remote - SSH
   - ms-vscode-remote.remote-ssh
   # Remote - SSH Editing Configuration Files
-  # TODO - needed?
   - ms-vscode-remote.remote-ssh-edit
   # vscode-pdf
   - tomoki1207.pdf
