@@ -57,6 +57,8 @@ vscode_extensions_to_install:
   - tomoki1207.pdf
   # Better Jinja
   - samuelcolvin.jinjahtml
+  # Code Runner
+  - formulahendry.code-runner
 
   # when enabled, .yaml icons are not showed
   # # Ansible
