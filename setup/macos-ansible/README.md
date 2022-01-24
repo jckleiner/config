@@ -241,6 +241,9 @@ So, if Java 17 is needed, just symlink it like above. IntelliJ can then automati
 Unsurprisingly Microsoft is not able to see the licence key I have on my account and prompts me with "Can't find a licence key for Word in this account", which means I can't download MS Word with brew but instead need to manually download and install it:
  * https://account.microsoft.com/services > Click "install"
 
+ TODO - word does not detect licence key
+ TODO - Disable onedrive
+
 ### Keepass 
  * Enable browser integration in Keepass for Firefox and Chrome
  * Then open the browser extension settings page > connected databases > connect your keepass database
