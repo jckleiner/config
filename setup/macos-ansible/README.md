@@ -62,6 +62,9 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 ### Firefox
  * TODO: config, bookmarks, , make it default browser
 
+ * TODO: sync bookmarks?
+ * TODO: always show bookmarks toolbar
+
 Changing it to the default browser via command line: 
 `/opt/homebrew/Caskroom/firefox/95.0.2/Firefox.app/Contents/MacOS/firefox --setDefaultBrowser`. This prompts a window asking if I'm sure or not.
 
