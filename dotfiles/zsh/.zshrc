@@ -1,9 +1,4 @@
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
-
 # ------------ zsh Config ------------
 # Basic auto/tab complete
 autoload -U compinit
@@ -103,7 +98,7 @@ lfcd () {
 }
 
 # to be able to start vscode from the terminal, not needed when vscode is installed via brew
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+# code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 # back widget
 function back_widget() {
@@ -164,8 +159,3 @@ dps() {
             | awk 'NR<2{print $0;next}{print $0 | "sort --key=2"}'
     fi
 }
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####

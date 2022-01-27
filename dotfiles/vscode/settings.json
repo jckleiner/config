@@ -311,11 +311,7 @@
     "files.exclude": {
       "**/.DS_Store": false
     },
-    "workbench.colorTheme": "IDEA like light Theme",
-    "terminal.integrated.env.osx": {
-      "FIG_NEW_SESSION": "1"
-    },
-    "editor.linkedEditing": true
+    "workbench.colorTheme": "Atom One Dark"
 
 
 
