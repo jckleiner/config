@@ -244,6 +244,9 @@ Unsurprisingly Microsoft is not able to see the licence key I have on my account
  TODO - word does not detect licence key
  TODO - Disable onedrive
 
+### Fig
+TODO Does it need manual installation or can it also be automated?
+
 ### Keepass 
  * Enable browser integration in Keepass for Firefox and Chrome
  * Then open the browser extension settings page > connected databases > connect your keepass database
