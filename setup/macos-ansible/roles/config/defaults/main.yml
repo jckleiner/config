@@ -57,8 +57,11 @@ vscode_extensions_to_install:
   - tomoki1207.pdf
   # Better Jinja
   - samuelcolvin.jinjahtml
+  # Prettier
+  - esbenp.prettier-vscode
   # Prettier ESLint
   - rvest.vs-code-prettier-eslint
+
   # Code Runner
   - formulahendry.code-runner
 
