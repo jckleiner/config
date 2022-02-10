@@ -77,3 +77,5 @@ npm_global_packages_to_install:
     # trash-cli (https://github.com/sindresorhus/trash). Cross-platform Node.js version
     # It uses macos-trash under the hood (https://github.com/sindresorhus/macos-trash). Which could also be installed with brew
   - trash-cli
+  # Redis UI
+  - redis-commander
