@@ -51,7 +51,6 @@ homebrew_cask_apps:
   - iterm2
   - karabiner-elements # requires password
   - hammerspoon
-  - snagit
 
   # Development
   - intellij-idea
