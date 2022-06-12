@@ -61,6 +61,13 @@ vscode_extensions_to_install:
   - esbenp.prettier-vscode
   # Prettier ESLint
   - rvest.vs-code-prettier-eslint
+  # rust-analyzer
+  - rust-lang.rust-analyzer
+  - vadimcn.vscode-lldb
+  - tamasfe.even-better-toml
+  - usernamehw.errorlens
+  - serayuzgur.crates
+
 
   # Code Runner
   - formulahendry.code-runner
