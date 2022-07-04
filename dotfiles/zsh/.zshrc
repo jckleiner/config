@@ -1,4 +1,3 @@
-
 # ------------ zsh Config ------------
 # Basic auto/tab complete
 autoload -U compinit
@@ -159,3 +158,9 @@ dps() {
             | awk 'NR<2{print $0;next}{print $0 | "sort --key=2"}'
     fi
 }
+
+#export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
