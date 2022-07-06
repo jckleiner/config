@@ -129,15 +129,29 @@ Editor > General > Auto Import > check "optimize imports on the fly"
  * There are services tab: `view > tool windows > services` but there are no "Spring Boot" run config type
  * You can use "Application" as a Run Configuration Type to list available applications
 
+## Useful Keybindings
+
+ * cmd + shift + T     Open last closed file
+ * cmd + shift + E     Open recents
+ * cmd + shift + X     Fold all blocks
+ * cmd + shift + C     Unfold all blocks
+
+## Things added to the settings (2022-07-02)
+ * Remove the name of the author: Inlay hints -> Code vision -> Code author
+ * Remove usages hint: Inlay hints -> Code visionn -> Usages
+ * Editor -> Code style -> Java -> Enum Constants, Class/Method/Field/LocalVariable annotations -> Always wrap
+ * Keybindings for folding and opening blocks
+   * cmd + shift + E     Open recents
+   * cmd + shift + X     Fold all blocks
+   * cmd + shift + C     Unfold all blocks
+
 ## TODO
- 
+
  * Opening a new project (in a new window) results in some configuration to be lost?
       How can I configure IntelliJ globally?
  * Log font size and line wrapping
  * Some settings are not migrated over when creating a new project? Why?
- * Disable Tooltip for only HTML -> Probably it can only be turned off completely.
  * Import order not working?
- * Open last closed file with SHIFT + CMD + T
  * Move between tabs with CMD + arrow keys
  * Upload settings to github, can export + push to github be automated?
  * HTML formatting, attributes 2 tabs without spaces to align them
@@ -146,6 +160,3 @@ Editor > General > Auto Import > check "optimize imports on the fly"
       - Now a hot reload happens only when I build the project manually, with `CMD + b`
  * It still builds automatically when an error is presen??
  * APPLICATION FAILED TO START, on hot reload
- * a little space between method definition line and the first line?
- * Annotations is separate lines
- * After method refactoring don't put @NotNull annotation
