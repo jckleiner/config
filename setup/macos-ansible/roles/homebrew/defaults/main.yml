@@ -11,6 +11,7 @@ homebrew_installed_packages:
   - yabai  # need to be setup manually, see readme
   - koekeishiya/formulae/skhd
   - fzf
+  - haskell-stack
   - z
   - dockutil
   - tree
