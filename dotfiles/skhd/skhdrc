@@ -7,19 +7,25 @@
 # in a terminal and type a key. Pretty cool! Or just check the wiki.
 
 ## hyper (as defined in skhd)
-#   cmd + shift + alt + ctrl
+#       cmd + shift + alt + ctrl
 ## modified hyper key (as defined in my karabiner config)
-#   lshift + lctrl + lalt + rcmd
-## this way there are more keymap possibilities by adding lcmd
-#   lshift + lctrl + lalt + rcmd + lcmd
+#       lshift + lctrl + lalt + rcmd
+
+# Only writing "hyper + a" (switch focus to left) will also swallow "lshift + lctrl + lalt + rcmd + lcmd + a" (move window to left)
+# because there hyper includes both L-CMD and R-CMD
+# To avoid this, I have to write the specific key combination like this: "lshift + lctrl + lalt + rcmd + lcmd"
+# This makes it possible to use more key combinations
+
+## RESTART YABAI LAUNCH AGENT
+    ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+## RELOAD SKHD (run the following command)
+#   skhd --reload
 
 # TODO: notification when secure keyboard is active
 # osascript -e 'display notification "All graphics have been converted." with title "My Graphic Processing Script" subtitle "Processing is complete." sound name "default"'
 # https://github.com/koekeishiya/skhd/issues/48
 # ioreg -l -w 0 | grep SecureInput
-
-## RESTART YABAI LAUNCH AGENT
-    ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 ## TODO move window forward/back in stack
 ## TODO why does hyper - w flash screen?
@@ -36,12 +42,16 @@
     # yabai -m window --focus stack.last
 
 ## FOCUS WINDOW
-    lshift + lctrl + lalt + rcmd - w : yabai -m window --focus north  
-    lshift + lctrl + lalt + rcmd - s : yabai -m window --focus south 
-    lshift + lctrl + lalt + rcmd - a : yabai -m window --focus west || yabai -m window --focus stack.prev
+    lshift + lctrl + lalt + rcmd - w : yabai -m window --focus north 
+    lshift + lctrl + lalt + rcmd - s : yabai -m window --focus south
+    # if in tiling mode -> focus west
+    # if in stack mode -> focus the previous window
+    lshift + lctrl + lalt + rcmd - a : yabai -m window --focus west || yabai -m window --focus stack.prev 
+    # if in tiling mode -> focus east
+    # if in stack mode -> focus the next window
     lshift + lctrl + lalt + rcmd - d : yabai -m window --focus east || yabai -m window --focus stack.next
 
-## SWAP WINDOW
+## SWAP/MOVE WINDOW
     lshift + lctrl + lalt + rcmd + lcmd - w : yabai -m window --warp north
     lshift + lctrl + lalt + rcmd + lcmd - s : yabai -m window --warp south
     lshift + lctrl + lalt + rcmd + lcmd - a : yabai -m window --warp west
@@ -61,7 +71,7 @@
     # lshift + lctrl + lalt + rcmd - c : ~/develop/personal/config/dotfiles/yabai/scripts/moveWindowLeftAndFollowFocus.sh
     # lshift + lctrl + lalt + rcmd - v : ~/develop/personal/config/dotfiles/yabai/scripts/moveWindowRightAndFollowFocus.sh
 
-## FOCUS MONITOR 1,2,3
+## FOCUS MONITOR 1, 2, 3
     #hyper - x  : yabai -m display --focus last
     #hyper - z  : yabai -m display --focus prev || yabai -m display --focus last
     #hyper - c  : yabai -m display --focus next || yabai -m display --focus first
@@ -92,6 +102,9 @@
 ################################################################
 ######################### UNUSED/OLD ###########################
 ################################################################
+
+# Examples: 
+#   - https://github.com/koekeishiya/yabai/tree/master/examples
 
 # TEST A COMMAND
     #lshift - x : terminal-notifier -message "lshift - x"

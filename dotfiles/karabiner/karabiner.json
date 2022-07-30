@@ -874,6 +874,16 @@
                         },
                         {
                             "from": {
+                                "key_code": "left_control"
+                            },
+                            "to": [
+                                {
+                                    "apple_vendor_top_case_key_code": "keyboard_fn"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
                                 "key_code": "grave_accent_and_tilde"
                             },
                             "to": [
@@ -901,7 +911,8 @@
                         "is_keyboard": true,
                         "is_pointing_device": false,
                         "product_id": 35,
-                        "vendor_id": 1130
+                        "vendor_id": 1130,
+                        "transport": "USB"
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
