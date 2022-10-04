@@ -26,6 +26,10 @@ homebrew_installed_packages:
   - n # (TODO does not show the installed version 17)
   - jq
   - ansible-lint
+  - podman
+  - terraform
+  - packer
+  - awscli
 
 homebrew_uninstalled_packages: []
 
@@ -54,6 +58,7 @@ homebrew_cask_apps:
   - karabiner-elements # requires password
   - hammerspoon
   - aldente
+  - xbar
 
   # Development
   - intellij-idea

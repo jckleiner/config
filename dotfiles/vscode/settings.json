@@ -35,7 +35,8 @@
         "editor.quickSuggestions": {
             "strings": true
         },
-        "editor.suggest.insertMode": "replace"
+        "editor.suggest.insertMode": "replace",
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     // "workbench.colorTheme": "Idea intellij light theme",
 
@@ -311,7 +312,10 @@
     "files.exclude": {
       "**/.DS_Store": false
     },
-    "workbench.colorTheme": "IDEA like light Theme"
+    "workbench.colorTheme": "IDEA like light Theme",
+    "thunder-client.codeSnippetLanguage": "js-axios",
+    "haskell.manageHLS": "GHCup",
+    "window.title": "${rootName}",
 
 
 

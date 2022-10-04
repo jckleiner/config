@@ -17,7 +17,7 @@
 # This makes it possible to use more key combinations
 
 ## RESTART YABAI LAUNCH AGENT
-    ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+    ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai" && hs -c "hs.notify.show('Yabai Restarted', '', '')"
 
 ## RELOAD SKHD (run the following command)
 #   skhd --reload

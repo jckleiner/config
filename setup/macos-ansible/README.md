@@ -8,22 +8,23 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
 
 ## TODO
  
+ * Assigning programs to displays, can that be configured in code?
+ * Harddrive plug error when unplugging the laptop from dock? (see https://www.youtube.com/watch?v=psPgSN1bPLY)
  * Alfred - config, with applescript? Has separate .plist files, see `cd "~/Library/Application Support/Alfred/Alfred.alfredpreferences/preferences/"`
- * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ
+ * Hold down CMD Q for 2 seconds to quit a program - see https://www.youtube.com/watch?v=uaJSjgVEhMQ or https://www.youtube.com/watch?v=psPgSN1bPLY
+ * seems cool: 
+    - xbar (TODO - Check this out for sure)
+    - keyboard-maestro
+    - see: https://www.youtube.com/watch?v=MyZ8Rq9iI14&t=260s
  * Yabai dont open smaller windows in full screen, add all to the list?
  * Reorganize folders in this repo?
- * Harddrive plug error when unplugging the laptop from dock?
- * Karabiner, laptop and external keyboard has different keyboard layouts
  * top bar config
  * fix theme git errors
  * how to install yabai with --HEAD?
  * Short way to install and setup only zsh on the current machine
  * Vagrant?
  * MS Word one time licence?
- * seems cool: 
-    - xbar
-    - keyboard-maestro
-    - see: https://www.youtube.com/watch?v=MyZ8Rq9iI14&t=260s
+ 
  * Parallels?
  * All commands are executed with `become` (see inventory)?
  * remove `.DS_Store`???
@@ -52,6 +53,8 @@ To simulate a cleanup, i.e. see what would be removed, you may use the `-n` opti
     - open -a 'Dozer'
     - https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 
+### Opening programs on selected desktops on startup
+Move to the desktop you want > right click on dock icon > Options > Open at login + (Assign to current) Desktop on display 1/2
 
 ### iTerm2
  * iTerm2 loses focus after splitting panes.
@@ -139,7 +142,7 @@ TODO restart karabiner in command line?
 
 
 ### Yabai
-* See README in config/yabai (TODO - stack line not working)
+* See README in config/yabai (TODO - stackline not working)
 
 
 ## —— System Settings ——
