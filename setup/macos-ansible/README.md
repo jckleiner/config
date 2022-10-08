@@ -180,29 +180,46 @@ Use `defaults read > preferences` and do a change and then do `defaults read > p
 See yabai readme
 
 ### SSH Config and git
-1. Create a `.ssh` folder: `mkdir ~/.ssh` (TODO permissions?)
-3. Copy your public and private key there or generate a new key (`ssh-keygen -t ed25519 -C "<your-email>"`).
-   - This will create two files: `id_ed25519` and `id_ed25519.pub`
+1. `mkdir ~/.ssh`
+3. Copy your existing public and private key there or generate a new key (`ssh-keygen -t ed25519 -C "<your-email>"`).
+   - This will create two files (if you did not explicitly gave a name): `id_ed25519` and `id_ed25519.pub`
 4. Create a `~/.ssh/config` file (See https://superuser.com/questions/232373/how-to-tell-git-which-private-key-to-use)
-```bash
-nano ~/.ssh/config
+   ```bash
+   nano ~/.ssh/config
 
-Host github.com
-  HostName github.com
-  IdentityFile ~/.ssh/id_ed25519
+   Host github.com
+     HostName github.com
+     IdentityFile ~/.ssh/id_ed25519
 
-chmod 600 ~/.ssh/config
-chmod 400 ~/.ssh/id_ed25519
-```
+   chmod 600 ~/.ssh/config
+   chmod 400 ~/.ssh/id_ed25519
+   ```
 
 5. Global git settings user and email
    * `git config --global user.name "John Doe"`
-   * `git config --global user.email johndoe@example.com`
+   * `git config --global user.email "johndoe@example.com"`
 
-Git is still asking for username/password with `~/.ssh/config` present?
- * Solution: change "https://..." to "git@github..." in `.git/config` for that repository
+6. Global gitignore: `~/.gitignore_global` (contains `*~` and `.DS_Store` by default)
 
-Git asks for password with every action
+#### Git is still asking for username/password with `~/.ssh/config` present?
+ * You can clone **any** public repository, only when your account (which with you are trying to pull) has an ssh key setup (`git@github.com:<username>/<repo-name>.git`). Otherwise you need to clone the public repo via HTTPS (`https://github.com/<username>/<repo-name>.git`)
+ * When you clone it with HTTPS, the `git remote -v` will show you the following:
+   ```
+   origin	https://github.com/<username>/<repo-name>.git (fetch)
+   origin	https://github.com/<username>/<repo-name>.git (push)
+   ```
+   Which means any pull and push will try to use HTTPS and not SSH.
+   To solve this:
+      - You either have to pull the repo with SSH from the start.
+      - Or set the remote manually `git remote set-url origin git@github.com:<username>/<repo-name>.git`
+   You want to see this:
+   ```
+   origin	git@github.com:<username>/<repo-name>.git (fetch)
+   origin	git@github.com:<username>/<repo-name>.git (push)
+   ```
+ * Another thing to keep in mind to use `git@github...` and not `https://...` in `.git/config`, if applicable
+
+#### Git asks for password with every action
  * Add the following to your `~/.ssh/config`. For MacOs machines, you can tell git to use the Keychain
  * This will error out for other operating systems, therefore the `IgnoreUnknown UseKeychain`
 
@@ -210,12 +227,55 @@ Git asks for password with every action
             IgnoreUnknown UseKeychain
             UseKeychain yes
 
-Here is an official answer to this:
+#### Here is an official answer to this:
 > If Git prompts you for a username and password every time you try to interact with GitHub, you're probably using the HTTPS clone URL for your repository. Using an HTTPS remote URL has some advantages: it's easier to set up than SSH, and usually works through strict firewalls and proxies. 
 >
 > However, it also prompts you to enter your GitHub credentials every time you pull or push a repository. 
 >
 > You can configure Git to store your password for you. If you'd like to set that up, read all about setting up password caching.
+
+#### Using multiple SSH keys for the same host
+ * Keep in mind that if you use an ssh key for one account, you CANNOT use that ssh key also in another github account
+ * Therefore if you have 2 keys on your machine, for 2 separate GitHub accounts then you have to somehow configure git 
+   to use the correct one when you want to pull or push. See https://superuser.com/questions/232373/how-to-tell-git-which-private-key-to-use
+   One way is to use different host names in `~/.ssh/config` and then change the remote URL's as well:
+   ```
+   Host work
+      HostName github.com
+      IdentityFile ~/.ssh/id_rsa_work
+      
+   Host personal
+      HostName github.com
+      IdentityFile ~/.ssh/id_rsa_personal
+   ```
+   Then instead cloning your repos like:
+   ```
+   git clone git@bitbucket.org:username/my-work-project.git
+   git clone git@bitbucket.org:username/my-personal-project.git
+   ```
+   you must do:
+   ```
+   git clone git@work:username/my-work-project.git
+   git clone git@personal:username/my-personal-project.git
+   ```
+   and you also have to change the remote URL's for those repositories
+   ```
+   git remote add origin git@personal:<username>/<repo-name>.git
+   # OR
+   git remote set-url origin git@personal:<username>/<repo-name>.git
+   ```
+
+#### Change username and email for specific repositories
+You can set the username and email for specific repositories so that the global settings won't be used:
+```
+git config user.name "username"
+git config user.email "email"
+```
+
+To see the username and email configured for the current repo (run this in a non-repo folder to see the global settings):
+```
+git config user.name && git config user.email
+```
 
 ### OpenJDK and Maven
  * Download and install Azul Zulu openjdk 11 (arm64 `.dmg` file) - https://www.azul.com/downloads/?version=java-11-lts&os=macos&package=jdk (see also: https://stackoverflow.com/questions/68358505/how-to-compile-openjdk-11-on-an-m1-macbook)
