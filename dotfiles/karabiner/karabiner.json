@@ -904,6 +904,59 @@
                         }
                     ]
                 },
+                // this is my work laptops configuration. I guess it won't interfere with the other configuration since the product_id's are different
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_built_in_keyboard": true,
+                        "product": "Work - Macbook pro US Layout",
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 835,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [
+                        // TODO
+                        // In the US keyboard the " symbol can be done with control + i (in TR)
+                        // But this combination does not work in some programs (terminal, Vscode etc.), i need to fix this somehow
+                        // {
+                        //     "from": {
+                        //         "key_code": "grave_accent_and_tilde"
+                        //     },
+                        //     "to": [
+                        //         {
+                        //             "key_code": "quote",
+                        //             "modifiers": [
+                        //                 "left_control"
+                        //             ]
+                        //         }
+                        //     ]
+                        // },
+                        {
+                            "from": {
+                                "apple_vendor_top_case_key_code": "keyboard_fn"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_control"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_control"
+                            },
+                            "to": [
+                                {
+                                    "apple_vendor_top_case_key_code": "keyboard_fn"
+                                }
+                            ]
+                        }
+                    ]
+                },
                 {
                     "disable_built_in_keyboard_if_exists": false,
                     "fn_function_keys": [],
@@ -954,6 +1007,28 @@
                             "to": [
                                 {
                                     "apple_vendor_top_case_key_code": "keyboard_fn"
+                                }
+                            ]
+                        },
+                        // This (grave_accent_and_tilde <-> non_us_backslash) is needed because the amazing "keyboard setup assistant" cannot identify my keyboard on my work laptop
+                        // so I might need to comment this part out when working on other laptops which can detect the keyboard correctly
+                        {
+                            "from": {
+                                "key_code": "grave_accent_and_tilde"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "non_us_backslash"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "non_us_backslash"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "grave_accent_and_tilde"
                                 }
                             ]
                         }
