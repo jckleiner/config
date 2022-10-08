@@ -53,14 +53,8 @@ dockitems_persist:
   - name: "Google Chrome"
     path: "/Applications/Google Chrome.app"
     pos: 7
-  - name: "Joplin"
-    path: "/Applications/Joplin.app"
-    pos: 8
-  - name: "Anki"
-    path: "/Applications/Anki.app"
-    pos: 9
   - name: "System Preferences"
     path: "/Applications/System Preferences.app"
-    pos: 10
+    pos: 8
 
   

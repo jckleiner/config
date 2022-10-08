@@ -384,7 +384,10 @@ defaults write com.apple.dock launchanim -bool false
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 
 # Remove the auto-hiding Dock delay
-defaults write com.apple.dock autohide-delay -float 0
+# Doesnt seem to be working on M1
+# defaults write com.apple.dock autohide-delay -float 0
+# Works
+defaults write com.apple.dock autohide-time-modifier -float 0.15;killall Dock
 # Remove the animation when hiding/showing the Dock
 defaults write com.apple.dock autohide-time-modifier -float 0
 # Automatically hide and show the Dock

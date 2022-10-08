@@ -15,8 +15,15 @@ The fix was to edit the run config -> Set the working directory again for each m
  * Set the spring profiles for each project
 
 ### Intellij Cannot resolve symbol on import
+ - Cannot resolve plugin org.apache.maven.plugins...
+   - preferences -> build -> build tools -> maven -> enable "use plugin registry"
  * File -> Invalidate Caches/Restart
  * https://stackoverflow.com/questions/26952078/intellij-cannot-resolve-symbol-on-import
+
+### Generated source folders are not in classpath
+1. Right click project folder > Select Maven > Select Generate Sources And Update Folders -> reload all maven project (invalidate cache if still not working)
+2. (another option) Project Structure > Modules > Click the generated-sources folder and make it a sources folder.
+3. (another option) you can define folders as "source folder" in pom.xml (see: https://stackoverflow.com/questions/5170620/unable-to-use-intellij-with-a-generated-sources-folder)
 
 ### Import Settings
  * `File -> Manage IDE Settings -> Import Settings -> select intellijSettings.zip`
@@ -125,12 +132,10 @@ Editor > General > Auto Import > check "optimize imports on the fly"
 
 
 ## IntelliJ CE
-
  * There are services tab: `view > tool windows > services` but there are no "Spring Boot" run config type
  * You can use "Application" as a Run Configuration Type to list available applications
 
 ## Useful Keybindings
-
  * cmd + shift + T     Open last closed file
  * cmd + shift + E     Open recents
  * cmd + shift + X     Fold all blocks

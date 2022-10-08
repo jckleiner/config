@@ -84,8 +84,6 @@ function installGuiPrograms() {
         slack
         zoom # requires password
         discord
-        joplin
-        anki
         keepassxc
 
         # Mac specific

@@ -181,8 +181,20 @@ See yabai readme
 
 ### SSH Config and git
 1. Create a `.ssh` folder: `mkdir ~/.ssh` (TODO permissions?)
-3. Copy your public and private key there
+3. Copy your public and private key there or generate a new key (`ssh-keygen -t ed25519 -C "<your-email>"`).
+   - This will create two files: `id_ed25519` and `id_ed25519.pub`
 4. Create a `~/.ssh/config` file (See https://superuser.com/questions/232373/how-to-tell-git-which-private-key-to-use)
+```bash
+nano ~/.ssh/config
+
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_ed25519
+
+chmod 600 ~/.ssh/config
+chmod 400 ~/.ssh/id_ed25519
+```
+
 5. Global git settings user and email
    * `git config --global user.name "John Doe"`
    * `git config --global user.email johndoe@example.com`

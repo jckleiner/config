@@ -39,7 +39,6 @@ By the setup-script automatically installed programs:
   - keepassxc
   - slack
   - notion
-  - anki
   - n (Interactively Manage Your Node.js Versions)
 
 Programs which need to be manually installed:
@@ -112,6 +111,7 @@ Step 6: Confirm current version of Java
   - TODO: faster scrolling, jumping to different words without pressing arrow for 5 minutes
   - shortcut for opening a new terminal / focusing existing: `iTerm2 -> Preferences -> Keys -> Hotkey -> CTRL + ALT + T`
   - Preferences -> Profiles -> Colors -> Light Background
+  - Preferences -> Profiles -> Keys -> left option key -> Esc+
   - Shortcuts:
       ⌘ + up/left/down/right  -> move between windows and tabs
       ⌘ + D                   -> Split pane vertically
@@ -278,6 +278,7 @@ Also if you restart then the preferences should be updated (didn't test it).
   - Url autocomplete: `about:config` -> browser.urlbar.autoFill -> true
   - Import bookmarks: Shift + Command + B -> Up/Down icon
   - Make Firefox the default browser: Preferences -> General
+  - Display bookmark bar always: right click next to url bar -> bookmarks toolbar -> always show
   - Open tab not at the end of the bar but after currently open tab: about:config -> 'curr' -> .insertAfterCurrent and .insertRelatedAfterCurrent true
   - Change lang to Eng
   - Addons:

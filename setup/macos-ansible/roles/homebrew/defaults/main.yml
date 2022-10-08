@@ -8,7 +8,7 @@ homebrew_install_command: /bin/bash -c "$(curl -fsSL https://raw.githubuserconte
 
 homebrew_installed_packages:
   # - koekeishiya/formulae/yabai --HEAD  # DOES NOT WORK? need to be setup manually, see readme
-  - yabai  # need to be setup manually, see readme
+  #- yabai  # need to be setup manually, see readme
   - koekeishiya/formulae/skhd
   - fzf
   # https://docs.haskellstack.org/en/stable/README/
@@ -46,9 +46,8 @@ homebrew_cask_apps:
   - slack
   - zoom # requires password
   - discord # Rosetta
-  - joplin # Rosetta
-  - anki # Rosetta
   - keepassxc
+  - notion
 
   # Mac specific
   - dozer # Rosetta
@@ -69,6 +68,7 @@ homebrew_cask_apps:
   - postman
   - dbeaver-community
   - docker
+  - vagrant
 
 
 homebrew_cask_uninstalled_apps: []
@@ -78,7 +78,7 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_accept_external_apps: false
 
 # Set this to your account password if casks need elevated privileges.
-# ansible_become_password: ''
+ansible_become_password: ''
 
 homebrew_use_brewfile: true
 homebrew_brewfile_dir: '~'

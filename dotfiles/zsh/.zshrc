@@ -159,11 +159,5 @@ dps() {
     fi
 }
 
-# For m1
-export JAVA_HOME=$(/usr/libexec/java_home)
-
-# For old machine
-# export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
-
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"

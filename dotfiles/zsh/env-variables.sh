@@ -1,3 +1,12 @@
+# Java Configuration
+# See also: https://stackoverflow.com/questions/21964709/how-to-set-or-change-the-default-java-jdk-version-on-macos
+# uses java 17 by default (java -version and mvn -v)
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+
+# fixes the "git_current_branch:14: character not in range" error which is only shown in the intellij terminal?
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # use nano as the default editor
 export EDITOR=nano
 export VISUAL="$EDITOR"
