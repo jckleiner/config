@@ -1,324 +1,327 @@
 {
   "window.reopenFolders": "all",
-    "files.hotExit": "onExit",
-    "window.restoreWindows": "all",
+  
+  "files.hotExit": "onExit",
+  "window.restoreWindows": "all",
 
-    "editor.wordWrap": "on",
-    "editor.fontSize": 14,
-    "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
+  "editor.wordWrap": "on",
+  "editor.fontSize": 14,
+  "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
 
-    "workbench.editor.tabSizing": "shrink",
-    "workbench.tree.indent": 20,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.iconTheme": "webstorm-icons",
-    "workbench.editor.showTabs": true,
-    "workbench.colorCustomizations": {
-        //"window.activeBorder": "#ff0000"
-    },
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.tree.indent": 20,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.iconTheme": "webstorm-icons",
+  "workbench.editor.showTabs": true,
 
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.fontFamily": "Monaco Nerd Font",
-
-    "explorer.compactFolders": true,
-
-    "extensions.ignoreRecommendations": false,
-    "github.gitAuthentication": false,
-    "gitlens.advanced.messages": {
-      "suppressFileNotUnderSourceControlWarning": true,
-      "suppressLineUncommittedWarning": true
-    },
-    
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "[json]": {
-        "editor.quickSuggestions": {
-            "strings": true
-        },
-        "editor.suggest.insertMode": "replace",
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    // "workbench.colorTheme": "Idea intellij light theme",
-
-    /* CUSTOM COLORS */
-    "editor.tokenColorCustomizations": {
-      "[IDEA like light Theme]": {
-      // "[Idea intellij light theme]": {
-        "comments": "#C9814C",
-        "strings": "#067D17",
-        "textMateRules": [
-          // meta.definition.method.ts
-          {
-            "name": "Class/Type Names",
-            "scope": "entity.name.type.class.ts",
-            "settings": {
-              "foreground": "#000000"
-            }
-          },
-          {
-            "scope": "entity.name.function.ts",
-            "settings": {
-              "foreground": "#000000"
-            }
-          },
-          {
-            "scope": "meta.definition.method.ts",
-            "settings": {
-              "foreground": "#000000",
-              "fontStyle": "bold underline"
-            }
-          },
-          {
-            "name": "Storage type (constructur, const)",
-            "scope": "storage.type.ts",
-            "settings": {
-              "foreground": "#000088",
-              "fontStyle": "bold"
-            }
-          },
-          {
-            "name": "Numbers",
-            "scope": "constant.numeric",
-            "settings": {
-              "foreground": "#1750EB",
-              "fontStyle": ""
-            }
-          },
-          {
-            "name": "Primitive types",
-            "scope": "support.type.primitive.ts",
-            "settings": {
-              "foreground": "#000088",
-              "fontStyle": ""
-            }
-          },
-          {
-            "name": "Parameter definition",
-            "scope": "variable.parameter.ts",
-            "settings": {
-              "foreground": "#000000", 
-              "fontStyle": ""
-            }
-          },
-          {
-            "name": "Parameters used inside a block",
-            "scope": "variable.other.readwrite.ts",
-            "settings": {
-              "foreground": "#000000", 
-              "fontStyle": ""
-            }
-          },
-          {
-            "name": "Documentation comments",
-            "scope": "comment.block.documentation.ts",
-            "settings": {
-              "foreground": "#C9814C", 
-              "fontStyle": ""
-            }
-          },
-          {
-            "name": "Keywords enum, class, interface, function",
-            "scope": "storage.type.enum.ts, storage.type.class.ts, storage.type.interface.ts, storage.type.function.ts",
-            "settings": {
-              "foreground": "#000088", 
-              "fontStyle": "bold"
-            }
-          },
-          {
-            "name": "Keyword new, delete",
-            "scope": "keyword.operator.new.ts, keyword.operator.expression.delete.ts",
-            "settings": {
-              "foreground": "#872c91", 
-              "fontStyle": "bold"
-            }
-          },
-          {
-            "name": "Variables for 'other' objects",
-            "scope": "variable.other.object.ts",
-            "settings": {
-              "foreground": "#872c91", 
-              "fontStyle": ""
-            }
-          },
-          // {
-          //   "name": "Variables for 'other' objects",
-          //   "scope": "variable.other.property.ts",
-          //   "settings": {
-          //     "foreground": "#872c91", 
-          //     "fontStyle": ""
-          //   }
-          // },
-          {
-            "name": "Property of an object",
-            "scope": "variable.other.object.property.ts",
-            "settings": {
-              "foreground": "#872c91", 
-              "fontStyle": ""
-            }
-          },
-          {
-            "name": "this keyword",
-            "scope": "variable.language.this.ts",
-            "settings": {
-              "foreground": "#000088", 
-              "fontStyle": ""
-            }
-          },
-          {
-            "scope": "variable.object.property.ts",
-            "settings": {
-              "foreground": "#872c91",
-              "fontStyle": ""
-            }
-          },
-          {
-            "name": "JSON Keys",
-            "scope": "support.type.property-name",
-            "settings": {
-              "foreground": "#000088"
-            }
-          },
-          {
-            "name": "JSON object key",
-            "scope": "meta.object-literal.key",
-            "settings": {
-              "foreground": "#000088"
-            }
-          },
-          {
-            "scope": "variable",
-            "settings": {
-              "foreground": "#000000",
-              // "foreground": "#872c91",
-              "fontStyle": ""
-            }
-          }
-        ]
-      },
-    },
-    "security.workspace.trust.untrustedFiles": "open",
-    "yaml.customTags": [
-      "!encrypted/pkcs1-oaep scalar",
-      "!vault scalar"
-    ],
-    "breadcrumbs.enabled": false,
-    "liveServer.settings.donotVerifyTags": true,
-    "redhat.telemetry.enabled": false,
-    
-    
-    /* Vetur */
-    "vetur.validation.templateProps": true,
-    "vetur.experimental.templateInterpolationService": true,
-
-    /* VIM */
-    /* https://www.youtube.com/watch?v=Vkm4bc2Y0AA */
-    /* https://www.youtube.com/watch?v=44snngEzNMQ */
-    "vim.leader": "<space>",
-    "editor.lineNumbers": "relative",
-    
-    /* Easymotion */
-    "vim.easymotion": "true",
-    "vim.easymotionMarkerFontSize": "28",
-    "vim.easymotionMarkerForegroundColorOneChar": "cyan",
-    "vim.easymotionMarkerForegroundColorTwoChar": "magenta",
-    //"vim.easymotionMarkerBackgroundColor": "white",
-    "vim.normalModeKeyBindings": [
-      {
-        "before": ["<tab>"],
-        "commands": ["workbench.action.nextEditor"]
-      },
-      {
-        "before": ["<S-tab>"],
-        "commands": ["workbench.action.previousEditor"]
-      }
-    ],
-    /* stays in visual mode after tabbing? */
-    "vim.visualModeKeyBindings": [
-      {
-        "before": [">"],
-        "after": [">", "g", "v"]
-      },
-      {
-        "before": ["<"],
-        "after": ["<", "g", "v"]
-      },
-    ],
-    
-    /* "TODO Highlight" Extension */
-    // see VsCode API for all options: https://code.visualstudio.com/api/references/vscode-api
-    "todohighlight.isEnable": true,
-    "todohighlight.isCaseSensitive": true,
-    "todohighlight.defaultStyle": {
-      "color": "deepskyblue",
-      "backgroundColor": "ffffff",
-      "overviewRulerColor": "deepskyblue",
-      "cursor": "pointer",
-      "fontWeight": "500",
-      "borderSpacing": "10px", // doesnt seem to be working
-      "border": "1px solid deepskyblue",
-      // "borderRadius": "4px", // when "isWholeLine": false
-      "isWholeLine": true
+  // "editor.renderWhitespace": "all",
+  "workbench.colorCustomizations": {
+    //"window.activeBorder": "#ff0000"
+    // "editorWhitespace.foreground": "#ff0000"
   },
-    "todohighlight.keywords": [
-        // "# TODO:",
-        // "TODO:",
-        // "FIXME:"
-        // {
-        //     "text": "NOTE:",
-        //     "color": "#ff0000",
-        //     "backgroundColor": "yellow",
-        //     "overviewRulerColor": "grey"
-        // },
-        // {
-        //     "text": "HACK:",
-        //     "color": "#000",
-        //     "isWholeLine": false,
-        // },
-        // {
-        //     "text": "BLABLA",
-        //     "color": "deepskyblue",
-        //     "border": "2px solid deepskyblue",
-        //     "borderRadius": "4px", //NOTE: using borderRadius along with `border` or you will see nothing change
-        //     "backgroundColor": "rgba(0,0,0,.2)",
-        //     //other styling properties goes here ... 
-        // }
-    ],
-    "todohighlight.keywordsPattern": "# TODO|FIXME|TODO| todo | todo:",
-    "todohighlight.include": [
-        "**/*.js",
-        "**/*.jsx",
-        "**/*.ts",
-        "**/*.tsx",
-        "**/*.html",
-        "**/*.php",
-        "**/*.css",
-        "**/*.scss"
-    ],
-    "todohighlight.exclude": [
-        "**/node_modules/**",
-        "**/bower_components/**",
-        "**/dist/**",
-        "**/build/**",
-        "**/.vscode/**",
-        "**/.github/**",
-        "**/_output/**",
-        "**/*.min.*",
-        "**/*.map",
-        "**/.next/**"
-    ],
-    "todohighlight.maxFilesForSearch": 5120,
-    "todohighlight.toggleURI": false,
 
-    "files.exclude": {
-      "**/.DS_Store": false
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontFamily": "Monaco Nerd Font",
+
+  "explorer.compactFolders": true,
+
+  "extensions.ignoreRecommendations": false,
+  "github.gitAuthentication": false,
+  "gitlens.advanced.messages": {
+    "suppressFileNotUnderSourceControlWarning": true,
+    "suppressLineUncommittedWarning": true
+  },
+
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
     },
-    "workbench.colorTheme": "IDEA like light Theme",
-    "thunder-client.codeSnippetLanguage": "js-axios",
-    "haskell.manageHLS": "GHCup",
-    "window.title": "${rootName}",
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // "workbench.colorTheme": "Idea intellij light theme",
 
+  /* CUSTOM COLORS */
+  "editor.tokenColorCustomizations": {
+    "[IDEA like light Theme]": {
+      // "[Idea intellij light theme]": {
+      "comments": "#C9814C",
+      "strings": "#067D17",
+      "textMateRules": [
+        // meta.definition.method.ts
+        {
+          "name": "Class/Type Names",
+          "scope": "entity.name.type.class.ts",
+          "settings": {
+            "foreground": "#000000"
+          }
+        },
+        {
+          "scope": "entity.name.function.ts",
+          "settings": {
+            "foreground": "#000000"
+          }
+        },
+        {
+          "scope": "meta.definition.method.ts",
+          "settings": {
+            "foreground": "#000000",
+            "fontStyle": "bold underline"
+          }
+        },
+        {
+          "name": "Storage type (constructur, const)",
+          "scope": "storage.type.ts",
+          "settings": {
+            "foreground": "#000088",
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "name": "Numbers",
+          "scope": "constant.numeric",
+          "settings": {
+            "foreground": "#1750EB",
+            "fontStyle": ""
+          }
+        },
+        {
+          "name": "Primitive types",
+          "scope": "support.type.primitive.ts",
+          "settings": {
+            "foreground": "#000088",
+            "fontStyle": ""
+          }
+        },
+        {
+          "name": "Parameter definition",
+          "scope": "variable.parameter.ts",
+          "settings": {
+            "foreground": "#000000",
+            "fontStyle": ""
+          }
+        },
+        {
+          "name": "Parameters used inside a block",
+          "scope": "variable.other.readwrite.ts",
+          "settings": {
+            "foreground": "#000000",
+            "fontStyle": ""
+          }
+        },
+        {
+          "name": "Documentation comments",
+          "scope": "comment.block.documentation.ts",
+          "settings": {
+            "foreground": "#C9814C",
+            "fontStyle": ""
+          }
+        },
+        {
+          "name": "Keywords enum, class, interface, function",
+          "scope": "storage.type.enum.ts, storage.type.class.ts, storage.type.interface.ts, storage.type.function.ts",
+          "settings": {
+            "foreground": "#000088",
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "name": "Keyword new, delete",
+          "scope": "keyword.operator.new.ts, keyword.operator.expression.delete.ts",
+          "settings": {
+            "foreground": "#872c91",
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "name": "Variables for 'other' objects",
+          "scope": "variable.other.object.ts",
+          "settings": {
+            "foreground": "#872c91",
+            "fontStyle": ""
+          }
+        },
+        // {
+        //   "name": "Variables for 'other' objects",
+        //   "scope": "variable.other.property.ts",
+        //   "settings": {
+        //     "foreground": "#872c91",
+        //     "fontStyle": ""
+        //   }
+        // },
+        {
+          "name": "Property of an object",
+          "scope": "variable.other.object.property.ts",
+          "settings": {
+            "foreground": "#872c91",
+            "fontStyle": ""
+          }
+        },
+        {
+          "name": "this keyword",
+          "scope": "variable.language.this.ts",
+          "settings": {
+            "foreground": "#000088",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": "variable.object.property.ts",
+          "settings": {
+            "foreground": "#872c91",
+            "fontStyle": ""
+          }
+        },
+        {
+          "name": "JSON Keys",
+          "scope": "support.type.property-name",
+          "settings": {
+            "foreground": "#000088"
+          }
+        },
+        {
+          "name": "JSON object key",
+          "scope": "meta.object-literal.key",
+          "settings": {
+            "foreground": "#000088"
+          }
+        },
+        {
+          "scope": "variable",
+          "settings": {
+            "foreground": "#000000",
+            // "foreground": "#872c91",
+            "fontStyle": ""
+          }
+        }
+      ]
+    }
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "yaml.customTags": ["!encrypted/pkcs1-oaep scalar", "!vault scalar"],
+  "breadcrumbs.enabled": false,
+  "liveServer.settings.donotVerifyTags": true,
+  "redhat.telemetry.enabled": false,
 
+  /* Vetur */
+  "vetur.validation.templateProps": true,
+  "vetur.experimental.templateInterpolationService": true,
 
-    /* TODO Surround */
+  /* VIM */
+  /* https://www.youtube.com/watch?v=Vkm4bc2Y0AA */
+  /* https://www.youtube.com/watch?v=44snngEzNMQ */
+  "vim.leader": "<space>",
+  "editor.lineNumbers": "relative",
 
+  /* Easymotion */
+  "vim.easymotion": "true",
+  "vim.easymotionMarkerFontSize": "28",
+  "vim.easymotionMarkerForegroundColorOneChar": "cyan",
+  "vim.easymotionMarkerForegroundColorTwoChar": "magenta",
+  //"vim.easymotionMarkerBackgroundColor": "white",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<tab>"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<S-tab>"],
+      "commands": ["workbench.action.previousEditor"]
+    }
+  ],
+  /* stays in visual mode after tabbing? */
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "after": [">", "g", "v"]
+    },
+    {
+      "before": ["<"],
+      "after": ["<", "g", "v"]
+    }
+  ],
+
+  /* "TODO Highlight" Extension */
+  // see VsCode API for all options: https://code.visualstudio.com/api/references/vscode-api
+  "todohighlight.isEnable": true,
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.defaultStyle": {
+    "color": "deepskyblue",
+    "backgroundColor": "ffffff",
+    "overviewRulerColor": "deepskyblue",
+    "cursor": "pointer",
+    "fontWeight": "500",
+    "borderSpacing": "10px", // doesnt seem to be working
+    "border": "1px solid deepskyblue",
+    // "borderRadius": "4px", // when "isWholeLine": false
+    "isWholeLine": true
+  },
+  "todohighlight.keywords": [
+    // "# TODO:",
+    // "TODO:",
+    // "FIXME:"
+    // {
+    //     "text": "NOTE:",
+    //     "color": "#ff0000",
+    //     "backgroundColor": "yellow",
+    //     "overviewRulerColor": "grey"
+    // },
+    // {
+    //     "text": "HACK:",
+    //     "color": "#000",
+    //     "isWholeLine": false,
+    // },
+    // {
+    //     "text": "BLABLA",
+    //     "color": "deepskyblue",
+    //     "border": "2px solid deepskyblue",
+    //     "borderRadius": "4px", //NOTE: using borderRadius along with `border` or you will see nothing change
+    //     "backgroundColor": "rgba(0,0,0,.2)",
+    //     //other styling properties goes here ...
+    // }
+  ],
+  "todohighlight.keywordsPattern": "# TODO|FIXME|TODO| todo | todo:",
+  "todohighlight.include": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.html",
+    "**/*.php",
+    "**/*.css",
+    "**/*.scss"
+  ],
+  "todohighlight.exclude": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.vscode/**",
+    "**/.github/**",
+    "**/_output/**",
+    "**/*.min.*",
+    "**/*.map",
+    "**/.next/**"
+  ],
+  "todohighlight.maxFilesForSearch": 5120,
+  "todohighlight.toggleURI": false,
+
+  "files.exclude": {
+    "**/.DS_Store": false
+  },
+  "workbench.colorTheme": "IDEA like light Theme",
+  "thunder-client.codeSnippetLanguage": "js-axios",
+  "haskell.manageHLS": "GHCup",
+  "window.title": "${rootName}",
+  "editor.padding.top": 6,
+  
+  // "vscode_custom_css.imports": [
+  //   "file:///Users/kleiner/develop/test.css",
+  //   "file:///Users/kleiner/develop/test.js"
+  // ]
+
+  /* TODO Surround */
 }

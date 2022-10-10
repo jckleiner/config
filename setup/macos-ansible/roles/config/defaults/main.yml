@@ -67,6 +67,7 @@ vscode_extensions_to_install:
   - tamasfe.even-better-toml
   - usernamehw.errorlens
   - serayuzgur.crates
+  - be5invis.vscode-custom-css
 
 
   # Code Runner
