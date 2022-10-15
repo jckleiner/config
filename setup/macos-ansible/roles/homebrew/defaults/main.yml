@@ -26,10 +26,12 @@ homebrew_installed_packages:
   - n # (TODO does not show the installed version 17)
   - jq
   - ansible-lint
-  - podman
+  # Podman's M1 support is not mature enough yet
+  # - podman
   - terraform
   - packer
   - awscli
+  - azure-cli
 
 homebrew_uninstalled_packages: []
 

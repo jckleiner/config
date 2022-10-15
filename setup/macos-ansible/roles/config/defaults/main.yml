@@ -68,6 +68,10 @@ vscode_extensions_to_install:
   - usernamehw.errorlens
   - serayuzgur.crates
   - be5invis.vscode-custom-css
+  # Terraform extensions
+  - hashicorp.terraform
+  - 4ops.terraform
+  - pjmiravalle.terraform-advanced-syntax-highlighting
 
 
   # Code Runner
