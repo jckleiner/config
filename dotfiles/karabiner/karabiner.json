@@ -960,10 +960,12 @@
                 {
                     "disable_built_in_keyboard_if_exists": false,
                     "fn_function_keys": [],
+                    "manufacturer": "Cherry GmbH",
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
-                        "product_id": 35,
+                        //"product_id": 35, // new short cherry keyboard
+                        "product_id": 49305, // Old standard cherry keyboard
                         "vendor_id": 1130,
                         "transport": "USB"
                     },

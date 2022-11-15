@@ -72,6 +72,8 @@ vscode_extensions_to_install:
   - hashicorp.terraform
   - 4ops.terraform
   - pjmiravalle.terraform-advanced-syntax-highlighting
+  - vue.volar
+  - vue.vscode-typescript-vue-plugin
 
 
   # Code Runner

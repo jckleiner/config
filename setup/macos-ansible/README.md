@@ -277,6 +277,9 @@ To see the username and email configured for the current repo (run this in a non
 git config user.name && git config user.email
 ```
 
+### How to add ssh key password to terminal session
+`ssh-add ~/.ssh/id_my_personal_github_account`
+
 ### OpenJDK and Maven
  * Download and install Azul Zulu openjdk 11 (arm64 `.dmg` file) - https://www.azul.com/downloads/?version=java-11-lts&os=macos&package=jdk (see also: https://stackoverflow.com/questions/68358505/how-to-compile-openjdk-11-on-an-m1-macbook)
  * `maven --version` shows openjdk 17, which was installed from homebrew as a dependency. 
