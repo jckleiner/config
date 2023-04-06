@@ -37,12 +37,6 @@ function git_current_branch() {
 }
 
 function git_status_behind() {
-  local is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
-  if [ "$is_inside_work_tree" != true ] ; then
-    return
-  fi
-  ############### TODO fails if no upstream branch is set ###############
-  
   local current_branch=$(git branch --show-current)
   local count_behind=$(git rev-list --left-right --count $current_branch...origin/$current_branch  | awk '{print $2}')
   local promt_behind="%B%F{red}[\uf544 $count_behind]%{$reset_color%}  "
@@ -53,11 +47,6 @@ function git_status_behind() {
 }
 
 function git_status_ahead() {
-  local is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
-  if [ "$is_inside_work_tree" != true ] ; then
-    return
-  fi
-
   # TODO - down from head - DOWN
   # git rev-list --left-right --count master...origin/master
   # 2   	0
@@ -78,6 +67,11 @@ function git_status_ahead() {
 }
 
 function git_status_ahead_and_behind() {
+  local is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
+  if [ "$is_inside_work_tree" != true ] ; then
+    return
+  fi
+
   if [ -z "$(git remote -v)" ]; then
     echo "(remote missing)"
     return
