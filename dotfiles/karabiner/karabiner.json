@@ -964,8 +964,8 @@
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
-                        //"product_id": 35, // new short cherry keyboard
-                        "product_id": 49305, // Old standard cherry keyboard
+                        "product_id": 35, // Old standard cherry keyboard
+                        //"product_id": 49305, // new short cherry keyboard
                         "vendor_id": 1130,
                         "transport": "USB"
                     },

@@ -77,6 +77,16 @@ function git_status_ahead() {
   fi
 }
 
+function git_status_ahead_and_behind() {
+  if [ -z "$(git remote -v)" ]; then
+    echo "(remote missing)"
+    return
+  fi
+
+  git_status_ahead
+  git_status_behind
+}
+
 function git_status_changed() {
   local is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
   if [ "$is_inside_work_tree" != true ] ; then
@@ -153,7 +163,7 @@ _current_dir="$color_dark_mode_bold%d%{$reset_color%}"
 # TODO add $(git_status_changed)$(git_status_ahead)$(git_status_behind) 
 #   after $(git_current_branch) when error is fixed, see below
 PROMPT='
-$(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_changed)$(git_status_ahead)$(git_status_behind)
+$(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_changed)$(git_status_ahead_and_behind)
 %{%F{white}%}▶%{$reset_color%} '
 
 # PROMPT='

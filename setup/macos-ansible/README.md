@@ -90,6 +90,7 @@ Extensions:
    - AdBlock Plus
    - Dark Reader
    - Vimium-FF (Config)
+   - Refined Github
 
 #### Vimium Browser Extension (Firefox and Chrome)
 You can add custom key mappings. No config file.
@@ -317,6 +318,10 @@ So, if Java 17 is needed, just symlink it like above. IntelliJ can then automati
  * Import all settings: `File > Manage IDE Settings > Import Settings`
  * The font is sometimes NOT imported and IntelliJ sticks to its default font for some reason. This can be fixed either by manually selecting the correct font again or deleting the `editor-font.xml` file in `~/Library/Application Support/JetBrains/IdeaIC2021.3/options`. This forces IntellJ to use the correct fonts configured in `.../options/editor.xml`
  * Select a JDK. Generally IntelliJ will detect the available JDK's
+
+### Python - env: python: No such file or directory
+Python2 does not exist anymore on newer Macs so in some script I was getting this error `env: python: No such file or directory`
+This was solved when I installed Python2.7 (https://www.python.org/downloads/release/python-2718/ -> macOS 64-bit installer)
 
 ### MS Word
 Unsurprisingly Microsoft is not able to see the licence key I have on my account and prompts me with "Can't find a licence key for Word in this account", which means I can't download MS Word with brew but instead need to manually download and install it:

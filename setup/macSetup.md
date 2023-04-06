@@ -284,6 +284,7 @@ Also if you restart then the preferences should be updated (didn't test it).
   - Addons:
       - KeePassXC-Browser
       - Adblocker
+      - Refined Github
 
 ### Change unused keys Ğ Ş Ç
   * Ğ -> ( (shift) { (alt) [
@@ -302,4 +303,7 @@ Also if you restart then the preferences should be updated (didn't test it).
 
 #### Time Machine
   * Plugin unused external ssd -> start timemachine
+
+#### sudo with fingerprint
+  * This works for Macos 12.6: https://apple.stackexchange.com/questions/259093/can-touch-id-on-mac-authenticate-sudo-in-terminal
 

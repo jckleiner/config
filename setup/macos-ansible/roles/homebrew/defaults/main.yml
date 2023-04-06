@@ -32,6 +32,15 @@ homebrew_installed_packages:
   - packer
   - awscli
   - azure-cli
+  # XML Starlet: XML command line tool which can parse and format really large XML files (https://xmlstar.sourceforge.net/doc/UG/xmlstarlet-ug.html)
+  - xmlstarlet
+  # This toolset provides md5sum, sha1sum, and ripemd160sum. They are intended to be drop in replacements for the tools from GNU textutils
+  - md5sha1sum
+  # clojure stuff
+  - clojure/tools/clojure
+  - leiningen
+  # a nice http client cli
+  - httpie
 
 homebrew_uninstalled_packages: []
 

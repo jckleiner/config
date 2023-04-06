@@ -1,10 +1,37 @@
 {
+  // TODO - add TF icon to my icon-pack
+  "contributes": {
+    "languages": [
+      {
+        "id": "terraform",
+        // ...
+        "icon": {
+          "light": "./icons/file-type-terraform.svg",
+          "dark": "./icons/file-type-terraform.svg"
+        }
+      },
+      {
+        "id": "tf",
+        // ...
+        "icon": {
+          "light": "./icons/file-type-terraform.svg",
+          "dark": "./icons/file-type-terraform.svg"
+        }
+      }
+    ]
+  },
+
+  "search.useIgnoreFiles": false,
+  "files.useIgnoreFiles": false,
+
   "window.reopenFolders": "all",
   
   "files.hotExit": "onExit",
   "window.restoreWindows": "all",
 
   "editor.wordWrap": "on",
+  // on external monitor: 14
+  // on laptop: 15
   "editor.fontSize": 14,
   "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
 
@@ -31,6 +58,11 @@
     "suppressFileNotUnderSourceControlWarning": true,
     "suppressLineUncommittedWarning": true
   },
+  // shows author and change info at the top, which can be annoying, that's why disabling them
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  // shows the who changed the line last time on the right side (this is true by default)
+  "gitlens.currentLine.enabled": true,
 
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
@@ -201,20 +233,23 @@
     }
   },
   "security.workspace.trust.untrustedFiles": "open",
-  "yaml.customTags": ["!encrypted/pkcs1-oaep scalar", "!vault scalar"],
+  
+  "yaml.customTags": [
+  
+  "!encrypted/pkcs1-oaep scalar", "!vault scalar"],
   "breadcrumbs.enabled": false,
   "liveServer.settings.donotVerifyTags": true,
   "redhat.telemetry.enabled": false,
 
   /* Vetur */
-  "vetur.validation.templateProps": true,
-  "vetur.experimental.templateInterpolationService": true,
+  "vetur.validation.templateProps": false,
+  // "vetur.validation.script": true,
+  "vetur.experimental.templateInterpolationService": false,
 
   /* VIM */
   /* https://www.youtube.com/watch?v=Vkm4bc2Y0AA */
   /* https://www.youtube.com/watch?v=44snngEzNMQ */
   "vim.leader": "<space>",
-  "editor.lineNumbers": "relative",
 
   /* Easymotion */
   "vim.easymotion": "true",
@@ -317,6 +352,26 @@
   "haskell.manageHLS": "GHCup",
   "window.title": "${rootName}",
   "editor.padding.top": 6,
+  "xml.server.vmargs": "-Xmx256M",
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "yaml.schemas": {
+   
+  },
+  "[yaml]": {
+    
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "editor.largeFileOptimizations": false,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
   
   // "vscode_custom_css.imports": [
   //   "file:///Users/kleiner/develop/test.css",

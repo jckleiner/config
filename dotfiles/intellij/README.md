@@ -3,6 +3,8 @@
 ### Plugins to install
  * Eclipse code formatter
  * Lombok
+ * BrowseWordAtCaret
+    - Once a word is selected, you can switch between the highlights with `Option + CMD + Up/Down`
  * Sonar Lint
  * Codota
  * Maven Helper
@@ -63,7 +65,7 @@ Import Order:
 #### Code style
  * Font: consolas
  * Size: 14
- * Line Spacing: 1.05
+ * Line Spacing: 1.1
 
 #### System Font
  * `Preferences -> Appearance -> Appearance -> use custom font -> .SF NS Text 13`
@@ -134,6 +136,10 @@ Editor > General > Auto Import > check "optimize imports on the fly"
 ## IntelliJ CE
  * There are services tab: `view > tool windows > services` but there are no "Spring Boot" run config type
  * You can use "Application" as a Run Configuration Type to list available applications
+
+### Intellij keeps closing tabs
+Select File -> Settings -> Editor -> General -> Editor Tabs
+Look for "Tab Closing Policy" -> Tab Limit and change the value to a higher integer
 
 ## Useful Keybindings
  * cmd + shift + T     Open last closed file

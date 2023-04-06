@@ -159,5 +159,9 @@ dps() {
     fi
 }
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+gpu() {
+    # TODO - find current branch of pwd and then git push upsteam
+}
+
+# Work related scripts - NOT COMMITTED IN GIT
+source "$HOME/config/dotfiles/work_scripts/work_scripts.sh"
