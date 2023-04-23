@@ -39,7 +39,7 @@
       file_path: "{{ yabai_folder_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/yabai"
 
-  # -------------- VsCode --------------
+  # -------------- vscode --------------
   - name: Ensure VsCode extensions are installed/uninstalled
     ansible.builtin.include_tasks: vscode_extensions.yml
 
@@ -73,12 +73,12 @@
       file_path: "{{ zprofile_path }}"
       symlink_target: "{{ dotfiles_folder_relative_prefix }}/zsh/.zprofile"
 
-  # -------------- MacOs Preferences --------------
+  # -------------- macos preferences --------------
   - name: Set MacOs preferences
     become: true
     script: "{{ macos_preferences_script_path }}"
 
-  # -------------- Fonts --------------
+  # -------------- fonts --------------
   - name: Copy configured fonts
     ansible.builtin.copy:
       src: "{{ item }}"
@@ -86,7 +86,17 @@
       mode: '0644'
     loop: "{{ fonts_to_install }}"
 
-  # -------------- npm Packages --------------
+  # -------------- nvm and node --------------
+  - name: Check if .nvm folder exists
+    stat:
+      path: "$HOME/.nvm"
+    register: folder_check
+
+  - name: Installs nvm and then via nvm it installs node
+    script: install-nvm-and-node.sh
+    when: not folder_check.stat.exists
+
+  # -------------- npm packages --------------
   - name: Ensure npm (global) packages are installed
     command: "npm install --global {{ item }}"
     loop: "{{ npm_global_packages_to_install }}"
