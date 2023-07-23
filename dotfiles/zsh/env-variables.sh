@@ -247,3 +247,16 @@ ex=:\
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# HOMEBREW_PREFIX is different on arm64 and intel macs
+# homebrew_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
+# ▶ echo $HOMEBREW_PREFIX
+# /opt/homebrew
+
+# Some options in GNU grep are not working in MacOs's grep that's why installed GNU grep with brew.
+# Some gnu commands are installed with a 'g' prefix with brew. For example 'ggrep', 'ssed'
+# This makes it so that the installed GNU grep can be just called 'grep'
+#   MacOs's grep -V: grep (BSD grep, GNU compatible) 2.6.0-FreeBSD
+#   Brew's grep -V: grep (GNU grep) 3.10
+export PATH="$HOMEBREW_PREFIX/opt/grep/libexec/gnubin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"

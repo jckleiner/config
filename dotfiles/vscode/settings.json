@@ -49,6 +49,7 @@
 
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.fontFamily": "Monaco Nerd Font",
+  "terminal.integrated.scrollback": 100000,
 
   "explorer.compactFolders": true,
 
@@ -372,6 +373,10 @@
   },
   "git.openRepositoryInParentFolders": "never",
   "terminal.integrated.enableMultiLinePasteWarning": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 0,
   
   // "vscode_custom_css.imports": [
   //   "file:///Users/kleiner/develop/test.css",
