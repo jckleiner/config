@@ -1,7 +1,7 @@
 {
-    "attachmentFolderPath": "/_images",
-    "readableLineLength": true,
-    "userIgnoreFilters": [
-        "/.*node_modules.*/"
-    ]
+  "attachmentFolderPath": "/_images",
+  "readableLineLength": true,
+  "userIgnoreFilters": [
+    "/.*node_modules.*/"
+  ]
 }
