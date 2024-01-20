@@ -1,0 +1,33 @@
+/*
+    Chaning the CSS in this file is not reflected in Obisidian immediately. If I remember correctly, it used to work before.
+    Maybe it's because of the symlinking?
+
+    Use "View > Force Reload" to refresh the CSS.
+*/
+
+body {
+    --file-line-width: 1000px;
+
+    /* change link color in both preview and editor mode */
+    --link-external-color: #0078d4;;
+    --link-external-color-hover: #0078d4;;
+}
+
+.markdown-preview-view code, /* for preview/reading view */
+.cm-s-obsidian span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) /* for editing view */
+{
+    color: red;
+    background-color: #f0f0f0; /* Set your desired background color */
+    font-size: 0.8em;
+}
+
+/*
+    Changes the font size of the file explorer on the left. Does not change the icon sizes!
+    "Settings > Appearance > Zoom level" changes the icon sizes as well
+*/
+/* .workspace-leaf-content[data-type="file-explorer"] * {
+    font-size: 22px;
+} */
+
+/* TODO change theme of `code-snippet` */
+/* TODO adjust line padding when ENTER is pressed */
