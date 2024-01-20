@@ -1,1 +1,7 @@
-{}
+{
+    "attachmentFolderPath": "/_images",
+    "readableLineLength": true,
+    "userIgnoreFilters": [
+        "/.*node_modules.*/"
+    ]
+}
