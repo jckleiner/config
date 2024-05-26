@@ -5,54 +5,15 @@ Source:
   * https://www.notion.so/Yabai-8da3b829872d432fac43181b7ff628fc
 
 ### Setup
- * yabai
+ * yabai (using `homebrew`)
  * skhd
  * hammerspoon
  * stackline
 
 ### Installing for M1 Macs
-Followed the instructions in Installing yabai (from HEAD) https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(from-HEAD) without installing the scripting addition because that needs disabling the SIP.
-* Created a Cert
-* Installed Yabai with `brew install koekeishiya/formulae/yabai --HEAD` (brew install yabai was saying that ‘yabai is not found’ for some reason) and then signed it
-* Opened preferences > Privacy > Accessibility > added the ‘yabai’ exec
-* Symlink the config: `ln -s /Users/kleiner/config/dotfiles/yabai ~/.config/yabai`
-* `brew services start yabai` and it was working
-* `brew install jq`
-* `brew install koekeishiya/formulae/skhd`
-* `ln -s ~/config/dotfiles/skhd ~/.config/skhd`
-* `brew services start skhd` (needs Accessibility permissions)
 
-
-### Installing for Intel Macs
-brew install koekeishiya/formulae/yabai
-brew install jq
-brew install koekeishiya/formulae/skhd
-git clone git@github.com:koekeishiya/limelight.git
-cd limelight
-make
-
-ln -s ~/develop/personal/config/dotfiles/yabai/bin/limelight /usr/local/bin/limelight
-
-- create yabairc config
-ln -s ~/develop/personal/config/dotfiles/yabai ~/.config/yabai
-chmod +x  ~/.config/yabai/yabairc
-
-- create skhd config
-// needed for skhd commands
-brew install chunkc
-ln -s ~/develop/personal/config/dotfiles/skhd ~/.config/skhd
-chmod +x  ~/.config/skhd/skhdrc
-
-- create limelight config
-ln -s ~/develop/personal/config/dotfiles/limelight ~/.config/limelight
-chmod +x  ~/.config/limelight/limelightrc
-// kill limelight before loading config
-limelight --config ~/.config/limelight/limelightrc
-
-- System preferences
-less delay when switching spaces
-disable "Automatically rearrange spaces..."
-
+I installed yabai using `homebrew`. The instalation steps tend to change overtime with yabai.
+Refer to the [Yabai installation wiki](https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)) to see how to install or update yabai.
 
 ### Installing Stackline
 
@@ -91,10 +52,15 @@ When you open the hammerspoon console, type `hs.ipc.cliInstall("/opt/homebrew")`
 After this, you should be able to see icons if multiple windows are in a stack layout.
 
 ### Will automatically start Yabai when computer starts
+
 `brew services start yabai`
+
 ### Restart/Stop yabai
+
 `brew services restart/stop yabai`
+
 ### Will automatically start skhd when computer starts
+
 `brew services start skhd`
 
 ### Some issues
