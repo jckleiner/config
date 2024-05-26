@@ -12,7 +12,6 @@ homebrew_installed_packages:
   - koekeishiya/formulae/skhd
   - fzf
   # https://docs.haskellstack.org/en/stable/README/
-  - haskell-stack
   - z
   - dockutil
   - tree
@@ -29,16 +28,11 @@ homebrew_installed_packages:
   # Podman's M1 support is not mature enough yet
   # - podman
   - terraform
-  - packer
-  - awscli
   - azure-cli
   # XML Starlet: XML command line tool which can parse and format really large XML files (https://xmlstar.sourceforge.net/doc/UG/xmlstarlet-ug.html)
   - xmlstarlet
   # This toolset provides md5sum, sha1sum, and ripemd160sum. They are intended to be drop in replacements for the tools from GNU textutils
   - md5sha1sum
-  # clojure stuff
-  - clojure/tools/clojure
-  - leiningen
   # a nice http client cli
   - httpie
   # better du
