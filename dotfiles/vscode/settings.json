@@ -39,7 +39,7 @@
   "workbench.tree.indent": 20,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.iconTheme": "webstorm-icons",
-  "workbench.editor.showTabs": true,
+  "workbench.editor.showTabs": "multiple",
 
   // "editor.renderWhitespace": "all",
   "workbench.colorCustomizations": {
@@ -348,6 +348,8 @@
   "files.exclude": {
     "**/.DS_Store": false
   },
+  // My original theme
+  // "workbench.colorTheme": "IDEA like light Theme",
   "workbench.colorTheme": "IDEA like light Theme",
   "thunder-client.codeSnippetLanguage": "js-axios",
   "haskell.manageHLS": "GHCup",
@@ -362,7 +364,7 @@
   },
   "[yaml]": {
     
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[vue]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
@@ -376,7 +378,11 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.zoomLevel": 0,
+  "go.toolsManagement.autoUpdate": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
   
   // "vscode_custom_css.imports": [
   //   "file:///Users/kleiner/develop/test.css",

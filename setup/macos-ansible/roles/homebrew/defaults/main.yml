@@ -41,6 +41,8 @@ homebrew_installed_packages:
   - leiningen
   # a nice http client cli
   - httpie
+  # better du
+  - dust
 
 homebrew_uninstalled_packages: []
 
@@ -59,6 +61,10 @@ homebrew_cask_apps:
   - discord # Rosetta
   - keepassxc
   - notion
+  - obsidian
+  - google-drive
+  - syncthing
+  - insomnia
 
   # Mac specific
   - dozer # Rosetta
@@ -69,6 +75,7 @@ homebrew_cask_apps:
   - hammerspoon
   - aldente
   - xbar
+  - bartender
 
   # Development
   - intellij-idea

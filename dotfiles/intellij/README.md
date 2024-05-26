@@ -65,7 +65,7 @@ Import Order:
 #### Code style
  * Font: consolas
  * Size: 14
- * Line Spacing: 1.1
+ * Line Spacing: 1.15 (can be 1.1 or 1.2 depending on the intellij version)
 
 #### System Font
  * `Preferences -> Appearance -> Appearance -> use custom font -> .SF NS Text 13`
@@ -111,7 +111,7 @@ If the root folder should be hidden/removed from the workspace:
 ## Hot Reload Spring Boot
  1. add devtools dependency
  2. Setting -> Build -> Compiler -> check Make project automatically.
- 3. shift+cmd+a -> registry... -> compiler.automake.allow.when.app.running
+ 3. Setting -> Build -> Build Tools -> Reload project after ... > any changes
 
  "update resources" vs "update classes and resource" for a spring module:
  If the second option is selected, on reload spring will not be able to find certain beans!

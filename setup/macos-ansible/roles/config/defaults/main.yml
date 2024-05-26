@@ -74,6 +74,9 @@ vscode_extensions_to_install:
   - pjmiravalle.terraform-advanced-syntax-highlighting
   - vue.volar
   - vue.vscode-typescript-vue-plugin
+  - quick-lint.quick-lint-js
+  - yoavbls.pretty-ts-errors
+  - timonwong.shellcheck
 
 
   # Code Runner

@@ -10,7 +10,7 @@ Add the following snippet AFTER the `source $ZSH/oh-my-zsh.sh` line to override 
     export LS_COLORS="di=34:ln=36:so=35:pi=33;40:ex=32:bd=1;33;40:cd=1;33;40:su=0;41:sg=30>
     zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-    # The MAC equivalent of the LS_COLORS above (has no effect in Linux)
+    # The MAC equivalent of the LS_COLORS above is LSCOLORS (has no effect in Linux)
     export LSCOLORS="exgxfxdacxDaDaxbadacex"
 
 ### Modify existing user accounts

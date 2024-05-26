@@ -220,8 +220,11 @@
     "when": "editorFocus"
   },
   {
-    "key": "ctrl+cmd+t",
-    "command": "openInTerminal"
+    "key": "cmd+ctrl+t",
+    "command": "workbench.action.terminal.newWithCwd",
+    "args": {
+      "cwd": "${fileDirname}"
+    }
   },
   {
     "key": "cmd+u",
