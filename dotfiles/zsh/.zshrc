@@ -1,4 +1,6 @@
 # ------------ zsh Config ------------
+# See '/etc/zshrc' for initial setup of zsh
+
 # Basic auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -53,10 +55,11 @@ listports () { sudo lsof -PiTCP -sTCP:LISTEN }
 # alias cd=_cd_ls
 alias lf="lf"
 # alias lf="lfcd" # TODO errors
+alias ls='ls --color'
 alias l='ls -lah'
 alias ll='ls -lh'
 alias grep='grep --color=always'
-alias gss='git status -sb'
+alias gss='git status --short --branch'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
 
 ### Minifabric
@@ -72,17 +75,28 @@ alias dcu="docker-compose up -d"
 alias dcd="docker-compose down --remove-orphans"
 alias dcdu="docker-compose down --remove-orphans && docker-compose up -d"
 
+### Kubernetes
+alias k="kubectl"
+
 # mv will overwrite the existing file by default under MacOs
 # make it interactive so it will ask before overwriting it
-alias mv="mv -i"
+alias mv="mv --interactive"
+
+alias azssh="/Users/kleiner/develop/tomtom/motown2-misc/scripts/azure/azssh.sh"
+
+### Terragrunt
+# alias tgp="terragrunt plan"
+# alias tga="terragrunt apply"
+# alias tgd="terragrunt destroy"
 
 ### trash-cli (Cross-platform Node.js version)
 # https://github.com/sindresorhus/trash-cli, trash goes directyl to your bin (on MacOs)
 # it uses macos-trash under the hood (https://github.com/sindresorhus/macos-trash).
 # Note that aliases are used only in interactive shells, so using this alias should not interfere with scripts that expect to use rm.
 # only if trash is installed
-if [ -n "$(command -v trash)" ]; then 
-    alias rm='echo "######### rm: This is not the command you are looking for, use trash instead #########"; false'
+if [ -n "$(command -v trash)" ]; then
+    # TODO
+    # alias rm='echo "######### rm: This is not the command you are looking for, use trash instead #########"; false'
 fi
 
 # Use lf to switch directories
@@ -113,6 +127,40 @@ fbr() {
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" | fzf --reverse --height 40% -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+tgp() {
+    terragrunt plan "$@"
+}
+
+tga() {
+    if [[ "$PWD" == *"bootstrap-subscription"* ]]; then
+        echo -e "\n**** You are in bootstrap-subscription! ****\n"
+        return 1
+    fi
+
+    # if the first argument provided is "a", then auto approve
+    if [[ "$1" == "a" ]]; then
+        echo -e "\n**** Auto approve is ON! ****\n"
+        terragrunt apply --auto-approve
+    else
+        terragrunt apply "$@"
+    fi
+}
+
+tgd() {
+    if [[ "$PWD" == *"bootstrap-subscription"* ]]; then
+        echo -e "\n**** You are in bootstrap-subscription! ****\n"
+        return 1
+    fi
+
+    # if the first argument provided is "a", then auto approve
+    if [[ "$1" == "a" ]]; then
+        echo -e "\n**** Auto approve is ON! ****\n"
+        terragrunt destroy --auto-approve
+    else
+        terragrunt destroy "$@"
+    fi
 }
 
 # TODO docker kill?
@@ -163,11 +211,145 @@ gpu() {
     # TODO - find current branch of pwd and then git push upsteam
 }
 
+watch_for_file_changes() {
+    # fail if fswatch is not installed
+    if [ -z "$(command -v fswatch)" ]; then
+        echo "fswatch is required but it's not installed."
+        return 1
+    fi
+
+    if [ "$1" = "-h" ]; then
+        echo -e "\nwatch_for_file_changes [folder_path]"
+        echo -e "  folder_path: the path to watch for changes, defaults to current directory ('.')\n"
+        return 1
+    fi
+
+    # use current dir if no argument is passed, otherwise use the argument
+    local folder_path="."
+    if [ -n "$1" ]; then
+        folder_path="$1"
+    fi
+    
+    echo "Watching for file changes in directory: '$folder_path'"
+
+    fswatch . | xargs --replace={} echo -e "Changed: {}"
+}
+
+obsidian_symlink_config() {
+    echo "Creating symlinks for Obsidian config files inside '$(pwd)'"
+
+    # check if files exist already and ask user if they want to overwrite them
+    if [ -f "app.json" ]; then
+        echo -e "\napp.json already exists, do you want to overwrite it? (y/n)"
+        read -r answer
+        if [ "$answer" != "${answer#[Yy]}" ]; then
+            echo "trashing app.json"
+            trash app.json
+        fi
+    fi
+
+    echo -e "\nCreating symlink 'app.json' which points to '~/config/dotfiles/obsidian/app.json'"
+    ln -s ~/config/dotfiles/obsidian/app.json app.json
+
+    # same for appearance.json
+    if [ -f "appearance.json" ]; then
+        echo -e "\nappearance.json already exists, do you want to overwrite it? (y/n)"
+        read -r answer
+        if [ "$answer" != "${answer#[Yy]}" ]; then
+            echo "trashing appearance.json"
+            trash appearance.json
+        fi
+    fi
+
+    echo "Creating symlink 'appearance.json' which points to '~/config/dotfiles/obsidian/appearance.json'"
+    ln -s ~/config/dotfiles/obsidian/appearance.json appearance.json
+
+    # same for the snippets folder
+    if [ -d "snippets" ]; then
+        echo -e "\nsnippets folder already exists, do you want to overwrite it? (y/n)"
+        read -r answer
+        if [ "$answer" != "${answer#[Yy]}" ]; then
+            echo "trashing snippets folder"
+            trash snippets
+        fi
+    fi
+
+    echo "Creating symlink 'snippets' which points to '~/config/dotfiles/obsidian/snippets'"
+    ln -s ~/config/dotfiles/obsidian/snippets snippets
+}
+
+reload_zshrc() {
+    source ~/.zshrc
+}
+
+git_print_config() {
+    echo -e "\ngit config --list (with grep):"
+    git config --list | grep -E 'init.defaultbranch|remote.origin.url|commit.template|branch.master.remote|user.name|user.email'
+}
+
 # Work related scripts - NOT COMMITTED IN GIT
-source "$HOME/config/dotfiles/work_scripts/work_scripts.sh"
+source "$HOME/config/dotfiles/work_scripts/work_scripts_soft_link.sh"
 
 # This is needed when installing nvm manually
 # See https://github.com/nvm-sh/nvm#manual-install
 export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# TODO move this to .zshprofile or equivalent
+BREW_BIN="/usr/local/bin/brew"
+if [ -f "/opt/homebrew/bin/brew" ]; then
+    BREW_BIN="/opt/homebrew/bin/brew"
+fi
+
+if type "${BREW_BIN}" &> /dev/null; then
+    export BREW_PREFIX="$("${BREW_BIN}" --prefix)"
+    for bindir in "${BREW_PREFIX}/opt/"*"/libexec/gnubin"; do export PATH=$bindir:$PATH; done
+    for bindir in "${BREW_PREFIX}/opt/"*"/bin"; do export PATH=$bindir:$PATH; done
+    for mandir in "${BREW_PREFIX}/opt/"*"/libexec/gnuman"; do export MANPATH=$mandir:$MANPATH; done
+    for mandir in "${BREW_PREFIX}/opt/"*"/share/man/man1"; do export MANPATH=$mandir:$MANPATH; done
+fi
+
+# during npm install, I get this error
+# [INFO] npm ERR! /opt/homebrew/opt/llvm@12/bin/../include/c++/v1/string.h:60:15: fatal error: 'string.h' file not found
+# https://stackoverflow.com/questions/57746792/homebrews-llvm-fatal-error-stdio-h-file-not-found-on-macos
+# LLVM_PATH="/opt/homebrew/opt/llvm@12" # or any other path
+# LLVM_VERSION="12.0.0"
+# export PATH="$LLVM_PATH:$PATH"
+# export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+# export LD_LIBRARY_PATH="$LLVM_PATH/lib/:$LD_LIBRARY_PATH"
+# export DYLD_LIBRARY_PATH="$LLVM_PATH/lib/:$DYLD_LIBRARY_PATH"
+# export CPATH="$LLVM_PATH/lib/clang/$LLVM_VERSION/include/"
+# export LDFLAGS="-L$LLVM_PATH/lib"
+# export CPPFLAGS="-I$LLVM_PATH/include"
+# export CC="$LLVM_PATH/bin/clang"
+# export CXX="$LLVM_PATH/bin/clang++"
+
+# export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/kleiner/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# ------------ History ------------
+# https://zsh.sourceforge.io/Doc/Release/Options.html#History
+# Increasing the history size from default 1000
+# https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh
+# I still sometimes see that my history getting lost. Therefore I have a cron job to backup the history file
+# see also https://unix.stackexchange.com/questions/568907/why-do-i-lose-my-zsh-history
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+# I see that the default behaviour is that duplicated commands which are executed back to back are not stored. This is what I want.
+# The default behaviour of zhs (in MacOs) is to keep the history of the current session in memory and write it to the history file only when the session ends. This means that if I have multiple zsh sessions open, I cannot acess the commands from the other session. To fix this, I need to disable shell sessions and enable shared history.
+# This way, all the commands you write in any session will be appended to the history file immediately.
+# https://apple.stackexchange.com/questions/427561/macos-zsh-sessions-zsh-history-and-setopt-append-history
+export SHELL_SESSIONS_DISABLE=1
+setopt SHARE_HISTORY
+# Just to make sure that the history file is not lost again randomly, if I see this, I can restore it from /Users/kleiner/backup
+if [[ $(wc -l < $HISTFILE) -lt 1500 ]]; then
+    echo -e "\n ********* History file seems to be truncated *********\n"
+fi
+# To prevent history from recording duplicated entries (such as ls -l entered many times during single shell session), you can set the hist_ignore_all_dups option:
+# I've tested this, seems to be working (https://unix.stackexchange.com/questions/603334/how-can-i-use-hist-ignore-dups-to-ignore-duplicate-lines-in-zsh-with-extended-hi)
+setopt hist_ignore_all_dups
