@@ -348,8 +348,8 @@ export SHELL_SESSIONS_DISABLE=1
 setopt SHARE_HISTORY
 # Just to make sure that the history file is not lost again randomly, if I see this, I can restore it from /Users/kleiner/backup
 if [[ $(wc -l < $HISTFILE) -lt 1500 ]]; then
-    echo -e "\n ********* History file seems to be truncated *********\n"
+    echo -e "\n ********* History file ($HISTFILE) seems to be lost/truncated. Todo: recover it from /Users/kleiner/backup *********\n"
 fi
 # To prevent history from recording duplicated entries (such as ls -l entered many times during single shell session), you can set the hist_ignore_all_dups option:
-# I've tested this, seems to be working (https://unix.stackexchange.com/questions/603334/how-can-i-use-hist-ignore-dups-to-ignore-duplicate-lines-in-zsh-with-extended-hi)
+# I've tested this, seems to be working (see alsohttps://unix.stackexchange.com/questions/603334/how-can-i-use-hist-ignore-dups-to-ignore-duplicate-lines-in-zsh-with-extended-hi)
 setopt hist_ignore_all_dups
