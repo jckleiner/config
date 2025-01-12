@@ -100,7 +100,7 @@ function git_status_changed() {
 function last_exit_code() {
   if [ "$?" != 0 ] ; then
     echo "%B%F{red}[ %? ]%{$reset_color%} "
-  fi 
+  fi
 }
 
 # https://unix.stackexchange.com/questions/9605/how-can-i-detect-if-the-shell-is-controlled-from-ssh
@@ -145,6 +145,14 @@ function _user_host() {
   # fi
 }
 
+function environment_id_prompt {
+  if [[ -n "$TF_VAR_environment_id" ]] && [[ "$(pwd)" == *"va-platform"* ]]; then
+    echo "($TF_VAR_environment_id) "
+  else
+    echo ""
+  fi
+}
+
 # \e[1mbold\e[0m
 
 color_dark_mode_bold="%{$fg_bold[magenta]%}"
@@ -157,7 +165,7 @@ _current_dir="$color_dark_mode_bold%d%{$reset_color%}"
 # TODO add $(git_status_changed)$(git_status_ahead)$(git_status_behind) 
 #   after $(git_current_branch) when error is fixed, see below
 PROMPT='
-$(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_changed)$(git_status_ahead_and_behind)
+$(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_changed)$(git_status_ahead_and_behind)$(environment_id_prompt)
 %{%F{white}%}▶%{$reset_color%} '
 
 # PROMPT='
@@ -165,6 +173,9 @@ $(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status
 # %{%F{white}%}▶%{$reset_color%} '
 
 PROMPT2='%{%F{red}%}◀%{$reset_color%} '
+
+# timestamp on the right - https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865
+RPROMPT="[%D{%L:%M:%S} | %D{%f/%m}]"
 
 # disabled right prompt
 #RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
