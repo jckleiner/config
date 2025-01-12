@@ -1,7 +1,41 @@
+#!/bin/bash
+
+export PATH="$PATH:/Users/kleiner/.local/bin/:$HOME/go/bin/"
+
+# Stop brew updating everything each time I want to install something
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Liquibase
+export LIQUIBASE_HOME=/opt/homebrew/opt/liquibase/libexec
+
+# Brew change version of package
+# brew unlink package
+# brew link package@10
+
 # Java Configuration
 # See also: https://stackoverflow.com/questions/21964709/how-to-set-or-change-the-default-java-jdk-version-on-macos
 # uses java 17 by default (java -version and mvn -v)
-export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+# here I can change the java version used on my machine. Both 17 and 21 are installed.
+# TODO - switch does not work properly, maybe use sdkman?
+# local java_version=21
+# export JAVA_HOME=$(/usr/libexec/java_home -v "$java_version")
+# export PATH="/opt/homebrew/opt/openjdk@$java_version/bin/java:$PATH"
+export PATH="/opt/homebrew/Cellar/openjdk@21/21.0.4/bin/java:$PATH"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk@21/21.0.4/libexec/openjdk.jdk/Contents/Home"
+
+# Racher Desktop
+export PATH="$HOME/.rd/bin:$PATH"
+
+# javahome() {
+#   unset JAVA_HOME
+#   export JAVA_HOME=$(/usr/libexec/java_home -v "$1");
+#   java -version
+# }
+
+# alias j17='javahome 17'
+# alias j21='javahome 21'
+
+# where java
 
 # fixes the "git_current_branch:14: character not in range" error which is only shown in the intellij terminal?
 export LANG=en_US.UTF-8
@@ -26,7 +60,7 @@ export CLICOLOR=1
 # ALT  + C (default) is mapped to CTRL + T
 # CTRL + T (default) is mapped to CTRL + F
 
-if [ -x "$(command -v fd)" ]; then 
+if [ -x "$(command -v fd)" ]; then
     export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --exclude ".git"'
     export FZF_ALT_C_COMMAND='fd --type d --follow --exclude ".git" --color=never --hidden'
 else
@@ -38,18 +72,16 @@ fi
 
 # enable colorful file previews using 'bat'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-if [ -x "$(command -v bat)" ]; then 
+if [ -x "$(command -v bat)" ]; then
     export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
-else 
+else
     export FZF_CTRL_T_OPTS="--preview 'head -n 50 {}'"
 fi
 
 
 # enable directory preview using 'tree'
-if [ -x "$(command -v tree)" ]; then 
+if [ -x "$(command -v tree)" ]; then
     export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
-else 
-    # export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 fi
 
 export FZF_CTRL_R_OPTS="--reverse --height 40%"

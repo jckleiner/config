@@ -46,6 +46,9 @@ source $HOME/config/dotfiles/zsh/themes/nice.zsh-theme
 #  - ALT + C        Find folders   Changing it to CTRL + T --- (T for Tree)
 bindkey '^F' fzf-file-widget
 bindkey '^T' fzf-cd-widget
+# I'm defining a custom zsh history file trying to fix the issue of losing history
+CUSTOM_ZSH_HISTORY_FILE=~/.zsh_history_custom
+export FZF_HISTORY=$CUSTOM_ZSH_HISTORY_FILE
 
 # ------------ Aliases and Functions ------------
 ### TODO sometimes '_cd_ls: maximum nested function level reached; increase FUNCNEST?'
@@ -81,8 +84,6 @@ alias k="kubectl"
 # mv will overwrite the existing file by default under MacOs
 # make it interactive so it will ask before overwriting it
 alias mv="mv --interactive"
-
-alias azssh="/Users/kleiner/develop/tomtom/motown2-misc/scripts/azure/azssh.sh"
 
 ### Terragrunt
 # alias tgp="terragrunt plan"
@@ -129,6 +130,8 @@ fbr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
+# TODO function to remove local branches which do not exist on remote
+
 tgp() {
     terragrunt plan "$@"
 }
@@ -160,6 +163,31 @@ tgd() {
         terragrunt destroy --auto-approve
     else
         terragrunt destroy "$@"
+    fi
+}
+
+
+tfp() {
+    terraform plan "$@"
+}
+
+tfa() {
+    # if the first argument provided is "a", then auto approve
+    if [[ "$1" == "a" ]]; then
+        echo -e "\n**** Auto approve is ON! ****\n"
+        terraform apply -auto-approve
+    else
+        terraform apply "$@"
+    fi
+}
+
+tfd() {
+    # if the first argument provided is "a", then auto approve
+    if [[ "$1" == "a" ]]; then
+        echo -e "\n**** Auto approve is ON! ****\n"
+        terraform destroy -auto-approve
+    else
+        terraform destroy "$@"
     fi
 }
 
@@ -282,9 +310,35 @@ reload_zshrc() {
     source ~/.zshrc
 }
 
+move_all_windows() {
+    "$HOME"/.config/yabai/scripts/move-all-windows-to-their-spaces.sh
+}
+
 git_print_config() {
     echo -e "\ngit config --list (with grep):"
     git config --list | grep -E 'init.defaultbranch|remote.origin.url|commit.template|branch.master.remote|user.name|user.email'
+}
+
+# Since yabai v7.1.1, "yabai --restart-service" does not seem to re-apply the config anymore
+# quitting yabai will make yabai restart immediately, which will re-apply the config
+restart_yabai() {
+    yabai_pids=($(ps aux | grep yabai | awk '{print $2}'))
+
+    for pid in $yabai_pids; do
+        echo "$pid"
+        # -9  is SIGKILL
+        # -15 is SIGTERM
+        kill -15 "$pid"
+    done
+}
+
+print_function() {
+    if [ $# -eq 0 ]; then
+        echo "No arguments provided"
+        return 1
+    fi
+    # prints the definition of a function
+    declare -f $1 | bat --language bash
 }
 
 # Work related scripts - NOT COMMITTED IN GIT
@@ -331,15 +385,18 @@ fi
 export PATH="/Users/kleiner/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-# ------------ History ------------
+# ------------ ZSH History ------------
 # https://zsh.sourceforge.io/Doc/Release/Options.html#History
 # Increasing the history size from default 1000
 # https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh
 # I still sometimes see that my history getting lost. Therefore I have a cron job to backup the history file
 # see also https://unix.stackexchange.com/questions/568907/why-do-i-lose-my-zsh-history
-HISTFILE=~/.zsh_history
+# HISTFILE=~/.zsh_history
+export HISTFILE=$CUSTOM_ZSH_HISTORY_FILE
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
+setopt appendhistory
+setopt INC_APPEND_HISTORY  
 # I see that the default behaviour is that duplicated commands which are executed back to back are not stored. This is what I want.
 # The default behaviour of zhs (in MacOs) is to keep the history of the current session in memory and write it to the history file only when the session ends. This means that if I have multiple zsh sessions open, I cannot acess the commands from the other session. To fix this, I need to disable shell sessions and enable shared history.
 # This way, all the commands you write in any session will be appended to the history file immediately.

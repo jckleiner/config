@@ -1,178 +1,64 @@
 #!/usr/bin/env sh
 
-# float system preferences. Most of these just diable Yabai form resizing them.
-    yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
-    #yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
-    #yabai -m rule --add app="^Keka$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^Logi Options$" manage=off
-    yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^FirstSpirit Launcher$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^FirstSpirit SiteArchitect$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^Outlook$" sticky=on layer=above manage=off
-    # yabai -m rule --add app="^Microsoft Teams$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^Slack$" sticky=on layer=above manage=off
-    yabai -m rule --add app="^Snagit 2021$" sticky=on layer=above manage=off
-
-# Firefox download popup
-    yabai -m rule --add title="^Opening .*$" sticky=on layer=above manage=off
-# Intellij Windows
-    # yabai -m rule --add title="^Services - .*$" sticky=on layer=above manage=off
-    yabai -m rule --add title="^Tip of the Day$" sticky=on layer=above manage=off
-    yabai -m rule --add title="^Preferences$" sticky=on layer=above manage=off
-# Virtualbox
-    yabai -m rule --add title="^macOS-VM.*$" sticky=on layer=above manage=off
-
-#find ~/Library/Parallels/Applications\ Menus/ -maxdepth 3 -type f | awk -F'/' '{ print $NF; }' | awk '{$1=$1};1' | sort | uniq | tr "\n" "\0" | xargs -0 -I{} yabai -m rule --add app="^{}\$" title=".*" manage=on
-
-## Some random global settings
-    #yabai -m config focus_follows_mouse          autoraise
-    #yabai -m config focus_follows_mouse          on
-    # New window spawns to the right if vertical split, or bottom if horizontal split
-    yabai -m config window_placement second_child
-    yabai -m config window_topmost off
-    #yabai -m config window_shadow float
-    yabai -m config window_opacity off
-    yabai -m config window_opacity_duration 0.00
-    yabai -m config active_window_opacity 1.0
-    #yabai -m config normal_window_opacity        0.97
-    #yabai -m config window_border                on | off
-
-## WITH SIP ENABLED (Installed Limelight seperately, Don't need this)
-    yabai -m config window_border off
-
-## WTIH SIP DISABLED (Limelight build into Yabai, enable it here)
-    #yabai -m config window_border on
-    #yabai -m config window_border_width 3
-    #yabai -m config active_window_border_color 0xFF40FF00
-    #yabai -m config normal_window_border_color 0x00FFFFFF
-    #yabai -m config insert_feedback_color        0xffd75f5f
-
-## some other settings
-    yabai -m config auto_balance off
-    yabai -m config split_ratio 0.50
-# # set mouse interaction modifier key (default: fn)
-    yabai -m config mouse_modifier ctrl
-# set modifier + right-click drag to resize window (default: resize)
-    yabai -m config mouse_action2 resize
-# set modifier + left-click drag to resize window (default: move)
-    yabai -m config mouse_action1 move
-
-# general space settings
-    #yabai -m config focused_border_skip_floating  1
-    #yabai -m config --space 3 layout             float
-
 ## Change how yabai looks
-    # yabai -m config layout bsp
+    # https://github.com/koekeishiya/yabai/wiki/Configuration#layout
+    # configure the global layout as "stack"
+    yabai -m config layout stack
+    # Override default layout for space 3 only (now space 3 will be tiled instead of stacked)
+    # yabai -m config --space 3 layout bsp
+    
+    # https://github.com/koekeishiya/yabai/wiki/Configuration#padding-and-gaps
     yabai -m config top_padding 5
     yabai -m config bottom_padding 5
     yabai -m config left_padding 35
     yabai -m config right_padding 5
     yabai -m config window_gap 8
 
-    yabai -m config layout stack
-    # TODO what does these do exactly?
-    yabai -m config --space 3 layout stack
-    yabai -m space --layout stack
+## ------- SPACES -------
+    # yabai -m space 1 --label one
+    # yabai -m space 2 --label two
+    # yabai -m space 3 --label three
+    # yabai -m space 4 --label four
+    # yabai -m space 5 --label five
+    # yabai -m space 6 --label six
 
-#Limelight addon (Kill it and start it each time Yabai starts) - uncomment following lines to enable it:
-# killall limelight &>/dev/null
-# limelight &>/dev/null &
+## ------- RULES -------
+    # https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc#command-4
+    # --add: Add a new rule. Rules apply to windows that spawn after said rule has been added.
+    # --apply: Apply a rule to currently known windows.
+    # seems like adding `yabai -m rule --apply` at the end does not work (rules are not applied to currently opened windows) but defining rules twice like below works. (see also https://github.com/koekeishiya/yabai/issues/2254#issuecomment-2102334948)
+    yabai -m rule --add app="^Slack$" manage=off
+    yabai -m rule --apply app="^Slack$" manage=off
 
-# #Ubersicht widget bar stuff
-#yabai -m signal --add event=space_changed \
-#action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"nibar-spaces-primary-jsx\"'"
-#yabai -m signal --add event=display_changed \
-#action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"nibar-spaces-primary-jsx\"'"
+    yabai -m rule --add app="^Snagit 2021$" manage=off
+    yabai -m rule --apply app="^Snagit 2021$" manage=off
 
-#yabai -m signal --add event=space_changed \
-#action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"nibar-spaces-secondary-jsx\"'"
-#yabai -m signal --add event=display_changed \
-#action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"nibar-spaces-secondary-jsx\"'"
+    yabai -m rule --add app="^System Preferences$" manage=off
+    yabai -m rule --apply app="^System Preferences$" manage=off
 
-# signals
-# yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-#yabai -m signal --add event=space_changed action="yabai -m window --focus $(yabai -m query --windows --window | jq ".id")"
-# yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+    yabai -m rule --add app="^Logi Options$" manage=off
+    yabai -m rule --apply app="^Logi Options$" manage=off
 
-#testing signals
-# yabai -m signal --add event=window_destroyed action="terminal-notifier -message 'window_destroyed'"
-# yabai -m signal --add event=application_terminated action="terminal-notifier -message 'application_terminated'"
+    yabai -m rule --add app="^Activity Monitor$" manage=off
+    yabai -m rule --apply app="^Activity Monitor$" manage=off
 
-## If I close the active window, focus on any other visible window.
-    #yabai -m signal --add event=window_destroyed action="bash ~/develop/personal/config/dotfiles/yabai/scripts/window-focus-on-destroy.sh"
-    # yabai -m signal --add event=space_changed action="export CUR_ACTIVE_APP=\"iTerm2\""
+    yabai -m rule --add app="^System Preferences$" manage=off
+    yabai -m rule --apply app="^System Preferences$" manage=off
 
-echo "yabai configuration loaded."
+    yabai -m rule --add app="^Karabiner-Elements$" manage=off
+    yabai -m rule --apply app="^Karabiner-Elements$" manage=off
 
-#END
+    yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
+    yabai -m rule --apply app="^Karabiner-EventViewer$" manage=off
 
-###############################################################
-######################### OLD/UNUSED ##########################
-###############################################################
+    yabai -m rule --add app="^Disk Utility$" manage=off
+    yabai -m rule --apply app="^Disk Utility$" manage=off
 
-# bsp or float (default: bsp)
-#yabai -m config layout bsp
+    yabai -m rule --add app="^Alfred Preferences$" manage=off
+    yabai -m rule --apply app="^Alfred Preferences$" manage=off
 
-# My custom space names for my 3 monitor setup. These names are used in some of my scripts.
-# yabai -m space 1 --label one
-# yabai -m space 2 --label two
-# yabai -m space 3 --label three
-# yabai -m space 4 --label four
-# yabai -m space 5 --label five
-# yabai -m space 6 --label six
-# yabai -m space 9 --label nine
+    yabai -m rule --add app="^Ivanti Secure Access Client$" manage=off
+    yabai -m rule --apply app="^Ivanti Secure Access Client$" manage=off
 
-# the scripting-addition must be loaded manually if
-# you are running yabai on macOS Big Sur. Uncomment
-# the following line to have the injection performed
-# when the config is executed during startup.
-#
-# for this to work you must configure sudo such that
-# it will be able to run the command without password
-#
-# see this wiki page for information:
-#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
-#
-# sudo yabai --load-sa
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-
-# global settings
-#yabai -m config mouse_follows_focus          off
-#yabai -m config focus_follows_mouse          off
-#yabai -m config window_placement             second_child
-#yabai -m config window_topmost               off
-#yabai -m config window_shadow                on
-#yabai -m config window_opacity               off
-#yabai -m config window_opacity_duration      0.0
-#yabai -m config active_window_opacity        1.0
-#yabai -m config normal_window_opacity        0.90
-#yabai -m config window_border                off
-#yabai -m config window_border_width          6
-#yabai -m config active_window_border_color   0xff775759
-#yabai -m config normal_window_border_color   0xff555555
-#yabai -m config insert_feedback_color        0xffd75f5f
-#yabai -m config split_ratio                  0.50
-#yabai -m config auto_balance                 off
-#yabai -m config mouse_modifier               fn
-#yabai -m config mouse_action1                move
-#yabai -m config mouse_action2                resize
-#yabai -m config mouse_drop_action            swap
-
-## general space settings
-#yabai -m config layout                       bsp
-#yabai -m config top_padding                  12
-#yabai -m config bottom_padding               12
-#yabai -m config left_padding                 12
-#yabai -m config right_padding                12
-#yabai -m config window_gap                   06
-
-##Limelight addon (Kill it and start it each time Yabai starts)
-#killall limelight &>/dev/null
-#limelight &>/dev/null &
-
-#echo "yabai configuration loaded."
+    yabai -m rule --add app="^Rancher Desktop$" manage=off
+    yabai -m rule --apply app="^Rancher Desktop$" manage=off

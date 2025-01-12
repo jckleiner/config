@@ -18,11 +18,12 @@
   - Turn off voice over keyboard shortcut
   - disable Service keyboard shorcut "Search manpage index..."
   - Order Top bar: Hold Command key -> move icons (use dozer)
-  - Key repeat: 
-      `defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)`
-      `defaults write -g InitialKeyRepeat -int 5 # normal minimum is 15 (225 ms)` ???
-      `defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)`
-  
+  - Key repeat:
+      - I can test it here: https://mac-key-repeat.zaymon.dev/
+      - The values I like are:
+        - `defaults write -g InitialKeyRepeat -int 14`
+        - `defaults write -g KeyRepeat -int`
+
 By the setup-script automatically installed programs:
   - homebrew
   - Docker
@@ -54,13 +55,12 @@ Programs which need to be manually installed:
 ### Useful things
   - Highlight the URL in a web browser -> CMD + L
   - You can change the dock popup speed and make it faster
-  - 
 
 ### Finder
   - View -> Show "path bar" and "status bar"
 
 ### NPM-Sass
-  - Error: Node Sass does not yet support your current environment: 
+  - Error: Node Sass does not yet support your current environment:
     OS X 64-bit with Unsupported runtime (88)
       Solution: npm rebuild node-sass
 
@@ -103,11 +103,11 @@ Step 6: Confirm current version of Java
   - If "cannot resolve symbol" meaning if it does not show import suggestions, even though the dependency is there:
     File | Invalidate Caches
   - Hide code coverage: Run -> Hide Coverage data
-  - Code coverage expand lines: 
+  - Code coverage expand lines:
       System Preferences > editor > Color Scheme > General > Line Coverage
       Only check "Background" with the color you want, uncheck "Bold" and "Foreground"
-      
-### iTerm2 
+
+### iTerm2
   - TODO: faster scrolling, jumping to different words without pressing arrow for 5 minutes
   - shortcut for opening a new terminal / focusing existing: `iTerm2 -> Preferences -> Keys -> Hotkey -> CTRL + ALT + T`
   - Preferences -> Profiles -> Colors -> Light Background
@@ -125,7 +125,7 @@ Step 6: Confirm current version of Java
 ### Open files with .xyz file endings with a particular app (i.e. vscode)
   Right click on file -> get info -> open with change -> select program -> click 'change all'
 
-### Enable syntax higlighting for vi and nano 
+### Enable syntax higlighting for vi and nano
   **vim**
   `echo "syntax on" >> ~/.vimrc`
 
@@ -148,7 +148,7 @@ Step 6: Confirm current version of Java
 
   Which files to import can be controlled in `~/.nanorc` for an individual user.
 
-### Mac Fucked up Keyboard layout, switch `"` and `<` 
+### Mac Fucked up Keyboard layout, switch `"` and `<`
   The fix for this is to run the Keyboard Setup Assistant again. Sometimes there is a button for "Change Keyboard Type" visible in "System Preferences/Keyboard".
 
   1. If not, you can try trashing the file `/Library/Preferences/com.apple.keyboardtype.plist` and restarting your machine.
@@ -189,13 +189,13 @@ Step 6: Confirm current version of Java
 
 #### How to access remote server or a different port with local phpMyAdmin client? 
   By default phpmyadmin accesses localhost (port 3306)
-  
+
   1. Go to phpmyadmin dir (default: `/etc/phpmyadmin/config.inc.php`, in my case: `/Users/kleiner/develop/phpmyadmin/`)
   2. There is a `config.sample.inc.php`, either rename or create a copy it with the name `config.inc.php`
   3. Add the following lines (when you login, at the top left it says `localhost:3306` now. Before it was just `localhost`)
-  
+
   ```php
-    /* 
+    /*
       IMPORTANT: don't add $cfg['Servers'][$i]['port']
       add the port number after the host name, if non given it will be 3306
     */
@@ -204,7 +204,7 @@ Step 6: Confirm current version of Java
     $cfg['Servers'][$i]['user'] = 'userName';   //user name for your remote server
     $cfg['Servers'][$i]['password'] = 'Password';  //password
     $cfg['Servers'][$i]['auth_type'] = 'config'; // keep it as config
-  ``` 
+  ```
 
 
 ### MySQL 5.7 (default port 3306)
@@ -215,7 +215,7 @@ Step 6: Confirm current version of Java
 
 `defaults` is a tool which lets you set the preferences for your system and third party programs from the command line.
 Generally, programs generate a `<name>.plist` file in `~/Library/Preferences` where they save all the preferences.
-This file can be either in a binary format or xml format. 
+This file can be either in a binary format or xml format.
 
 If the plist file is in the XML format, you can edit it in any text editor like TextEdit. If the plist file is in the binary format, you can convert it to XML first by running:
 
@@ -225,7 +225,7 @@ If you want to go back to binary format after editing:
 
 * `plutil -convert binary1 file.plist`
 
-Changing a preference: 
+Changing a preference:
 
 *  `defaults write com.apple.menuextra.battery ShowTime -string "YES"`
 *  `defaults write -currentHost com.apple.menuextra.battery ShowTime -string "YES"`
@@ -236,7 +236,7 @@ Writing where?
  * `defaults write -currentHost` does change that file, but not sure where it writes to. TODO
 
 
-#### Cached Preferences 
+#### Cached Preferences
 
 Since 10.9, the OS caches your preferences. To invalidate the cache, you need to kill `cfprefsd`. 
 So, first, set your preference via defaults then run this command:
@@ -297,8 +297,8 @@ Also if you restart then the preferences should be updated (didn't test it).
   * Download extension "KeePassXC-Browser"
   * The database needs to be open on the background
   * URL field needs to be filled in order for the extension to retrieve the credentials automatically
-  * More URL's for an entry can be set under "Browser Integration -> Additional URL's" 
-  * For URL's to trigger DB access, only the domain needs to be matched. 
+  * More URL's for an entry can be set under "Browser Integration -> Additional URL's"
+  * For URL's to trigger DB access, only the domain needs to be matched.
     So type https://myCompany.com and this will be enough for all the sites with different subdomains, https://confluence.myCompany.com etc.
 
 #### Time Machine

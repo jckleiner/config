@@ -10,7 +10,7 @@ Source:
  * hammerspoon
  * stackline
 
-### Installing for M1 Macs
+### Installing / updating Yabai for M1 Macs
 
 I installed yabai using `homebrew`. The instalation steps tend to change overtime with yabai.
 Refer to the [Yabai installation wiki](https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)) to see how to install or update yabai.

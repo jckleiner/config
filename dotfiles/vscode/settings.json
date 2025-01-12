@@ -25,7 +25,7 @@
   "files.useIgnoreFiles": false,
 
   "window.reopenFolders": "all",
-  
+
   "files.hotExit": "onExit",
   "window.restoreWindows": "all",
 
@@ -41,7 +41,7 @@
   "workbench.iconTheme": "webstorm-icons",
   "workbench.editor.showTabs": "multiple",
 
-  // "editor.renderWhitespace": "all",
+  "editor.renderWhitespace": "all",
   "workbench.colorCustomizations": {
     //"window.activeBorder": "#ff0000"
     // "editorWhitespace.foreground": "#ff0000"
@@ -234,9 +234,9 @@
     }
   },
   "security.workspace.trust.untrustedFiles": "open",
-  
+
   "yaml.customTags": [
-  
+
   "!encrypted/pkcs1-oaep scalar", "!vault scalar"],
   "breadcrumbs.enabled": false,
   "liveServer.settings.donotVerifyTags": true,
@@ -360,11 +360,12 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "yaml.schemas": {
-   
+
   },
   "[yaml]": {
-    
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "diffEditor.ignoreTrimWhitespace": true
   },
   "[vue]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
@@ -383,11 +384,94 @@
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "github.copilot.editor.enableAutoCompletions": true,
-  
-  // "vscode_custom_css.imports": [
-  //   "file:///Users/kleiner/develop/test.css",
-  //   "file:///Users/kleiner/develop/test.js"
-  // ]
+  "opa.dependency_paths.opa": "/Users/kleiner/opa",
+  "json.schemas": [
 
-  /* TODO Surround */
+  ],
+  "highlight.regexes": {
+    "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+      "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+      "decorations": [
+        {
+          "overviewRulerColor": "#ffcc00",
+          "backgroundColor": "#ffcc00",
+          "color": "#1f1f1f",
+          "fontWeight": "bold"
+        },
+        {
+          "backgroundColor": "#ffcc00",
+          "color": "#1f1f1f"
+        }
+      ]
+    },
+    "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:FIXME|FIX|BUG|UGLY|DEBUG|HACK)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+      "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+      "decorations": [
+        {
+          "overviewRulerColor": "#cc0000",
+          "backgroundColor": "#cc0000",
+          "color": "#1f1f1f",
+          "fontWeight": "bold"
+        },
+        {
+          "backgroundColor": "#cc0000",
+          "color": "#1f1f1f"
+        }
+      ]
+    },
+    "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:REVIEW|OPTIMIZE|TSC)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+      "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+      "decorations": [
+        {
+          "overviewRulerColor": "#00ccff",
+          "backgroundColor": "#00ccff",
+          "color": "#1f1f1f",
+          "fontWeight": "bold"
+        },
+        {
+          "backgroundColor": "#00ccff",
+          "color": "#1f1f1f"
+        }
+      ]
+    },
+    "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:IDEA)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+      "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+      "decorations": [
+        {
+          "overviewRulerColor": "#cc00cc",
+          "backgroundColor": "#cc00cc",
+          "color": "#1f1f1f",
+          "fontWeight": "bold"
+        },
+        {
+          "backgroundColor": "#cc00cc",
+          "color": "#1f1f1f"
+        }
+      ]
+    }
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "[templ]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "makefile.configureOnOpen": true,
+  "tailwindCSS.includeLanguages": {
+    "templ": "templ"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.autoReplies": {
+
+  },
+  "terminal.external.osxExec": "iTerm.app"
+
 }

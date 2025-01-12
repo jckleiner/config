@@ -16,7 +16,7 @@ body {
 .markdown-preview-view code, /* for preview/reading view */
 .cm-s-obsidian span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) /* for editing view */
 {
-    color: red;
+    color: rgb(226, 82, 193);
     background-color: #f0f0f0; /* Set your desired background color */
     font-size: 0.8em;
 }

@@ -292,5 +292,9 @@
     "key": "cmd+k cmd+j",
     "command": "-editor.unfoldAll",
     "when": "editorTextFocus && foldingEnabled"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "editor.action.toggleColumnSelection"
   }
 ]
