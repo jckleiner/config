@@ -5,19 +5,17 @@
 # %n -> $USERNAME
 # %d -> Current working directory
 
-# autoload -U colors loads the function 'colors' which is provided by zsh
+# 'autoload -U colors' loads the function 'colors' which is provided by zsh
 # colors calls the function 'colors' which sets the names for colors, so we can call colors by name, like we do below
 autoload -U colors && colors
 
 # needed, enables command substitution in prompt
 setopt PROMPT_SUBST
 
-
-# TODO: this does not work --> 256 colors in the prompt can be used like so: %{$FG[240]%}<text>%{$reset_color%} 
+# this does not work --> 256 colors in the prompt can be used like so: %{$FG[240]%}<text>%{$reset_color%}
 # https://geoff.greer.fm/lscolors/  https://jonasjacek.github.io/colors/
 # man zshmisc
 # https://unix.stackexchange.com/questions/25319/256-colour-prompt-in-zsh
-
 
 function git_current_branch() {
   # TODO: how to make this if cleaner?
@@ -27,43 +25,10 @@ function git_current_branch() {
   local is_inside_work_tree=$(git rev-parse --is-inside-work-tree 2> /dev/null)
   if [ "$is_inside_work_tree" != true ] ; then
     return
-  fi 
-  
+  fi
   ############### TODO when switched to commit ###############
   ############### TODO make commit color different ###############
-  # echo " %B%F{xxx}\uf417  $(git branch --show-current)%{$reset_color%}"
-  
   echo " %B%F{green}\ufb2b  $(git branch --show-current)%{$reset_color%}"
-}
-
-function git_status_behind() {
-  local current_branch=$(git branch --show-current)
-  local count_behind=$(git rev-list --left-right --count $current_branch...origin/$current_branch  | awk '{print $2}')
-  local promt_behind="%B%F{red}[\uf544 $count_behind]%{$reset_color%}  "
-
-  if [ $count_behind -gt 0 ]; then
-      echo $promt_behind
-  fi
-}
-
-function git_status_ahead() {
-  # TODO - down from head - DOWN
-  # git rev-list --left-right --count master...origin/master
-  # 2   	0
-  # left is 2 commits ahead, 0 commits behind
-  # https://stackoverflow.com/questions/20433867/git-ahead-behind-info-between-master-and-branch
-
-  # TODO get current branch name and insert here
-  # local count_behind=$(git rev-list --left-right --count master...origin/master  | awk '{print $1}')
-  # local count_ahead=$(git rev-list --left-right --count master...origin/master  | awk '{print $2}')
-
-  local current_branch=$(git branch --show-current)
-  local count_ahead=$(git rev-list --left-right --count $current_branch...origin/$current_branch  | awk '{print $1}')
-  local promt_ahead="%B%F{105}[\uf55c $count_ahead]%{$reset_color%}  "
-
-  if [ $count_ahead -gt 0 ]; then
-      echo $promt_ahead
-  fi
 }
 
 function git_status_ahead_and_behind() {
@@ -77,8 +42,29 @@ function git_status_ahead_and_behind() {
     return
   fi
 
-  git_status_ahead
-  git_status_behind
+  local current_branch=$(git branch --show-current)
+  # check if remote branch exists
+  git rev-list --left-right --count $current_branch...origin/$current_branch 1> /dev/null 2> /dev/null
+  if [ $? -ne 0 ]; then
+      echo "(remote branch missing)"
+      return
+  fi
+
+  # count ahead
+  local count_ahead=$(git rev-list --left-right --count $current_branch...origin/$current_branch | awk '{print $1}')
+  local promt_ahead="%B%F{105}[\uf55c $count_ahead]%{$reset_color%}  "
+
+  if [ "$count_ahead" -gt 0 ]; then
+      echo $promt_ahead
+  fi
+
+  # count behind
+  local count_behind=$(git rev-list --left-right --count $current_branch...origin/$current_branch 2> /dev/null | awk '{print $2}')
+  local promt_behind="%B%F{red}[\uf544 $count_behind]%{$reset_color%}  "
+
+  if [ "$count_behind" -gt 0 ]; then
+      echo $promt_behind
+  fi
 }
 
 function git_status_changed() {
@@ -88,10 +74,9 @@ function git_status_changed() {
   fi
 
   # awk removes the whitespace which comes with wc
-  # TODO cleaner way without using awk?
   local count_changed=$(git status --short | wc -l | awk '{$1=$1};1')
   local promt_changed="%B%F{red}+$count_changed%{$reset_color%}  "
-  
+
   if [ $count_changed -gt 0 ]; then
       echo $promt_changed
   fi
@@ -107,14 +92,14 @@ function last_exit_code() {
 function is_ssh_connection() {
   p=${1:-$PPID}
   read pid name x ppid y < <( cat /proc/$p/stat )
-  # or: read pid name ppid < <(ps -o pid= -o comm= -o ppid= -p $p) 
+  # or: read pid name ppid < <(ps -o pid= -o comm= -o ppid= -p $p)
   # echo "Is SSH : $pid $name";
   [[ "$name" =~ sshd ]] && { return 0; }
   [ "$ppid" -le 1 ]     && { return 1; }
   is_ssh_connection $ppid
 }
 
-# If: 
+# If:
 #   1. Connected through SSH: print colored [$user_name - $host_machine]
 #   2. Local, $_MAIN_USER global env is set and logged in on a different user than the $_MAIN_USER:  print [$user_name]
 #   3. Local, $_MAIN_USER global env is set and logged in as $_MAIN_USER: do nothing
@@ -153,30 +138,13 @@ function environment_id_prompt {
   fi
 }
 
-# \e[1mbold\e[0m
-
 color_dark_mode_bold="%{$fg_bold[magenta]%}"
 color_light_mode_bold="%{$fg_bold[black]%}"
 _current_dir="$color_dark_mode_bold%d%{$reset_color%}"
 
-# PROMPT='$fg_bold[blue][ $fg[red]%t $fg_bold[blue]] $fg_bold[blue] [ $fg[red]%n@%m:%~$(git_prompt_info)$fg[yellow]$(rvm_prompt_info)$fg_bold[blue] ]$reset_color 
-# $ '
-
-# TODO add $(git_status_changed)$(git_status_ahead)$(git_status_behind) 
-#   after $(git_current_branch) when error is fixed, see below
 PROMPT='
 $(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_changed)$(git_status_ahead_and_behind)$(environment_id_prompt)
 %{%F{white}%}▶%{$reset_color%} '
 
-# PROMPT='
-# $(last_exit_code)$(_user_host)${_current_dir} $(git_current_branch) $(git_status_changed)$(git_status_ahead)$(git_status_behind)
-# %{%F{white}%}▶%{$reset_color%} '
-
-PROMPT2='%{%F{red}%}◀%{$reset_color%} '
-
 # timestamp on the right - https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865
 RPROMPT="[%D{%L:%M:%S} | %D{%f/%m}]"
-
-# disabled right prompt
-#RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
-#RPROMPT='$(git_status_changed)$(git_status_ahead)$(git_status_behind)'
